@@ -1,6 +1,6 @@
 using System;
 
-namespace Amlak.Stie.Models
+namespace Amlak.Site.Models
 {
     public class ErrorViewModel
     {
