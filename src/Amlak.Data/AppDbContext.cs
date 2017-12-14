@@ -14,8 +14,15 @@ namespace Amlak.Data
     {
         public AppDbContext(DbContextOptions options) : base(options)
         {
-
+           
         }
+
+        public DbSet<House> House { get; set; }
+        public DbSet<Category> Category { get; set; }
+
+        public DbSet<Possibilities> Possibilities { get; set; }
+
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

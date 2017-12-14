@@ -11,9 +11,10 @@ using System;
 namespace Amlak.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20171214104753_HouseMigration")]
+    partial class HouseMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -72,18 +73,6 @@ namespace Amlak.Data.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("House");
-                });
-
-            modelBuilder.Entity("Amlak.Core.Entities.Possibilities", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Title");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Possibilities");
                 });
 
             modelBuilder.Entity("Amlak.Core.Entities.Role", b =>
