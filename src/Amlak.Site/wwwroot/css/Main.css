@@ -1,0 +1,151 @@
+﻿/**
+*
+*	Name:			IRAN Sans-Serif Font
+*	Version:		5.0
+*	Author:			Moslem Ebrahimi (moslemebrahimi.com)
+*	Created on:		Dec 25, 2012
+*	Updated on:		Sep 01, 2017
+*	Website:		             http://fontiran.com
+*	Copyright:		Commercial/Proprietary Software
+--------------------------------------------------------------------------------------
+فونت های ایران سن سریف یک نرم افزار مالکیتی محسوب می شود. جهت آگاهی از قوانین استفاده از این فونت ها لطفا به وب سایت (فونت ایران دات کام) مراجعه نمایید
+--------------------------------------------------------------------------------------
+IRAN Sans-serif fonts are considered a proprietary software. To gain information about the laws regarding the use of these fonts, please visit www.fontiran.com 
+--------------------------------------------------------------------------------------
+This set of fonts are used in this project under the license: (.....)
+--------------------------------------------------------------------------------------
+*	
+**/
+/*cutstring*/
+.CutString {
+    direction:rtl;
+    overflow:hidden;
+}
+.CutString1{max-height:50px}
+.CutString2{max-height:85px;}
+.CutString3{max-height:65px;}
+.CutString4{max-height:302px;}
+
+@font-face {font-family: FontAwesome;src: url(../fonts/FontAwesome.otf)}
+@font-face {font-family: IranSans;src: url(../fonts/IRANSansWebMedium.ttf)}
+body,ul li,ul,h1,h2,h3,h4,h5,h6,div,p,a,span,input,select,textarea,img,figure,section,header,footer,article,strong{font-family:IranSans;}
+body{direction:rtl;position:relative;z-index:-1000;}
+.FullContainer{z-index:-1000;}
+.MainHeader{border-width:0px 0px 4px 0px;border-color:#BD8D3B;z-index:1000;background-color:#FFF;}
+/*HeaderImpoLInks*/
+.HeaderImpoLInks{background-color:#BD8D3B;height:40px;padding:0px 40px;}
+.HeaderImpoLInksItem{font-size:10pt;width:135px;color:#FFF;}
+.HeaderImpoLInksItem.before:before{position:absolute;width:1px;height:40px;background-color:#A97A2A;right:0px;top:0px;}
+.HeaderImpoLInksItem.after:after{position:absolute;width:1px;height:40px;background-color:#A97A2A;left:0px;top:0px;}
+.HeaderImpoLInksItem:hover{background-color:#DDA546;color:#FFF;}
+.ImpoLInksItemIcon{width:20px;height:20px;right:15px;top:4px;}
+.ImpoLInksItemIcon i{color:#FFF;font-size:15pt;top: 5px;position: relative;}
+/*HeaderAboutRaga*/
+.HeaderAboutRaga{border-width:0px 0px 1px 0px;border-color:#DCDCDC;}
+.WebSiteName{font-size:12pt;}
+.WebSiteName span{font-size:13pt;font-weight:bold;}
+.RagaContactItem{font-size:10pt;color:#808080;padding:0px 5px !important;}
+.RagaContactItem.before:before{display:block;position:absolute;width:1px;height:100%;right:0px;top:0px;background-color:#E0E0E0;}
+.RagaContactItem.after:after{display:block;position:absolute;width:1px;height:100%;left:0px;top:0px;background-color:#E0E0E0;}
+.RagaContactItemIcon{left:0px;}
+.RagaContactItemIcon i{font-size:12pt;color:#C08C36;}
+/*PageMainContent*/
+.PageMainContent{z-index:-1000;}
+/*PageNavbar*/
+.PageNavbar{background-color:#F4F4F4;}
+.NavItemLinks{font-size:9pt;font-weight:bold;color:#343434;}
+.NavItemLinks:hover{color:#BD8D3B;}
+/*PageMainSlider*/
+.PageMainSlider{z-index:-1000;}
+.MainSliderItemPic img{}
+/*SearchForm*/
+.SearchForm{}
+.SearchFormHeader{height:50px;}
+.SearchFormHeader{background-color:#EFEFEF;}
+.SearchFormHeaderNavItem{font-size:14px;background-color:#DBA745;border:0px !important;color:#fff;text-shadow:1px 1px 5px #7E6640;margin-left:2px;width:120px;line-height:2;}
+.SearchFormHeaderNavItem:hover{color:black;}
+.SearchForm .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active{background-color:#BD8D3B;border-radius: .25rem!important;border:0px !important;color:#fff;}
+.SearchFormTabContent{margin-top:1px;border-color:#E8E8E8 !important;}
+.SearchFormTabPanneItem .form-control , .SearchFormTabPanneItem .col-form-label{font-size:13px;}
+.SearchFormTabPanneItem .form-control:focus{border-color:#BD8D3B;}
+.SearchFormTabPanneItem .custom-control-indicator{position:relative;}
+.SearchFormTabPanneItem .custom-control-input:checked~.custom-control-indicator{background-color:#BD8D3B;border:none;}
+.SearchFormTabPanneItem .custom-control-input:focus~.custom-control-indicator {-webkit-box-shadow: 0 0 0 1px #fff, 0 0 0 3px #BD8D3B;box-shadow: 0 0 0 1px #fff, 0 0 0 3px #BD8D3B;}
+/*threeArticle*/
+.threeArticleItem{z-index:100;padding:15px;}
+.threeArticle{background-color:#EFEFEF;padding:15px 0px;z-index:-10;}
+.threeArticleItemPic{width:170px;height:170px;border-width:1px;border-color:#D7D7D7;border-radius:50%;}
+.threeArticleItemPic img{border-radius:50%;}
+.threeArticleItemTitle{font-size:12px;}
+.threeArticleItemSummery{width:80%;}
+/*LastOffers*/
+.LastOffersHeader{height:45px;background-color:#EFEFEF;}
+.LastOffersHeaderTitle{width:200px;background-color:#F3BA4F;font-size:10pt;color:#FFF;text-shadow: 2px 1px 2px #262626;}
+.LastOffersHeaderTitleBefore{width:40px;height:100%;background-color:#D9A84B;right:0px;top:0px;}
+.LastOffersHeaderTitleBefore.after:after{display:block;position:absolute;left:-7px;top:15px;width: 0; height: 0; border-top: 7px solid transparent;border-bottom: 7px solid transparent; border-right:7px solid #D9A84B; }
+.OfferItem{border-width:1px;border-color:#E1E1E1;}
+.OfferItemPic{height:215px;}
+.OfferItemType{display:block;position:absolute;left:20px;top:20px; width:60px;height:60px;background-color:#EFEFEF;color:#AA3E1A;z-index:10;border-radius:50%;font-size:15px;line-height:4;box-shadow:0px 0px 15px #333333;}
+.OfferItemPic img{width:100%;height:100%;}
+.OfferItemPic figcaption{bottom:0px;background-color:rgba(0, 0, 0, 0.3);color:#FFF;font-size:15px;}
+.OfferItemTitle , .OfferItemLocation{color:#686868;font-size:12px;}
+.OfferItemLocation{padding-right:30px;}
+.OfferItemLocation.before:before{display:block;position:absolute;right: 10px;font-family:FontAwesome;content:"\f041";color:#AC8238;font-size: 22px;top: 0px;}
+.OfferItemDetails{background-color:#EFEFEF;}
+.OfferItemDetailsDiv{color:#333333;font-size:12px;padding:0px 5px;}
+/*MiddelSlider*/
+.slick-dots li button:before{font-size:45px;}
+/*PageNewsRow*/
+.Page2colRowItemHeader{border-width:0px 0px 5px 0px;border-color:#C99A48;font-size:14px;color:#4D4D4D;padding-right:45px;}
+.Page2colRowItemHeader.before:before{display:block;position:absolute;width:40px;height:40px;background-size:100% 100%;}
+.PageNewsItemHeader.before:before{right:0px;top:-2px;background-image:url(../image/icon5.png);}
+.AboutRagaItemHeader.before:before{right:-4px;top:-2px;background-image:url(../image/icon6.png);}
+.PageNewsFirstDetailHeader{color:#4D4D4D;}
+.PageNewsFirstDetailHeader.before:before{display:block;position:absolute;width:9px;height:9px;border-radius:50%;background-color:#53B6BC;right:0px;}
+.PageNewsFirstPic{max-height:140px;}
+.PageNewsFirstPic img{max-height:100%;max-width:100%;}
+.PageNewsFirstDetailHeader{padding-right:15px;font-size:13px;}
+.PageNewsFirstPic{width:160px;height:140px;}
+.PageNewsFirstDetail{width:calc(100% - 160px);}
+.PageNewsFirstDetailMore{background-color:#F3F3F3;}
+/*.PageNewsFirstDetailSummary.CutString2{height:65px !important;}*/
+.view{padding-right:30px !important;max-width:80px;}
+.view.before:before{position:absolute;display:block;width:20px;height:20px;content:"\f06e";font-family:FontAwesome;color:#515151;font-size:14px;top:5px;right:8px;}
+.More.before:before{position:absolute;display:block;width:2px;height:100%;background-color:#fff;right:0px;top:0px;}
+.PageNewsList{background-color:#F8F8F8;}
+.PageNewsListItem.before:before{display:block;position:absolute;right:0px;top:10px;width:10px;height:10px;background-color:#68B8BF;border-radius:50%;}
+.AboutRagaItemContent{background-color:#E9E9E9;}
+.AboutRagaItemPic{width:30%;height:262px;}
+.AboutRagaItemText{width:70%;}
+.PageStatistics{min-height:155px;background-image:url(../image/bgy.jpg);background-size:100% 100%;}
+.PageStatistics .row{max-width:1000px;min-height:155px;}
+.PageStatisticsItem span{color:#FFF;}
+.PageStatisticsItemIcon , .PageStatisticsItemNumber{font-size:22px;}
+.PageFooter{background-image:url(../image/down.png);background-size:100% 100%;z-index:-10;}
+.FooterImpoLinks{width:560px;z-index:-2;}
+.FooterImpoLinksItem{color:#AFAFAF;z-index:-1;}
+.FooterImpoLinksItem.after:after{display:block;position:absolute;left:0px;top:2px;width:2px;height:10px;background-color:#AFAFAF;}
+.ragaAddress p{color:#FEFEFE;}
+.PageCopyRight{bottom:0px;background-color:#333333;color:#F5F5F5;border-width:1px 0px 0px 0px;border-color:#545454;}
+/*Responsive*/
+@media only screen and (max-width:991px ) {
+    .RagaContactItemIcon{display:block;text-align:center;}
+    .NavItems{padding:10px;}
+    .NavItemLinks:hover{text-indent:10px;}
+}
+@media only screen and (max-width:768px ) {
+    .SearchFormHeaderNavItem{width:70px;font-size:12px;}
+    .SearchFormHeader {height:40px;}
+    .FooterImpoLinks{width:100%;}
+    .FooterImpoLinksItem{display:block;width:100%;color:#FFF;padding:5px 0px;}
+    .FooterImpoLinksItem.after:after{display:none;}
+}
+@media only screen and (max-width:576px ) {
+    .ImpoLInksItemIcon{display:none;}
+    .RagaContact{margin-top:10px;}
+    .PageNewsFirstPic{float:none;margin:0 auto;}
+    .PageNewsFirstDetail{clear:both;width:100%;}
+    .AboutRagaItemPic{width:100%;}
+    .AboutRagaItemText{width:100%;}
+    .searchBtn{width:100%;}
+}
