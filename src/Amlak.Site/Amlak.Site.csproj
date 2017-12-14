@@ -18,4 +18,9 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Amlak.Core\Amlak.Core.csproj" />
+    <ProjectReference Include="..\Amlak.Data\Amlak.Data.csproj" />
+  </ItemGroup>
+
 </Project>
