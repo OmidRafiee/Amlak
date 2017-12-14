@@ -10,6 +10,7 @@ using Alamut.Service.Messaging.Implementation;
 using Alamut.Utilities.AspNet.Configuration;
 using Alamut.Utilities.Http;
 using Amlak.Core.Entities;
+using Amlak.Core.SSOT;
 using Amlak.Data;
 using AutoMapper;
 using Microsoft.AspNetCore.Builder;
@@ -35,7 +36,7 @@ namespace Amlak.Site
         {
 
 
-           // services.AddAutoMapper(typeof(MappingProfile));
+            services.AddAutoMapper(typeof(MappingProfile));
 
             services.AddScoped<IUserResolverService, UserResolverServiceByHttpContext>();
 
