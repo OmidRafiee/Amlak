@@ -3,7 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2003
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amlak", "Amlak\Amlak.csproj", "{14E20D81-8CCE-40A8-9069-43810962B987}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{8F0663F7-D88C-4CA8-B3EA-91255EAC8D33}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amlak.Admin", "src\Amlak.Admin\Amlak.Admin.csproj", "{1EFD5325-5B22-4EA3-878A-B2E9C7938C83}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amlak.Data", "src\Amlak.Data\Amlak.Data.csproj", "{96020509-8275-4FE3-956C-ABE8FEEC0AB5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amlak.Site", "Amlak.Site\Amlak.Site.csproj", "{94DFA1F0-0EB1-4F39-8D76-7A2E834EE7BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amlak.Core", "src\Amlak.Core\Amlak.Core.csproj", "{701F47BD-CD00-46D7-8EE1-D05BE86FC037}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,13 +19,31 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{14E20D81-8CCE-40A8-9069-43810962B987}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{14E20D81-8CCE-40A8-9069-43810962B987}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{14E20D81-8CCE-40A8-9069-43810962B987}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{14E20D81-8CCE-40A8-9069-43810962B987}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EFD5325-5B22-4EA3-878A-B2E9C7938C83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EFD5325-5B22-4EA3-878A-B2E9C7938C83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EFD5325-5B22-4EA3-878A-B2E9C7938C83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EFD5325-5B22-4EA3-878A-B2E9C7938C83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96020509-8275-4FE3-956C-ABE8FEEC0AB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96020509-8275-4FE3-956C-ABE8FEEC0AB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96020509-8275-4FE3-956C-ABE8FEEC0AB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96020509-8275-4FE3-956C-ABE8FEEC0AB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94DFA1F0-0EB1-4F39-8D76-7A2E834EE7BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94DFA1F0-0EB1-4F39-8D76-7A2E834EE7BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94DFA1F0-0EB1-4F39-8D76-7A2E834EE7BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94DFA1F0-0EB1-4F39-8D76-7A2E834EE7BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{701F47BD-CD00-46D7-8EE1-D05BE86FC037}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{701F47BD-CD00-46D7-8EE1-D05BE86FC037}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{701F47BD-CD00-46D7-8EE1-D05BE86FC037}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{701F47BD-CD00-46D7-8EE1-D05BE86FC037}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1EFD5325-5B22-4EA3-878A-B2E9C7938C83} = {8F0663F7-D88C-4CA8-B3EA-91255EAC8D33}
+		{96020509-8275-4FE3-956C-ABE8FEEC0AB5} = {8F0663F7-D88C-4CA8-B3EA-91255EAC8D33}
+		{94DFA1F0-0EB1-4F39-8D76-7A2E834EE7BB} = {8F0663F7-D88C-4CA8-B3EA-91255EAC8D33}
+		{701F47BD-CD00-46D7-8EE1-D05BE86FC037} = {8F0663F7-D88C-4CA8-B3EA-91255EAC8D33}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6DC34EF3-E865-4E37-BED4-0F4A743A7EF9}
