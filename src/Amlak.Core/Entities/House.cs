@@ -42,13 +42,11 @@ namespace Amlak.Core.Entities
         /// </summary>
         public string PossibilitiesIdsJson{ get; set; }
 
-
         /// <summary>
         /// مکان جغرافیای
         /// </summary>
         public string Loacation { get; set; }
-
-
+        
         /// <summary>
         /// تصاویر ملک
         /// </summary>
@@ -60,20 +58,41 @@ namespace Amlak.Core.Entities
         public string Scale { get; set; }
 
         /// <summary>
-        /// محله
+        /// منطفه
         /// </summary>
         public string Region{ get; set; }
+
+        /// <summary>
+        /// شهر
+        /// </summary>
+        public string City { get; set; }
+
+        /// <summary>
+        /// استان
+        /// </summary>
+        public string Town { get; set; }
+
+
+        /// <summary>
+        /// محله
+        /// </summary>
+        public string Area { get; set; }
 
         /// <summary>
         /// طبقه 
         ///  </summary>
         public int Floor { get; set; }
 
+        /// <summary>
+        /// پیشنهاد ویژه
+        /// </summary>
+        public bool IsSpecialOffer{ get; set; }
+        
+
         public int? UserId { get; set; }
         public int? CategoryId { get; set; }
 
-
-
+        
         public virtual Category Category { get; set; }
         public virtual User User { get; set; }
 
