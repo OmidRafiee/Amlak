@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\lib\Service.Messaging\Service.Messaging.csproj" />
     <ProjectReference Include="..\Amlak.Core\Amlak.Core.csproj" />
     <ProjectReference Include="..\Amlak.Data\Amlak.Data.csproj" />
   </ItemGroup>
