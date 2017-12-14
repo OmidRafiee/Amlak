@@ -1,71 +1,647 @@
-﻿<!DOCTYPE html>
-<html>
+﻿
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Amlak.Site</title>
-
-    <environment include="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="~/css/site.css" />
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
-              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
-    </environment>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <!--<link rel="stylesheet" href="css/owl.carousel.css" />
+    <link rel="stylesheet" href="css/owl.theme.default.min.css" />-->
+    <link href="/css/slick.css" rel="stylesheet" />
+    <link href="/css/slick-theme.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/css/CoreStyle.css" />
+    <link rel="stylesheet" href="/css/Main.css" />
+    <title>مشاورین املاک راگا</title>
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Amlak.Site</a>
+    <div class="FullContainer container-fluid relative">
+
+        <div class="PageMainContent ofh relative">
+            <div class="PageMainSlider js_PageMainSlider">
+                <div class="MainSliderItem">
+                    <figure class="MainSliderItemPic w100p tc">
+                        <img src="images/MainSlider1.jpg" class="w100p m0a" />
+                    </figure>
+                </div>
+                <div class="MainSliderItem">
+                    <figure class="MainSliderItemPic w100p tc">
+                        <img src="/images/MainSlider2.jpg" class="w100p m0a" />
+                    </figure>
+                </div>
+                <div class="MainSliderItem">
+                    <figure class="MainSliderItemPic w100p tc">
+                        <img src="images/MainSlider3.jpg" class="w100p m0a" />
+                    </figure>
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-                </ul>
+            <div class="SearchForm p-3">
+                <nav class="nav nav-tabs SearchFormHeader" id="myTab" role="tablist">
+                    <a class="nav-item nav-link SearchFormHeaderNavItem pt-2 px-1 h-100 tc trans400 rounded active" id="nav-home-tab" data-toggle="tab" href="#kharid" role="tab" aria-controls="nav-home" aria-expanded="true">خرید</a>
+                    <a class="nav-item nav-link SearchFormHeaderNavItem pt-2 px-1 h-100 tc trans400 rounded" id="nav-profile-tab" data-toggle="tab" href="#rahn" role="tab" aria-controls="nav-profile">رهن و اجاره</a>
+                    <a class="nav-item nav-link SearchFormHeaderNavItem pt-2 px-1 h-100 tc trans400 rounded" id="nav-profile-tab" data-toggle="tab" href="#melk" role="tab" aria-controls="nav-profile">سپردن ملک</a>
+                    <a class="nav-item nav-link SearchFormHeaderNavItem pt-2 px-1 h-100 tc trans400 rounded" id="nav-profile-tab" data-toggle="tab" href="#bagh" role="tab" aria-controls="nav-profile">باغ و ویلا</a>
+                </nav>
+                <div class="tab-content SearchFormTabContent border border-secondary p-3" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="kharid" role="tabpanel" aria-labelledby="nav-home-tab">
+                        <div class="row w-100 m-auto SearchFormTabPannelRow">
+                            <div class="SearchFormTabPanneItem col-sm-6 p-2">
+                                <div class="row w-100 m-auto align-items-center">
+                                    <label for="example-text-input" class="col-lg-2 col-form-label p-0 text-center">استان و شهر</label>
+                                    <div class="col-lg-5 p-1">
+                                        <input class="form-control" type="text" placeholder="استان" id="example-text-input">
+                                    </div>
+                                    <div class="col-lg-5 p-1">
+                                        <input class="form-control" type="text" placeholder="شهر" id="example-text-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="SearchFormTabPanneItem col-sm-6 p-2">
+                                <div class="row w-100 m-auto align-items-center">
+                                    <label for="example-text-input" class="col-lg-2 col-form-label p-0 text-center">منطقه و محله</label>
+                                    <div class="col-lg-5 p-1">
+                                        <input class="form-control" type="text" placeholder="منطقه" id="example-text-input">
+                                    </div>
+                                    <div class="col-lg-5 p-1">
+                                        <input class="form-control" type="text" placeholder="محله" id="example-text-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="SearchFormTabPanneItem col-sm-6 p-2">
+                                <div class="row w-100 m-auto align-items-center">
+                                    <label for="example-text-input" class="col-lg-2 col-form-label p-0 text-center">نوع ملک</label>
+                                    <div class="col-lg-10 p-1">
+                                        <input class="form-control" type="text" placeholder="آپارتمان" id="example-text-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="SearchFormTabPanneItem col-sm-6 p-2">
+                                <div class="row w-100 m-auto align-items-center">
+                                    <label for="example-text-input" class="col-lg-2 col-form-label p-0 text-center">متراژ</label>
+                                    <div class="col-lg-10 p-1">
+                                        <input class="form-control" type="text" placeholder="از 50 تا 70 متر" id="example-text-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="SearchFormTabPanneItem col-sm-6 p-2">
+                                <div class="row w-100 m-auto align-items-center">
+                                    <label for="example-text-input" class="col-lg-2 col-form-label p-0 text-center">قیمت متری</label>
+                                    <div class="col-lg-5 p-1">
+                                        <input class="form-control" type="text" placeholder="حداقل" id="example-text-input">
+                                    </div>
+                                    <div class="col-lg-5 p-1">
+                                        <input class="form-control" type="text" placeholder="حداکثر" id="example-text-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="SearchFormTabPanneItem col-sm-6 p-2">
+                                <div class="row w-100 m-auto align-items-center">
+                                    <label for="example-text-input" class="col-lg-2 col-form-label p-0 text-center">قیمت کل</label>
+                                    <div class="col-lg-5 p-1">
+                                        <input class="form-control" type="text" placeholder="حداقل" id="example-text-input">
+                                    </div>
+                                    <div class="col-lg-5 p-1">
+                                        <input class="form-control" type="text" placeholder="حداکثر" id="example-text-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="SearchFormTabPanneItem col-12 p-2">
+                                <div class="row w-100 m-auto">
+                                    <label for="example-text-input" class="col-lg-1 col-form-label p-0 text-center">امکانات</label>
+                                    <div class="col-lg-11">
+                                        <div class="row w-100 m-auto">
+                                            <label class="custom-control custom-checkbox d-flex justify-content-center col-lg-4 col-sm-4 m-0 px-1">
+                                                <input type="checkbox" class="custom-control-input">
+                                                <span class="custom-control-indicator"></span>
+                                                <span class="custom-control-description mr-2 mt-1">پارکینگ</span>
+                                            </label>
+                                            <label class="custom-control custom-checkbox d-flex justify-content-center col-lg-4 col-sm-4 m-0 px-1">
+                                                <input type="checkbox" class="custom-control-input">
+                                                <span class="custom-control-indicator"></span>
+                                                <span class="custom-control-description mr-2 mt-1">انباری</span>
+                                            </label>
+                                            <label class="custom-control custom-checkbox d-flex justify-content-center col-lg-4 col-sm-4 m-0 px-1">
+                                                <input type="checkbox" class="custom-control-input">
+                                                <span class="custom-control-indicator"></span>
+                                                <span class="custom-control-description mr-2 mt-1">اسانسور</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="SearchFormTabPanneItem col-12 p-2 d-flex justify-content-end">
+                                <button type="button" class="btn btn-primary searchBtn">جستجـــــــــو</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="rahn" role="tabpanel" aria-labelledby="nav-profile-tab">
+                        <div class="row w-100 m-auto SearchFormTabPannelRow">
+                            <div class="SearchFormTabPanneItem col-sm-6 p-2">
+                                <div class="row w-100 m-auto align-items-center">
+                                    <label for="example-text-input" class="col-lg-2 col-form-label p-0 text-center">استان و شهر</label>
+                                    <div class="col-lg-5 p-1">
+                                        <input class="form-control" type="text" placeholder="استان" id="example-text-input">
+                                    </div>
+                                    <div class="col-lg-5 p-1">
+                                        <input class="form-control" type="text" placeholder="شهر" id="example-text-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="SearchFormTabPanneItem col-sm-6 p-2">
+                                <div class="row w-100 m-auto align-items-center">
+                                    <label for="example-text-input" class="col-lg-2 col-form-label p-0 text-center">منطقه و محله</label>
+                                    <div class="col-lg-5 p-1">
+                                        <input class="form-control" type="text" placeholder="منطقه" id="example-text-input">
+                                    </div>
+                                    <div class="col-lg-5 p-1">
+                                        <input class="form-control" type="text" placeholder="محله" id="example-text-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="SearchFormTabPanneItem col-sm-6 p-2">
+                                <div class="row w-100 m-auto align-items-center">
+                                    <label for="example-text-input" class="col-lg-2 col-form-label p-0 text-center">نوع ملک</label>
+                                    <div class="col-lg-10 p-1">
+                                        <input class="form-control" type="text" placeholder="آپارتمان" id="example-text-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="SearchFormTabPanneItem col-sm-6 p-2">
+                                <div class="row w-100 m-auto align-items-center">
+                                    <label for="example-text-input" class="col-lg-2 col-form-label p-0 text-center">متراژ</label>
+                                    <div class="col-lg-10 p-1">
+                                        <input class="form-control" type="text" placeholder="از 50 تا 70 متر" id="example-text-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="SearchFormTabPanneItem col-sm-6 p-2">
+                                <div class="row w-100 m-auto align-items-center">
+                                    <label for="example-text-input" class="col-lg-2 col-form-label p-0 text-center">قیمت متری</label>
+                                    <div class="col-lg-5 p-1">
+                                        <input class="form-control" type="text" placeholder="حداقل" id="example-text-input">
+                                    </div>
+                                    <div class="col-lg-5 p-1">
+                                        <input class="form-control" type="text" placeholder="حداکثر" id="example-text-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="SearchFormTabPanneItem col-sm-6 p-2">
+                                <div class="row w-100 m-auto align-items-center">
+                                    <label for="example-text-input" class="col-lg-2 col-form-label p-0 text-center">قیمت کل</label>
+                                    <div class="col-lg-5 p-1">
+                                        <input class="form-control" type="text" placeholder="حداقل" id="example-text-input">
+                                    </div>
+                                    <div class="col-lg-5 p-1">
+                                        <input class="form-control" type="text" placeholder="حداکثر" id="example-text-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="SearchFormTabPanneItem col-12 p-2">
+                                <div class="row w-100 m-auto">
+                                    <label for="example-text-input" class="col-lg-1 col-form-label p-0 text-center">امکانات</label>
+                                    <div class="col-lg-11">
+                                        <div class="row w-100 m-auto">
+                                            <label class="custom-control custom-checkbox d-flex justify-content-center col-lg-4 col-sm-4 m-0 px-1">
+                                                <input type="checkbox" class="custom-control-input">
+                                                <span class="custom-control-indicator"></span>
+                                                <span class="custom-control-description mr-2 mt-1">پارکینگ</span>
+                                            </label>
+                                            <label class="custom-control custom-checkbox d-flex justify-content-center col-lg-4 col-sm-4 m-0 px-1">
+                                                <input type="checkbox" class="custom-control-input">
+                                                <span class="custom-control-indicator"></span>
+                                                <span class="custom-control-description mr-2 mt-1">انباری</span>
+                                            </label>
+                                            <label class="custom-control custom-checkbox d-flex justify-content-center col-lg-4 col-sm-4 m-0 px-1">
+                                                <input type="checkbox" class="custom-control-input">
+                                                <span class="custom-control-indicator"></span>
+                                                <span class="custom-control-description mr-2 mt-1">اسانسور</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="SearchFormTabPanneItem col-12 p-2 d-flex justify-content-end">
+                                <button type="button" class="btn btn-primary">جستجـــــــــو</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="melk" role="tabpanel" aria-labelledby="nav-profile-tab">
+                        <div class="row w-100 m-auto SearchFormTabPannelRow">
+                            <div class="SearchFormTabPanneItem col-sm-6 p-2">
+                                <div class="row w-100 m-auto align-items-center">
+                                    <label for="example-text-input" class="col-lg-2 col-form-label p-0 text-center">استان و شهر</label>
+                                    <div class="col-lg-5 p-1">
+                                        <input class="form-control" type="text" placeholder="استان" id="example-text-input">
+                                    </div>
+                                    <div class="col-lg-5 p-1">
+                                        <input class="form-control" type="text" placeholder="شهر" id="example-text-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="SearchFormTabPanneItem col-sm-6 p-2">
+                                <div class="row w-100 m-auto align-items-center">
+                                    <label for="example-text-input" class="col-lg-2 col-form-label p-0 text-center">منطقه و محله</label>
+                                    <div class="col-lg-5 p-1">
+                                        <input class="form-control" type="text" placeholder="منطقه" id="example-text-input">
+                                    </div>
+                                    <div class="col-lg-5 p-1">
+                                        <input class="form-control" type="text" placeholder="محله" id="example-text-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="SearchFormTabPanneItem col-sm-6 p-2">
+                                <div class="row w-100 m-auto align-items-center">
+                                    <label for="example-text-input" class="col-lg-2 col-form-label p-0 text-center">نوع ملک</label>
+                                    <div class="col-lg-10 p-1">
+                                        <input class="form-control" type="text" placeholder="آپارتمان" id="example-text-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="SearchFormTabPanneItem col-sm-6 p-2">
+                                <div class="row w-100 m-auto align-items-center">
+                                    <label for="example-text-input" class="col-lg-2 col-form-label p-0 text-center">متراژ</label>
+                                    <div class="col-lg-10 p-1">
+                                        <input class="form-control" type="text" placeholder="از 50 تا 70 متر" id="example-text-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="SearchFormTabPanneItem col-sm-6 p-2">
+                                <div class="row w-100 m-auto align-items-center">
+                                    <label for="example-text-input" class="col-lg-2 col-form-label p-0 text-center">قیمت متری</label>
+                                    <div class="col-lg-5 p-1">
+                                        <input class="form-control" type="text" placeholder="حداقل" id="example-text-input">
+                                    </div>
+                                    <div class="col-lg-5 p-1">
+                                        <input class="form-control" type="text" placeholder="حداکثر" id="example-text-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="SearchFormTabPanneItem col-sm-6 p-2">
+                                <div class="row w-100 m-auto align-items-center">
+                                    <label for="example-text-input" class="col-lg-2 col-form-label p-0 text-center">قیمت کل</label>
+                                    <div class="col-lg-5 p-1">
+                                        <input class="form-control" type="text" placeholder="حداقل" id="example-text-input">
+                                    </div>
+                                    <div class="col-lg-5 p-1">
+                                        <input class="form-control" type="text" placeholder="حداکثر" id="example-text-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="SearchFormTabPanneItem col-12 p-2">
+                                <div class="row w-100 m-auto">
+                                    <label for="example-text-input" class="col-lg-1 col-form-label p-0 text-center">امکانات</label>
+                                    <div class="col-lg-11">
+                                        <div class="row w-100 m-auto">
+                                            <label class="custom-control custom-checkbox d-flex justify-content-center col-lg-4 col-sm-4 m-0 px-1">
+                                                <input type="checkbox" class="custom-control-input">
+                                                <span class="custom-control-indicator"></span>
+                                                <span class="custom-control-description mr-2 mt-1">پارکینگ</span>
+                                            </label>
+                                            <label class="custom-control custom-checkbox d-flex justify-content-center col-lg-4 col-sm-4 m-0 px-1">
+                                                <input type="checkbox" class="custom-control-input">
+                                                <span class="custom-control-indicator"></span>
+                                                <span class="custom-control-description mr-2 mt-1">انباری</span>
+                                            </label>
+                                            <label class="custom-control custom-checkbox d-flex justify-content-center col-lg-4 col-sm-4 m-0 px-1">
+                                                <input type="checkbox" class="custom-control-input">
+                                                <span class="custom-control-indicator"></span>
+                                                <span class="custom-control-description mr-2 mt-1">اسانسور</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="SearchFormTabPanneItem col-12 p-2 d-flex justify-content-end">
+                                <button type="button" class="btn btn-primary">جستجـــــــــو</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="bagh" role="tabpanel" aria-labelledby="nav-profile-tab">
+                        <div class="row w-100 m-auto SearchFormTabPannelRow">
+                            <div class="SearchFormTabPanneItem col-sm-6 p-2">
+                                <div class="row w-100 m-auto align-items-center">
+                                    <label for="example-text-input" class="col-lg-2 col-form-label p-0 text-center">استان و شهر</label>
+                                    <div class="col-lg-5 p-1">
+                                        <input class="form-control" type="text" placeholder="استان" id="example-text-input">
+                                    </div>
+                                    <div class="col-lg-5 p-1">
+                                        <input class="form-control" type="text" placeholder="شهر" id="example-text-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="SearchFormTabPanneItem col-sm-6 p-2">
+                                <div class="row w-100 m-auto align-items-center">
+                                    <label for="example-text-input" class="col-lg-2 col-form-label p-0 text-center">منطقه و محله</label>
+                                    <div class="col-lg-5 p-1">
+                                        <input class="form-control" type="text" placeholder="منطقه" id="example-text-input">
+                                    </div>
+                                    <div class="col-lg-5 p-1">
+                                        <input class="form-control" type="text" placeholder="محله" id="example-text-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="SearchFormTabPanneItem col-sm-6 p-2">
+                                <div class="row w-100 m-auto align-items-center">
+                                    <label for="example-text-input" class="col-lg-2 col-form-label p-0 text-center">نوع ملک</label>
+                                    <div class="col-lg-10 p-1">
+                                        <input class="form-control" type="text" placeholder="آپارتمان" id="example-text-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="SearchFormTabPanneItem col-sm-6 p-2">
+                                <div class="row w-100 m-auto align-items-center">
+                                    <label for="example-text-input" class="col-lg-2 col-form-label p-0 text-center">متراژ</label>
+                                    <div class="col-lg-10 p-1">
+                                        <input class="form-control" type="text" placeholder="از 50 تا 70 متر" id="example-text-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="SearchFormTabPanneItem col-sm-6 p-2">
+                                <div class="row w-100 m-auto align-items-center">
+                                    <label for="example-text-input" class="col-lg-2 col-form-label p-0 text-center">قیمت متری</label>
+                                    <div class="col-lg-5 p-1">
+                                        <input class="form-control" type="text" placeholder="حداقل" id="example-text-input">
+                                    </div>
+                                    <div class="col-lg-5 p-1">
+                                        <input class="form-control" type="text" placeholder="حداکثر" id="example-text-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="SearchFormTabPanneItem col-sm-6 p-2">
+                                <div class="row w-100 m-auto align-items-center">
+                                    <label for="example-text-input" class="col-lg-2 col-form-label p-0 text-center">قیمت کل</label>
+                                    <div class="col-lg-5 p-1">
+                                        <input class="form-control" type="text" placeholder="حداقل" id="example-text-input">
+                                    </div>
+                                    <div class="col-lg-5 p-1">
+                                        <input class="form-control" type="text" placeholder="حداکثر" id="example-text-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="SearchFormTabPanneItem col-12 p-2">
+                                <div class="row w-100 m-auto">
+                                    <label for="example-text-input" class="col-lg-1 col-form-label p-0 text-center">امکانات</label>
+                                    <div class="col-lg-11">
+                                        <div class="row w-100 m-auto">
+                                            <label class="custom-control custom-checkbox d-flex justify-content-center col-lg-4 col-sm-4 m-0 px-1">
+                                                <input type="checkbox" class="custom-control-input">
+                                                <span class="custom-control-indicator"></span>
+                                                <span class="custom-control-description mr-2 mt-1">پارکینگ</span>
+                                            </label>
+                                            <label class="custom-control custom-checkbox d-flex justify-content-center col-lg-4 col-sm-4 m-0 px-1">
+                                                <input type="checkbox" class="custom-control-input">
+                                                <span class="custom-control-indicator"></span>
+                                                <span class="custom-control-description mr-2 mt-1">انباری</span>
+                                            </label>
+                                            <label class="custom-control custom-checkbox d-flex justify-content-center col-lg-4 col-sm-4 m-0 px-1">
+                                                <input type="checkbox" class="custom-control-input">
+                                                <span class="custom-control-indicator"></span>
+                                                <span class="custom-control-description mr-2 mt-1">اسانسور</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="SearchFormTabPanneItem col-12 p-2 d-flex justify-content-end">
+                                <button type="button" class="btn btn-primary">جستجـــــــــو</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="threeArticle relative">
+                <div class="row">
+                    <a href="javascript:void(0)" class="threeArticleItem block col-md-4 col-12 relative">
+                        <figure class="threeArticleItemPic m0a sborder p3 mb15">
+                            <img src="images/pic4.jpg" class="w100p h100p" />
+                        </figure>
+                        <h3 class="threeArticleItemTitle block w100p textcut tc ptb15 bold">پیشنهــــــاد ویژه</h3>
+                        <div class="threeArticleItemSummery m0a tj lh2 CutString CutString2">پیش فروش واحد های 120 و 110 و 85 متری در مجتمع مسکونی بارانا واقع در خیابان ستارخان منطقه ستارخان از مناطق اصلی تجارت و کسب و کار تهران است که دسترسی راحت و مناسبی هم به سایر مناطق تهران از طریق بزرگراههای بزرگ تهران دارد</div>
+                    </a>
+                    <a href="javascript:void(0)" class="threeArticleItem block col-md-4 col-12 relative">
+                        <figure class="threeArticleItemPic m0a sborder p3 mb15">
+                            <img src="images/pic4.jpg" class="w100p h100p" />
+                        </figure>
+                        <h3 class="threeArticleItemTitle block w100p textcut tc ptb15 bold">پیشنهــــــاد ویژه</h3>
+                        <div class="threeArticleItemSummery m0a tj lh2 CutString CutString2">پیش فروش واحد های 120 و 110 و 85 متری در مجتمع مسکونی بارانا واقع در خیابان ستارخان منطقه ستارخان از مناطق اصلی تجارت و کسب و کار تهران است که دسترسی راحت و مناسبی هم به سایر مناطق تهران از طریق بزرگراههای بزرگ تهران دارد</div>
+                    </a>
+                    <a href="javascript:void(0)" class="threeArticleItem block col-md-4 col-12 relative">
+                        <figure class="threeArticleItemPic m0a sborder p3 mb15">
+                            <img src="images/pic4.jpg" class="w100p h100p" />
+                        </figure>
+                        <h3 class="threeArticleItemTitle block w100p textcut tc ptb15 bold">پیشنهــــــاد ویژه</h3>
+                        <div class="threeArticleItemSummery m0a tj lh2 CutString CutString2">پیش فروش واحد های 120 و 110 و 85 متری در مجتمع مسکونی بارانا واقع در خیابان ستارخان منطقه ستارخان از مناطق اصلی تجارت و کسب و کار تهران است که دسترسی راحت و مناسبی هم به سایر مناطق تهران از طریق بزرگراههای بزرگ تهران دارد</div>
+                    </a>
+                </div>
+
+            </div>
+            <div class="LastOffers mtb20">
+                <div class="LastOffersHeader radius3">
+                    <h2 class="LastOffersHeaderTitle tl lh3-5 h100p bold prl15 relative"><span class="LastOffersHeaderTitleBefore absolute after"></span>آخــــــــــرین املاک</h2>
+                </div>
+                <div class="LastOffersContent mt15">
+                    <div class="row prl5">
+                        <div class="LastOffersContentCol col-md-4 col-sm-6 col-12 p10">
+                            <a href="javascript:void(0)" class="OfferItem block sborder radius3 ofh p1">
+                                <span class="OfferItemType tc">فروشی</span>
+                                <figure class="OfferItemPic w100p tc relative relative">
+                                    <img src="images/pic1.jpg" class="relativemv" />
+                                    <figcaption class="absolute p5 w100p textcut tc">2 ملیارد</figcaption>
+                                </figure>
+                                <div class="OfferItemTitle textcut bold p10">فروش آپارتمان مسکونی 30 واحدی</div>
+                                <div class="OfferItemLocation textcut bold p10 relative before">فرمانیه</div>
+                                <div class="OfferItemDetails row ptb10 w100p m0a">
+                                    <div class="OfferItemDetailsDiv col-3 tc bold"> زیربنا <br /> 500</div>
+                                    <div class="OfferItemDetailsDiv col-4 tc bold"> تعداد خواب <br /> 3</div>
+                                    <div class="OfferItemDetailsDiv col-2 tc bold"> طبقه <br /> 5</div>
+                                    <div class="OfferItemDetailsDiv col-3 tc bold"> پارکینگ <br /> 1</div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="LastOffersContentCol col-md-4 col-sm-6 col-12 p10">
+                            <a href="javascript:void(0)" class="OfferItem block sborder radius3 ofh p1">
+                                <span class="OfferItemType tc">فروشی</span>
+                                <figure class="OfferItemPic w100p tc relative relative">
+                                    <img src="images/pic2.jpg" class="relativemv" />
+                                    <figcaption class="absolute p5 w100p textcut tc">2 ملیارد</figcaption>
+                                </figure>
+                                <div class="OfferItemTitle textcut bold p10">فروش آپارتمان مسکونی 30 واحدی</div>
+                                <div class="OfferItemLocation textcut bold p10 relative before">فرمانیه</div>
+                                <div class="OfferItemDetails row ptb10 w100p m0a">
+                                    <div class="OfferItemDetailsDiv col-3 tc bold"> زیربنا <br /> 500</div>
+                                    <div class="OfferItemDetailsDiv col-4 tc bold"> تعداد خواب <br /> 3</div>
+                                    <div class="OfferItemDetailsDiv col-2 tc bold"> طبقه <br /> 5</div>
+                                    <div class="OfferItemDetailsDiv col-3 tc bold"> پارکینگ <br /> 1</div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="LastOffersContentCol col-md-4 col-sm-6 col-12 p10">
+                            <a href="javascript:void(0)" class="OfferItem block sborder radius3 ofh p1">
+                                <span class="OfferItemType tc">فروشی</span>
+                                <figure class="OfferItemPic w100p tc relative relative">
+                                    <img src="images/pic3.jpg" class="relativemv" />
+                                    <figcaption class="absolute p5 w100p textcut tc">2 ملیارد</figcaption>
+                                </figure>
+                                <div class="OfferItemTitle textcut bold p10">فروش آپارتمان مسکونی 30 واحدی</div>
+                                <div class="OfferItemLocation textcut bold p10 relative before">فرمانیه</div>
+                                <div class="OfferItemDetails row ptb10 w100p m0a">
+                                    <div class="OfferItemDetailsDiv col-3 tc bold"> زیربنا <br /> 500</div>
+                                    <div class="OfferItemDetailsDiv col-4 tc bold"> تعداد خواب <br /> 3</div>
+                                    <div class="OfferItemDetailsDiv col-2 tc bold"> طبقه <br /> 5</div>
+                                    <div class="OfferItemDetailsDiv col-3 tc bold"> پارکینگ <br /> 1</div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="LastOffersContentCol col-md-4 col-sm-6 col-12 p10">
+                            <a href="javascript:void(0)" class="OfferItem block sborder radius3 ofh p1">
+                                <span class="OfferItemType tc">فروشی</span>
+                                <figure class="OfferItemPic w100p tc relative relative">
+                                    <img src="images/pic4.jpg" class="relativemv" />
+                                    <figcaption class="absolute p5 w100p textcut tc">2 ملیارد</figcaption>
+                                </figure>
+                                <div class="OfferItemTitle textcut bold p10">فروش آپارتمان مسکونی 30 واحدی</div>
+                                <div class="OfferItemLocation textcut bold p10 relative before">فرمانیه</div>
+                                <div class="OfferItemDetails row ptb10 w100p m0a">
+                                    <div class="OfferItemDetailsDiv col-3 tc bold"> زیربنا <br /> 500</div>
+                                    <div class="OfferItemDetailsDiv col-4 tc bold"> تعداد خواب <br /> 3</div>
+                                    <div class="OfferItemDetailsDiv col-2 tc bold"> طبقه <br /> 5</div>
+                                    <div class="OfferItemDetailsDiv col-3 tc bold"> پارکینگ <br /> 1</div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="LastOffersContentCol col-md-4 col-sm-6 col-12 p10">
+                            <a href="javascript:void(0)" class="OfferItem block sborder radius3 ofh p1">
+                                <span class="OfferItemType tc">فروشی</span>
+                                <figure class="OfferItemPic w100p tc relative relative">
+                                    <img src="images/pic5.jpg" class="relativemv" />
+                                    <figcaption class="absolute p5 w100p textcut tc">2 ملیارد</figcaption>
+                                </figure>
+                                <div class="OfferItemTitle textcut bold p10">فروش آپارتمان مسکونی 30 واحدی</div>
+                                <div class="OfferItemLocation textcut bold p10 relative before">فرمانیه</div>
+                                <div class="OfferItemDetails row ptb10 w100p m0a">
+                                    <div class="OfferItemDetailsDiv col-3 tc bold"> زیربنا <br /> 500</div>
+                                    <div class="OfferItemDetailsDiv col-4 tc bold"> تعداد خواب <br /> 3</div>
+                                    <div class="OfferItemDetailsDiv col-2 tc bold"> طبقه <br /> 5</div>
+                                    <div class="OfferItemDetailsDiv col-3 tc bold"> پارکینگ <br /> 1</div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="LastOffersContentCol col-md-4 col-sm-6 col-12 p10">
+                            <a href="javascript:void(0)" class="OfferItem block sborder radius3 ofh p1">
+                                <span class="OfferItemType tc">فروشی</span>
+                                <figure class="OfferItemPic w100p tc relative relative">
+                                    <img src="images/pic1.jpg" class="relativemv" />
+                                    <figcaption class="absolute p5 w100p textcut tc">2 ملیارد</figcaption>
+                                </figure>
+                                <div class="OfferItemTitle textcut bold p10">فروش آپارتمان مسکونی 30 واحدی</div>
+                                <div class="OfferItemLocation textcut bold p10 relative before">فرمانیه</div>
+                                <div class="OfferItemDetails row ptb10 w100p m0a">
+                                    <div class="OfferItemDetailsDiv col-3 tc bold"> زیربنا <br /> 500</div>
+                                    <div class="OfferItemDetailsDiv col-4 tc bold"> تعداد خواب <br /> 3</div>
+                                    <div class="OfferItemDetailsDiv col-2 tc bold"> طبقه <br /> 5</div>
+                                    <div class="OfferItemDetailsDiv col-3 tc bold"> پارکینگ <br /> 1</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="MiddelSlider js_MiddelSlider">
+                <div class="MiddelSliderItem">
+                    <figure class="MainSliderItemPic w100p tc">
+                        <img src="images/banne2.jpg" class="w100p m0a" />
+                    </figure>
+                </div>
+                <div class="MiddelSliderItem">
+                    <figure class="MainSliderItemPic w100p tc">
+                        <img src="images/banne2.jpg" class="w100p m0a" />
+                    </figure>
+                </div>
+                <div class="MiddelSliderItem">
+                    <figure class="MainSliderItemPic w100p tc">
+                        <img src="/images/banne2.jpg" class="w100p m0a" />
+                    </figure>
+                </div>
+            </div>
+            <div class="Page2colRow row mt20">
+                <div class="Page2colRowItem col-md-6 col-12">
+                    <div class="Page2colRowItemHeader PageNewsItemHeader sborder p10 bold relative before textcut">اخبار املاک و اقتصاد</div>
+                    <div class="PageNewsContent mtb15">
+                        <div class="PageNewsFirst">
+                            <figure class="PageNewsFirstPic prl5 tc relative fr">
+                                <img src="images/pic6.jpg" class="relativemv img-fluid" />
+                            </figure>
+                            <div class="PageNewsFirstDetail prl5 fr">
+                                <h3 class="PageNewsFirstDetailHeader relative before textcut bold p10">فصل جابه جایی مستاجران زودتر از موعد آغاز شد.</h3>
+                                <div class="PageNewsFirstDetailSummary text-justify lh2 CutString CutString3">
+                                    پیش فروش واحد های 120 و 110 و 85 متری در مجتمع مسکونی بارانا واقع در خیابان ستارخان منطقه ستارخان از مناطق اصلی تجارت و کسب و کار تهران است که دسترسی راحت و مناسبی هم به سایر مناطق تهران از طریق بزرگراههای بزرگ تهران دارد
+                                </div>
+                                <div class="PageNewsFirstDetailMore mt-2 ofh">
+                                    <a href="javascript:void(0)" class="More block fl p-2 relative before trans400">ادامـــــــه...</a>
+                                    <div class="view fr p-2 relative before textcut">View</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="PageNewsList my-2 p-2 d-inline-block w-100 cb">
+                            <a href="javascript:void(0)" class="PageNewsListItem d-block textcut py-2 px-3 trans400 relative before">فصل جابه جایی مستاجران زودتر از موعد آغاز شد</a>
+                            <a href="javascript:void(0)" class="PageNewsListItem d-block textcut py-2 px-3 trans400 relative before">فصل جابه جایی مستاجران زودتر از موعد آغاز شد</a>
+                            <a href="javascript:void(0)" class="PageNewsListItem d-block textcut py-2 px-3 trans400 relative before">فصل جابه جایی مستاجران زودتر از موعد آغاز شد</a>
+                            <a href="javascript:void(0)" class="PageNewsListItem d-block textcut py-2 px-3 trans400 relative before">فصل جابه جایی مستاجران زودتر از موعد آغاز شد</a>
+                            <a href="javascript:void(0)" class="PageNewsListItem d-block textcut py-2 px-3 trans400 relative before">فصل جابه جایی مستاجران زودتر از موعد آغاز شد</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="Page2colRowItem col-md-6 col-12">
+                    <div class="Page2colRowItemHeader AboutRagaItemHeader sborder p10 bold relative before textcut">درباره راگــــــــــــا</div>
+                    <div class="AboutRagaItemContent py-3 px-1 ofh">
+                        <figure class="AboutRagaItemPic float-left p-1 relative ofh tc">
+                            <img src="images/pic7.jpg" class="img-fluid relativemv" />
+                        </figure>
+                        <div class="AboutRagaItemText lh3 text-justify px-1 CutString CutString4">
+                            گروه مشاورین املاک راگا از سال 1390 فعالیت خود را به صورت رسمی و تخصصی در عرصه خرید و فروش ملک اغاز نموده اند . گروه مشاورین املاک راگا از سال 1390 فعالیت خود را به صورت رسمی و تخصصی در عرصه خرید و فروش ملک اغاز نموده اند.گروه مشاورین املاک راگا از سال 1390 فعالیت خود را به صورت رسمی و تخصصی در عرصه خرید و فروش ملک اغاز نموده اند.گروه مشاورین املاک راگا از سال 1390 فعالیت خود را به صورت رسمی و تخصصی در عرصه خرید و فروش ملک اغاز نموده اند.گروه مشاورین املاک راگا از سال 1390 فعالیت خود را به صورت رسمی و تخصصی در عرصه خرید و فروش ملک اغاز نموده اند.گروه مشاورین املاک راگا از سال 1390 فعالیت خود را به صورت رسمی و تخصصی در عرصه خرید و فروش ملک اغاز نموده اند.گروه مشاورین املاک راگا از سال 1390 فعالیت خود را به صورت رسمی و تخصصی در عرصه خرید و فروش ملک اغاز نموده اند.گروه مشاورین املاک راگا از سال 1390 فعالیت خود را به صورت رسمی و تخصصی در عرصه خرید و فروش ملک اغاز نموده اند.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="PageStatistics">
+                <div class="row w-100 m-auto h-100 align-items-center py-3">
+                    <div class="PageStatisticsItem col-sm-3 col-6 text-center py-2">
+                        <span class="PageStatisticsItemIcon d-block text-center"><i class="fa fa-user"></i></span>
+                        <span class="PageStatisticsItemNumber d-block text-center">5000</span>
+                        <span class="PageStatisticsItemName d-block text-center mt-3">اعضای سایت</span>
+                    </div>
+                    <div class="PageStatisticsItem col-sm-3 col-6 text-center py-2">
+                        <span class="PageStatisticsItemIcon d-block text-center"><i class="fa fa-home"></i></span>
+                        <span class="PageStatisticsItemNumber d-block text-center">2200</span>
+                        <span class="PageStatisticsItemName d-block text-center mt-3">تعداد ویلا</span>
+                    </div>
+                    <div class="PageStatisticsItem col-sm-3 col-6 text-center py-2">
+                        <span class="PageStatisticsItemIcon d-block text-center"><i class="fa fa-building-o"></i></span>
+                        <span class="PageStatisticsItemNumber d-block text-center">3300</span>
+                        <span class="PageStatisticsItemName d-block text-center mt-3">تعداد آپارتمان</span>
+                    </div>
+                    <div class="PageStatisticsItem col-sm-3 col-6 text-center py-2">
+                        <span class="PageStatisticsItemIcon d-block text-center"><i class="fa fa-flag-o"></i></span>
+                        <span class="PageStatisticsItemNumber d-block text-center">2180</span>
+                        <span class="PageStatisticsItemName d-block text-center mt-3">تعداد مطالب</span>
+                    </div>
+                </div>
             </div>
         </div>
-    </nav>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2017 - Amlak.Site</p>
-        </footer>
+
+
     </div>
 
-    <environment include="Development">
-        <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
-    </environment>
-    <environment exclude="Development">
-        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
-                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-                asp-fallback-test="window.jQuery"
-                crossorigin="anonymous"
-                integrity="sha384-K+ctZQ+LL8q6tP7I94W+qzQsfRV2a+AfHIi9k8z8l9ggpc8X+Ytst4yBo/hH+8Fk">
-        </script>
-        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
-                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
-                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
-                crossorigin="anonymous"
-                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
-        </script>
-        <script src="~/js/site.min.js" asp-append-version="true"></script>
-    </environment>
 
-    @RenderSection("Scripts", required: false)
+    <script src="/js/jquery-3.2.1.slim.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/slick.min.js"></script>
+    <script src="/js/jquery.sticky.js"></script>
+    <script src="/js/trunk8.pack.js"></script>
+    <!--<script src="js/owl.carousel.min.js"></script>-->
+    <script src="/js/Main.js"></script>
+
+
 </body>
 </html>
