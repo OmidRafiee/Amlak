@@ -59,8 +59,20 @@ namespace Amlak.Core.Entities
         /// </summary>
         public string Scale { get; set; }
 
+        /// <summary>
+        /// محله
+        /// </summary>
+        public string Region{ get; set; }
+
+        /// <summary>
+        /// طبقه 
+        ///  </summary>
+        public int Floor { get; set; }
 
         public int? UserId { get; set; }
+        public int? CategoryId { get; set; }
+
+
 
         public virtual Category Category { get; set; }
         public virtual User User { get; set; }

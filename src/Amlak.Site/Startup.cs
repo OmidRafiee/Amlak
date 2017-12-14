@@ -12,6 +12,7 @@ using Alamut.Utilities.Http;
 using Amlak.Core.Entities;
 using Amlak.Core.SSOT;
 using Amlak.Data;
+using Amlak.Data.Repository;
 using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -67,6 +68,8 @@ namespace Amlak.Site
                 options.Cookie.Name = ".Amlak";
             });
 
+
+            services.AddScoped<HouseRepository>();
 
             services.AddMvc();
         }
