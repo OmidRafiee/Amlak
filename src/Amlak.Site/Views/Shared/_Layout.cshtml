@@ -17,75 +17,13 @@
 </head>
 <body>
     <div class="FullContainer container-fluid relative">
-        <header class="MainHeader sborder">
-            <div class="HeaderImpoLInks d-flex flex-row-reverse">
-                <a href="javascript:void(0)" class="HeaderImpoLInksItem lh3 tc relative trans400 before after"><span class="ImpoLInksItemIcon absolute"><i class="fa fa-user"></i></span>ورود اعضا</a>
-                <a href="javascript:void(0)" class="HeaderImpoLInksItem lh3 tc relative trans400"><span class="ImpoLInksItemIcon absolute"><img src="~/image/icon9.png" class="responsiveimage" /></span>اینستاگرام</a>
-                <a href="javascript:void(0)" class="HeaderImpoLInksItem lh3 tc relative trans400 before after"><span class="ImpoLInksItemIcon absolute"><img src="~/image/icon10.png" class="responsiveimage" /></span>تلگرام</a>
-            </div>
-            <div class="HeaderAboutRaga row ptb5 d-flex justify-content-between sborder m0a">
-                <a href="javascript:void(0)" class="RagaLogo col-sm-5 col-12 d-flex align-items-center justify-content-center">
-                    <figure class="LogoPic dinlineblock fr">
-                        <img src="~/image/logo.png" />
-                    </figure>
-                    <h1 class="WebSiteName dinlineblock fr lh2 tc trans400">گروه مشاورین مسکن <span>راگــــــــــــــــــا</span></h1>
-                </a>
-                <div class="col-md-6 col-sm-7 col-12 d-flex align-items-center justify-content-end">
-                    <div class="RagaContact row w100p m0a">
-                        <div class="RagaContactItem col-3 tc dl relative before after"><span class="RagaContactItemIcon mr10"><i class="fa fa-clock-o"></i></span> 20:00</div>
-                        <div class="RagaContactItem col-5 tc dl relative"><span class="RagaContactItemIcon mr10"><i class="fa fa-envelope"></i></span>info@raga.com</div>
-                        <div class="RagaContactItem col-4 tc dl relative before after"><span class="RagaContactItemIcon mr10"><i class="fa fa-phone"></i></span>+9821-8903</div>
-                    </div>
-                </div>
-            </div>
-            <div class="PageNavbar ofh cb">
-                <nav class="navbar navbar-expand-lg fr w100p">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fa fa-bars"></i>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="MainNav block ofh fr navbar-nav nopadding w100p d-flex justify-content-around">
-                            <li class="NavItems nav-item"><a href="javascript:Void(0)" class="NavItemLinks MainPageLInk before tc fr trans400 relative">صفحه اصلی</a></li>
-                            <li class="NavItems nav-item"><a href="javascript:Void(0)" class="NavItemLinks fr trans400 after relative">جستجو ملک</a></li>
-                            <li class="NavItems nav-item"><a href="javascript:Void(0)" class="NavItemLinks fr trans400 after relative">تقاضا ملک</a></li>
-                            <li class="NavItems nav-item"><a href="javascript:Void(0)" class="NavItemLinks fr trans400 after relative">سپردن ملک</a></li>
-                            <li class="NavItems nav-item"><a href="javascript:Void(0)" class="NavItemLinks fr trans400 after relative">اخبار امکلاک و اقتصاد</a></li>
-                            <li class="NavItems nav-item"><a href="javascript:Void(0)" class="NavItemLinks fr trans400 after relative">دانستنی های حقوقی</a></li>
-                            <li class="NavItems nav-item"><a href="javascript:Void(0)" class="NavItemLinks fr trans400 after relative">استعلام کد رهگیری</a></li>
-                            <li class="NavItems nav-item"><a href="javascript:Void(0)" class="NavItemLinks fr trans400 after relative">ارتباط با ما</a></li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-        </header>
-       
+        @Html.Partial("_Header")
 
         @RenderBody()
     </div>
 
+    @Html.Partial("_Footer");
 
-    <footer class="PageFooter w100p mt-1 p-3 relative">
-        <div class="FooterImpoLinks relative m0a p-2 block ofh cb">
-            <a href="javascript:void(0)" class="FooterImpoLinksItem relative after fr tc bold px-2">صفحه اصلی</a>
-            <a href="javascript:void(0)" class="FooterImpoLinksItem relative after fr tc bold px-2">جستجو ملک</a>
-            <a href="javascript:void(0)" class="FooterImpoLinksItem relative after fr tc bold px-2">تقاضا ملک</a>
-            <a href="javascript:void(0)" class="FooterImpoLinksItem relative after fr tc bold px-2">سپردن ملک</a>
-            <a href="javascript:void(0)" class="FooterImpoLinksItem relative after fr tc bold px-2">اخبار املاک و اقتصاد</a>
-            <a href="javascript:void(0)" class="FooterImpoLinksItem relative after fr tc bold px-2">دانستنی های حقوقی</a>
-            <a href="javascript:void(0)" class="FooterImpoLinksItem relative fr tc bold px-2">ارتباط با ما</a>
-        </div>
-        <div class="ragaAddress m0a mt-3 p-3">
-            <div class="ragaAddress1 p-2">
-                <p class="text-center p-1">شعبه ولی عصر : خیابان ولی عصر - روبروی پارک ملت - کوچه شناسا</p>
-                <p class="text-center p-1"> تلفن : 883099</p>
-            </div>
-            <div class="ragaAddress2 p-2">
-                <p class="text-center p-1">شعبه افریقا : میدان ونک - چهار راه جهان کودک - بعد از پل میرداماد</p>
-                <p class="text-center p-1"> تلفن : 25088</p>
-            </div>
-        </div>
-        <div class="PageCopyRight absolute w100p p-2 tc sborder r0">کلیه حقوق این سایت مربوط به مشاورین مسکن راگا میباشد.</div>
-    </footer>
     <script src="~/js/jquery-3.2.1.slim.min.js"></script>
     <script src="~/js/popper.min.js"></script>
     <script src="~/js/bootstrap.min.js"></script>
