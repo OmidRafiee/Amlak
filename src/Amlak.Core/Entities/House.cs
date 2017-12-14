@@ -59,7 +59,7 @@ namespace Amlak.Core.Entities
         /// </summary>
         public string Scale { get; set; }
 
-        public int? CatrgoryId { get; set; }
+
         public int? UserId { get; set; }
 
         public virtual Category Category { get; set; }
