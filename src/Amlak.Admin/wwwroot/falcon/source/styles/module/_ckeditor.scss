@@ -1,0 +1,43 @@
+.sam-ckeditor {
+	.cke_rtl {
+		* {
+			font-family: tahoma;
+			font-size: 11px;
+		}
+
+		.cke_button_label {
+			position: relative;
+			top: -2px;
+		}
+	}
+
+	&.sam-ckeditor--full {
+		.cke {
+			box-shadow: 0 none;
+			border: 0 none;
+		}
+
+		.cke_top {
+			height: 99px !important;
+			overflow: auto;
+		}
+
+		.cke_contents {
+			height: calc(100% - 137px) !important;
+		}
+
+		.cke_bottom {
+			border-bottom: 1px solid #BAC8E5;
+		}
+
+		.sam-ckeditor,
+		#cke_editor1,
+		.cke_inner {
+			@include fill();
+			position: absolute !important;
+		}
+	}
+}
+
+
+

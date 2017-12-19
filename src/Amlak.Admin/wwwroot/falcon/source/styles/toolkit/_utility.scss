@@ -1,0 +1,71 @@
+@mixin bd-top($bd-color) {
+	&::before {
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		background-color: $bd-color;
+		content: "";
+		height: 1px;
+	}
+}
+
+@mixin bd-bottom($bd-color) {
+	&::after {
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: $bd-color;
+		content: "";
+		height: 1px;
+	}
+}
+
+@mixin bd-right($bd-color) {
+	&::before {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		top: 0;
+		background-color: $bd-color;
+		content: "";
+		width: 1px;
+	}
+}
+
+@mixin bd-left($bd-color) {
+	&::after {
+		position: absolute;
+		left: 0;
+		top: 0;
+		bottom: 0;
+		background-color: $bd-color;
+		content: "";
+		width: 1px;
+	}
+}
+
+@mixin fill() {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+}
+
+
+@mixin transition ($transition: all  0.2s ease-in-out) {
+	transition: $transition;
+}
+
+@mixin bga($primary, $alpha) {
+	background-color: $primary;
+	background-color: hsla(hue($primary), saturation($primary), lightness($primary), $alpha);
+}
+
+@mixin coloralpha($primary, $alpha) {
+	color: $primary;
+	color: hsla(hue($primary), saturation($primary), lightness($primary), $alpha);
+}
+

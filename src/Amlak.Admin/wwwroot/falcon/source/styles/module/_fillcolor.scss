@@ -1,0 +1,7 @@
+.sam-fillcolor {
+	@each $name, $color in $colors {
+		&-#{$name} {
+			background-color: $color;
+		}
+	}
+}

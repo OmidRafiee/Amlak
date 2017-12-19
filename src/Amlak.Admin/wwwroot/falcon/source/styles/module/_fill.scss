@@ -1,0 +1,20 @@
+.sam-fill--none {
+	z-index: 1000;
+	@include fill();
+
+	@each $name, $color in $colors {
+        &.sam-fill-#{$name} {
+            background-color: $color;
+        }
+
+        &.sam-fill-alpha {
+            @include bga($color, 0.9);
+        }
+    }
+
+    &.sam-fill-center {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+}

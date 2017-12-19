@@ -1,0 +1,52 @@
+﻿<!-- sidebar -->
+<div class="sidebar app-aside" id="sidebar">
+    <div class="sidebar-container perfect-scrollbar">
+        <nav>
+
+            <!-- start: SEARCH FORM -->
+            <div class="search-form">
+                <a class="s-open" href="#">
+                    <i class="ti-search"></i>
+                </a>
+                <form class="navbar-form" role="search" onsubmit="return false;">
+                    @*<a class="s-remove" href="#" target=".navbar-form">
+                        <i class="ti-close"></i>
+                    </a>*@
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="جستجو..." style="background: transparent !important; border-width: 0 !important; box-shadow: none !important;">
+                        @*<button class="btn search-button" type="submit">
+                            <i class="ti-search"></i>
+                        </button>*@
+                    </div>
+                </form>
+            </div>
+            <script>
+                $('[role="search"] .form-control').on('input', function() {
+                    var value = $.trim($(this).val());
+                    var $links = $('[data-menu-role]');
+                    $links.stop().hide().filter(function() {
+                        return $.trim($(this).text()).indexOf(value) > -1;
+                    }).fadeIn();
+                });
+            </script>
+            <!-- end: SEARCH FORM -->
+
+            @Html.Partial("SidebarModules/_Main")
+            @Html.Partial("SidebarModules/_Shop")
+            @Html.Partial("SidebarModules/_Office")
+
+
+         
+           
+            <!-- end: MAIN NAVIGATION MENU -->
+            <!-- start: DOCUMENTATION BUTTON -->
+            @*<div class="wrapper">
+                <a class="btn btn-o btn-orange btn-block">پشتیبانی</a>
+            </div>*@
+
+
+            <!-- end: DOCUMENTATION BUTTON -->
+        </nav>
+    </div>
+</div>
+<!-- / sidebar -->

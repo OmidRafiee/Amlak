@@ -1,0 +1,66 @@
+.sam-thumbnail {
+	width: 100%;
+	min-height: 150px;
+	border: 1px dashed $graydark;
+	border-radius: $radius;
+	background-color: $gray;
+	color: $graydark;
+	position: relative;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	.sam-thumbnail-image {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.sam-thumbnail-overlay {
+		display: none;
+		opacity: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: #fff;
+
+		@include bga($sunflower, 0.7);
+		@include fill();
+		@include transition();
+		transition-property: background-color, opacity;
+
+		&:empty {
+			display: none;
+		}
+
+		&:hover {
+			opacity: 1
+		}
+
+		.sam-icon {
+			cursor: pointer;
+
+			&:hover {
+				color: #333;
+			}
+		}
+	}
+
+	&.sam-thumbnail-hasfile {
+		min-height: auto;
+
+		// TODO: axpect ratio
+		&.sam-thumbnail--ar50 { padding-top: 50%; }
+		&.sam-thumbnail--ar100 { padding-top: 100%; }
+
+		.sam-thumbnail-files-icon {
+			display: none;
+		}
+
+		.sam-thumbnail-overlay {
+			display: block;
+		}
+	}
+}
+

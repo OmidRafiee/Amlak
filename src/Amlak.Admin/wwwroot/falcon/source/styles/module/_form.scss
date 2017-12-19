@@ -1,0 +1,116 @@
+.sam-form-label {
+	margin-bottom: 5px;
+	font-weight: normal;
+	text-align: right;
+
+	label {
+		margin: 0;
+		font-weight: normal;
+	}
+}
+
+.sam-form {
+	color: $textDark;
+
+	.sam-form-field {
+		position: relative;
+
+		& + .sam-form-field {
+			margin-top: 5px;
+		}
+
+		&.sam-form-inline {
+			.sam-form-label {
+				margin-left: 10px;
+				display: inline-block;
+			}
+			
+			.sam-form-input {
+				display: inline-block;
+				width: auto;
+			}
+		}
+	}
+
+
+}
+
+.sam-form-vertical-group {
+	.sam-form-field {
+		position: relative;
+
+		.sam-textbox {
+			input {
+				box-shadow: none;
+				border-radius: 0;
+				border: 0 none;
+
+				&:focus {
+					border-color: $gray;
+					background-color: #f7f7f7;
+
+					&::placeholder {
+						color: #000;
+					}
+				}
+			}
+		}
+
+		&:first-child {
+			.sam-textbox {
+				input {
+					border-top-left-radius: $radius; 
+					border-top-right-radius: $radius;
+					border-top: 1px solid $gray;
+				}
+			}
+		}
+
+		&:last-child {
+			.sam-textbox {
+				input {
+					border-bottom-left-radius: $radius; 
+					border-bottom-right-radius: $radius; 
+					border-bottom: 1px solid $gray;
+				}
+			}
+		}
+
+		& + .sam-form-field {
+			margin: 0;
+
+			&::after {
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: 0;
+				content: "";
+				height: 1px;
+				background-color: #ddd;
+			}
+		}
+	}
+}
+
+.sam-form-horizontal {
+	.sam-form-label {
+		padding: 6px 6px 0 6px;
+	}
+}
+
+.sam-form-input-with-icon {
+	position: relative;
+
+	.sam-form-input {
+		padding-right: 25px;
+	}
+
+	.sam-icon {
+		position: absolute;
+		right: 10px;
+		top: 8px;
+	}
+}
+
+
+

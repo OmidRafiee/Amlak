@@ -1,0 +1,7 @@
+.sam-clear {
+	&::after, &::before {
+		clear: both;
+		content: "";
+		display: table;
+	}
+}

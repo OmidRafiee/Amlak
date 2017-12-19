@@ -1,0 +1,28 @@
+.sam-textarea {
+	position: relative;
+
+	textarea {
+		box-shadow: 0px 0px 0px 2px #F6F6F6 inset;
+		border: 1px solid #CCC;
+		border-radius: $radius;
+		color: #333;
+		width: 100%;
+		min-height: 100px;
+		padding: 2px 9px 5px;
+		resize: none;
+		@include transition();
+		transition-property: box-shadow;
+
+		&:focus {
+			box-shadow: 0px 0px 0px 2px #E1F4F7 inset;
+		}
+	}
+
+	&.sam-textarea--textbox {
+		textarea {
+			max-width: 100%;
+			resize: auto;
+			min-height: 30px;
+		}
+	}
+}

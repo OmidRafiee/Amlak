@@ -1,0 +1,30 @@
+.sam-bgimage {
+	display: inline-block;
+	background-repeat: no-repeat;
+	background-position: center;
+	max-width: 100%;
+	min-width: 128px; 
+	min-height: 128px;
+
+	&.sam-bgimage--scale-128 { background-size: 128px; }
+	&.sam-bgimage--scale-256 { 
+		background-size: 256px;
+		width: 256px;
+		height: 256px; 
+	}
+
+	&.sam-bgimage-remove-parent-only { width: 246px; height: 199px; background-image: url("../../image/bgimage/remove-parent-only.png"); }
+	&.sam-bgimage-remove-parent-with-children { width: 246px; height: 199px; background-image: url("../../image/bgimage/remove-parent-with-children.png"); }
+	&.sam-bgimage-categories-index { background-image: url("../../image/bgimage/categories-icon.png"); }	
+	&.sam-bgimage-brands-index { background-image: url("../../image/bgimage/brands-icon.png"); }
+	&.sam-bgimage-products-index { background-image: url("../../image/bgimage/products-icon.png"); }
+	&.sam-bgimage-users-index { background-image: url("../../image/bgimage/users-icon.png"); }
+	&.sam-bgimage-store-icon { background-image: url("../../image/bgimage/store-icon.png"); }
+	&.sam-bgimage-light-icon { background-image: url("../../image/bgimage/light-icon.png"); }
+	&.sam-bgimage-box-icon { background-image: url("../../image/bgimage/box-icon.png"); }
+	&.sam-bgimage-users-icon { background-image: url("../../image/bgimage/users-icon.png"); }
+	&.sam-bgimage-brand { background-image: url("../../image/bgimage/brand.png"); }
+	&.sam-bgimage-product { background-image: url("../../image/bgimage/tag.png"); }
+	&.sam-bgimage-category { background-image: url("../../image/bgimage/category.png"); }
+}
+

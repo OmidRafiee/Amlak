@@ -1,0 +1,56 @@
+.sam-logo {
+    $color: #007aff;
+    $color: #00BDCC;
+    $transparent: #e7e7e7;
+    $blocksize: 6px;
+
+    position: relative;
+    display: inline-block;
+    width: $blocksize * 7;
+    height: $blocksize * 7;
+    background: $color;
+
+    i {
+        &::before {
+            content: '';
+            position: absolute;
+            left: $blocksize;
+            width: $blocksize;
+            top: $blocksize;
+            bottom: $blocksize;
+            background: $transparent;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            left: $blocksize * 2;
+            width: $blocksize;
+            top: 0;
+            bottom: 0;
+            background: $transparent;
+        }
+    }
+
+    b {
+        &::before {
+            content: '';
+            position: absolute;
+            right: $blocksize;
+            width: $blocksize;
+            top: $blocksize;
+            bottom: $blocksize;
+            background: $transparent;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            right: $blocksize * 2;
+            width: $blocksize;
+            top: 0;
+            bottom: 0;
+            background: $transparent;
+        }
+    }
+}

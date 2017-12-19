@@ -1,0 +1,27 @@
+.sam-visibility {
+
+	&.sam-visibility-active-elem1 { 
+		.sam-visibility-elem2 {	display: none; }
+		.sam-visibility-elem3 {	display: none; }
+		.sam-visibility-elem4 {	display: none; }
+	}
+
+	&.sam-visibility-active-elem2 { 
+		.sam-visibility-elem1 {	display: none; }
+		.sam-visibility-elem3 {	display: none; }
+		.sam-visibility-elem4 {	display: none; }
+	}
+
+	&.sam-visibility-active-elem3 { 
+		.sam-visibility-elem1 {	display: none; }
+		.sam-visibility-elem2 {	display: none; }
+		.sam-visibility-elem4 {	display: none; }
+	}
+
+	&.sam-visibility-active-elem4 { 
+		.sam-visibility-elem1 {	display: none; }
+		.sam-visibility-elem2 {	display: none; }
+		.sam-visibility-elem3 {	display: none; }
+	}
+
+}

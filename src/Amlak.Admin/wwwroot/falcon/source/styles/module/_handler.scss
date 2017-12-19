@@ -1,0 +1,44 @@
+.sam-handler {
+	width: 10px;
+	position: relative;
+	font-size: 0;
+	line-height: 0;
+	display: inline-block;
+	cursor: move;
+	white-space: normal;
+
+	.sam-handler-elem {
+		display: inline-block;
+
+		@include bga($graydark, 0.6);
+		@include transition();
+		transition-property: background-color;
+	}
+
+	&.sam-handler-dotted {
+		.sam-handler-elem {
+			width: 3px;
+			height: 3px;
+			border-radius: 50%;
+			margin: 1px;
+		}
+	}
+
+	&.sam-handler-lined {
+		height: 25px;
+
+		.sam-handler-elem {
+			margin: 0 1px;
+			height: 100%;
+			width: 1px;
+		}
+	}
+
+	&:hover {
+		.sam-handler-elem {	background-color: #333 }
+	}
+
+	// .sam-form-horizontal & { padding-top: 8px;}
+
+	// TODO: create horizontal version
+}

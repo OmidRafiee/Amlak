@@ -23,4 +23,13 @@
     <ProjectReference Include="..\Amlak.Data\Amlak.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\lib\sortable-1.4.2\meteor\example\.meteor\.finished-upgraders" />
+    <None Include="wwwroot\lib\sortable-1.4.2\meteor\example\.meteor\.gitignore" />
+    <None Include="wwwroot\lib\sortable-1.4.2\meteor\example\.meteor\.id" />
+    <None Include="wwwroot\lib\sortable-1.4.2\meteor\example\.meteor\platforms" />
+    <None Include="wwwroot\lib\sortable-1.4.2\meteor\example\.meteor\release" />
+    <None Include="wwwroot\lib\sortable-1.4.2\meteor\example\.meteor\versions" />
+  </ItemGroup>
+
 </Project>

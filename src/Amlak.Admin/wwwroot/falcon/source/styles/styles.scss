@@ -1,0 +1,69 @@
+﻿// main ClipTwo css files
+@import './core/styles';
+@import './core/plugins';
+@import './core/themes/theme-4';
+@import './core/rtl';
+
+
+@import './config/_variables.scss';
+
+@import './toolkit/_media.scss';
+@import './toolkit/_utility.scss';
+
+
+@import './module/_alert.scss';
+@import './module/_bgimage.scss';
+@import './module/_borderbox.scss';
+@import './module/_button.scss';
+@import './module/_checkbox.scss';
+@import './module/_ckeditor.scss';
+@import './module/_clear.scss';
+@import './module/_clock.scss';
+@import './module/_description.scss';
+@import './module/_display.scss';
+@import './module/_dropdown.scss';
+@import './module/_fieldset.scss';
+@import './module/_fill.scss';
+@import './module/_fillcolor.scss';
+@import './module/_filter.scss';
+@import './module/_float.scss';
+@import './module/_font.scss';
+@import './module/_form.scss';
+@import './module/_fullscreen.scss';
+@import './module/_grid.scss';
+@import './module/_hamburger.scss';
+@import './module/_handler.scss';
+@import './module/_hover.scss';
+@import './module/_hr.scss';
+@import './module/_icon.scss';
+@import './module/_image.scss';
+@import './module/_label.scss';
+@import './module/_layout.scss';
+@import './module/_layoutview.scss';
+@import './module/_list.scss';
+@import './module/_logo.scss';
+@import './module/_preloader.scss';
+@import './module/_radio.scss';
+@import './module/_rainbowdotted.scss';
+@import './module/_select.scss';
+@import './module/_simpletree.scss';
+@import './module/_spinner.scss';
+@import './module/_switch.scss';
+@import './module/_tab.scss';
+@import './module/_table.scss';
+@import './module/_text.scss';
+@import './module/_textarea.scss';
+@import './module/_textbox.scss';
+@import './module/_thumbnail.scss';
+@import './module/_toggler.scss';
+@import './module/_treeview.scss';
+@import './module/_unselectable.scss';
+@import './module/_user-info.scss';
+@import './module/_visibility.scss';
+@import './module/_vmenu.scss';
+@import './module/_whitespace.scss';
+
+@import './ui/_noxmodule.scss';
+@import './ui/_dashboard-data-box.scss';
+
+@import './override';

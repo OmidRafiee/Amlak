@@ -1,0 +1,154 @@
+.sam-btn {
+    display: inline-block;
+    padding: 2px 12px 5px;
+    margin-bottom: 0px;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    border-radius: $radius;
+    border: 0 none;
+    color: #fff;
+    font-size: 11px;
+    position: relative;
+    // @include transition();
+    // overflow: hidden;
+    // transition-property: background-color color;
+    // line-height: 18px;
+    line-height: 1.3em;
+
+    &:hover {
+        box-shadow: 0 1px 1px 0 #555;
+    }
+
+    @each $name, $color in $colors {
+        &.sam-btn-#{$name} {
+            background-color: $color;
+            background-image: linear-gradient(to bottom, lighten($color, 10%), $color);           
+
+            &:hover {
+                background-color: lighten($color, 10%);
+                background-image: linear-gradient(to bottom, lighten(lighten($color, 10%), 5%), lighten($color, 5%));
+            }
+
+            &.sam-btn-loading, .sam-btn-loading & {
+                color: lighten($color, 6%);
+                background-color: lighten($color, 6%);
+                
+                &:hover {
+                    cursor: default;
+                }
+            }
+        }
+    }
+
+    &.sam-btn-loading, .sam-btn-loading & {
+        cursor: default;
+        transition-property: background-color;
+
+        &::after {
+            @include fill();
+            background: transparent url('../../image/loading-balls-32.svg') no-repeat center;
+            content: "";
+            z-index: 100;
+        }
+    }
+
+    &.sam-btn--md {
+        padding: 7px 15px 9px;
+    }
+
+    &.sam-btn--lg {
+        padding: 10px 22px 13px;
+    }
+
+    &.sam-btn-block {
+        display: block;
+        width: 100%;
+    }
+
+    &.sam-active {
+        background-color: darken($aqua, 10%);
+        box-shadow: 1px 1px 1px darken($aqua, 15%) inset;
+        cursor: default;
+    }
+
+    &.sam-btn-inlineicon {
+        display: inline-block;
+
+        .sam-btn-text {
+            color: #fff;
+            transition:color 0.2s ease;
+        }
+
+        .sam-btn-icon {
+            background-color: lighten($aqua, 6%);
+            width: 25px;
+            height: 25px;
+            border-radius:50%;
+            display: inline-block;
+            vertical-align: middle;
+            transition: background-color 0.2s ease;
+
+            .sam-icon {
+                color: #fff;
+                line-height: 25px;
+                display: inline-block;
+                vertical-align: top;
+                text-align: center;
+                margin: 0;
+            }
+        }
+
+        &:hover {
+            .sam-btn-text {
+                color: lighten($aqua, 6%);
+            }
+
+            .sam-btn-icon {
+                background-color: $aqua;
+            }
+        }
+    }
+}
+
+.sam-btn-group {
+    font-size: 0;
+    white-space: nowrap;
+
+    .sam-btn-group-elem {  
+        border-radius:0;  
+        display: inline-block; 
+        position: relative;
+
+        .sam-btn {
+            border-radius: 0;            
+        }
+
+        &:first-child {
+            .sam-btn {
+                border-radius:0 $radius $radius 0;
+            }
+        }
+
+        &:last-child {
+            .sam-btn {
+                border-radius: $radius 0 0 $radius;
+            }
+        } 
+
+        .sam-toggler-label {
+            .sam-btn{
+                padding-right:3px;
+                padding-left:3px;
+            }
+        }
+
+        +.sam-btn-group-elem {
+            .sam-btn {
+                border-right: 1px solid rgba(0, 0, 0, 0.1);
+            } 
+        }               
+    }
+}

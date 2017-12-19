@@ -1,0 +1,139 @@
+﻿
+
+<!-- start: MAIN NAVIGATION MENU -->
+<div class="navbar-title">
+    <span>منوی اصلی</span>
+</div>
+<ul class="main-navigation-menu">
+    @*<li data-menu-role="dashboard">
+        <a asp-controller="Home" asp-action="Index">
+            <div class="item-content">
+                <div class="item-media">
+                    <i class="ti-home"></i>
+                </div>
+                <div class="item-inner">
+                    <span class="title"> داشبورد </span>
+                </div>
+            </div>
+        </a>
+    </li>*@
+    
+    @if ( User.IsInRole("Admin") || User.IsInRole("User"))
+    {
+
+        <li data-menu-role="Infrastructure/Identity">
+            <a asp-controller="User" asp-action="Index">
+                <div class="item-content">
+                    <div class="item-media">
+                        <i class="ti-announcement"></i>
+                    </div>
+                    <div class="item-inner">
+                        <span class="title"> مدیریت کاربران سایت </span>
+                    </div>
+                </div>
+            </a>
+        </li>
+    }
+@if (User.IsInRole("Admin") || User.IsInRole("Sms"))
+{
+    <li data-menu-role="Infrastructure/Sms">
+        <a asp-controller="Sms" asp-action="Index">
+            <div class="item-content">
+                <div class="item-media">
+                    <i class="ti-announcement"></i>
+                </div>
+                <div class="item-inner">
+                    <span class="title"> لیست پیامک ها </span>
+                </div>
+            </div>
+        </a>
+    </li>
+
+    <li data-menu-role="Infrastructure/Sms">
+        <a asp-controller="Sms" asp-action="SendMessage">
+            <div class="item-content">
+                <div class="item-media">
+                    <i class="ti-announcement"></i>
+                </div>
+                <div class="item-inner">
+                    <span class="title"> ارسال پیامک </span>
+                </div>
+            </div>
+        </a>
+    </li>
+}
+@if (User.IsInRole("Admin") || User.IsInRole("Product"))
+{
+    <li data-menu-role="Infrastructure/DetailProduct">
+        <a asp-controller="Product" asp-action="LastProductDetail">
+            <div class="item-content">
+                <div class="item-media">
+                    <i class="ti-announcement"></i>
+                </div>
+                <div class="item-inner">
+                    <span class="title">مانیتورینگ محصولات آنلاین</span>
+                </div>
+            </div>
+        </a>
+    </li>
+}
+@if (User.IsInRole("Admin") || User.IsInRole("Product"))
+{
+    <li data-menu-role="Infrastructure/DetailProductSales">
+        <a asp-controller="Product" asp-action="ListSalesProduct">
+            <div class="item-content">
+                <div class="item-media">
+                    <i class="ti-announcement"></i>
+                </div>
+                <div class="item-inner">
+                    <span class="title">جزئیات محصولات فروخته شده</span>
+                </div>
+            </div>
+        </a>
+    </li>
+}
+@if (User.IsInRole("Admin") || User.IsInRole("Payment"))
+{
+    <li data-menu-role="Infrastructure/DetailPayment">
+        <a asp-controller="Payment" asp-action="Index">
+            <div class="item-content">
+                <div class="item-media">
+                    <i class="ti-announcement"></i>
+                </div>
+                <div class="item-inner">
+                    <span class="title"> لیست تراکنش ها</span>
+                </div>
+            </div>
+        </a>
+    </li>
+}
+    
+    @if (User.IsInRole("Admin"))
+    {
+        <li data-menu-role="Infrastructure/DetailRole">
+            <a asp-controller="Role" asp-action="Index">
+                <div class="item-content">
+                    <div class="item-media">
+                        <i class="ti-announcement"></i>
+                    </div>
+                    <div class="item-inner">
+                        <span class="title">مدیریت دسترسی</span>
+                    </div>
+                </div>
+            </a>
+        </li>
+    }
+    <li data-menu-role="Infrastructure/Identity/Profile">
+        <a asp-controller="Account" asp-action="Logout">
+            <div class="item-content">
+                <div class="item-media">
+                    <i class="ti-face-smile"></i>
+                </div>
+                <div class="item-inner">
+                    <span class="title"> خروج از سیستم </span>
+                </div>
+            </div>
+        </a>
+    </li>
+
+</ul>

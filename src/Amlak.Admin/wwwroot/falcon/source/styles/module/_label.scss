@@ -1,0 +1,21 @@
+.sam-label {
+    display: inline-block;
+    border-radius: 2px;
+    padding: 1px 5px 2px;
+    line-height: normal;
+
+    &.sam-label-monospace {
+    	font-family: monospace;
+    }
+
+    &:empty {
+        display: none;
+    }
+
+    @each $name, $color in $colors {
+        &.sam-label-#{$name} {
+            color: #fff;
+            background-color: $color;
+        }
+    }
+}

@@ -1,0 +1,97 @@
+.sam-layout {
+	.sam-layout-row {
+		position: relative;
+
+		[class^="sam-layout-col"] {
+			float: right;
+			background-color: #fff;
+			width: 100%;
+			overflow: hidden;
+			border: 1px dashed #b7b7b7;
+			padding: 10px;
+			position: relative;
+
+			+ [class*="sam-layout-col"] { border-right: 0 none; }
+
+			.sam-layout-overlay {
+				position: absolute;
+				left: 3px;
+				right: 3px;
+				top: 3px;
+				bottom: 3px;
+				content: "";
+				z-index: 100;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				cursor: pointer;
+				font-size: 20px;
+
+				@include bga($themeColor, 0.1);
+				@include transition();
+				transition-property: background-color;
+
+				&:hover { @include bga($grass, 0.2); }
+			}
+
+			&.sam--active {
+				.sam-layout-overlay {
+					@include bga($sunflower, 0.2);
+
+					.sam-icon {	display: none }
+				}
+			}
+		}
+
+		&.sam-layout-row-fixedcol {
+			[class^="sam-layout-col"] {
+				height: 200px;
+			}
+		}
+
+		.sam-layout-col {
+			&-6 { width: 50%; }
+			&-4 { width: 33.33%; }
+			&-3 { width: 25%; }
+		}
+
+		&::before,&::after {
+			content: " ";
+			display: table;
+		}
+
+		&::after { clear: both; }
+
+		.sam-layout-row-handler {
+			position: absolute;
+			right: -20px;
+			top: 0;
+			bottom: 0;
+			display: flex;
+			align-items:center;
+			justify-content: center;
+			width: 20px;
+			cursor: move;
+		}
+
+		.sam-layout-row-close {
+			cursor: pointer;
+			position: absolute;
+			left: -7px;
+			top: -7px;
+			color: $grapefrute;
+			z-index: 1000;
+			background-color: #FFF;
+			border-radius: 50%;
+			opacity: 0;
+
+			@include transition();
+			transition-property: opacity;
+
+		}
+
+		&:hover {
+			.sam-layout-row-close {	opacity: 1;	}
+		}
+	}
+}

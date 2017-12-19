@@ -1,0 +1,71 @@
+﻿.module-field {
+    box-shadow: 0 1px 2px #c4c4c4;
+    border-radius: 3px;
+    background: #fff;
+    padding: 10px 15px;
+    margin: 10px 0;
+
+    &.active {
+        box-shadow: 0 1px 3px #c4c4c4;
+        background: rgba(255, 255, 204, 0.5);
+        background: #fffbec;
+
+        .module-field--configure {
+            display: block;
+        }
+    }
+
+    &--Text {
+        .module-field--options-Text {
+            display: block;
+        }
+    }
+
+    &--Textarea {
+        .module-field--options-Textarea {
+            display: block;
+        }
+    }
+
+    &--Checkbox {
+        .module-field--options-Checkbox {
+            display: block;
+        }
+    }
+
+    &--Wysiwyg {
+        .module-field--options-Wysiwyg {
+            display: block;
+        }
+    }
+
+    &--SingleRelational {
+        .module-field--options-SingleRelational {
+            display: block;
+        }
+    }
+
+    &--MultiRelational {
+        .module-field--options-MultiRelational {
+            display: block;
+        }
+    }
+}
+
+.module-field--configure {
+    display: none;
+    margin-top: 15px;
+
+    .row {
+        margin-top: 5px;
+        margin-bottom: 5px;
+
+        .control-label {
+            padding-top: 5px;
+        }
+    }
+}
+
+.module-field--options {
+    // display: none;
+}

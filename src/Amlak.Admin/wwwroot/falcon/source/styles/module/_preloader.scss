@@ -1,0 +1,42 @@
+.sam-preloader {
+
+	&-16 {
+		background: transparent url(../../image/preloader-16.gif) no-repeat center;
+		width: 16px;
+		height: 16px;
+		display: inline-block;
+		white-space: nowrap;
+	}
+
+	&-24 {
+		background: transparent url(../../image/preloader-24.gif) no-repeat center;
+		width: 24px;
+		height: 24px;
+		display: inline-block;
+		white-space: nowrap;
+	}
+
+	&-32 {
+		background: transparent url(../../image/preloader-32.gif) no-repeat center;
+		width: 32px;
+		height: 32px;
+		display: inline-block;
+		white-space: nowrap;
+	}
+
+	&-64 {
+		background: transparent url(../../image/preloader-64.gif) no-repeat center;
+		width: 64px;
+		height: 64px;
+		display: inline-block;
+		white-space: nowrap;
+	}
+
+	&-128 {
+		background: transparent url(../../image/preloader-128.gif) no-repeat center;
+		width: 128px;
+		height: 128px;
+		display: inline-block;
+		white-space: nowrap;
+	}
+}

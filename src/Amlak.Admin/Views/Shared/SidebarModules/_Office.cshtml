@@ -1,0 +1,110 @@
+﻿
+@if (true)
+{
+
+    <div class="navbar-title">
+        <span>دفتر کار</span>
+    </div>
+    <ul class="main-navigation-menu">
+        
+
+        @if ( User.IsInRole("Admin") || User.IsInRole("Pages"))
+        {
+            <li data-menu-role="Office/Pages">
+                <a asp-controller="Pages" asp-action="Index">
+                    <div class="item-content">
+                        <div class="item-media">
+                            <i class="ti-layers-alt"></i>
+                        </div>
+                        <div class="item-inner">
+                            <span class="title"> مدیریت صفحه ثابت</span>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        }
+        
+        @if ( User.IsInRole("Admin") || User.IsInRole("Winner"))
+        {
+            <li data-menu-role="Office/Winner">
+                <a asp-controller="Winner" asp-action="Index">
+                    <div class="item-content">
+                        <div class="item-media">
+                            <i class="ti-layers-alt"></i>
+                        </div>
+                        <div class="item-inner">
+                            <span class="title"> مدیریت برندگان</span>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        }
+        
+        @if ( User.IsInRole("Admin") || User.IsInRole("Winner"))
+        {
+            <li data-menu-role="Office/CreateWinner">
+                <a asp-controller="Winner" asp-action="Create">
+                    <div class="item-content">
+                        <div class="item-media">
+                            <i class="ti-layers-alt"></i>
+                        </div>
+                        <div class="item-inner">
+                            <span class="title"> افزودن برنده</span>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        }
+        
+        @if ( User.IsInRole("Admin") || User.IsInRole("Question"))
+        {
+            <li data-menu-role="Office/Question">
+                <a asp-controller="Question" asp-action="Index">
+                    <div class="item-content">
+                        <div class="item-media">
+                            <i class="ti-layers-alt"></i>
+                        </div>
+                        <div class="item-inner">
+                            <span class="title"> مدیریت سوالات</span>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        }
+        
+        @if ( User.IsInRole("Admin") || User.IsInRole("Question"))
+        {
+            <li data-menu-role="Office/CreateQuestion">
+                <a asp-controller="Question" asp-action="Create">
+                    <div class="item-content">
+                        <div class="item-media">
+                            <i class="ti-layers-alt"></i>
+                        </div>
+                        <div class="item-inner">
+                            <span class="title"> طرح سوال</span>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        }
+        
+        @if ( User.IsInRole("Admin") || User.IsInRole("Question"))
+        {
+            <li data-menu-role="Office/CreateQuestion">
+                <a asp-controller="Question" asp-action="List">
+                    <div class="item-content">
+                        <div class="item-media">
+                            <i class="ti-layers-alt"></i>
+                        </div>
+                        <div class="item-inner">
+                            <span class="title"> چاپ سوالات</span>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        }
+
+
+    </ul>
+
+}

@@ -1,0 +1,48 @@
+.sam-description {
+	$descriptionColor: $pinkrose;
+	color: $descriptionColor;
+	padding-right: 20px;
+	position: relative;
+
+	&::before {
+		position: absolute;
+		content: "";
+		right: 7px;
+		top: 12px;
+		bottom: 0;
+		width: 1px;
+		background: linear-gradient(to bottom, transparent 0%, transparent 50%, lighten($descriptionColor, 20%) 50%, lighten($descriptionColor, 20%) 100%);
+		background-position: right top;
+		background-repeat: repeat-y;
+		background-size: 1px 6px;
+	}
+
+	.sam-description-item {
+		display: block;
+		position: relative;
+
+		&:first-child {
+			.sam-icon {
+				margin-right: -20px;
+				margin-left: 5px;
+				position: relative;
+				font-size: 12px;
+			}
+
+			&::before {
+				display: none;
+			}
+		}
+
+		&::before {
+			position: absolute;
+			content: "";
+			right: -15px;
+			top: 6px;
+			width: 6px;
+			height: 6px;
+			background-color: $descriptionColor;
+			border-radius:50%;
+		}
+	}
+}

@@ -1,0 +1,17 @@
+.sam-toggler {
+	display: none;
+	
+	&:not(:checked) {
+		~.sam-toggler-checked {
+			display: none;
+		}
+	}
+	&:checked{
+		~.sam-toggler-unchecked {
+			display: none
+		}
+	}
+}
+.sam-toggler-label {
+	cursor: pointer;
+}

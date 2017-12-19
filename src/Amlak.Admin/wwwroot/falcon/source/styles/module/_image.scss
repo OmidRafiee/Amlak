@@ -1,0 +1,24 @@
+.sam-image {
+	display: inline-block;
+
+	&.sam-image--circle {
+		> * {
+			border-radius: 50%;
+			overflow: hidden;
+		}
+	}
+
+	&.sam-image--border {
+		> * {
+			border: 1px solid $gray;
+		}
+	}
+
+	&.sam-image--offset {
+		> * {
+			padding: 3px;
+			background-color: #FFF
+		}
+	}
+}
+

@@ -1,0 +1,106 @@
+.sam-iconc {
+	display: inline-block;
+
+	&.sam-iconc-index {
+		position: relative;
+		padding: 30px;
+
+		.sam-iconc-index--lg {
+			font-size: 120px;
+		}
+
+		.sam-iconc-index--sm {
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			border-radius: 50%;
+			width: 70px;
+			height: 70px;
+			text-align: center;
+			font-size: 60px;
+			line-height: 60px;
+			background-color: #FFF;
+		}
+	}
+
+	.sam-icon-innershadow {		
+		text-shadow: 0px 1px 1px #FFF, 0px 0px 0px #555, 0px 0px 0px #FFF;
+
+		@include coloralpha(#ecf0f1, 0.8);
+	}
+
+	&.sam-iconc-circle {
+		position: relative;
+
+		.sam-iconc-circle-icon {
+			width: 100px;
+			height: 100px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			position: relative;
+			color: #cfd9db;
+			margin: 0 auto;
+
+			@include transition();
+			transition-property: color;
+
+			&::after {
+				@include fill();
+				content: "";
+				border: 7px solid #cfd9db;
+				border-radius: 100%;
+
+				@include transition();
+				transition-property: border-color;
+			}
+
+			.sam-icon {
+				font-size: 50px;
+			}
+		}
+
+		.sam-btn {
+			background-color: #cfd9db;
+			color: $themeColor;
+			min-width: 110px;
+		}
+
+		.sam-iconc-circle-link {
+			@include fill();
+			z-index: 10;
+		}
+
+		&:hover {
+			.sam-iconc-circle-icon {
+				color: lighten($aqua, 20%);
+
+				&::after {
+					border-color: lighten($aqua, 20%);
+				}
+			}
+
+			.sam-btn {
+				background-color: lighten($aqua, 20%);
+				color: #fff;
+			}
+		}
+	}
+
+	&.sam--active {
+		&.sam-iconc-circle {
+			.sam-iconc-circle-icon {
+				color: lighten($aqua, 6%);
+
+				&::after {
+					border-color: lighten($aqua, 6%);
+				}
+			}
+
+			.sam-btn {
+				background-color: lighten($aqua, 6%);
+				color: #fff;
+			}
+		}
+	}
+}

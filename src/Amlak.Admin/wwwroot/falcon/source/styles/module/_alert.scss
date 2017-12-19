@@ -1,0 +1,9 @@
+.sam-alert {
+	direction:rtl;
+
+	@each $name, $color in $colors {
+		&.sam-alert-#{$name} {
+			color: $color;
+		}
+	}
+}

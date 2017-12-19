@@ -1,0 +1,132 @@
+.sam-ws {
+
+	&-p0 {
+		padding: 0;
+		position: relative;
+	}
+
+	&-m0 { margin: 0; }
+
+
+	// 5px -------
+
+	&-p5 {
+		padding: 5px;
+		position: relative;
+
+		&-t { padding-top: 5px; }
+		&-r { padding-right: 5px; }
+		&-b { padding-bottom: 5px; }
+		&-l { padding-left: 5px; }
+		&-tb { padding-top: 5px; padding-bottom: 5px; }
+		&-rl { padding-right: 5px; padding-left: 5px; }
+		&-tr { padding-top: 5px; padding-right: 5px; }
+		&-tl { padding-top: 5px; padding-left: 5px; }
+	}
+
+	&-m5 {
+		margin: 5px;
+		position: relative;
+
+		&-t { margin-top: 5px; }
+		&-r { margin-right: 5px; }
+		&-b { margin-bottom: 5px; }
+		&-l { margin-left: 5px; }
+		&-tb { margin-top: 5px; margin-bottom: 5px; }
+		&-tr { margin-top: 5px; margin-right: 5px; }
+		&-rl { margin-right: 5px; margin-left: 5px; }
+		&-rbl { margin-right: 5px; margin-left: 5px; margin-bottom: 5px; }
+		&-tr { margin-top: 5px; margin-right: 5px; }
+		&-tl { margin-top: 5px; margin-left: 5px; }
+	}
+
+	// 10px -------
+
+	&-p10 {
+		padding: 10px;
+		position: relative;
+
+		&-t { padding-top: 10px; }
+		&-r { padding-right: 10px; }
+		&-b { padding-bottom: 10px; }
+		&-l { padding-left: 10px; }
+		&-tb { padding-top: 10px; padding-bottom: 10px; }
+		&-rl { padding-right: 10px; padding-left: 10px; }
+		&-tr { padding-top: 10px; padding-right: 10px; }
+		&-tl { padding-top: 10px; padding-left: 10px; }
+	}
+
+	&-m10 {
+		margin: 10px;
+		position: relative;
+		
+		&-t { margin-top: 10px; }
+		&-r { margin-right: 10px; }
+		&-b { margin-bottom: 10px; }
+		&-l { margin-left: 10px; }
+		&-tb { margin-top: 10px; margin-bottom: 10px; }
+		&-rl { margin-right: 10px; margin-left: 10px; }
+		&-tr { margin-top: 10px; margin-right: 10px; }
+		&-tl { margin-top: 10px; margin-left: 10px; }
+	}
+
+	// 20px -------
+
+	&-p20 {
+		padding: 20px;
+		position: relative;
+
+		&-t { padding-top: 20px; }
+		&-r { padding-right: 20px; }
+		&-b { padding-bottom: 20px; }
+		&-l { padding-left: 20px; }
+		&-tb { padding-top: 20px; padding-bottom: 20px; }
+		&-rl { padding-right: 20px; padding-left: 20px; }
+		&-tr { padding-top: 20px; padding-right: 20px; }
+		&-tl { padding-top: 20px; padding-left: 20px; }
+	}
+
+	&-m20 {
+		margin: 20px;
+		position: relative;
+
+		&-t { margin-top: 20px; }
+		&-r { margin-right: 20px; }
+		&-b { margin-bottom: 20px; }
+		&-l { margin-left: 20px; }
+		&-tb { margin-top: 20px; margin-bottom: 20px; }
+		&-rl { margin-right: 20px; margin-left: 20px; }
+		&-tr { margin-top: 20px; margin-right: 20px; }
+		&-tl { margin-top: 20px; margin-left: 20px; }
+	}
+
+	// 30px -------
+
+	&-p30 {
+		padding: 30px;
+		position: relative;
+
+		&-t { padding-top: 30px; }
+		&-r { padding-right: 30px; }
+		&-b { padding-bottom: 30px; }
+		&-l { padding-left: 30px; }
+		&-tb { padding-top: 30px; padding-bottom: 30px; }
+		&-rl { padding-right: 30px; padding-left: 30px; }
+		&-tr { padding-top: 30px; padding-right: 30px; }
+		&-tl { padding-top: 30px; padding-left: 30px; }
+	}
+
+	&-m30 {
+		margin: 30px;
+		position: relative;
+
+		&-t { margin-top: 30px; }
+		&-r { margin-right: 30px; }
+		&-b { margin-bottom: 30px; }
+		&-l { margin-left: 30px; }
+		&-tb { margin-top: 30px; margin-bottom: 30px; }
+		&-rl { margin-right: 30px; margin-left: 30px; }
+		&-tr { margin-top: 30px; margin-right: 30px; }
+		&-tl { margin-top: 30px; margin-left: 30px; }
+	}
+}

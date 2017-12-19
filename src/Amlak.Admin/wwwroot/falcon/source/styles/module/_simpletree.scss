@@ -1,0 +1,115 @@
+.sam-simpletree,
+.sam-simpletree ul {
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+
+.sam-simpletree ul {
+  margin-right:1em; /* indentation */
+  position:relative;
+}
+
+.sam-simpletree ul ul {margin-right:.5em} /* (indentation/2) */
+
+.sam-simpletree ul:before {
+  content:"";
+  display:block;
+  width:0;
+  position:absolute;
+  top:0;
+  bottom:0;
+  right:0;
+  border-right:1px solid;
+}
+
+.sam-simpletree li {
+  overflow: hidden;
+  margin:0;
+  padding:0 1.5em; /* indentation + .5em */
+  line-height:2em; /* default list item's `line-height` */
+  position:relative;
+  padding-left: 0;
+}
+
+.sam-simpletree ul li:before {
+  content:"";
+  display:block;
+  width:10px; /* same with indentation */
+  height:0;
+  border-top:1px solid;
+  margin-top:-1px; /* border top width */
+  position:absolute;
+  top:1em; /* (line-height/2) */
+  right:0;
+}
+
+.sam-simpletree ul li:last-child:before {
+  background:white; /* same with body background */
+  height:auto;
+  top:1em; /* (line-height/2) */
+  bottom:0;
+}
+
+.sam-simpletree--selected {
+  background: #ff8;
+}
+
+.sam-simpletree--hover:hover {
+  background: #ff8;
+}
+
+.sam-simpletree2 {
+  ul { list-style-type: none; }
+  label{
+    background-color: #AAAFAB;
+    border-radius: 2px;
+    padding: 4px 5px 6px 8px;
+    padding-right: 25px;
+    color: white;
+    display: inline-block;
+  }
+  li {
+    margin: 10px;
+    padding: 5px;
+    border: 1px solid #ABC;
+    border-radius: 5px;
+    position: relative;
+  }
+  input[type=checkbox] { display: none; }
+  input[type=checkbox] ~ ul {
+
+    max-height: 0;
+    max-width: 0;
+    opacity: 0;
+    overflow: hidden;
+
+
+  }
+  input[type=checkbox]:checked ~ ul {
+    max-height: 100%;
+    max-width: 100%;
+    opacity: 1;
+  }
+  input[type=checkbox] + label:before{
+    transform-origin:25% 50%;
+    border: 8px solid transparent;
+    border-width: 6px 8px;
+    border-left-color: white;
+    right: 5px;
+    width: 0;
+    height: 0;
+    display: inline-block;
+    text-align: center;
+    content: '';
+    color: #AAAFAB;
+    position: absolute;
+    top: 13px;
+    transform: rotate(180deg);
+  }
+  input[type=checkbox]:checked + label:before {
+    transform: rotate(90deg);
+    /*margin-top: 6px;
+  margin-left: -25px;*/
+  }
+}

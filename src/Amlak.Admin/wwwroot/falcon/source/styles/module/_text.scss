@@ -1,0 +1,58 @@
+.sam-text {
+	&-right { text-align:right !important; }
+	&-left { text-align:left !important; }
+	&-center { text-align:center !important; }
+	&-justify { text-align:justify !important; }
+
+	@each $name, $color in $colors {
+		&-#{$name} {
+			color: $color;
+		}
+	}
+}
+
+.sam-text-hover
+{
+	@each $name, $color in $colors {
+		&-#{$name} {
+			&:hover{ color: darken($color, 10%); }
+		}
+	}
+}
+
+@include media(desktop) {
+	.sam-text-ph-left { text-align: left; }
+	.sam-text-tp-left { text-align: left; }
+	.sam-text-tl-left { text-align: left; }
+	.sam-text-dk-left { text-align: left; }
+
+	.sam-text-ph-right { text-align: right; }
+	.sam-text-tp-right { text-align: right; }
+	.sam-text-tl-right { text-align: right; }
+	.sam-text-dk-right { text-align: right; }
+}
+
+@include media(tablet-land) {
+	.sam-text-ph-left { text-align: left; }
+	.sam-text-tp-left { text-align: left; }
+	.sam-text-tl-left { text-align: left; }
+
+	.sam-text-ph-right { text-align: right; }
+	.sam-text-tp-right { text-align: right; }
+	.sam-text-tl-right { text-align: right; }
+}
+
+@include media(tablet-port) {
+	.sam-text-ph-left { text-align: left; }
+	.sam-text-tp-left { text-align: left; }
+
+	.sam-text-ph-right { text-align: right; }
+	.sam-text-tp-right { text-align: right; }
+}
+
+@include media(phablet) {
+	.sam-text-ph-left { text-align: left; }
+
+	.sam-text-ph-right { text-align: right; }
+}
+

@@ -1,0 +1,18 @@
+.sam-radio {
+	position: relative;
+	display: block;
+	margin: 0;
+
+	label {
+		min-height: 20px;
+		margin-bottom: 0px;
+		font-weight: 400;
+		cursor: pointer;
+		padding-right: 20px;
+	}
+
+	input[type="radio"] {
+		position: absolute;
+		margin-right: -20px;
+	}
+}

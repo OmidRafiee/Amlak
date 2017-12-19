@@ -1,0 +1,184 @@
+$descriptionColor: #85949d;
+
+.sam-fullscreen {
+	height: 22px;
+	width: 24px;
+	position: relative;
+	cursor: pointer;
+
+	.sam-fullscreen-item {
+		position: absolute;
+		width: 50%;
+		height: 50%;
+
+		&::after {
+			content: "";
+			position: absolute;
+			background-color: $descriptionColor;
+			width: 2px;
+			height: 6px;
+			top: 0;
+			left: 0;
+			transition: background-color 0.2s ease;
+		}	
+
+		&::before {
+			content: "";
+			position: absolute;
+			background-color: $descriptionColor;
+			width: 6px;
+			height: 2px;
+			top: 0;
+			left: 0;
+			transition: background-color 0.2s ease;
+		}
+
+		&.sam-fullscreen-item- {
+
+			&tl {
+				top: 0;
+				left: 0;
+
+				&::after {
+					top: 2px;
+				}
+
+				&::before {
+					top: 2px;
+				}
+			}
+
+			&tr {
+				right: 0;
+				top: 0;
+
+				&::after {
+					top: 2px;
+					left: auto;
+					right: 0;
+				}
+
+				&::before {
+					top: 2px;
+					left: auto;
+					right: 0;
+				}
+			}
+
+			&bl {
+				bottom: 0;
+				left: 0;
+
+				&::after {
+					top: auto;
+					bottom: 2px;
+				}
+
+				&::before {
+					top: auto;
+					bottom: 2px;
+				}
+			}
+
+			&br {
+				bottom: 0;
+				right: 0;
+
+				&::after {
+					top: auto;
+					bottom: 2px;
+					left: auto;
+					right: 0;
+				}
+
+				&::before {
+					top: auto;
+					bottom: 2px;
+					left: auto;
+					right: 0;
+				}
+			}
+		}
+	}
+
+	&:hover {
+		.sam-fullscreen-item {
+			$descriptionColor: $mint;
+			&::after, &::before {
+				background-color: $descriptionColor;
+			}
+		}
+		
+	}
+
+	&.sam-fullscreen-exit {
+		.sam-fullscreen-item- {
+
+			&tl {
+				top: 0;
+				left: 0;
+
+				&::after {
+					top: 2px;
+					left: 4px;
+				}
+
+				&::before {
+					top: 6px;
+				}
+			}
+
+			&tr {
+				right: 0;
+				top: 0;
+
+				&::after {
+					top: 2px;
+					left: auto;
+					right: 4px;
+				}
+
+				&::before {
+					top: 6px;
+					left: auto;
+					right: 0;
+				}
+			}
+
+			&bl {
+				bottom: 0;
+				left: 0;
+
+				&::after {
+					top: auto;
+					bottom: 2px;
+					left: 4px;
+				}
+
+				&::before {
+					top: auto;
+					bottom: 6px;
+				}
+			}
+
+			&br {
+				bottom: 0;
+				right: 0;
+
+				&::after {
+					top: auto;
+					bottom: 2px;
+					left: auto;
+					right: 4px;
+				}
+
+				&::before {
+					top: auto;
+					bottom: 6px;
+					left: auto;
+					right: 0;
+				}
+			}
+		}
+	}
+}

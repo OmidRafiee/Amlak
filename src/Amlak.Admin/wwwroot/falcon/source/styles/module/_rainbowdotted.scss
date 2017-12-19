@@ -1,0 +1,36 @@
+.sam-rainbow-dotted {
+	width: 10px;
+	height: 10px;
+	display: inline-block;
+	position: relative;
+
+	.sam-rainbow-dotted-elem {
+		width: 4px;
+		height: 4px;
+		background-color: #35b8cd;
+		position: absolute;
+		right: 0;
+		top: 0;
+		border-radius: 50%;
+		
+		+ .sam-rainbow-dotted-elem {
+			right: auto;
+			left: 0;
+			background-color: #d37246;
+
+			+ .sam-rainbow-dotted-elem {
+				top: auto;
+				bottom: 0;
+				background-color: #ffd675;
+
+				+ .sam-rainbow-dotted-elem {
+					top: auto;
+					bottom: 0;
+					left: auto;
+					right: 0;
+					background-color: #b4dd5e;
+				}
+			}
+		}
+	}
+}

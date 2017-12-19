@@ -1,0 +1,179 @@
+.sam-treeview {
+	* {
+		vertical-align: middle;
+	}
+
+	&::before {
+		background-color:red; /* same with body background */
+		height:auto;
+		top:0; /* (line-height/2) */
+		bottom:0;
+		content: "";
+		width: 4px;
+		right: 0;
+	}
+
+	ul {
+		position: relative;
+		margin:0px 1em 0px 0px;
+		padding:1px 0 0px;
+		list-style:none;
+
+		&:before {
+			content:"";
+			display:block;
+			width:1px;
+			position:absolute;
+			top:0;
+			bottom:0;
+			right:-4px;
+			background: linear-gradient(to bottom, transparent 0%,transparent 50%,$graydark 50%,$graydark 100%);
+			background-position: right top;
+			background-repeat: repeat-y;
+			background-size: 1px 6px;
+		}
+		&:last-child:before {
+			background-color:#fff; /* same with body background */
+			height:auto;
+			top:0; /* (line-height/2) */
+			bottom:0;
+		}
+
+		.sam-checkbox {
+			display: inline-block;
+			min-width: 300px;
+			line-height: 17px;
+		}
+
+		.sam-btn-group {
+			display: inline-block;
+			position: relative;
+			z-index: 100;
+		}
+
+		.sam-treeview-icon {
+			color: $darkgray;
+			padding: 0 15px;
+			position: absolute;
+			top: -10px;
+
+			+.sam-treeview-text {
+				margin-right: 90px;
+			}
+
+
+			&:before {
+				content: "";
+				position: absolute;
+				right: -5px;
+				top: 20px;
+				height:1px;
+				width: 15px;
+				background: linear-gradient(to right, transparent 0%,transparent 50%,$graydark 50%,$graydark 100%);
+				background-position: right top;
+				background-repeat: repeat-x;
+				background-size: 6px 1px;
+			}
+
+			&:after {
+				content: "";
+				position: absolute;
+				left: -5px;
+				top: 20px;
+				height:1px;
+				width: 15px;
+				background: linear-gradient(to right, transparent 0%,transparent 50%,$graydark 50%,$graydark 100%);
+				background-position: right top;
+				background-repeat: repeat-x;
+				background-size: 6px 1px;
+			}
+		}
+
+		.sam-treeview-row {
+			margin: 0px;
+			padding: 0px 20px 0px 0px;
+			line-height: 2em;
+			position: relative;
+
+			&:before {
+				content:"";
+				display:block;
+				width:20px; /* same with indentation */
+				height:1px;
+				background: linear-gradient(to right, transparent 0%,transparent 50%,$graydark 50%,$graydark 100%);
+				background-position: right top;
+				background-repeat: repeat-x;
+				background-size: 6px 1px;
+				position:absolute;
+				top: 12px; /* (line-height/2) */
+				right: 0;
+			}
+			&:last-child:before {
+				background-color:#fff; /* same with body background */
+				height:auto;
+				top:14px; /* (line-height/2) */
+				bottom:0;
+				right:-4px;
+			}
+
+			&.sam-treeview-row--main {
+				+ .sam-treeview-row--main {
+					margin-top: 25px;
+				}
+
+				> .sam-checkbox {
+					padding: 20px 0;
+
+					.sam-treeview-icon {
+						top: 10px;
+
+						.fa-inverse {
+							font-size: 15px;
+						}
+					}
+
+					+ul {
+						&::before {
+							top: -30px;
+						}
+					}		
+				}
+
+				> .sam-treeview-collapser {
+					top: 18px;
+				}
+
+				&::before {
+					top: 30px !important;
+				}
+			}
+		}
+
+		.sam-treeview-collapser {
+			position: absolute;
+			right: -12px;
+			top: 0;
+			z-index: 100;
+			cursor: pointer;
+		}
+	}	
+
+	&.sam-treeview-hover {
+		ul {
+			li {
+				&:hover {
+					
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+

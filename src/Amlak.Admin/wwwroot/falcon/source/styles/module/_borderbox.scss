@@ -1,0 +1,27 @@
+.sam-borderbox {
+	display: block;
+	padding: 5px;
+	margin-bottom: 20px;
+	line-height: 1.42857;
+	background-color: #FFF;
+	border: 1px solid #DDD;
+	border-radius: 4px;
+
+	.sam-handler { opacity: 0; }	
+
+	&.sam-borderbox--dragable {
+		position: relative;
+
+		.sam-handler {
+			position: absolute;
+			top: 50%;
+			margin-top: -8px;
+			right: -12px;
+		}	
+
+		&:hover { 
+			.sam-handler { opacity: 1; }
+		}	
+	}
+}
+

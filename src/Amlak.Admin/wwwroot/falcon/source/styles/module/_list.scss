@@ -1,0 +1,7 @@
+.sam-list {
+	& > * {
+		&:first-child { border: 0 none; }
+
+		border-top: 1px solid #eee;
+	}
+}

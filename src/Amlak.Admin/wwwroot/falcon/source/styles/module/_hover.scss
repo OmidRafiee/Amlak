@@ -1,0 +1,6 @@
+.sam-hover {
+	@include transition();
+	transition-property: background-color;
+	
+	&:hover { background-color: #fff8dc }
+}

@@ -1,0 +1,15 @@
+.sam-filter {
+	background-color: #f8f8f8;
+	min-height: 100px;
+	position: relative;
+	@include bd-bottom(#e6ebed);
+
+	.sam-hr {
+		position: relative;
+		background-color: transparent;
+		height: 2px;
+
+		@include bd-top(#e6ebed);
+		@include bd-bottom(#ffffff);
+	}
+}
