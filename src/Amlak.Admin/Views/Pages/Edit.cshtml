@@ -1,0 +1,58 @@
+﻿@using Exir.Regate
+
+@model Calabin.Core.Entities.Pages
+
+@{ ViewBag.Title = "ویرایش صفحه"; }
+
+
+<script src="~/lib/ckeditor-4.6.2/ckeditor.js"></script>
+
+<div class="text-right mb">
+    <a href="@Url.Action("Create", "Pages")" class="btn btn-success green-jungle">ساخت صفحه جدید</a>
+</div>
+
+@using (Html.BeginForm("Edit", "Pages", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    @Html.AntiForgeryToken()
+
+
+    <div class="form-group">
+        <div class="col-sm-2 control-label">عنوان صفحه</div>
+        <div class="col-sm-10">
+            @Html.Raw(RegateTitle.Build(Model.Title))
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-2 control-label">اسم مبنا</div>
+        <div class="col-sm-10">
+            @Html.Raw(RegateBasename.Build(Model.Basename))
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-2 control-label">وضعیت انتشار</div>
+        <div class="col-sm-10">
+            <label>
+                @Html.Raw(RegateIsPublished.Build(Model.IsPublished))
+                منتشر شود
+            </label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-2 control-label">متن صفحه</div>
+        <div class="col-sm-10">
+            @Html.Raw(RegateWysiwyg.Build("Body", Model.Body))
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-success green-jungle">ثبت اطلاعات</button>
+            <a class="btn btn-default blue-dark" href="@Url.Action("Index", "Pages")">بازگشت</a>
+            <a class="btn btn-danger" href="@Url.Action("Delete", "Pages", new { id = Model.Id })" data-role="confirm">حذف</a>
+        </div>
+    </div>
+
+}
