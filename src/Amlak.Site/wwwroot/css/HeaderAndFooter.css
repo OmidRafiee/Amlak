@@ -1,0 +1,54 @@
+﻿.MainHeader{border-width:0px 0px 4px 0px;border-color:#BD8D3B;z-index:1000;background-color:#FFF;}
+/*HeaderImpoLInks*/
+.HeaderImpoLInks{background-color:#BD8D3B;height:40px;padding:0px 40px;}
+.HeaderImpoLInksItem{font-size:10pt;width:135px;color:#FFF;}
+.HeaderImpoLInksItem.before:before{position:absolute;width:1px;height:40px;background-color:#A97A2A;right:0px;top:0px;}
+.HeaderImpoLInksItem.after:after{position:absolute;width:1px;height:40px;background-color:#A97A2A;left:0px;top:0px;}
+.HeaderImpoLInksItem:hover{background-color:#DDA546;color:#FFF;}
+.ImpoLInksItemIcon{width:20px;height:20px;right:15px;top:4px;}
+.ImpoLInksItemIcon i{color:#FFF;font-size:15pt;top: 5px;position: relative;}
+/*HeaderAboutRaga*/
+.HeaderAboutRaga{border-width:0px 0px 1px 0px;border-color:#DCDCDC;}
+.WebSiteName{font-size:12pt;}
+.WebSiteName span{font-size:13pt;font-weight:bold;}
+.RagaContactItem{font-size:10pt;color:#808080;padding:0px 5px !important;}
+.RagaContactItem.before:before{display:block;position:absolute;width:1px;height:100%;right:0px;top:0px;background-color:#E0E0E0;}
+.RagaContactItem.after:after{display:block;position:absolute;width:1px;height:100%;left:0px;top:0px;background-color:#E0E0E0;}
+.RagaContactItemIcon{left:0px;}
+.RagaContactItemIcon i{font-size:12pt;color:#C08C36;}
+/*PageNavbar*/
+.PageNavbar{background-color:#F4F4F4;}
+.NavItemLinks{font-size:9pt;font-weight:bold;color:#343434;}
+.NavItemLinks:hover{color:#BD8D3B;}
+/*Footer*/
+.PageFooter{background-image:url(../image/down.png);background-size:100% 100%;z-index:-10;}
+.FooterImpoLinks{width:560px;z-index:-2;}
+.FooterImpoLinksItem{color:#AFAFAF;z-index:-1;}
+.FooterImpoLinksItem.after:after{display:block;position:absolute;left:0px;top:2px;width:2px;height:10px;background-color:#AFAFAF;}
+.ragaAddress p{color:#FEFEFE;}
+.PageCopyRight{bottom:0px;background-color:#333333;color:#F5F5F5;border-width:1px 0px 0px 0px;border-color:#545454;}
+/*Responsive*/
+@media only screen and (max-width:991px ) {
+    .RagaContactItemIcon{display:block;text-align:center;}
+    .NavItems{padding:10px;}
+    .NavItemLinks:hover{text-indent:10px;}
+}
+@media only screen and (max-width:768px ) {
+    .FooterImpoLinks{width:100%;}
+    .FooterImpoLinksItem{display:block;width:100%;color:#FFF;padding:5px 0px;}
+    .FooterImpoLinksItem.after:after{display:none;}
+}
+@media only screen and (max-width:576px ) {
+    .ImpoLInksItemIcon{display:none;}
+    .RagaContact{margin-top:10px;}
+    }
+
+
+
+
+
+
+
+
+
+

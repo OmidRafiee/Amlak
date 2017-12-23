@@ -1,0 +1,234 @@
+﻿@model object
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<div class="PageMainContent ofh relative">
+
+<div class="row w-100 m-auto">
+    <div class="col-12">
+        <div class="PageBox mx-2 my-1">
+            <div class="InnerPageItemHeader radius3">
+                <h2 class="InnerPageItemHeaderTitle tr w-100 lh3-5 h100p bold prl15 relative"><span class="InnerPageItemHeaderTitleBefore absolute after"></span>اطلاعات اولیه</h2>
+            </div>
+            <div class="p-2">
+                <div class="EnterHomeContent">
+                    <div class="EnterFormTabPanneItem">
+                        <form class="row w-100 m-auto">
+                            <div class="px-2 col-12 my-2"><input class="form-control" type="text" placeholder="عنـــوان" id="example-text-input"></div>
+                            <div class="form-group px-2 col-md-6 col-12 my-2">
+                                <select class="form-control" id="exampleSelect1">
+                                    <option disabled selected>وضعـــــــیت</option>
+                                    <option>خرید</option>
+                                    <option>رهن</option>
+                                    <option>اجاره</option>
+                                </select>
+                            </div>
+                            <div class="form-group px-2 col-md-6 col-12 my-2">
+                                <select class="form-control" id="exampleSelect1">
+                                    <option disabled selected>نـــوع خانـــه</option>
+                                    <option>آپارتمان</option>
+                                    <option>ویلایی</option>
+                                    <option>تجاری</option>
+                                    <option>اداری</option>
+                                </select>
+                            </div>
+                            <div class="px-2 col-md-6 col-12 my-2"><input class="form-control" type="number" placeholder="قیمت (بر حسب تومان)" id="example-text-input"></div>
+                            <div class="form-group px-2 col-md-6 col-12 my-2">
+                                <select class="form-control" id="exampleSelect1">
+                                    <option disabled selected>تعــداد اتـــاق</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>+3</option>
+                                </select>
+                            </div>
+                            <div class="form-group px-2 col-md-6 col-12 my-2">
+                                <select class="form-control" id="exampleSelect1">
+                                    <option disabled selected>تعــداد حمــام</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>+3</option>
+                                </select>
+                            </div>
+                            <div class="form-group px-2 col-md-6 col-12 my-2">
+                                <select class="form-control" id="exampleSelect1">
+                                    <option disabled selected>تعــداد پارکینگ</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>+3</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-12">
+        <div class="PageBox mx-2 my-1">
+            <div class="InnerPageItemHeader radius3">
+                <h2 class="InnerPageItemHeaderTitle tr w-100 lh3-5 h100p bold prl15 relative"><span class="InnerPageItemHeaderTitleBefore absolute after"></span>نقشه</h2>
+            </div>
+            <div class="p-2">
+                <div id="map">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-12">
+        <div class="PageBox mx-2 my-1">
+            <div class="InnerPageItemHeader radius3">
+                <h2 class="InnerPageItemHeaderTitle tr w-100 lh3-5 h100p bold prl15 relative"><span class="InnerPageItemHeaderTitleBefore absolute after"></span>امکانات</h2>
+            </div>
+            <div class="MoreOptionItem p-2">
+                <div class="row w-100 m-auto">
+                    <label class="custom-control custom-checkbox px-1 col-6">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description mr-2 mt-1">پارکینگ</span>
+                    </label>
+                    <label class="custom-control custom-checkbox px-1 col-6">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description mr-2 mt-1">بالکن</span>
+                    </label>
+                    <label class="custom-control custom-checkbox px-1 col-6">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description mr-2 mt-1">باشکاه ورزشی</span>
+                    </label>
+                    <label class="custom-control custom-checkbox px-1 col-6">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description mr-2 mt-1">استخر</span>
+                    </label>
+                    <label class="custom-control custom-checkbox px-1 col-6">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description mr-2 mt-1">سیستم گرامیش مرکزی</span>
+                    </label>
+                    <label class="custom-control custom-checkbox px-1 col-6">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description mr-2 mt-1">باربکیو</span>
+                    </label>
+                    <label class="custom-control custom-checkbox px-1 col-6">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description mr-2 mt-1">پارکینگ</span>
+                    </label>
+                    <label class="custom-control custom-checkbox px-1 col-6">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description mr-2 mt-1">بالکن</span>
+                    </label>
+                    <label class="custom-control custom-checkbox px-1 col-6">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description mr-2 mt-1">باشکاه ورزشی</span>
+                    </label>
+                    <label class="custom-control custom-checkbox px-1 col-6">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description mr-2 mt-1">استخر</span>
+                    </label>
+                    <label class="custom-control custom-checkbox px-1 col-6">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description mr-2 mt-1">سیستم گرامیش مرکزی</span>
+                    </label>
+                    <label class="custom-control custom-checkbox px-1 col-6">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description mr-2 mt-1">باربکیو</span>
+                    </label>
+                    <label class="custom-control custom-checkbox px-1 col-6">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description mr-2 mt-1">پارکینگ</span>
+                    </label>
+                    <label class="custom-control custom-checkbox px-1 col-6">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description mr-2 mt-1">بالکن</span>
+                    </label>
+                    <label class="custom-control custom-checkbox px-1 col-6">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description mr-2 mt-1">باشکاه ورزشی</span>
+                    </label>
+                    <label class="custom-control custom-checkbox px-1 col-6">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description mr-2 mt-1">استخر</span>
+                    </label>
+                    <label class="custom-control custom-checkbox px-1 col-6">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description mr-2 mt-1">سیستم گرامیش مرکزی</span>
+                    </label>
+                    <label class="custom-control custom-checkbox px-1 col-6">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description mr-2 mt-1">باربکیو</span>
+                    </label>
+                    <label class="custom-control custom-checkbox px-1 col-6">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description mr-2 mt-1">پارکینگ</span>
+                    </label>
+                    <label class="custom-control custom-checkbox px-1 col-6">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description mr-2 mt-1">بالکن</span>
+                    </label>
+                    <label class="custom-control custom-checkbox px-1 col-6">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description mr-2 mt-1">باشکاه ورزشی</span>
+                    </label>
+                    <label class="custom-control custom-checkbox px-1 col-6">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description mr-2 mt-1">استخر</span>
+                    </label>
+                    <label class="custom-control custom-checkbox px-1 col-6">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description mr-2 mt-1">سیستم گرامیش مرکزی</span>
+                    </label>
+                    <label class="custom-control custom-checkbox px-1 col-6">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description mr-2 mt-1">باربکیو</span>
+                    </label>
+                    <label class="custom-control custom-checkbox px-1 col-6">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description mr-2 mt-1">سیستم گرامیش مرکزی</span>
+                    </label>
+                    <label class="custom-control custom-checkbox px-1 col-6">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description mr-2 mt-1">باربکیو</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="PageBox mx-2 my-1">
+            <div class="InnerPageItemHeader radius3">
+                <h2 class="InnerPageItemHeaderTitle tr w-100 lh3-5 h100p bold prl15 relative"><span class="InnerPageItemHeaderTitleBefore absolute after"></span>گالری تصاویر</h2>
+            </div>
+            <div class="p-2">insert image to gallery</div>
+        </div>
+    </div>
+</div>
+</div>
