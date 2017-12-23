@@ -1,0 +1,64 @@
+﻿/**
+*
+*	Name:			IRAN Sans-Serif Font
+*	Version:		5.0
+*	Author:			Moslem Ebrahimi (moslemebrahimi.com)
+*	Created on:		Dec 25, 2012
+*	Updated on:		Sep 01, 2017
+*	Website:		             http://fontiran.com
+*	Copyright:		Commercial/Proprietary Software
+--------------------------------------------------------------------------------------
+فونت های ایران سن سریف یک نرم افزار مالکیتی محسوب می شود. جهت آگاهی از قوانین استفاده از این فونت ها لطفا به وب سایت (فونت ایران دات کام) مراجعه نمایید
+--------------------------------------------------------------------------------------
+IRAN Sans-serif fonts are considered a proprietary software. To gain information about the laws regarding the use of these fonts, please visit www.fontiran.com 
+--------------------------------------------------------------------------------------
+This set of fonts are used in this project under the license: (.....)
+--------------------------------------------------------------------------------------
+*	
+**/
+/*cutstring*/
+.CutString {direction:rtl;overflow:hidden;}
+.CutString1{max-height:50px}
+.CutString2{max-height:85px;}
+.CutString3{max-height:65px;}
+.CutString4{max-height:302px;}
+
+@font-face {font-family: FontAwesome;src: url(../fonts/FontAwesome.otf)}
+@font-face {font-family: IranSans;src: url(../fonts/IRANSansWebMedium.ttf)}
+body,ul li,ul,h1,h2,h3,h4,h5,h6,div,p,a,span,input,select,textarea,img,figure,section,header,footer,article,strong{font-family:IranSans;}
+body{direction:rtl;position:relative;z-index:-1000;}
+.FullContainer{z-index:-1000;}
+/*PageMainContent*/
+.PageMainContent{z-index:-1000;}
+.PageBox{background-color:#F2F2F2;}
+.InnerPageItemHeader{height:45px;background-color:#EFEFEF;}
+.InnerPageItemHeaderTitle{width:200px;background-color:#F3BA4F;font-size:10pt;color:#FFF;text-shadow: 2px 1px 2px #262626;padding-right:55px;}
+.InnerPageItemHeaderTitleBefore{width:40px;height:100%;background-color:#D9A84B;right:0px;top:0px;}
+.InnerPageItemHeaderTitleBefore.after:after{display:block;position:absolute;left:-7px;top:15px;width: 0; height: 0; border-top: 7px solid transparent;border-bottom: 7px solid transparent; border-right:7px solid #D9A84B; }
+/*Search form*/
+.EnterFormTabPanneItem .form-control[type="text"]{padding-right:17px;}
+.EnterFormTabPanneItem .form-control {font-size:13px;height:38px;}
+.form-control::-webkit-input-placeholder { color:#495057; }
+.form-control:-moz-placeholder { color:#495057; }
+.form-control::-moz-placeholder { color:#495057; }
+.form-control:-ms-input-placeholder { color:#495057; }
+.form-control::-ms-input-placeholder { color: #495057; }
+.EnterFormTabPanneItem .form-control:focus{border-color:#BD8D3B;}
+/*map*/
+#map {width: 100%;height: 416px;background-color: grey;}
+/*Features*/
+.MoreOptionItem .custom-control-indicator{position:relative;}
+.MoreOptionItem .custom-control-input:checked~.custom-control-indicator{background-color:#BD8D3B;border:none;}
+.MoreOptionItem .custom-control-input:focus~.custom-control-indicator {-webkit-box-shadow: 0 0 0 1px #fff, 0 0 0 3px #BD8D3B;box-shadow: 0 0 0 1px #fff, 0 0 0 3px #BD8D3B;}
+.MoreOptionItem .custom-checkbox{margin-right:0px;}
+
+
+
+
+/*Responsive*/
+@media only screen and (max-width:991px ) {
+
+}
+@media only screen and (max-width:576px ) {
+
+}
