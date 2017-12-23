@@ -1,0 +1,28 @@
+﻿
+@inject FileConfig FileConfig
+
+@model Amlak.Core.Entities.Pages
+
+@{
+    ViewBag.Title = "کالابین :: " + Model.Title;
+}
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="">
+                <h2 class="section-title">@ViewBag.Title</h2>
+
+                <div>@Html.Raw(Model.Body)</div>
+
+                @*@Html.Partial("_Help")*@
+                @*@Html.Partial("_About")*@
+                @*@Html.Partial("_Agreement")*@
+                @*@Html.Partial("_Privacy")*@
+            </div>
+        </div>
+    </div>
+
+</div>
+
