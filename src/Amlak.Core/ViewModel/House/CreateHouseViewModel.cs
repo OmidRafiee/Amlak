@@ -6,15 +6,20 @@ namespace Amlak.Core.ViewModel.House
     {
 
         [Display(Name = "عنوان")]
+        [Required(ErrorMessage = "عنوان ملک را وارد نمایید",AllowEmptyStrings = false)]
         public string Title { get; set; }
 
         [Display(Name = "توضیحات")]
+        [StringLength(100, ErrorMessage = "کلمه عبور باید حداقل 6 حرف باشد", MinimumLength = 6)]
+
         public string Description { get; set; }
 
         /// <summary>
         /// وضیعت
         /// </summary>
         [Display(Name = "وضیعت")]
+        [StringLength(100, ErrorMessage = "کلمه عبور باید حداقل 6 حرف باشد", MinimumLength = 6)]
+
         public string Status { get; set; }
 
         /// <summary>
