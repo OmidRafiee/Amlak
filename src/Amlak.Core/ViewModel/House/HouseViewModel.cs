@@ -25,6 +25,33 @@
 
         public string Scale { get; set; }
 
+
+        /// <summary>
+        /// منطفه
+        /// </summary>
+        public string Region { get; set; }
+
+        /// <summary>
+        /// شهر
+        /// </summary>
+        public string City { get; set; }
+
+        /// <summary>
+        /// استان
+        /// </summary>
+        public string Town { get; set; }
+
+
+        /// <summary>
+        /// محله
+        /// </summary>
+        public string Area { get; set; }
+
+        /// <summary>
+        /// طبقه 
+        ///  </summary>
+        public int Floor { get; set; }
+
         public int? CategoryId { get; set; }
         public int? UserId { get; set; }
     }
