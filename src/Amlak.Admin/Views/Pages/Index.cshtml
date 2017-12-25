@@ -1,0 +1,56 @@
+﻿
+@model List<Calabin.Core.DTO.Pages.PagesSummary>
+
+@{ ViewBag.Title = "مدیریت صفحات"; }
+
+@*@{
+    ViewBag.BreadCrumb = new BreadCrumb
+    {
+        Links = new List<BreadCrumbLink>
+        {
+            new BreadCrumbLink
+            {
+                Title = "مدیریت صفحات",
+                Link = Url.Action("Index", "Pages")
+            }
+        }
+    };
+}*@
+
+<div class="text-right mb">
+    <a href="@Url.Action("Create", "Pages")" class="btn btn-success green-jungle">ساخت صفحه جدید</a>
+</div>
+
+
+@if (Model != null && Model.Count > 0)
+{
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th width="150" align="center">وضعیت انتشار</th>
+                <th>عنوان صفحه</th>
+                <th width="200">اسم مبنا</th>
+                <th width="200" align="left"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td align="center">
+                        <span class="label label-sm label-@(item.IsPublished ? "success" : "danger")">
+                            @(item.IsPublished ? "منتشر شده" : "منتشر نشده")
+                        </span>
+                    </td>
+                    <td>@item.Title</td>
+                    <td dir="ltr" style="text-align: right; font-family: consolas, monospace;">@item.Basename</td>
+
+                    <td align="left">
+                        <a class="btn btn-primary" href="@Url.Action("Edit", "Pages", new {id = item.Id})">ویرایش</a>
+                        <a class="btn btn-danger" href="@Url.Action("Delete", "Pages", new {id = item.Id})" data-role="confirm">حذف</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

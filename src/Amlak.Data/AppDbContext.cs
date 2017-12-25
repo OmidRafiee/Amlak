@@ -19,6 +19,7 @@ namespace Amlak.Data
 
         public DbSet<House> House { get; set; }
         public DbSet<Category> Category { get; set; }
+        public DbSet<Pages> Pages { get; set; }
 
         public DbSet<Possibilities> Possibilities { get; set; }
 
@@ -102,7 +103,7 @@ namespace Amlak.Data
             {
                 var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
 
-                optionsBuilder.UseSqlServer("Server=DESKTOP-T0VSFA8\\MSSQLSERVER2016;Database=Amlak;Trusted_Connection=False;MultipleActiveResultSets=true;User ID=sa; Password=123");
+                optionsBuilder.UseSqlServer("Server=.;Database=Amlak;Trusted_Connection=False;MultipleActiveResultSets=true;User ID=sa; Password=123");
 
                 return new AppDbContext(optionsBuilder.Options);
             }

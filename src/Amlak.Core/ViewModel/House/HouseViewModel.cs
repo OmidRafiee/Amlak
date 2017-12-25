@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Amlak.Core.ViewModel
+﻿namespace Amlak.Core.ViewModel.House
 {
     public class HouseViewModel
     {

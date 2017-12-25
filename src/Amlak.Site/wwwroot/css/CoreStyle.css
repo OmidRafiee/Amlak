@@ -1,5 +1,5 @@
 ﻿.Main1024Object{position:absolute;right:0;top:0}
-body,ul li,ul,h1,h2,h3,h4,h5,h6,div,p,a,span,input,select,textarea,img,figure,section,header,footer,article,strong{margin:0px;padding:0px;Font-Family:Tahoma;Font-Size:8pt;Font-weight:normal;text-decoration:none;list-style-type:none;color:#000;outline:0;ie-dummy:expression(this.hideFocus=true);box-sizing:border-box;text-align:right}
+body,ul li,ul,h1,h2,h3,h4,h5,h6,div,p,a,input,select,textarea,img,figure,section,header,footer,article,strong{margin:0px;padding:0px;Font-Family:Tahoma;Font-Size:8pt;Font-weight:normal;text-decoration:none;list-style-type:none;color:#000;outline:0;ie-dummy:expression(this.hideFocus=true);box-sizing:border-box;text-align:right}
 div[align=center],p[align=center]{text-align:center}
 img{border:0}
 a:focus,a:hover{text-decoration:none}

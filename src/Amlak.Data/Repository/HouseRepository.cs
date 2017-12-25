@@ -5,6 +5,7 @@ using System.Text;
 using Alamut.Data.Structure;
 using Amlak.Core.Entities;
 using Amlak.Core.ViewModel;
+using Amlak.Core.ViewModel.House;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 
@@ -19,7 +20,7 @@ namespace Amlak.Data.Repository
             _context = context;
         }
 
-        public ServiceResult<int> Create(HouseViewModel model)
+        public ServiceResult<int> Create(CreateHouseViewModel model)
         {
             var entity = Mapper.Map<House>(model);
 
