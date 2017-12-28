@@ -3,26 +3,25 @@
 {
 
     <div class="navbar-title">
-        <span>فروشگاه</span>
+        <span>مدیریت املاک</span>
     </div>
 
     <ul class="main-navigation-menu">
 
-        @if (User.IsInRole("Admin") || User.IsInRole("Product"))
-        {
+       
             <li data-menu-role="Calabin/Product">
-                <a asp-controller="Product" asp-action="Index">
+                <a asp-controller="House" asp-action="Index">
                     <div class="item-content">
                         <div class="item-media">
                             <i class="ti-package"></i>
                         </div>
                         <div class="item-inner">
-                            <span class="title"> مدیریت محصول</span>
+                            <span class="title"> مدیریت املاک</span>
                         </div>
                     </div>
                 </a>
             </li>
-        }
+        
 
         @if (User.IsInRole("Admin") || User.IsInRole("Product"))
         {

@@ -87,6 +87,16 @@ namespace Amlak.Core.Entities
         /// پیشنهاد ویژه
         /// </summary>
         public bool IsSpecialOffer{ get; set; }
+
+        /// <summary>
+        /// زمان ثبت آگهی
+        /// </summary>
+        public DateTime DateTime { get; set; }
+        
+        /// <summary>
+        ///زمان انتشار آگاهی که توسط ادمین تهیین میشود 
+        /// </summary>
+        public DateTime? PublishDate { get; set; }
         
 
         public int? UserId { get; set; }
