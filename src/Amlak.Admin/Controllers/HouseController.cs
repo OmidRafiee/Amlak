@@ -41,9 +41,26 @@ namespace Amlak.Admin.Controllers
 
            var result= _houseRepository.Update(model);
 
+           
             return RedirectToAction("Edit", new {model.Id});
         }
 
-       
+        public IActionResult Detail(int id)
+        {
+            var model = _houseRepository.GetById(id);
+
+            return View(model);
+
+        }
+
+        public IActionResult Delete(int id)
+        {
+            var result = _houseRepository.Delete(id);
+
+            return RedirectToAction("Index", new { id });
+
+        }
+
+
     }
 }

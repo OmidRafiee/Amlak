@@ -1,0 +1,86 @@
+﻿@using Amlak.Core.SSOT
+@using DNTPersianUtils.Core
+@model Amlak.Core.ViewModel.House.HouseViewModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<div class="container">
+    <dl class="dl-horizontal">
+        <dt>
+            <label asp-for="Title"></label>
+        </dt>
+        <dd>
+            <label>@Model.Title</label>
+        </dd>
+        <dt>
+            <label asp-for="Description"></label>
+        </dt>
+
+        <dd>
+            <label>@Html.Raw(Model.Description)</label>
+        </dd>
+
+        <dt>
+            <label asp-for="Price"></label>
+        </dt>
+
+        <dd>
+            <label>@Model.Price.ToPersianNumbers()</label>
+        </dd>
+        <dt>
+            <label asp-for="Status"></label>
+        </dt>
+
+        <dd>
+            <label>@Model.Status</label>
+        </dd>
+
+        <dt>
+            <label asp-for="Town"></label>
+        </dt>
+
+        <dd>
+            <label>@Model.Town</label>
+        </dd>
+        <dt>
+            <label asp-for="City"></label>
+
+        </dt>
+
+        <dd>
+            <label>@Model.City</label>
+        </dd>
+        <dt>
+            <label asp-for="Area"></label>
+
+        </dt>
+
+        <dd>
+            <label>@Model.Area</label>
+        </dd>
+        @*@if (Model.PublishDate)
+        {
+            <dt>
+                <label asp-for="PublishTime"></label>
+            </dt>
+
+            <dd>
+                <label>@Model.PublishTime.ToShortPersianDateString().ToPersianNumbers()</label>
+            </dd>
+        }*@
+        
+        @*<dd>
+            <img src="@FileConfig.WebAddress@Model." width="160" alt=""/>
+        </dd>*@
+
+    </dl>
+    <p>
+        @Html.ActionLink("ویرایش", "Edit", "House", new { id = Model.Id }, new { @class = "btn  btn-success" })
+
+        @Html.ActionLink("انصراف", "Index", "House", null, new { @class = "btn  btn-default" })
+    </p>
+</div>
+

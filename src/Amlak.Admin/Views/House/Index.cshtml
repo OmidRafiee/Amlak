@@ -8,11 +8,21 @@
 
 
 <form asp-controller="House" asp-action="Index" method="get">
-    <div class="form-group col-md-3">
-        <label>نام محصول</label>
-        <input name="Term" class="form-control" value="@ViewBag.Term">
-        <button type="submit" class="btn btn-success"> جستجو محصول</button>
+    <div class="row">
+        <div class="col-sm-3 col-xs-12  form-group">
+            <label>عنوان ملک</label>
+            <input name="Term" class="form-control" value="@ViewBag.Term">
+        </div>
 
+        <div class="col-sm-4 col-xs-12  form-group">
+            <label>گروه ملک</label>
+            <select name="CategoryId" asp-items="(SelectList)ViewBag.Category" class="form-control">
+                <option></option>
+            </select>
+        </div>
+        <div class="col-xs-4  form-group">
+            <button type="submit" class="btn btn-success" style="margin-top: 22px; height: 34px;"> جستجو ملک</button>
+        </div>
     </div>
 
 </form>
@@ -24,10 +34,10 @@
             <thead>
                 <tr>
                     <th width="10">ردیف</th>
-                    <th>نام</th>
-                    <th>تصویر </th>
-                    <th>قیمت(تومان)</th>
-                    <th>وضیعت محصول</th>
+                    <th>عنوان</th>
+                    <th>قیمت </th>
+                    <th>نمایش در سایت</th>
+                    <th>نمایش در پیشنهاد ویژه</th>
                     <th width="200">اقدامات</th>
                 </tr>
             </thead>
@@ -43,15 +53,29 @@
                             @item.Title
                         </td>
 
-                        <td>
-                            <img src="" width="50" height="50" alt="" />
-                        </td>
-
                         <td>@item.Price.ToPersianNumbers() تومان</td>
+
                         <td>
-                          
+                            @if (item.IsPublished)
+                            {
+                                <text>نمایش</text>
+                            }
+                            else
+                            {
+                                <text>عدم نمایش</text>
+                            }
                         </td>
 
+                        <td>
+                            @if (item.IsSpecialOffer)
+                            {
+                                <text>نمایش</text>
+                            }
+                            else
+                            {
+                                <text>عدم نمایش</text>
+                            }
+                        </td>
                         <td>
                             <a class="btn btn-sm btn-success" asp-controller="House" asp-action="Edit" asp-route-id="@item.Id">
                                 ویرایش
