@@ -1,0 +1,27 @@
+﻿@model Amlak.Core.ViewModel.Category.CategoryViewModel
+
+@{
+    ViewBag.Title = "ویرایش گروه";
+    Layout = "_Layout";
+}
+
+
+<form asp-controller="Category" asp-action="Edit">
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <label asp-for="Title"></label>
+        <input asp-for="Title" class="form-control">
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+  
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-success green-jungle">ویرایش اطلاعات</button>
+            <a class="btn btn-default blue-dark" href="@Url.Action("Index", "Category")">بازگشت</a>
+        </div>
+    </div>
+
+</form>
+
+

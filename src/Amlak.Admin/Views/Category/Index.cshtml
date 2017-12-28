@@ -1,0 +1,55 @@
+﻿@using Calabin.Core.SSOT
+@using DNTPersianUtils.Core
+@model List<Amlak.Core.ViewModel.Category.CategoryViewModel>
+
+@{
+    ViewBag.Title = "گروه بندی";
+    Layout = "_Layout";
+    var count = 0;
+}
+
+
+<div class="panel panel-default ">
+    <div class="panel-heading" style="font-size: 15px">لیست گروه ها</div>
+    <div class="panel-body">
+
+        <div class="table-responsive">
+            <table class="table table-striped table-hover table-valigned">
+                <thead>
+                <tr>
+                    <th width="10">ردیف</th>
+                    <th>عنوان گروه</th>
+                     <th>ترتیب نمایش</th>
+                    <th width="200">اقدامات</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        @{
+                            count += 1;
+                        }
+                        <td>@count.ToPersianNumbers()</td>
+
+                        <td>
+                            @item.Title
+                        </td>
+                        
+                      <td>
+                            <a class="btn btn-sm btn-success" asp-controller="Category" asp-action="Edit" asp-route-id="@item.Id">
+                                ویرایش
+                            </a>
+
+                            <a class="btn btn-sm btn-danger" asp-controller="Category" asp-action="Delete" asp-route-id="@item.Id" ,new { onclick="return confirm('جهت حذف مطمئن هستید ؟')" }>
+                                حذف
+                            </a>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>

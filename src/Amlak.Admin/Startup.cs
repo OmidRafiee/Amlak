@@ -116,6 +116,8 @@ namespace Amlak.Admin
             });
 
             services.AddScoped<HouseRepository>();
+            services.AddScoped<CategoryRepository>();
+
 
             services.AddMvc();
         }

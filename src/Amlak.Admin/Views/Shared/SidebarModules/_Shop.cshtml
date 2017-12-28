@@ -9,7 +9,7 @@
     <ul class="main-navigation-menu">
 
        
-            <li data-menu-role="Calabin/Product">
+            <li data-menu-role="Amlak/Product">
                 <a asp-controller="House" asp-action="Index">
                     <div class="item-content">
                         <div class="item-media">
@@ -22,59 +22,39 @@
                 </a>
             </li>
         
+        <li data-menu-role="Amlak/Category">
+            <a asp-controller="Category" asp-action="Index">
+                <div class="item-content">
+                    <div class="item-media">
+                        <i class="ti-package"></i>
+                    </div>
+                    <div class="item-inner">
+                        <span class="title"> مدیریت گروه محصولات</span>
+                    </div>
+                </div>
+            </a>
+        </li>
+        
 
-        @if (User.IsInRole("Admin") || User.IsInRole("Product"))
-        {
-            <li data-menu-role="Clabin/ProductCreate">
-                <a asp-controller="Product" asp-action="Create">
+      
+            <li data-menu-role="Amlak/CoinsCreate">
+                <a asp-controller="Category" asp-action="Create">
                     <div class="item-content">
                         <div class="item-media">
                             <i class="ti-ruler-pencil"></i>
                         </div>
                         <div class="item-inner">
-                            <span class="title"> ایجاد محصول جدید</span>
+                            <span class="title"> ایجاد گروه جدید</span>
                         </div>
                     </div>
                 </a>
             </li>
-        }
-
-
-        @if (User.IsInRole("Admin") || User.IsInRole("CoinsPackage"))
-        {
-            <li data-menu-role="Calabin/CoinsPackage">
-                <a asp-controller="CoinsPackage" asp-action="Index">
-                    <div class="item-content">
-                        <div class="item-media">
-                            <i class="ti-package"></i>
-                        </div>
-                        <div class="item-inner">
-                            <span class="title"> مدیریت بسته ها</span>
-                        </div>
-                    </div>
-                </a>
-            </li>
-        }
-        @if (User.IsInRole("Admin") || User.IsInRole("CoinsPackage"))
-        {
-            <li data-menu-role="Calabin/CoinsCreate">
-                <a asp-controller="CoinsPackage" asp-action="Create">
-                    <div class="item-content">
-                        <div class="item-media">
-                            <i class="ti-ruler-pencil"></i>
-                        </div>
-                        <div class="item-inner">
-                            <span class="title"> ایجاد بسته جدید</span>
-                        </div>
-                    </div>
-                </a>
-            </li>
-        }
+        
 
 
         @if (User.IsInRole("Admin") || User.IsInRole("Category"))
         {
-            <li data-menu-role="Calabin/Category">
+            <li data-menu-role="Amlak/Category">
                 <a asp-controller="Category" asp-action="Index">
                     <div class="item-content">
                         <div class="item-media">
@@ -89,7 +69,7 @@
         }
         @if (User.IsInRole("Admin") || User.IsInRole("Category"))
         {
-            <li data-menu-role="Calabin/CategoryCreate">
+            <li data-menu-role="Amlak/CategoryCreate">
                 <a asp-controller="Category" asp-action="Create">
                     <div class="item-content">
                         <div class="item-media">
