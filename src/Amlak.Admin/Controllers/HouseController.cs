@@ -32,11 +32,16 @@ namespace Amlak.Admin.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(HouseViewModel model)
+        public IActionResult Edit(HouseEditViewModel model)
         {
-            ViewData["Message"] = "Your contact page.";
+            if (model.IsPublished)
+            {
+                model.PublishDate=DateTime.Now;
+            }
 
-            return View();
+           var result= _houseRepository.Update(model);
+
+            return RedirectToAction("Edit", new {model.Id});
         }
 
        

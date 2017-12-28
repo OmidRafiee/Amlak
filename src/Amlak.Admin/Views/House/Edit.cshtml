@@ -21,27 +21,10 @@
             </div>
 
             <div class="form-group">
-                <label asp-for="CategoryId"></label>
-                <select asp-for="CategoryId"
-                        asp-items="(SelectList)ViewBag.Category" class="form-control">
-                    <option></option>
-                </select>
-                <span asp-validation-for="CategoryId" class="text-danger"></span>
-
-            </div>
-
-            <div class="form-group">
                 <label asp-for="Description"></label>
                 @Html.Raw(RegateWysiwyg.Build("Description", Model?.Description))
 
             </div>
-
-           
-            @*<div class="form-group">
-                    <label asp-for="PublishTime"></label>
-                    @Html.Raw(RegatePersianDatePicker2.Build("PublishTime", Model.PublishTime, isRequired: true))
-                </div>*@
-
 
             <div class="form-group">
                 <label asp-for="Status"></label>
@@ -56,9 +39,18 @@
 
             <div class="form-group">
                 <label asp-for="CategoryId"></label>
+                <select asp-for="CategoryId" asp-items="(SelectList)ViewBag.Category" class="form-control">
+                    <option></option>
+                </select>
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
+
+            </div>
+
+            <div class="form-group">
+                <label asp-for="CategoryId"></label>
 
                 <select name="CategoryId" class="form-control">
-                    <option disabled selected>نـــوع ملـــــک</option>
+                    <option selected>نـــوع ملـــــک</option>
                     <option value="آپارتمان">آپارتمان</option>
                     <option value="ویلایی">ویلایی</option>
                     <option value="تجاری">تجاری</option>
@@ -91,7 +83,7 @@
                     @foreach (var item in Iran.Provinces.OrderBy(q => q.ProvinceName))
                     {
 
-                        <option value="@item.ProvinceName">@item.ProvinceName</option>
+                        <!option value="@item.ProvinceName" @(Model.Town == item.ProvinceName ? "selected" : "")>@item.ProvinceName</!option>
                     }
 
                 </select>
@@ -117,47 +109,47 @@
                 <input asp-for="Floor" class="form-control" placeholder="طبقه" />
                 <span asp-validation-for="Floor" class="text-danger"></span>
             </div>
-            
+
             <div class="form-group">
                 <label asp-for="Price"></label>
                 <input asp-for="Price" class="form-control" type="number" placeholder="قیمت (بر حسب تومان)">
                 <span asp-validation-for="Price" class="text-danger"></span>
             </div>
-            
+
             <div class="form-group">
                 <label asp-for="Rooms"></label>
 
                 <select name="Rooms" class="form-control">
-                    <option disabled selected>تعــداد اتـــاق</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">+4</option>
+                    <option selected>تعــداد اتـــاق</option>
+                    <!option value="1" @(Model.Rooms == 1 ? "selected" : "")>1</!option>
+                    <!option value="2" @(Model.Rooms == 2 ? "selected" : "")>2</!option>
+                    <!option value="3" @(Model.Rooms == 3 ? "selected" : "")>3</!option>
+                    <!option value="4" @(Model.Rooms == 4 ? "selected" : "")>+4</!option>
                 </select>
                 <span asp-validation-for="Rooms" class="text-danger"></span>
             </div>
-            
+
             <div class="form-group">
                 <label asp-for="Bathrooms"></label>
                 <select name="Bathrooms" class="form-control">
-                    <option disabled selected>تعــداد حمــام</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">+4</option>
+                    <option selected>تعــداد حمــام</option>
+                    <!option value="1" @(Model.Bathrooms == 1 ? "selected" : "")>1</!option>
+                    <!option value="2" @(Model.Bathrooms == 2 ? "selected" : "")>2</!option>
+                    <!option value="3" @(Model.Bathrooms == 3 ? "selected" : "")>3</!option>
+                    <!option value="4" @(Model.Bathrooms == 4 ? "selected" : "")>+4</!option>
                 </select>
                 <span asp-validation-for="Bathrooms" class="text-danger"></span>
 
             </div>
-            
+
             <div class="form-group">
                 <label asp-for="Parkings"></label>
                 <select name="Parkings" class="form-control">
-                    <option disabled selected>تعــداد پارکینگ</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">+4</option>
+                    <option selected>تعــداد پارکینگ</option>
+                    <!option value="1" @(Model.Parkings == 1 ? "selected" : "")>1</!option>
+                    <!option value="2" @(Model.Parkings == 2 ? "selected" : "")>2</!option>
+                    <!option value="3" @(Model.Parkings == 3 ? "selected" : "")>3</!option>
+                    <!option value="4" @(Model.Parkings == 4 ? "selected" : "")>+4</!option>
                 </select>
                 <span asp-validation-for="Parkings" class="text-danger"></span>
 
@@ -169,21 +161,22 @@
                     <span asp-validation-for="ImageAddress" class="text-danger"></span>
                 </div>*@
 
+            <div class="form-group">
+                <label asp-for="IsPublished"></label>:
 
-            @*<div class="form-group">
-                    <label asp-for="ShouldShowInSlider"></label>
-                    <input type="checkbox" name="ShouldShowInSlider" value="true" @(Model.ShouldShowInSlider ? "checked" : "")> فعال
-                </div>
+                <label><input type="radio" name="IsPublished" checked="@(Model.IsPublished)" value="true"> نمایش</label>
+                <label><input type="radio" name="IsPublished" checked="@(!Model.IsPublished)" value="false"> عدم نمایش</label>
+            </div>
 
-                <div class="form-group">
-                    <label asp-for="IsRecommended"></label>
-                    <input type="checkbox" name="IsRecommended" value="true" @(Model.IsRecommended ? "checked" : "")> فعال
-                </div>*@
+            <div class="form-group">
+                <label asp-for="IsSpecialOffer"></label>:
+                <label><input type="radio" name="IsSpecialOffer" checked="@(Model.IsSpecialOffer)" value="true"> نمایش</label>
+                <label> <input type="radio" name="IsSpecialOffer" checked="@(!Model.IsSpecialOffer)" value="false"> عدم نمایش</label>
+            </div>
+
 
             <button type="submit" class="btn btn-success"> ویرایش آگهی</button>
         </form>
-
-
-
+        
     </div>
 </div>

@@ -15,7 +15,9 @@ namespace Amlak.Core.SSOT
             CreateMap<House, HouseViewModel>();
             CreateMap<HouseViewModel, House>();
 
-            CreateMap<CreateHouseViewModel,House>();
+            CreateMap<HouseCreateViewModel,House>();
+            CreateMap<HouseEditViewModel, House>();
+
 
         }
     }

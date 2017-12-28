@@ -20,7 +20,7 @@ namespace Amlak.Data.Repository
             _context = context;
         }
 
-        public ServiceResult<int> Create(CreateHouseViewModel model)
+        public ServiceResult<int> Create(HouseCreateViewModel model)
         {
             var entity = Mapper.Map<House>(model);
 
@@ -35,13 +35,14 @@ namespace Amlak.Data.Repository
             return _context.House.ProjectTo<HouseViewModel>().ToList();
         }
 
-        public ServiceResult Update(HouseViewModel model)
+        public ServiceResult Update(HouseEditViewModel model)
         {
             var oldEntity = _context.House.FirstOrDefault(q => q.Id == model.Id);
+
             Mapper.Map(model, oldEntity);
             _context.SaveChanges();
-            var result = ServiceResult<int>.Okay(model.Id);
-            return result;
+
+            return ServiceResult<int>.Okay(model.Id);
         }
 
         public ServiceResult Delete(int id)

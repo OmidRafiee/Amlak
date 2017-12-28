@@ -19,13 +19,13 @@ namespace Amlak.Site.Controllers
 
        public IActionResult Index()
         {
-            var model = new  CreateHouseViewModel();
+            var model = new  HouseCreateViewModel();
 
             return View(model);
         }
 
         [HttpPost]
-        public IActionResult Create(CreateHouseViewModel model)
+        public IActionResult Create(HouseCreateViewModel model)
         {
             var result = _houseRepository.Create(model);
                 
