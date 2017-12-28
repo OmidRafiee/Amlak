@@ -21,7 +21,7 @@ namespace Amlak.Data
         public DbSet<Category> Category { get; set; }
         public DbSet<Pages> Pages { get; set; }
 
-        public DbSet<Possibilities> Possibilities { get; set; }
+        public DbSet<Option> Option { get; set; }
 
 
 

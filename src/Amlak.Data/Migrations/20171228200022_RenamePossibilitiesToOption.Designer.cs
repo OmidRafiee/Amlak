@@ -11,9 +11,10 @@ using System;
 namespace Amlak.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20171228200022_RenamePossibilitiesToOption")]
+    partial class RenamePossibilitiesToOption
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -90,18 +91,6 @@ namespace Amlak.Data.Migrations
                     b.ToTable("House");
                 });
 
-            modelBuilder.Entity("Amlak.Core.Entities.Option", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Title");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Option");
-                });
-
             modelBuilder.Entity("Amlak.Core.Entities.Pages", b =>
                 {
                     b.Property<int>("Id")
@@ -118,6 +107,18 @@ namespace Amlak.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Pages");
+                });
+
+            modelBuilder.Entity("Amlak.Core.Entities.Possibilities", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Title");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Possibilities");
                 });
 
             modelBuilder.Entity("Amlak.Core.Entities.Role", b =>

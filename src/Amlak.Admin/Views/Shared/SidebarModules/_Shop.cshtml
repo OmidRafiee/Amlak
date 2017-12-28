@@ -23,7 +23,7 @@
             </li>
         
         <li data-menu-role="Amlak/Category">
-            <a asp-controller="Category" asp-action="Index">
+            <a asp-controller="Option" asp-action="Index">
                 <div class="item-content">
                     <div class="item-media">
                         <i class="ti-package"></i>
@@ -38,7 +38,7 @@
 
       
             <li data-menu-role="Amlak/CoinsCreate">
-                <a asp-controller="Category" asp-action="Create">
+                <a asp-controller="Option" asp-action="Create">
                     <div class="item-content">
                         <div class="item-media">
                             <i class="ti-ruler-pencil"></i>
@@ -55,7 +55,7 @@
         @if (User.IsInRole("Admin") || User.IsInRole("Category"))
         {
             <li data-menu-role="Amlak/Category">
-                <a asp-controller="Category" asp-action="Index">
+                <a asp-controller="Option" asp-action="Index">
                     <div class="item-content">
                         <div class="item-media">
                             <i class="ti-package"></i>
@@ -70,7 +70,7 @@
         @if (User.IsInRole("Admin") || User.IsInRole("Category"))
         {
             <li data-menu-role="Amlak/CategoryCreate">
-                <a asp-controller="Category" asp-action="Create">
+                <a asp-controller="Option" asp-action="Create">
                     <div class="item-content">
                         <div class="item-media">
                             <i class="ti-ruler-pencil"></i>

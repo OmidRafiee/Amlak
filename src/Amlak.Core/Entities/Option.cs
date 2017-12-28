@@ -7,7 +7,7 @@ namespace Amlak.Core.Entities
     /// <summary>
     /// امکانات مانند کولر ، شوفاژ و ...
     /// </summary>
-    public class Possibilities
+    public class Option
     {
         public int Id { get; set; }
 

@@ -40,7 +40,7 @@ namespace Amlak.Core.Entities
         /// امکانات که برای مثال شامل
         ///سیستم گرمایشی ، کولر 
         /// </summary>
-        public string PossibilitiesIdsJson{ get; set; }
+        public string OptionIdsJson{ get; set; }
 
         /// <summary>
         /// مکان جغرافیای
