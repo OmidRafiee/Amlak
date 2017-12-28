@@ -3,15 +3,24 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Amlak.Data.Repository;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Amlak.Admin.Controllers
 {
-    public class HomeController : Controller
+    public class HouseController : Controller
     {
+        private readonly HouseRepository _houseRepository;
+
+        public HouseController(HouseRepository houseRepository)
+        {
+            _houseRepository = houseRepository;
+        }
+
         public IActionResult Index()
         {
-            return View();
+           var model= _houseRepository.GetAll();
+            return View(model);
         }
 
         public IActionResult About()

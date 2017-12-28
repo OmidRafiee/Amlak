@@ -1,4 +1,4 @@
-﻿@using Calabin.Core.Entities
+﻿@using Amlak.Core.Entities
 @using Microsoft.AspNetCore.Http.Extensions
 @using Microsoft.AspNetCore.Identity
 
@@ -30,8 +30,8 @@ Microsoft.AspNetCore.Identity
     </div>
     <!-- end: NAVBAR HEADER -->
     <!-- start: NAVBAR COLLAPSE -->
-  @if(SignInManager.IsSignedIn(User))
-  {
+  @*@if(SignInManager.IsSignedIn(User))
+  {*@
       <div class="navbar-collapse collapse">
           <ul class="nav navbar-right">
              
@@ -68,7 +68,7 @@ Microsoft.AspNetCore.Identity
           </div>
           <!-- end: MENU TOGGLER FOR MOBILE DEVICES -->
       </div>
-  }
+  @*}*@
     @*<a class="dropdown-off-sidebar" data-toggle-class="app-offsidebar-open" data-toggle-target="#app" data-toggle-click-outside="#off-sidebar">
             &nbsp;
         </a>*@

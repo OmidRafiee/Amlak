@@ -13,6 +13,7 @@ using Amlak.Core.SSOT;
 using Amlak.Data;
 using Amlak.Data.Repository;
 using AutoMapper;
+using Calabin.Core.SSOT;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -39,10 +40,10 @@ namespace Amlak.Admin
                 .AddEnvironmentVariables();
 
 
-            if (env.IsDevelopment())
-            {
-                builder.AddUserSecrets<Startup>();
-            }
+            //if (env.IsDevelopment())
+            //{
+            //    builder.AddUserSecrets<Startup>();
+            //}
 
             Configuration = builder.Build();
 
@@ -62,8 +63,8 @@ namespace Amlak.Admin
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.ConfigurePoco<FileConfig>(Configuration.GetSection("FileRepository"));
-            //services.ConfigurePoco<AppSetting>(Configuration.GetSection("AppSetting"));
+            services.ConfigurePoco<FileConfig>(Configuration.GetSection("FileRepository"));
+            services.ConfigurePoco<AppSetting>(Configuration.GetSection("AppSetting"));
             //services.ConfigurePoco<SmsSetting>(Configuration.GetSection("SmsSetting"));
 
 
@@ -80,14 +81,14 @@ namespace Amlak.Admin
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
             services.AddScoped<IDbConnection>(options => new SqlConnection(Configuration.GetConnectionString("Default")));
 
-            services.AddMvc(config =>
-            {
-                var policy = new AuthorizationPolicyBuilder()
-                    .RequireAuthenticatedUser()
-                    .Build();
+            //services.AddMvc(config =>
+            //{
+            //    var policy = new AuthorizationPolicyBuilder()
+            //        .RequireAuthenticatedUser()
+            //        .Build();
 
-                config.Filters.Add(new AuthorizeFilter(policy));
-            });
+            //    config.Filters.Add(new AuthorizeFilter(policy));
+            //});
 
             services
                 .AddIdentity<User, Role>(options =>
@@ -106,7 +107,7 @@ namespace Amlak.Admin
                 .AddEntityFrameworkStores<AppDbContext>()
                 .AddDefaultTokenProviders();
 
-            services.ConfigureApplicationCookie(options => options.LoginPath = "/Account/LogIn");
+            //services.ConfigureApplicationCookie(options => options.LoginPath = "/Account/LogIn");
 
             services.Configure<RouteOptions>(options =>
             {

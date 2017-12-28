@@ -16,8 +16,17 @@ This set of fonts are used in this project under the license: (.....)
 --------------------------------------------------------------------------------------
 *	
 **/
-/*cutstring*/
-.CutString {direction:rtl;overflow:hidden;}
+/*custring*/
+
+.input { direction: rtl; }
+
+
+
+/*My style*/
+.CutString {
+    direction: rtl;
+    overflow: hidden;
+}
 .CutString1{max-height:50px}
 .CutString2{max-height:85px;}
 .CutString3{max-height:65px;}

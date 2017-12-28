@@ -17,7 +17,7 @@
                 <div class="p-2">
                     <div class="EnterHomeContent">
                         <div class="EnterFormTabPanneItem">
-                            
+
                             <form class="row w-100 m-auto" asp-controller="House" asp-action="Create" method="post">
 
                                 <div class="px-2 col-md-3 col-12 my-2">
@@ -28,7 +28,7 @@
 
                                 <div class="px-2 col-12 my-2">
                                     <label asp-for="Description"></label>
-                                    <input asp-for="Description" class="form-control" placeholder="توضیحات" />
+                                    <input  asp-for="Description" class="form-control" placeholder="توضیحات" />
                                     <span asp-validation-for="Description" class="text-danger"></span>
                                 </div>
 
@@ -59,7 +59,7 @@
                                     <span asp-validation-for="CategoryId" class="text-danger"></span>
 
                                 </div>
-                               
+
                                 <div class="px-2 col-md-3 col-12 my-2">
                                     <label asp-for="Scale"></label>
                                     <input asp-for="Scale" class="form-control" placeholder="متراژ" />
@@ -73,16 +73,26 @@
                                 </div>
 
                                 <div class="px-2 col-md-3 col-12 my-2">
-                                    <label asp-for="City"></label>
-                                    <input asp-for="City" class="form-control" placeholder="شهر" />
-                                    <span asp-validation-for="City" class="text-danger"></span>
+                                    <label asp-for="Town"></label>
+
+                                    <select name="Town" class="form-control">
+                                        <option disabled selected>استان</option>
+
+                                        @foreach (var item in Iran.Provinces.OrderBy(q => q.ProvinceName))
+                                        {
+
+                                            <option value="@item.ProvinceName">@item.ProvinceName</option>
+                                        }
+
+                                    </select>
+                                    <span asp-validation-for="Town" class="text-danger"></span>
                                 </div>
 
 
                                 <div class="px-2 col-md-3 col-12 my-2">
-                                    <label asp-for="Town"></label>
-                                    <input asp-for="Town" class="form-control" placeholder="استان" />
-                                    <span asp-validation-for="Town" class="text-danger"></span>
+                                    <label asp-for="City"></label>
+                                    <input asp-for="City" class="form-control" placeholder="شهر" />
+                                    <span asp-validation-for="City" class="text-danger"></span>
                                 </div>
 
 
