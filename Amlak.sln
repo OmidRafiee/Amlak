@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2003
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{8F0663F7-D88C-4CA8-B3EA-91255EAC8D33}"
 EndProject
@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Amlak.Site", "src\Amlak.Sit
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{5ED4255D-DD73-4C6F-B114-727703885CC0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service.Messaging", "lib\Service.Messaging\Service.Messaging.csproj", "{8A3BC009-B81A-4AA6-B2AB-6BC6F0C9EEEE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service.Messaging", "lib\Service.Messaging\Service.Messaging.csproj", "{8A3BC009-B81A-4AA6-B2AB-6BC6F0C9EEEE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exir.Regate", "..\Calabin\lib\Exir.Regate\Exir.Regate.csproj", "{F45E60AB-8A2A-4F73-8AD3-EBFAD211627D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +45,10 @@ Global
 		{8A3BC009-B81A-4AA6-B2AB-6BC6F0C9EEEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A3BC009-B81A-4AA6-B2AB-6BC6F0C9EEEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8A3BC009-B81A-4AA6-B2AB-6BC6F0C9EEEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F45E60AB-8A2A-4F73-8AD3-EBFAD211627D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F45E60AB-8A2A-4F73-8AD3-EBFAD211627D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F45E60AB-8A2A-4F73-8AD3-EBFAD211627D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F45E60AB-8A2A-4F73-8AD3-EBFAD211627D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +59,7 @@ Global
 		{701F47BD-CD00-46D7-8EE1-D05BE86FC037} = {8F0663F7-D88C-4CA8-B3EA-91255EAC8D33}
 		{58D29431-CD64-4621-B409-BB26A918E64F} = {8F0663F7-D88C-4CA8-B3EA-91255EAC8D33}
 		{8A3BC009-B81A-4AA6-B2AB-6BC6F0C9EEEE} = {5ED4255D-DD73-4C6F-B114-727703885CC0}
+		{F45E60AB-8A2A-4F73-8AD3-EBFAD211627D} = {5ED4255D-DD73-4C6F-B114-727703885CC0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6DC34EF3-E865-4E37-BED4-0F4A743A7EF9}

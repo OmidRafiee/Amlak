@@ -53,5 +53,12 @@ namespace Amlak.Data.Repository
             return ServiceResult.Okay("با موفقیت حذف شد");
         }
 
+        public HouseViewModel GetById(int id)
+        {
+            var model = _context.House.Where(q => q.Id.Equals(id))
+                .ProjectTo<HouseViewModel>().FirstOrDefault();
+
+            return model;
+        }
     }
 }

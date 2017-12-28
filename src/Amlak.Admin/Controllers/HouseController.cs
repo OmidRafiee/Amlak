@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Amlak.Core.ViewModel.House;
 using Amlak.Data.Repository;
 using Microsoft.AspNetCore.Mvc;
 
@@ -23,14 +24,15 @@ namespace Amlak.Admin.Controllers
             return View(model);
         }
 
-        public IActionResult About()
+        public IActionResult Edit(int id)
         {
-            ViewData["Message"] = "Your application description page.";
+            var model = _houseRepository.GetById(id);
 
-            return View();
+            return View(model);
         }
 
-        public IActionResult Contact()
+        [HttpPost]
+        public IActionResult Edit(HouseViewModel model)
         {
             ViewData["Message"] = "Your contact page.";
 
