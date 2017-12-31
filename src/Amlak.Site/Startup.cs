@@ -80,7 +80,7 @@ namespace Amlak.Site
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, IServiceScopeFactory scopeFactory)
         {
-            scopeFactory.SeedData();
+            scopeFactory.Initialize();
 
             if (env.IsDevelopment())
             {
