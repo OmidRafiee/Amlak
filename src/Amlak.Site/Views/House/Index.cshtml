@@ -1,9 +1,15 @@
-﻿@using DNTPersianUtils.Core.IranCities
-@model Amlak.Core.ViewModel.House.CreateHouseViewModel
+﻿@using Amlak.Core.ViewModel.Option
+@using DNTPersianUtils.Core.IranCities
+@model Amlak.Core.ViewModel.House.HouseCreateViewModel
 
 @{
     ViewBag.Title = "title";
     Layout = "_Layout";
+}
+
+
+@{
+    var option =(List<OptionViewModel>) ViewBag.OptionList;
 }
 
 <div class="PageMainContent ofh relative">
@@ -182,136 +188,15 @@
                 </div>
                 <div class="MoreOptionItem p-2">
                     <div class="row w-100 m-auto">
-                        <label class="custom-control custom-checkbox px-1 col-6">
-                            <input name="PossibilitiesIdsJson" type="checkbox" class="custom-control-input">
-                            <span class="custom-control-indicator"></span>
-                            <span class="custom-control-description mr-2 mt-1">پارکینگ</span>
-                        </label>
-                        <label class="custom-control custom-checkbox px-1 col-6">
-                            <input type="checkbox" class="custom-control-input">
-                            <span class="custom-control-indicator"></span>
-                            <span class="custom-control-description mr-2 mt-1">بالکن</span>
-                        </label>
-                        <label class="custom-control custom-checkbox px-1 col-6">
-                            <input type="checkbox" class="custom-control-input">
-                            <span class="custom-control-indicator"></span>
-                            <span class="custom-control-description mr-2 mt-1">باشکاه ورزشی</span>
-                        </label>
-                        <label class="custom-control custom-checkbox px-1 col-6">
-                            <input type="checkbox" class="custom-control-input">
-                            <span class="custom-control-indicator"></span>
-                            <span class="custom-control-description mr-2 mt-1">استخر</span>
-                        </label>
-                        <label class="custom-control custom-checkbox px-1 col-6">
-                            <input type="checkbox" class="custom-control-input">
-                            <span class="custom-control-indicator"></span>
-                            <span class="custom-control-description mr-2 mt-1">سیستم گرامیش مرکزی</span>
-                        </label>
-                        <label class="custom-control custom-checkbox px-1 col-6">
-                            <input type="checkbox" class="custom-control-input">
-                            <span class="custom-control-indicator"></span>
-                            <span class="custom-control-description mr-2 mt-1">باربکیو</span>
-                        </label>
-                        <label class="custom-control custom-checkbox px-1 col-6">
-                            <input type="checkbox" class="custom-control-input">
-                            <span class="custom-control-indicator"></span>
-                            <span class="custom-control-description mr-2 mt-1">پارکینگ</span>
-                        </label>
-                        <label class="custom-control custom-checkbox px-1 col-6">
-                            <input type="checkbox" class="custom-control-input">
-                            <span class="custom-control-indicator"></span>
-                            <span class="custom-control-description mr-2 mt-1">بالکن</span>
-                        </label>
-                        <label class="custom-control custom-checkbox px-1 col-6">
-                            <input type="checkbox" class="custom-control-input">
-                            <span class="custom-control-indicator"></span>
-                            <span class="custom-control-description mr-2 mt-1">باشکاه ورزشی</span>
-                        </label>
-                        <label class="custom-control custom-checkbox px-1 col-6">
-                            <input type="checkbox" class="custom-control-input">
-                            <span class="custom-control-indicator"></span>
-                            <span class="custom-control-description mr-2 mt-1">استخر</span>
-                        </label>
-                        <label class="custom-control custom-checkbox px-1 col-6">
-                            <input type="checkbox" class="custom-control-input">
-                            <span class="custom-control-indicator"></span>
-                            <span class="custom-control-description mr-2 mt-1">سیستم گرامیش مرکزی</span>
-                        </label>
-                        <label class="custom-control custom-checkbox px-1 col-6">
-                            <input type="checkbox" class="custom-control-input">
-                            <span class="custom-control-indicator"></span>
-                            <span class="custom-control-description mr-2 mt-1">باربکیو</span>
-                        </label>
-                        <label class="custom-control custom-checkbox px-1 col-6">
-                            <input type="checkbox" class="custom-control-input">
-                            <span class="custom-control-indicator"></span>
-                            <span class="custom-control-description mr-2 mt-1">پارکینگ</span>
-                        </label>
-                        <label class="custom-control custom-checkbox px-1 col-6">
-                            <input type="checkbox" class="custom-control-input">
-                            <span class="custom-control-indicator"></span>
-                            <span class="custom-control-description mr-2 mt-1">بالکن</span>
-                        </label>
-                        <label class="custom-control custom-checkbox px-1 col-6">
-                            <input type="checkbox" class="custom-control-input">
-                            <span class="custom-control-indicator"></span>
-                            <span class="custom-control-description mr-2 mt-1">باشکاه ورزشی</span>
-                        </label>
-                        <label class="custom-control custom-checkbox px-1 col-6">
-                            <input type="checkbox" class="custom-control-input">
-                            <span class="custom-control-indicator"></span>
-                            <span class="custom-control-description mr-2 mt-1">استخر</span>
-                        </label>
-                        <label class="custom-control custom-checkbox px-1 col-6">
-                            <input type="checkbox" class="custom-control-input">
-                            <span class="custom-control-indicator"></span>
-                            <span class="custom-control-description mr-2 mt-1">سیستم گرامیش مرکزی</span>
-                        </label>
-                        <label class="custom-control custom-checkbox px-1 col-6">
-                            <input type="checkbox" class="custom-control-input">
-                            <span class="custom-control-indicator"></span>
-                            <span class="custom-control-description mr-2 mt-1">باربکیو</span>
-                        </label>
-                        <label class="custom-control custom-checkbox px-1 col-6">
-                            <input type="checkbox" class="custom-control-input">
-                            <span class="custom-control-indicator"></span>
-                            <span class="custom-control-description mr-2 mt-1">پارکینگ</span>
-                        </label>
-                        <label class="custom-control custom-checkbox px-1 col-6">
-                            <input type="checkbox" class="custom-control-input">
-                            <span class="custom-control-indicator"></span>
-                            <span class="custom-control-description mr-2 mt-1">بالکن</span>
-                        </label>
-                        <label class="custom-control custom-checkbox px-1 col-6">
-                            <input type="checkbox" class="custom-control-input">
-                            <span class="custom-control-indicator"></span>
-                            <span class="custom-control-description mr-2 mt-1">باشکاه ورزشی</span>
-                        </label>
-                        <label class="custom-control custom-checkbox px-1 col-6">
-                            <input type="checkbox" class="custom-control-input">
-                            <span class="custom-control-indicator"></span>
-                            <span class="custom-control-description mr-2 mt-1">استخر</span>
-                        </label>
-                        <label class="custom-control custom-checkbox px-1 col-6">
-                            <input type="checkbox" class="custom-control-input">
-                            <span class="custom-control-indicator"></span>
-                            <span class="custom-control-description mr-2 mt-1">سیستم گرامیش مرکزی</span>
-                        </label>
-                        <label class="custom-control custom-checkbox px-1 col-6">
-                            <input type="checkbox" class="custom-control-input">
-                            <span class="custom-control-indicator"></span>
-                            <span class="custom-control-description mr-2 mt-1">باربکیو</span>
-                        </label>
-                        <label class="custom-control custom-checkbox px-1 col-6">
-                            <input type="checkbox" class="custom-control-input">
-                            <span class="custom-control-indicator"></span>
-                            <span class="custom-control-description mr-2 mt-1">سیستم گرامیش مرکزی</span>
-                        </label>
-                        <label class="custom-control custom-checkbox px-1 col-6">
-                            <input type="checkbox" class="custom-control-input">
-                            <span class="custom-control-indicator"></span>
-                            <span class="custom-control-description mr-2 mt-1">باربکیو</span>
-                        </label>
+                        @foreach (var item in option)
+                        {
+                            <label class="custom-control custom-checkbox px-1 col-6">
+                                <input name="OptionIdsJson" type="checkbox" class="custom-control-input">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description mr-2 mt-1">@item.Title</span>
+                            </label>
+                      
+                        }
                     </div>
                 </div>
             </div>
