@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Amlak.Core.ViewModel.House;
 using Amlak.Data.Repository;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace Amlak.Site.Controllers
 {
@@ -12,12 +13,15 @@ namespace Amlak.Site.Controllers
    {
        private readonly HouseRepository _houseRepository;
        private readonly OptionRepository _optionRepository;
+       private readonly CategoryRepository _categoryRepository;
 
 
-        public HouseController(HouseRepository houseRepository, OptionRepository optionRepository)
+
+       public HouseController(HouseRepository houseRepository, OptionRepository optionRepository, CategoryRepository categoryRepository)
         {
             _houseRepository = houseRepository;
             _optionRepository = optionRepository;
+            _categoryRepository = categoryRepository;
         }
 
        public IActionResult Index()
@@ -25,12 +29,14 @@ namespace Amlak.Site.Controllers
             var model = new  HouseCreateViewModel();
 
             ViewBag.OptionList = _optionRepository.GetAll();
+            ViewBag.CategoryList = _categoryRepository.GetAll();
             return View(model);
         }
 
         [HttpPost]
         public IActionResult Create(HouseCreateViewModel model)
         {
+            model.OptionIdsJson = JsonConvert.SerializeObject(model.OptionIds);
             var result = _houseRepository.Create(model);
                 
             return RedirectToAction("Index");

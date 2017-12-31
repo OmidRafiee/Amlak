@@ -1,4 +1,5 @@
-﻿@using Amlak.Core.ViewModel.Option
+﻿@using Amlak.Core.ViewModel.Category
+@using Amlak.Core.ViewModel.Option
 @using DNTPersianUtils.Core.IranCities
 @model Amlak.Core.ViewModel.House.HouseCreateViewModel
 
@@ -10,21 +11,25 @@
 
 @{
     var option =(List<OptionViewModel>) ViewBag.OptionList;
+    var Cateroty = (List<CategoryViewModel>)ViewBag.CategoryList;
+
 }
 
 <div class="PageMainContent ofh relative">
 
-    <div class="row w-100 m-auto">
-        <div class="col-12">
-            <div class="PageBox mx-2 my-1">
-                <div class="InnerPageItemHeader radius3">
-                    <h2 class="InnerPageItemHeaderTitle tr w-100 lh3-5 h100p bold prl15 relative"><span class="InnerPageItemHeaderTitleBefore absolute after"></span>اطلاعات اولیه</h2>
-                </div>
-                <div class="p-2">
-                    <div class="EnterHomeContent">
-                        <div class="EnterFormTabPanneItem">
+    <form asp-controller="House" asp-action="Create" method="post">
 
-                            <form class="row w-100 m-auto" asp-controller="House" asp-action="Create" method="post">
+        <div class="row w-100 m-auto">
+            <div class="col-12">
+                <div class="PageBox mx-2 my-1">
+                    <div class="InnerPageItemHeader radius3">
+                        <h2 class="InnerPageItemHeaderTitle tr w-100 lh3-5 h100p bold prl15 relative"><span class="InnerPageItemHeaderTitleBefore absolute after"></span>اطلاعات اولیه</h2>
+                    </div>
+                    <div class="p-2">
+                        <div class="EnterHomeContent">
+                            <div class="EnterFormTabPanneItem row w-100 m-auto">
+
+
 
                                 <div class="px-2 col-md-3 col-12 my-2">
                                     <label asp-for="Title"></label>
@@ -34,7 +39,7 @@
 
                                 <div class="px-2 col-12 my-2">
                                     <label asp-for="Description"></label>
-                                    <input  asp-for="Description" class="form-control" placeholder="توضیحات" />
+                                    <input asp-for="Description" class="form-control" placeholder="توضیحات" />
                                     <span asp-validation-for="Description" class="text-danger"></span>
                                 </div>
 
@@ -55,12 +60,12 @@
 
                                     <select name="CategoryId" class="form-control">
                                         <option disabled selected>نـــوع ملـــــک</option>
-                                        <option value="آپارتمان">آپارتمان</option>
-                                        <option value="ویلایی">ویلایی</option>
-                                        <option value="تجاری">تجاری</option>
-                                        <option value="اداری">اداری</option>
-                                        <option value="زمین">زمین</option>
 
+                                        @foreach (var item in Cateroty)
+                                        {
+                                            <option value="@item.Id">@item.Title</option>
+
+                                        }
                                     </select>
                                     <span asp-validation-for="CategoryId" class="text-danger"></span>
 
@@ -163,51 +168,53 @@
 
                                 </div>
                                 <input type="submit" value="ثبت" class="btn btn-primary searchBtn" />
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-6 col-12">
-            <div class="PageBox mx-2 my-1">
-                <div class="InnerPageItemHeader radius3">
-                    <h2 class="InnerPageItemHeaderTitle tr w-100 lh3-5 h100p bold prl15 relative"><span class="InnerPageItemHeaderTitleBefore absolute after"></span>نقشه</h2>
-                </div>
-                <div class="p-2">
-                    <div name="Loacation" id="map">
+            <div class="col-md-6 col-12">
+                <div class="PageBox mx-2 my-1">
+                    <div class="InnerPageItemHeader radius3">
+                        <h2 class="InnerPageItemHeaderTitle tr w-100 lh3-5 h100p bold prl15 relative"><span class="InnerPageItemHeaderTitleBefore absolute after"></span>نقشه</h2>
+                    </div>
+                    <div class="p-2">
+                        <div name="Loacation" id="map">
 
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-6 col-12">
-            <div class="PageBox mx-2 my-1">
-                <div class="InnerPageItemHeader radius3">
-                    <h2 class="InnerPageItemHeaderTitle tr w-100 lh3-5 h100p bold prl15 relative"><span class="InnerPageItemHeaderTitleBefore absolute after"></span>امکانات</h2>
-                </div>
-                <div class="MoreOptionItem p-2">
-                    <div class="row w-100 m-auto">
-                        @foreach (var item in option)
-                        {
-                            <label class="custom-control custom-checkbox px-1 col-6">
-                                <input name="OptionIdsJson" type="checkbox"  value="@item.Id" class="custom-control-input">
-                                <span class="custom-control-indicator"></span>
-                                <span class="custom-control-description mr-2 mt-1">@item.Title</span>
-                            </label>
-                      
-                        }
+            <div class="col-md-6 col-12">
+                <div class="PageBox mx-2 my-1">
+                    <div class="InnerPageItemHeader radius3">
+                        <h2 class="InnerPageItemHeaderTitle tr w-100 lh3-5 h100p bold prl15 relative"><span class="InnerPageItemHeaderTitleBefore absolute after"></span>امکانات</h2>
+                    </div>
+                    <div class="MoreOptionItem p-2">
+                        <div class="row w-100 m-auto">
+                            @foreach (var item in option)
+                            {
+                                <label class="custom-control custom-checkbox px-1 col-6">
+                                    <input name="OptionIds" type="checkbox" value="@item.Id" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description mr-2 mt-1">@item.Title</span>
+                                </label>
+
+                            }
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-12">
-            <div class="PageBox mx-2 my-1">
-                <div class="InnerPageItemHeader radius3">
-                    <h2 class="InnerPageItemHeaderTitle tr w-100 lh3-5 h100p bold prl15 relative"><span class="InnerPageItemHeaderTitleBefore absolute after"></span>گالری تصاویر</h2>
+            <div class="col-12">
+                <div class="PageBox mx-2 my-1">
+                    <div class="InnerPageItemHeader radius3">
+                        <h2 class="InnerPageItemHeaderTitle tr w-100 lh3-5 h100p bold prl15 relative"><span class="InnerPageItemHeaderTitleBefore absolute after"></span>گالری تصاویر</h2>
+                    </div>
+                    <div class="p-2">insert image to gallery</div>
                 </div>
-                <div class="p-2">insert image to gallery</div>
             </div>
+
         </div>
-    </div>
+    </form>
+
 </div>

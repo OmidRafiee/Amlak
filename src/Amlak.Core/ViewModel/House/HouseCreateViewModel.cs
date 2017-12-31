@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Amlak.Core.ViewModel.House
@@ -51,7 +52,9 @@ namespace Amlak.Core.ViewModel.House
         ///سیستم گرمایشی ، کولر 
         /// </summary>
         [Display(Name = "امکانات")]
-        public string PossibilitiesIdsJson { get; set; }
+        public string OptionIdsJson { get; set; }
+
+        public List<int> OptionIds { get; set; }
 
         /// <summary>
         /// مکان جغرافیای
