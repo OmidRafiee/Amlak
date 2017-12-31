@@ -97,13 +97,17 @@ namespace Amlak.Data
             });
         }
 
+
+        /// <summary>
+        /// only for migration
+        /// </summary>
         public class DbContextFactory : IDesignTimeDbContextFactory<AppDbContext>
         {
             public AppDbContext Create()
             {
                 var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
 
-                optionsBuilder.UseSqlServer("Server=.;Database=Amlak;Trusted_Connection=False;MultipleActiveResultSets=true;User ID=sa; Password=123");
+                optionsBuilder.UseSqlServer("Server=DESKTOP-T0VSFA8\\MSSQLSERVER2016;Database=Amlak;Trusted_Connection=False;MultipleActiveResultSets=true;User ID=sa; Password=123");
 
                 return new AppDbContext(optionsBuilder.Options);
             }

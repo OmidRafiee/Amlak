@@ -191,7 +191,7 @@
                         @foreach (var item in option)
                         {
                             <label class="custom-control custom-checkbox px-1 col-6">
-                                <input name="OptionIdsJson" type="checkbox" class="custom-control-input">
+                                <input name="OptionIdsJson" type="checkbox"  value="@item.Id" class="custom-control-input">
                                 <span class="custom-control-indicator"></span>
                                 <span class="custom-control-description mr-2 mt-1">@item.Title</span>
                             </label>
