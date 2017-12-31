@@ -29,7 +29,7 @@
                         <i class="ti-package"></i>
                     </div>
                     <div class="item-inner">
-                        <span class="title"> مدیریت گروه محصولات</span>
+                        <span class="title"> مدیریت  امکانات</span>
                     </div>
                 </div>
             </a>
@@ -44,13 +44,38 @@
                             <i class="ti-ruler-pencil"></i>
                         </div>
                         <div class="item-inner">
-                            <span class="title"> ایجاد گروه جدید</span>
+                            <span class="title"> ایجاد امکانات جدید</span>
                         </div>
                     </div>
                 </a>
             </li>
         
-
+        
+        <li data-menu-role="Amlak/CoinsCreate">
+            <a asp-controller="Category" asp-action="Index">
+                <div class="item-content">
+                    <div class="item-media">
+                        <i class="ti-ruler-pencil"></i>
+                    </div>
+                    <div class="item-inner">
+                        <span class="title"> مدیریت گروه </span>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li data-menu-role="Amlak/CoinsCreate">
+            <a asp-controller="Category" asp-action="Create">
+                <div class="item-content">
+                    <div class="item-media">
+                        <i class="ti-ruler-pencil"></i>
+                    </div>
+                    <div class="item-inner">
+                        <span class="title"> ایجاد گروه جدید</span>
+                    </div>
+                </div>
+            </a>
+        </li>
+        
 
         @if (User.IsInRole("Admin") || User.IsInRole("Category"))
         {
