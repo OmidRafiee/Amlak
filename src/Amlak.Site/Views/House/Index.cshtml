@@ -28,18 +28,25 @@
                     <div class="p-2">
                         <div class="EnterHomeContent">
                             <div class="EnterFormTabPanneItem row w-100 m-auto">
-
-
-
-                                <div class="px-2 col-md-3 col-12 my-2">
+                                <div class="px-2 col-md-12 col-12 my-2">
+                                    @if (TempData.ContainsKey("Message"))
+                                    {
+                                        <div class="alert alert-success fade in alert-dismissable" style="opacity: 1 !important">
+                                            <a href="#" class="close"  data-dismiss="alert" aria-label="close" title="close">×</a>
+                                            @TempData["Message"].ToString()
+                                        </div>
+                                    }
+                                </div>
+                                
+                                <div class="px-2 col-md-12 col-12 my-2">
                                     <label asp-for="Title"></label>
-                                    <input asp-for="Title" class="form-control" placeholder="عنـــوان" />
+                                    <input asp-for="Title" class="form-control" placeholder="عنـــوان"/>
                                     <span asp-validation-for="Title" class="text-danger"></span>
                                 </div>
 
                                 <div class="px-2 col-12 my-2">
                                     <label asp-for="Description"></label>
-                                    <input asp-for="Description" class="form-control" placeholder="توضیحات" />
+                                    <input asp-for="Description" class="form-control" placeholder="توضیحات"/>
                                     <span asp-validation-for="Description" class="text-danger"></span>
                                 </div>
 
@@ -73,13 +80,13 @@
 
                                 <div class="px-2 col-md-3 col-12 my-2">
                                     <label asp-for="Scale"></label>
-                                    <input asp-for="Scale" class="form-control" placeholder="متراژ" />
+                                    <input asp-for="Scale" class="form-control" placeholder="متراژ"/>
                                     <span asp-validation-for="Scale" class="text-danger"></span>
                                 </div>
 
                                 <div class="px-2 col-md-3 col-12 my-2">
                                     <label asp-for="Region"></label>
-                                    <input asp-for="Region" class="form-control" placeholder="منطقه" />
+                                    <input asp-for="Region" class="form-control" placeholder="منطقه"/>
                                     <span asp-validation-for="Region" class="text-danger"></span>
                                 </div>
 
@@ -102,14 +109,14 @@
 
                                 <div class="px-2 col-md-3 col-12 my-2">
                                     <label asp-for="City"></label>
-                                    <input asp-for="City" class="form-control" placeholder="شهر" />
+                                    <input asp-for="City" class="form-control" placeholder="شهر"/>
                                     <span asp-validation-for="City" class="text-danger"></span>
                                 </div>
 
 
                                 <div class="px-2 col-md-3 col-12 my-2">
                                     <label asp-for="Area"></label>
-                                    <input asp-for="Area" class="form-control" placeholder="محله" />
+                                    <input asp-for="Area" class="form-control" placeholder="محله"/>
                                     <span asp-validation-for="Area" class="text-danger"></span>
 
                                 </div>
@@ -117,7 +124,7 @@
 
                                 <div class="px-2 col-md-3 col-12 my-2">
                                     <label asp-for="Floor"></label>
-                                    <input asp-for="Floor" class="form-control" placeholder="طبقه" />
+                                    <input asp-for="Floor" class="form-control" placeholder="طبقه"/>
                                     <span asp-validation-for="Floor" class="text-danger"></span>
 
                                 </div>
@@ -167,7 +174,7 @@
                                     <span asp-validation-for="Parkings" class="text-danger"></span>
 
                                 </div>
-                                <input type="submit" value="ثبت" class="btn btn-primary searchBtn" />
+                                <input type="submit" value="ثبت" class="btn btn-primary searchBtn"/>
                             </div>
                         </div>
                     </div>
