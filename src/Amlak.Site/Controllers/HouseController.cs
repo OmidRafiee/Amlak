@@ -38,6 +38,7 @@ namespace Amlak.Site.Controllers
         {
             model.OptionIdsJson = JsonConvert.SerializeObject(model.OptionIds);
             var result = _houseRepository.Create(model);
+
             TempData["Message"] = "آگهی شما با موفقیت ثبت و پس از بررسی بر روی سایت قرار میگیرد";
             return RedirectToAction("Index");
         }

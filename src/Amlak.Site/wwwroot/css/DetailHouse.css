@@ -1,0 +1,126 @@
+﻿/**
+*
+*	Name:			IRAN Sans-Serif Font
+*	Version:		5.0
+*	Author:			Moslem Ebrahimi (moslemebrahimi.com)
+*	Created on:		Dec 25, 2012
+*	Updated on:		Sep 01, 2017
+*	Website:		             http://fontiran.com
+*	Copyright:		Commercial/Proprietary Software
+--------------------------------------------------------------------------------------
+فونت های ایران سن سریف یک نرم افزار مالکیتی محسوب می شود. جهت آگاهی از قوانین استفاده از این فونت ها لطفا به وب سایت (فونت ایران دات کام) مراجعه نمایید
+--------------------------------------------------------------------------------------
+IRAN Sans-serif fonts are considered a proprietary software. To gain information about the laws regarding the use of these fonts, please visit www.fontiran.com 
+--------------------------------------------------------------------------------------
+This set of fonts are used in this project under the license: (.....)
+--------------------------------------------------------------------------------------
+*	
+**/
+/*cutstring*/
+.CutString {direction:rtl;overflow:hidden;}
+.CutString1{max-height:50px}
+.CutString2{max-height:85px;}
+.CutString3{max-height:65px;}
+.CutString4{max-height:302px;}
+
+@font-face {font-family: FontAwesome;src: url(../fonts/FontAwesome.otf)}
+@font-face {font-family: IranSans;src: url(../fonts/IRANSansWebMedium.ttf)}
+body,ul li,ul,h1,h2,h3,h4,h5,h6,div,p,a,span,input,select,textarea,img,figure,section,header,footer,article,strong{font-family:IranSans;}
+body{direction:rtl;position:relative;z-index:-1000;}
+.FullContainer{z-index:-1000;}
+/*PageMainContent*/
+.PageMainContent{z-index:-1000;}
+/*HouseImgGallery*/
+.HouseImgGallery{opacity:0;}
+.slider-for{height:500px;}
+.slider-for div {background:#e3e3e3;text-align:center;}
+.MainGalleryPicBack{position:absolute;width:100%;height:100%;right:0px;top:0px;filter: blur(5px);-webkit-filter: blur(5px);background-repeat:no-repeat !important;background-size:100% 100% !important;}
+.MainGallery .slider-for{border-width:0px 0px 3px 0px;border-color:#BD8D3B;}
+.MainGallery .slider-for .slick-list , .MainGallery .slider-for .slick-track{height:100%;}
+.MainGallery .slider-nav{height:150px;}
+.MainGallery .slider-nav .slick-list , .MainGallery .slider-nav .slick-track{height:100%;}
+.slider-nav figure {text-align:center;margin:10px;padding:10px 0;cursor:pointer;}
+.slider-nav .slick-current {}
+/*leftPannel*/
+/*.MainContentRow{max-width:1100px;}*/
+.fourImpoInfoItem{margin:25px 0px;}
+.fourImpoInfoItem:first-child{margin-top:0px !important;}
+.fourImpoInfoItem span{background-color:#f2f2f2;color:#333333;font-size:13px;padding-right:20px !important;}
+.fourImpoInfoValue{width:70px;height:70px;background-color:#EDEDED;left: -6px;top: -19px;}
+.fourImpoInfoValueText{width:65px;height:65px;border-color:#FFF;border-width:2px;font-size:17px;color:#BD8D3B;}
+.SizeValue.after:after{position:absolute;width: 53px;height:15px;right: -16px;bottom: 1px;background-color: #1E4464;z-index:-1;content:"m2";color:#FFF;font-size: 10px;text-align: right;padding-right: 5px;padding-top: 1px;}
+/*RightPannel*/
+.InnerPageItemHeader{height:45px;background-color:#EFEFEF;}
+.InnerPageItemHeaderTitle{width:200px;background-color:#F3BA4F;font-size:10pt;color:#FFF;text-shadow: 2px 1px 2px #262626;padding-right:55px;}
+.InnerPageItemHeaderTitleBefore{width:40px;height:100%;background-color:#D9A84B;right:0px;top:0px;}
+.InnerPageItemHeaderTitleBefore.after:after{display:block;position:absolute;left:-7px;top:15px;width: 0; height: 0; border-top: 7px solid transparent;border-bottom: 7px solid transparent; border-right:7px solid #D9A84B; }
+.SearchFormTabPanneItem .form-control[type="text"]{padding-right:17px;}
+.SearchFormTabPanneItem .form-control {font-size:13px;height:38px;}
+.form-control::-webkit-input-placeholder { color:#495057; }
+.form-control:-moz-placeholder { color:#495057; }
+.form-control::-moz-placeholder { color:#495057; }
+.form-control:-ms-input-placeholder { color:#495057; }
+.form-control::-ms-input-placeholder { color: #495057; }
+.SearchFormTabPanneItem .form-control:focus{border-color:#BD8D3B;}
+.MoreOptionItem .custom-control-indicator{position:relative;}
+.MoreOptionItem .custom-control-input:checked~.custom-control-indicator{background-color:#BD8D3B;border:none;}
+.MoreOptionItem .custom-control-input:focus~.custom-control-indicator {-webkit-box-shadow: 0 0 0 1px #fff, 0 0 0 3px #BD8D3B;box-shadow: 0 0 0 1px #fff, 0 0 0 3px #BD8D3B;}
+.MoreOptionItem .custom-checkbox{margin-right:0px;}
+/*.SearchFormBtn{max-width:140px;}*/
+.SearchBtn{background-color:#BD8D3B;border-color:#BD8D3B;}
+.SearchBtn:hover{color:#BD8D3B;background-color:#fff;border-color:#BD8D3B;box-shadow:0px 0px 5px #BD8D3B;}
+.MoreOptionBtn{background-color:#1E4464;border-color:#1E4464;}
+.MoreOptionBtn:hover{color:#1E4464;background-color:#fff;border-color:#1E4464;box-shadow:0px 0px 5px #1E4464;}
+.SearchFormTabPanneItem{background-color:#F2F2F2;}
+/*Map*/
+#map {width: 100%;height: 400px;background-color: grey;}
+/*AboutHouse*/
+.HouseDetail{background-color:#f2f2f2;}
+.HouseDetailItemsTitle{color:#7b7b7b;font-size:13px;}
+.HouseDetailItemsValue{color:#333333;font-size:13px;}
+.HouseDetailPriceValue{font-size:20px;color:#BD8D3B;}
+.HouseDetailPriceTime{color:#aeaeae;font-size:12px;}
+.HouseDetailText{color:#404040;font-size:12px;}
+/*HouseFeatures*/
+.HouseFeaturesContent{background-color:#f2f2f2;}
+.HouseFeaturesItem{padding-right:25px !important;}
+.HouseFeaturesItem.before:before{display:block;position:absolute;color: #d4d4d4;content:"\f00c";font-family:FontAwesome;color:#d4d4d4;right:0px;top:6px;width: 17px;height: 17px;line-height: 16px;font-size:12px;text-align: center;background-color: #ededed;border: 1px solid #FFFFFF;-moz-border-radius: 50%;-webkit-border-radius: 50%;border-radius: 50%;-webkit-box-shadow: 0 0 0 1px #ededed;box-shadow: 0 0 0 1px #ededed;}
+.HouseFeaturesItem.active.before:before{color:#BD8D3B;}
+/*LastOffers*/
+.LastOffersHeader{height:45px;background-color:#EFEFEF;}
+.LastOffersHeaderTitle{width:200px;background-color:#F3BA4F;font-size:10pt;color:#FFF;text-shadow: 2px 1px 2px #262626;}
+.LastOffersHeaderTitleBefore{width:40px;height:100%;background-color:#D9A84B;right:0px;top:0px;}
+.LastOffersHeaderTitleBefore.after:after{display:block;position:absolute;left:-7px;top:15px;width: 0; height: 0; border-top: 7px solid transparent;border-bottom: 7px solid transparent; border-right:7px solid #D9A84B; }
+.RelatedHousesItem{border-width:1px;border-color:#E1E1E1;}
+.RelatedHousesItemPic{height:215px;}
+.RelatedHousesItemType{display:block;position:absolute;left:20px;top:20px; width:60px;height:60px;background-color:#EFEFEF;color:#AA3E1A;z-index:10;border-radius:50%;font-size:15px;line-height:4;box-shadow:0px 0px 15px #333333;}
+.RelatedHousesItemPic img{width:100%;height:100%;}
+.RelatedHousesItemPic figcaption{bottom:0px;background-color:rgba(0, 0, 0, 0.3);color:#FFF;font-size:15px;}
+.RelatedHousesItemTitle , .RelatedHousesItemLocation{color:#686868;font-size:12px;}
+.RelatedHousesItemLocation{padding-right:30px;}
+.RelatedHousesItemLocation.before:before{display:block;position:absolute;right: 10px;font-family:FontAwesome;content:"\f041";color:#AC8238;font-size: 22px;top: 0px;}
+.RelatedHousesItemDetails{background-color:#EFEFEF;}
+.RelatedHousesItemDetailsDiv{color:#333333;font-size:12px;padding:0px 5px;}
+/*SpecialOffers*/
+.SpecialOffersContent:hover{background-color:#FFF;}
+.SpecialOffersContent{background-color:#EFEFEF;}
+.SpecialOffersItemTitle{color:#333333;font-size:12px;}
+.SpecialOffersItemLocation{font-size:11px;color:#aeaeae;}
+.SpecialOffersItemPrice{color:#BD8D3B;font-size:12px;}
+
+/*PriceRange*/
+.noUi-horizontal {height: 5px;}
+.noUi-connect {background:#BD8D3B;}
+.noUi-horizontal .noUi-handle {width: 15px;height: 15px;left: -8px;}
+.noUi-handle:after , .noUi-handle:before{display:none;}
+.noUi-marker-horizontal.noUi-marker-large {height: 8px;}
+
+
+
+/*Responsive*/
+@media only screen and (max-width:991px ) {
+    .RightPannel , .leftPannel{margin-top:25px;}
+}
+@media only screen and (max-width:576px ) {
+
+}
