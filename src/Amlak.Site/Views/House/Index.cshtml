@@ -10,7 +10,7 @@
 
 
 @{
-    var option =(List<OptionViewModel>) ViewBag.OptionList;
+    var option = (List<OptionViewModel>)ViewBag.OptionList;
     var Cateroty = (List<CategoryViewModel>)ViewBag.CategoryList;
 
 }
@@ -32,21 +32,21 @@
                                     @if (TempData.ContainsKey("Message"))
                                     {
                                         <div class="alert alert-success fade in alert-dismissable" style="opacity: 1 !important">
-                                            <a href="#" class="close"  data-dismiss="alert" aria-label="close" title="close">×</a>
+                                            <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
                                             @TempData["Message"].ToString()
                                         </div>
                                     }
                                 </div>
-                                
+
                                 <div class="px-2 col-md-12 col-12 my-2">
                                     <label asp-for="Title"></label>
-                                    <input asp-for="Title" class="form-control" placeholder="عنـــوان"/>
+                                    <input asp-for="Title" class="form-control" placeholder="عنـــوان" />
                                     <span asp-validation-for="Title" class="text-danger"></span>
                                 </div>
 
                                 <div class="px-2 col-12 my-2">
                                     <label asp-for="Description"></label>
-                                    <input asp-for="Description" class="form-control" placeholder="توضیحات"/>
+                                    <input asp-for="Description" class="form-control" placeholder="توضیحات" />
                                     <span asp-validation-for="Description" class="text-danger"></span>
                                 </div>
 
@@ -80,43 +80,74 @@
 
                                 <div class="px-2 col-md-3 col-12 my-2">
                                     <label asp-for="Scale"></label>
-                                    <input asp-for="Scale" class="form-control" placeholder="متراژ"/>
+                                    <input asp-for="Scale" class="form-control" placeholder="متراژ" />
                                     <span asp-validation-for="Scale" class="text-danger"></span>
                                 </div>
 
                                 <div class="px-2 col-md-3 col-12 my-2">
                                     <label asp-for="Region"></label>
-                                    <input asp-for="Region" class="form-control" placeholder="منطقه"/>
+                                    <input asp-for="Region" class="form-control" placeholder="منطقه" />
                                     <span asp-validation-for="Region" class="text-danger"></span>
                                 </div>
 
                                 <div class="px-2 col-md-3 col-12 my-2">
                                     <label asp-for="Town"></label>
 
-                                    <select name="Town" class="form-control">
+                                    <select name="Town" class="form-control" data-role="province">
                                         <option disabled selected>استان</option>
 
                                         @foreach (var item in Iran.Provinces.OrderBy(q => q.ProvinceName))
                                         {
-
-                                            <option value="@item.ProvinceName">@item.ProvinceName</option>
+                                            <option value="@item.ProvinceName" selected="@(item.ProvinceName == "تهران")">@item.ProvinceName</option>
                                         }
 
                                     </select>
-                                    <span asp-validation-for="Town" class="text-danger"></span>
                                 </div>
+
+
+
+                             
 
 
                                 <div class="px-2 col-md-3 col-12 my-2">
                                     <label asp-for="City"></label>
-                                    <input asp-for="City" class="form-control" placeholder="شهر"/>
+
+                                    @foreach (var province in Iran.Provinces.OrderBy(q => q.ProvinceName))
+                                    {
+                                        <select name="City" class="form-control" data-province="@province" style="display: none;">
+                                            @foreach (var county in province.Counties)
+                                            {
+                                                <option value="@county">@county</option>
+                                            }
+                                        </select>
+                                    }
+
+
+                                    <script>
+                                        (function () {
+                                            function change(elem) {
+                                                var province = $(elem).val();
+                                                $('[data-province]')
+                                                    .hide()
+                                                    .filter('[data-province="' + province + '"]')
+                                                    .show();
+                                            }
+
+                                            $('[data-role="province"]').on('change', function() {
+                                                change(this);
+                                            });
+
+                                            change($('[data-role="province"]'));
+                                        }());
+                                    </script>
+
                                     <span asp-validation-for="City" class="text-danger"></span>
                                 </div>
 
 
                                 <div class="px-2 col-md-3 col-12 my-2">
                                     <label asp-for="Area"></label>
-                                    <input asp-for="Area" class="form-control" placeholder="محله"/>
+                                    <input asp-for="Area" class="form-control" placeholder="محله" />
                                     <span asp-validation-for="Area" class="text-danger"></span>
 
                                 </div>
@@ -124,7 +155,7 @@
 
                                 <div class="px-2 col-md-3 col-12 my-2">
                                     <label asp-for="Floor"></label>
-                                    <input asp-for="Floor" class="form-control" placeholder="طبقه"/>
+                                    <input asp-for="Floor" class="form-control" placeholder="طبقه" />
                                     <span asp-validation-for="Floor" class="text-danger"></span>
 
                                 </div>
@@ -174,7 +205,7 @@
                                     <span asp-validation-for="Parkings" class="text-danger"></span>
 
                                 </div>
-                                <input type="submit" value="ثبت" class="btn btn-primary searchBtn"/>
+                                <input type="submit" value="ثبت" class="btn btn-primary searchBtn" />
                             </div>
                         </div>
                     </div>
