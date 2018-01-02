@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Amlak.Site.Controllers
 {
-    public class SearchController : Controller
+    public class DetailController : Controller
     {
         public IActionResult Index()
         {

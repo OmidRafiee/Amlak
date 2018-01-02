@@ -9,7 +9,7 @@
     
     @Html.Partial("_TopSlider")
     
-    @Html.Partial("_Search")
+    @await Component.InvokeAsync("SearchMain")
     
     @Html.Partial("_SpecialOffer")
 
