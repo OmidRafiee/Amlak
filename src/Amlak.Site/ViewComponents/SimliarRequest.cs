@@ -2,25 +2,23 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Amlak.Core.DTO.Detail;
 using Amlak.Data.Repository;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Amlak.Site.Controllers
+namespace Amlak.Site.ViewComponents
 {
-    public class DetailController : Controller
+    public class SimliarRequest:ViewComponent
     {
         private readonly HouseRepository _houseRepository;
 
-        public DetailController(HouseRepository houseRepository)
+        public SimliarRequest(HouseRepository houseRepository)
         {
             _houseRepository = houseRepository;
         }
 
-        public IActionResult Index(SearchDTO vm)
+        public IViewComponentResult Invoke()
         {
-            var model = _houseRepository.GetAll(vm);
-            return View(model);
+            return View();
         }
     }
 }

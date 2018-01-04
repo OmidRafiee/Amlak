@@ -23,7 +23,7 @@ namespace Amlak.Site.ViewComponents
             ViewBag.OptionList = _optionRepository.GetAll();
             ViewBag.CategoryList = _categoryRepository.GetAll();
 
-            return View();
+           return View();
         }
     }
 }

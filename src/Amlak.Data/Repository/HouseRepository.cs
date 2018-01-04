@@ -2,7 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Alamut.Data.Linq;
+using Alamut.Data.Paging;
 using Alamut.Data.Structure;
+using Alamut.Helpers.Linq;
+using Amlak.Core.DTO.Detail;
 using Amlak.Core.Entities;
 using Amlak.Core.ViewModel;
 using Amlak.Core.ViewModel.House;
@@ -33,6 +37,14 @@ namespace Amlak.Data.Repository
         public List<HouseViewModel> GetAll()
         {
             return _context.House.ProjectTo<HouseViewModel>().ToList();
+        }
+
+        public IPaginated<HouseViewModel> GetAll(SearchDTO vm)
+        {
+            var model = _context.House
+                .WhereIf(vm.CategoryId != null, q => q.CategoryId.Equals(vm.CategoryId));
+
+            return model.ProjectTo<HouseViewModel>().ToPaginated(new PaginatedCriteria(vm.Page,vm.PageSize));
         }
 
         public ServiceResult Update(HouseEditViewModel model)
