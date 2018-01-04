@@ -106,7 +106,7 @@
 
                                 <div class="px-2 col-md-3 col-12 my-2">
                                     <label asp-for="City"></label>
-
+                                    
                                     @foreach (var province in Iran.Provinces.OrderBy(q => q.ProvinceName))
                                     {
                                         <select name="City" class="form-control" data-province="@province" style="display: none;">
@@ -126,6 +126,10 @@
                                                     .hide()
                                                     .filter('[data-province="' + province + '"]')
                                                     .show();
+                                                for (var i = 0; i < $('[data-province]').length; i++) {
+                                                    $('[data-province]')[i].name = "";
+                                                }
+                                                $('[data-province]').filter('[data-province="' + province + '"]')[0].name = "City";
                                             }
 
                                             $('[data-role="province"]').on('change', function() {
