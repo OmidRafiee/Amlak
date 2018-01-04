@@ -1,7 +1,7 @@
 ﻿@using Amlak.Core.ViewModel.Category
 @using Amlak.Core.ViewModel.Option
 @using DNTPersianUtils.Core
-@model Amlak.Core.ViewModel.House.HouseViewModel
+@model Amlak.Core.DTO.House.HouseFullDTO
 
 @{
     ViewBag.Title = "title";
@@ -129,7 +129,7 @@
                                 </div>
                                 <div class="HouseDetailItemsPart py-2 cb ofh">
                                     <span class="HouseDetailItemsTitle float-right font-weight-bold">نوع خانه :</span>
-                                    <span class="HouseDetailItemsValue float-left font-weight-bold">@Model.CategoryId</span>
+                                    <span class="HouseDetailItemsValue float-left font-weight-bold">@Model.Category.Title</span>
                                 </div>
                             </div>
                             <div class="HouseDetailPrice col-md-6 col-12 d-flex align-items-center">

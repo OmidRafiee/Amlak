@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
-using Amlak.Core.SSOT;
+using Amlak.Core.Entities;
 
-namespace Amlak.Core.Entities
+namespace Amlak.Core.DTO.House
 {
-   public class House
+    public class HouseFullDTO
     {
         public int Id { get; set; }
         public string Title { get; set; }
@@ -15,35 +14,13 @@ namespace Amlak.Core.Entities
 
         /// <summary>
         /// وضیعت
-        /// فروش
-        /// رهن 
-        /// اجاره    
         /// </summary>
-        public StatusType Status { get; set; } ;
-
-
-        /// <summary>
-        /// رهن سالانه
-        /// در صورت انتخاب وضیعت به رهن یا اجاره 
-        /// این را پر میکینیم
-        /// </summary>
-        public long? SalaryPrice { get; set; }
-
-        /// <summary>
-        /// اجاره ماهانه
-        /// در صورت انتخاب وضیعت به رهن یا اجاره 
-        /// این را پر میکینیم
-        /// </summary>
-        public long? MonthPrice { get; set; }
+        public string Status { get; set; }
 
         /// <summary>
         /// قیمت
         /// </summary>
         public long Price { get; set; }
-
-
-        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        public decimal MeterPriceComputed { get; private set; }
 
         /// <summary>
         /// تعداد اطاق
@@ -64,13 +41,13 @@ namespace Amlak.Core.Entities
         /// امکانات که برای مثال شامل
         ///سیستم گرمایشی ، کولر 
         /// </summary>
-        public string OptionIdsJson{ get; set; }
+        public string OptionIdsJson { get; set; }
 
         /// <summary>
         /// مکان جغرافیای
         /// </summary>
         public string Loacation { get; set; }
-        
+
         /// <summary>
         /// تصاویر ملک
         /// </summary>
@@ -84,7 +61,7 @@ namespace Amlak.Core.Entities
         /// <summary>
         /// منطفه
         /// </summary>
-        public string Region{ get; set; }
+        public string Region { get; set; }
 
         /// <summary>
         /// شهر
@@ -110,13 +87,13 @@ namespace Amlak.Core.Entities
         /// <summary>
         /// پیشنهاد ویژه
         /// </summary>
-        public bool IsSpecialOffer{ get; set; }
+        public bool IsSpecialOffer { get; set; }
 
         /// <summary>
         /// زمان ثبت آگهی
         /// </summary>
         public DateTime RequestDate { get; set; }
-        
+
         /// <summary>
         ///زمان انتشار آگاهی که توسط ادمین تهیین میشود 
         /// </summary>
@@ -124,13 +101,12 @@ namespace Amlak.Core.Entities
 
         public bool IsPublished { get; set; }
 
-        
+
         public int? UserId { get; set; }
         public int? CategoryId { get; set; }
 
-        
+
         public virtual Category Category { get; set; }
-        public virtual User User { get; set; }
 
     }
- }
+}
