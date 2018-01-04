@@ -50,7 +50,7 @@ namespace Amlak.Core.ViewModel.House
         ///سیستم گرمایشی ، کولر 
         /// </summary>
         [Display(Name = "امکانات")]
-        public string PossibilitiesIdsJson { get; set; }
+        public string OptionIdsJson { get; set; }
 
         /// <summary>
         /// مکان جغرافیای

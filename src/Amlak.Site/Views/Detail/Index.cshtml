@@ -1,4 +1,7 @@
-﻿@model object
+﻿@using Amlak.Core.ViewModel.Category
+@using Amlak.Core.ViewModel.Option
+@using DNTPersianUtils.Core
+@model Amlak.Core.DTO.House.HouseFullDTO
 
 @{
     ViewBag.Title = "title";
@@ -6,108 +9,18 @@
 }
 
 
+@{
+    var Option = (List<OptionViewModel>)ViewBag.OptionList;
+    var Cateroty = (List<CategoryViewModel>)ViewBag.CategoryList;
 
-
+}
 
 <div class="FullContainer container-fluid relative">
     <div class="PageMainContent ofh relative">
         <div class="row PageSliderRow w-100 mx-auto d-block ofh cb">
-            <div class="HouseImgGallery js_HouseImgGallery col-12 m-auto p-0 trans400">
-                <div class="MainGallery relative">
-                    <div dir="rtl" class="slider slider-for sborder">
-                        <div>
-                            <figure class="MainGalleryPic m-auto w-100 h-100 d-flex align-items-center relative before">
-                                <div class="MainGalleryPicBack"></div>
-                                <img src="image/01.jpg" class="MainGalleryPicImg mw-100 mh-100 m-auto z1" />
-                            </figure>
-                        </div>
-                        <div>
-                            <figure class="MainGalleryPic m-auto w-100 h-100 d-flex align-items-center relative before">
-                                <div class="MainGalleryPicBack"></div>
-                                <img src="image/02.jpg" class="MainGalleryPicImg mw-100 mh-100 m-auto z1" />
-                            </figure>
-                        </div>
-                        <div>
-                            <figure class="MainGalleryPic m-auto w-100 h-100 d-flex align-items-center relative before">
-                                <div class="MainGalleryPicBack"></div>
-                                <img src="image/03.jpg" class="MainGalleryPicImg mw-100 mh-100 m-auto z1" />
-                            </figure>
-                        </div>
-                        <div>
-                            <figure class="MainGalleryPic m-auto w-100 h-100 d-flex align-items-center relative before">
-                                <div class="MainGalleryPicBack"></div>
-                                <img src="image/04.jpg" class="MainGalleryPicImg mw-100 mh-100 m-auto z1" />
-                            </figure>
-                        </div>
-                        <div>
-                            <figure class="MainGalleryPic m-auto w-100 h-100 d-flex align-items-center relative before">
-                                <div class="MainGalleryPicBack"></div>
-                                <img src="image/05.jpg" class="MainGalleryPicImg mw-100 mh-100 m-auto z1" />
-                            </figure>
-                        </div>
-                        <div>
-                            <figure class="MainGalleryPic m-auto w-100 h-100 d-flex align-items-center relative before">
-                                <div class="MainGalleryPicBack"></div>
-                                <img src="image/06.jpg" class="MainGalleryPicImg mw-100 mh-100 m-auto z1" />
-                            </figure>
-                        </div>
-                        <div>
-                            <figure class="MainGalleryPic m-auto w-100 h-100 d-flex align-items-center relative before">
-                                <div class="MainGalleryPicBack"></div>
-                                <img src="image/07.jpg" class="MainGalleryPicImg mw-100 mh-100 m-auto z1" />
-                            </figure>
-                        </div>
-                        <div>
-                            <figure class="MainGalleryPic m-auto w-100 h-100 d-flex align-items-center relative before">
-                                <div class="MainGalleryPicBack"></div>
-                                <img src="image/05.jpg" class="MainGalleryPicImg mw-100 mh-100 m-auto z1" />
-                            </figure>
-                        </div>
-                    </div>
-                    <div dir="rtl" class="slider slider-nav">
-                        <div>
-                            <figure class="w-100 h-100 m-0 px-2">
-                                <img src="image/01.jpg" class="w-100 h-100 m-auto" />
-                            </figure>
-                        </div>
-                        <div>
-                            <figure class="w-100 h-100 m-0 px-2">
-                                <img src="image/02.jpg" class="w-100 h-100 m-auto" />
-                            </figure>
-                        </div>
-                        <div>
-                            <figure class="w-100 h-100 m-0 px-2">
-                                <img src="image/03.jpg" class="w-100 h-100 m-auto" />
-                            </figure>
-                        </div>
-                        <div>
-                            <figure class="w-100 h-100 m-0 px-2">
-                                <img src="image/04.jpg" class="w-100 h-100 m-auto" />
-                            </figure>
-                        </div>
-                        <div>
-                            <figure class="w-100 h-100 m-0 px-2">
-                                <img src="image/05.jpg" class="w-100 h-100 m-auto" />
-                            </figure>
-                        </div>
-                        <div>
-                            <figure class="w-100 h-100 m-0 px-2">
-                                <img src="image/06.jpg" class="w-100 h-100 m-auto" />
-                            </figure>
-                        </div>
-                        <div>
-                            <figure class="w-100 h-100 m-0 px-2">
-                                <img src="image/07.jpg" class="w-100 h-100 m-auto" />
-                            </figure>
-                        </div>
-                        <div>
-                            <figure class="w-100 h-100 m-0 px-2">
-                                <img src="image/05.jpg" class="w-100 h-100 m-auto" />
-                            </figure>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+            @*@Html.Partial("_slider")*@
+
             <div class="PageContent col-12 p-0">
                 <div class="MainContentRow row mx-auto mt-4">
                     <div class="RightPannel col-lg-3 col-md-6 col-12 order-1 order-md-2 order-sm-3">
@@ -117,7 +30,7 @@
                             </div>
                             <div class="SearchHomeContent">
                                 <div class="SearchFormTabPanneItem p-2">
-                                    <form>
+                                    <form asp-controller="Detail" asp-action="Index">
                                         <input class="form-control my-2 block ofh cb" type="text" placeholder="مکــــــــــان" id="example-text-input">
                                         <div class="form-group my-2">
                                             <select class="form-control" id="exampleSelect1">
@@ -160,9 +73,6 @@
                                         </div>
                                         <div class="row w-100 m-auto justify-content-between">
                                             <button type="submit" class="btn btn-primary SearchFormBtn SearchBtn rounded-0 col-6">جستجو</button>
-                                            <button class="btn btn-primary SearchFormBtn MoreOptionBtn rounded-0 col-6" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                                                موارد بیشتر
-                                            </button>
                                             <div class="collapse my-2 p-2 MoreOptionItem w-100" id="collapseExample">
                                                 <div class="row w-100 m-auto">
                                                     <label class="custom-control custom-checkbox px-1 col-6">
@@ -202,62 +112,24 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="SpecialOffers mt-3">
-                            <div class="InnerPageItemHeader radius3">
-                                <h2 class="InnerPageItemHeaderTitle tr w-100 lh3-5 h100p bold prl15 relative"><span class="InnerPageItemHeaderTitleBefore absolute after"></span>پیشنهاد ویژه</h2>
-                            </div>
-                            <a href="javascript:void(0)" class="SpecialOffersContent d-block p-1 m-1 trans400">
-                                <div class="SpecialOffersItem row w-100 m-auto py-1 align-items-center">
-                                    <figure class="SpecialOffersItemPic col-4 tc px-1">
-                                        <img src="image/pic4.jpg" class="img-fluid" />
-                                    </figure>
-                                    <div class="SpecialOffersItemDetail col-8">
-                                        <span class="SpecialOffersItemTitle d-block w-100 font-weight-bold textcut"> یک ویلا بینظیر !</span>
-                                        <span class="SpecialOffersItemLocation d-block w-100 textcut py-1">مکان پیشنهاد</span>
-                                        <span class="SpecialOffersItemPrice d-block w-100 font-weight-bold textcut">3.500.000</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="javascript:void(0)" class="SpecialOffersContent d-block p-1 m-1 trans400">
-                                <div class="SpecialOffersItem row w-100 m-auto py-1 align-items-center">
-                                    <figure class="SpecialOffersItemPic col-4 tc px-1">
-                                        <img src="image/pic4.jpg" class="img-fluid" />
-                                    </figure>
-                                    <div class="SpecialOffersItemDetail col-8">
-                                        <span class="SpecialOffersItemTitle d-block w-100 font-weight-bold textcut"> یک ویلا بینظیر !</span>
-                                        <span class="SpecialOffersItemLocation d-block w-100 textcut py-1">مکان پیشنهاد</span>
-                                        <span class="SpecialOffersItemPrice d-block w-100 font-weight-bold textcut">3.500.000</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="javascript:void(0)" class="SpecialOffersContent d-block p-1 m-1 trans400">
-                                <div class="SpecialOffersItem row w-100 m-auto py-1 align-items-center">
-                                    <figure class="SpecialOffersItemPic col-4 tc px-1">
-                                        <img src="image/pic4.jpg" class="img-fluid" />
-                                    </figure>
-                                    <div class="SpecialOffersItemDetail col-8">
-                                        <span class="SpecialOffersItemTitle d-block w-100 font-weight-bold textcut"> یک ویلا بینظیر !</span>
-                                        <span class="SpecialOffersItemLocation d-block w-100 textcut py-1">مکان پیشنهاد</span>
-                                        <span class="SpecialOffersItemPrice d-block w-100 font-weight-bold textcut">3.500.000</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
+
+                        @await Component.InvokeAsync("SpecialOffer")
+
                     </div>
                     <div class="AboutHouse col-lg-6 col-md-12 col-12 order-lg-2 order-md-1">
                         <div class="HouseDetail row w-100 m-auto dr p-2">
                             <div class="HouseDetailItems col-md-6 col-12">
                                 <div class="HouseDetailItemsPart py-2 cb ofh">
                                     <span class="HouseDetailItemsTitle float-right font-weight-bold">شماره خانه :</span>
-                                    <span class="HouseDetailItemsValue float-left font-weight-bold">#123456789</span>
+                                    <span class="HouseDetailItemsValue float-left font-weight-bold">@Model.Id</span>
                                 </div>
                                 <div class="HouseDetailItemsPart py-2 cb ofh">
                                     <span class="HouseDetailItemsTitle float-right font-weight-bold">وضعیت خانه :</span>
-                                    <span class="HouseDetailItemsValue float-left font-weight-bold">اجاره</span>
+                                    <span class="HouseDetailItemsValue float-left font-weight-bold">@Model.Status</span>
                                 </div>
                                 <div class="HouseDetailItemsPart py-2 cb ofh">
                                     <span class="HouseDetailItemsTitle float-right font-weight-bold">نوع خانه :</span>
-                                    <span class="HouseDetailItemsValue float-left font-weight-bold">آپارتمان</span>
+                                    <span class="HouseDetailItemsValue float-left font-weight-bold">@Model.Category.Title</span>
                                 </div>
                             </div>
                             <div class="HouseDetailPrice col-md-6 col-12 d-flex align-items-center">
@@ -267,7 +139,7 @@
                                 </div>
                             </div>
                             <div class="HouseDetailText col-12 tj lh2 py-2">
-                                درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .
+                                @Model.Description
                             </div>
                         </div>
                         <div class="HouseFeatures">
@@ -275,50 +147,33 @@
                                 <h2 class="InnerPageItemHeaderTitle tr w-100 lh3-5 h100p bold prl15 relative"><span class="InnerPageItemHeaderTitleBefore absolute after"></span>امکانات</h2>
                             </div>
                             <div class="HouseFeaturesContent row w-100 m-auto p-2">
-                                <div class="HouseFeaturesItem col-4 ofh px-1 py-2 relative before active">امکانات</div>
-                                <div class="HouseFeaturesItem col-4 ofh px-1 py-2 relative before">امکانات</div>
-                                <div class="HouseFeaturesItem col-4 ofh px-1 py-2 relative before">امکانات</div>
-                                <div class="HouseFeaturesItem col-4 ofh px-1 py-2 relative before">امکانات</div>
-                                <div class="HouseFeaturesItem col-4 ofh px-1 py-2 relative before">امکانات</div>
-                                <div class="HouseFeaturesItem col-4 ofh px-1 py-2 relative before active">امکانات</div>
-                                <div class="HouseFeaturesItem col-4 ofh px-1 py-2 relative before">امکانات</div>
-                                <div class="HouseFeaturesItem col-4 ofh px-1 py-2 relative before active">امکانات</div>
-                                <div class="HouseFeaturesItem col-4 ofh px-1 py-2 relative before">امکانات</div>
-                                <div class="HouseFeaturesItem col-4 ofh px-1 py-2 relative before">امکانات</div>
-                                <div class="HouseFeaturesItem col-4 ofh px-1 py-2 relative before">امکانات</div>
-                                <div class="HouseFeaturesItem col-4 ofh px-1 py-2 relative before">امکانات</div>
-                                <div class="HouseFeaturesItem col-4 ofh px-1 py-2 relative before">امکانات</div>
-                                <div class="HouseFeaturesItem col-4 ofh px-1 py-2 relative before">امکانات</div>
-                                <div class="HouseFeaturesItem col-4 ofh px-1 py-2 relative before">امکانات</div>
-                                <div class="HouseFeaturesItem col-4 ofh px-1 py-2 relative before">امکانات</div>
-                                <div class="HouseFeaturesItem col-4 ofh px-1 py-2 relative before">امکانات</div>
+                                
+                                @foreach (var item in Option)
+                                {
+                                    <div class="HouseFeaturesItem col-4 ofh px-1 py-2 relative before active">@item.Title</div>
+                                 }
+                              
                             </div>
                         </div>
                     </div>
                     <div class="leftPannel col-lg-3 col-md-6 col-12 order-lg-3 order-3 order-md-3 order-sm-2 px-3">
                         <div class="fourImpoInfo">
                             <div class="fourImpoInfoItem relative d-inline-block w-100 cb">
-                                <span class="d-block p-2">متراژ زمین</span>
+                                <span class="d-block p-2">متراژ </span>
                                 <div class="fourImpoInfoValue absolute rounded-circle p1 text-center d-flex align-items-center justify-content-center">
-                                    <div class="fourImpoInfoValueText LandSize SizeValue rounded-circle d-flex align-items-center justify-content-center text-center sborder font-weight-bold after">750</div>
+                                    <div class="fourImpoInfoValueText LandSize SizeValue rounded-circle d-flex align-items-center justify-content-center text-center sborder font-weight-bold after">@Model.Scale.ToPersianNumbers()</div>
                                 </div>
                             </div>
-                            <div class="fourImpoInfoItem relative d-inline-block w-100 cb">
-                                <span class="d-block p-2">متراژ خانه</span>
-                                <div class="fourImpoInfoValue absolute rounded-circle p1 text-center d-flex align-items-center justify-content-center">
-                                    <div class="fourImpoInfoValueText BuldSize SizeValue rounded-circle d-flex align-items-center justify-content-center text-center sborder font-weight-bold after">345</div>
-                                </div>
-                            </div>
-                            <div class="fourImpoInfoItem relative d-inline-block w-100 cb">
+                           <div class="fourImpoInfoItem relative d-inline-block w-100 cb">
                                 <span class="d-block p-2">تعداد خواب</span>
                                 <div class="fourImpoInfoValue absolute rounded-circle p1 text-center d-flex align-items-center justify-content-center">
-                                    <div class="fourImpoInfoValueText BuldSize rounded-circle d-flex align-items-center justify-content-center text-center sborder font-weight-bold">3</div>
+                                    <div class="fourImpoInfoValueText BuldSize rounded-circle d-flex align-items-center justify-content-center text-center sborder font-weight-bold">@Model.Rooms.ToPersianNumbers()</div>
                                 </div>
                             </div>
                             <div class="fourImpoInfoItem relative d-inline-block w-100 cb">
                                 <span class="d-block p-2">تعداد حمام</span>
                                 <div class="fourImpoInfoValue absolute rounded-circle p1 text-center d-flex align-items-center justify-content-center">
-                                    <div class="fourImpoInfoValueText BuldSize rounded-circle d-flex align-items-center justify-content-center text-center sborder font-weight-bold">2</div>
+                                    <div class="fourImpoInfoValueText BuldSize rounded-circle d-flex align-items-center justify-content-center text-center sborder font-weight-bold">@Model.Bathrooms.ToPersianNumbers()</div>
                                 </div>
                             </div>
                         </div>
@@ -329,81 +184,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="RelatedHouse col-12 mt-2 py-2">
-                    <div class="InnerPageItemHeader radius3">
-                        <h2 class="InnerPageItemHeaderTitle tr w-100 lh3-5 h100p bold prl15 relative"><span class="InnerPageItemHeaderTitleBefore absolute after"></span>موارد مشابه </h2>
-                    </div>
-                    <div class="row w-100 m-auto px-0">
-                        <div class="RelatedHouses col-lg-3 col-sm-6 col-12 p10">
-                            <a href="javascript:void(0)" class="RelatedHousesItem block sborder radius3 ofh p1">
-                                <span class="RelatedHousesItemType tc">فروشی</span>
-                                <figure class="RelatedHousesItemPic w100p tc relative relative">
-                                    <img src="image/pic1.jpg" class="relativemv" />
-                                    <figcaption class="absolute p5 w100p textcut tc">2 ملیارد</figcaption>
-                                </figure>
-                                <div class="RelatedHousesItemTitle textcut bold p10">فروش آپارتمان مسکونی 30 واحدی</div>
-                                <div class="RelatedHousesItemLocation textcut bold p10 relative before">فرمانیه</div>
-                                <div class="RelatedHousesItemDetails row ptb10 w100p m0a">
-                                    <div class="RelatedHousesItemDetailsDiv col-3 tc bold"> زیربنا <br /> 500</div>
-                                    <div class="RelatedHousesItemDetailsDiv col-4 tc bold"> تعداد خواب <br /> 3</div>
-                                    <div class="RelatedHousesItemDetailsDiv col-2 tc bold"> طبقه <br /> 5</div>
-                                    <div class="RelatedHousesItemDetailsDiv col-3 tc bold"> پارکینگ <br /> 1</div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="RelatedHouses col-lg-3 col-sm-6 col-12 p10">
-                            <a href="javascript:void(0)" class="RelatedHousesItem block sborder radius3 ofh p1">
-                                <span class="RelatedHousesItemType tc">فروشی</span>
-                                <figure class="RelatedHousesItemPic w100p tc relative relative">
-                                    <img src="image/pic2.jpg" class="relativemv" />
-                                    <figcaption class="absolute p5 w100p textcut tc">2 ملیارد</figcaption>
-                                </figure>
-                                <div class="RelatedHousesItemTitle textcut bold p10">فروش آپارتمان مسکونی 30 واحدی</div>
-                                <div class="RelatedHousesItemLocation textcut bold p10 relative before">فرمانیه</div>
-                                <div class="RelatedHousesItemDetails row ptb10 w100p m0a">
-                                    <div class="RelatedHousesItemDetailsDiv col-3 tc bold"> زیربنا <br /> 500</div>
-                                    <div class="RelatedHousesItemDetailsDiv col-4 tc bold"> تعداد خواب <br /> 3</div>
-                                    <div class="RelatedHousesItemDetailsDiv col-2 tc bold"> طبقه <br /> 5</div>
-                                    <div class="RelatedHousesItemDetailsDiv col-3 tc bold"> پارکینگ <br /> 1</div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="RelatedHouses col-lg-3 col-sm-6 col-12 p10">
-                            <a href="javascript:void(0)" class="RelatedHousesItem block sborder radius3 ofh p1">
-                                <span class="RelatedHousesItemType tc">فروشی</span>
-                                <figure class="RelatedHousesItemPic w100p tc relative relative">
-                                    <img src="image/pic3.jpg" class="relativemv" />
-                                    <figcaption class="absolute p5 w100p textcut tc">2 ملیارد</figcaption>
-                                </figure>
-                                <div class="RelatedHousesItemTitle textcut bold p10">فروش آپارتمان مسکونی 30 واحدی</div>
-                                <div class="RelatedHousesItemLocation textcut bold p10 relative before">فرمانیه</div>
-                                <div class="RelatedHousesItemDetails row ptb10 w100p m0a">
-                                    <div class="RelatedHousesItemDetailsDiv col-3 tc bold"> زیربنا <br /> 500</div>
-                                    <div class="RelatedHousesItemDetailsDiv col-4 tc bold"> تعداد خواب <br /> 3</div>
-                                    <div class="RelatedHousesItemDetailsDiv col-2 tc bold"> طبقه <br /> 5</div>
-                                    <div class="RelatedHousesItemDetailsDiv col-3 tc bold"> پارکینگ <br /> 1</div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="RelatedHouses col-lg-3 col-sm-6 col-12 p10">
-                            <a href="javascript:void(0)" class="RelatedHousesItem block sborder radius3 ofh p1">
-                                <span class="RelatedHousesItemType tc">فروشی</span>
-                                <figure class="RelatedHousesItemPic w100p tc relative relative">
-                                    <img src="image/pic4.jpg" class="relativemv" />
-                                    <figcaption class="absolute p5 w100p textcut tc">2 ملیارد</figcaption>
-                                </figure>
-                                <div class="RelatedHousesItemTitle textcut bold p10">فروش آپارتمان مسکونی 30 واحدی</div>
-                                <div class="RelatedHousesItemLocation textcut bold p10 relative before">فرمانیه</div>
-                                <div class="RelatedHousesItemDetails row ptb10 w100p m0a">
-                                    <div class="RelatedHousesItemDetailsDiv col-3 tc bold"> زیربنا <br /> 500</div>
-                                    <div class="RelatedHousesItemDetailsDiv col-4 tc bold"> تعداد خواب <br /> 3</div>
-                                    <div class="RelatedHousesItemDetailsDiv col-2 tc bold"> طبقه <br /> 5</div>
-                                    <div class="RelatedHousesItemDetailsDiv col-3 tc bold"> پارکینگ <br /> 1</div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+
+                @*  @await Component.InvokeAsync("SimliarRequest")*@
             </div>
         </div>
         <div class=""></div>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Amlak.Core.DTO.House;
 using Amlak.Core.Entities;
 using Amlak.Core.ViewModel;
 using Amlak.Core.ViewModel.House;
@@ -17,6 +18,8 @@ namespace Amlak.Core.SSOT
 
             CreateMap<HouseCreateViewModel,House>();
             CreateMap<HouseEditViewModel, House>();
+
+            CreateMap<House, HouseFullDTO>();
 
 
         }
