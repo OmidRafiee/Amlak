@@ -24,7 +24,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Calabin\lib\Exir.Regate\Exir.Regate.csproj" />
     <ProjectReference Include="..\Amlak.Core\Amlak.Core.csproj" />
     <ProjectReference Include="..\Amlak.Data\Amlak.Data.csproj" />
   </ItemGroup>
