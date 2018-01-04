@@ -44,8 +44,10 @@ namespace Amlak.Data.Repository
             var model = _context.House
                 .WhereIf(vm.CategoryId != null, q => q.CategoryId.Equals(vm.CategoryId));
 
-            return model.ProjectTo<HouseViewModel>().ToPaginated(new PaginatedCriteria(vm.Page,vm.PageSize));
+            return model.ProjectTo<HouseViewModel>().ToPaginated(new PaginatedCriteria(vm.Page, vm.PageSize));
         }
+
+        
 
         public ServiceResult Update(HouseEditViewModel model)
         {
@@ -75,3 +77,4 @@ namespace Amlak.Data.Repository
         }
     }
 }
+

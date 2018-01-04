@@ -1,13 +1,20 @@
-﻿@model Alamut.Data.Paging.IPaginated<Amlak.Core.ViewModel.House.HouseViewModel>
+﻿@using Amlak.Core.ViewModel.Category
+@using Amlak.Core.ViewModel.Option
+@using DNTPersianUtils.Core
+@model Amlak.Core.ViewModel.House.HouseViewModel
 
 @{
     ViewBag.Title = "title";
     Layout = "_Layout";
 }
 
+
 @{
+    var Option = (List<OptionViewModel>)ViewBag.OptionList;
+    var Cateroty = (List<CategoryViewModel>)ViewBag.CategoryList;
 
 }
+
 <div class="FullContainer container-fluid relative">
     <div class="PageMainContent ofh relative">
         <div class="row PageSliderRow w-100 mx-auto d-block ofh cb">
@@ -105,7 +112,7 @@
                                 </div>
                             </div>
                         </div>
-                      
+
                         @await Component.InvokeAsync("SpecialOffer")
 
                     </div>
@@ -114,15 +121,15 @@
                             <div class="HouseDetailItems col-md-6 col-12">
                                 <div class="HouseDetailItemsPart py-2 cb ofh">
                                     <span class="HouseDetailItemsTitle float-right font-weight-bold">شماره خانه :</span>
-                                    <span class="HouseDetailItemsValue float-left font-weight-bold">#123456789</span>
+                                    <span class="HouseDetailItemsValue float-left font-weight-bold">@Model.Id</span>
                                 </div>
                                 <div class="HouseDetailItemsPart py-2 cb ofh">
                                     <span class="HouseDetailItemsTitle float-right font-weight-bold">وضعیت خانه :</span>
-                                    <span class="HouseDetailItemsValue float-left font-weight-bold">اجاره</span>
+                                    <span class="HouseDetailItemsValue float-left font-weight-bold">@Model.Status</span>
                                 </div>
                                 <div class="HouseDetailItemsPart py-2 cb ofh">
                                     <span class="HouseDetailItemsTitle float-right font-weight-bold">نوع خانه :</span>
-                                    <span class="HouseDetailItemsValue float-left font-weight-bold">آپارتمان</span>
+                                    <span class="HouseDetailItemsValue float-left font-weight-bold">@Model.CategoryId</span>
                                 </div>
                             </div>
                             <div class="HouseDetailPrice col-md-6 col-12 d-flex align-items-center">
@@ -132,7 +139,7 @@
                                 </div>
                             </div>
                             <div class="HouseDetailText col-12 tj lh2 py-2">
-                                درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .درباره خانه .
+                                @Model.Description
                             </div>
                         </div>
                         <div class="HouseFeatures">
@@ -140,50 +147,33 @@
                                 <h2 class="InnerPageItemHeaderTitle tr w-100 lh3-5 h100p bold prl15 relative"><span class="InnerPageItemHeaderTitleBefore absolute after"></span>امکانات</h2>
                             </div>
                             <div class="HouseFeaturesContent row w-100 m-auto p-2">
-                                <div class="HouseFeaturesItem col-4 ofh px-1 py-2 relative before active">امکانات</div>
-                                <div class="HouseFeaturesItem col-4 ofh px-1 py-2 relative before">امکانات</div>
-                                <div class="HouseFeaturesItem col-4 ofh px-1 py-2 relative before">امکانات</div>
-                                <div class="HouseFeaturesItem col-4 ofh px-1 py-2 relative before">امکانات</div>
-                                <div class="HouseFeaturesItem col-4 ofh px-1 py-2 relative before">امکانات</div>
-                                <div class="HouseFeaturesItem col-4 ofh px-1 py-2 relative before active">امکانات</div>
-                                <div class="HouseFeaturesItem col-4 ofh px-1 py-2 relative before">امکانات</div>
-                                <div class="HouseFeaturesItem col-4 ofh px-1 py-2 relative before active">امکانات</div>
-                                <div class="HouseFeaturesItem col-4 ofh px-1 py-2 relative before">امکانات</div>
-                                <div class="HouseFeaturesItem col-4 ofh px-1 py-2 relative before">امکانات</div>
-                                <div class="HouseFeaturesItem col-4 ofh px-1 py-2 relative before">امکانات</div>
-                                <div class="HouseFeaturesItem col-4 ofh px-1 py-2 relative before">امکانات</div>
-                                <div class="HouseFeaturesItem col-4 ofh px-1 py-2 relative before">امکانات</div>
-                                <div class="HouseFeaturesItem col-4 ofh px-1 py-2 relative before">امکانات</div>
-                                <div class="HouseFeaturesItem col-4 ofh px-1 py-2 relative before">امکانات</div>
-                                <div class="HouseFeaturesItem col-4 ofh px-1 py-2 relative before">امکانات</div>
-                                <div class="HouseFeaturesItem col-4 ofh px-1 py-2 relative before">امکانات</div>
+                                
+                                @foreach (var item in Option)
+                                {
+                                    <div class="HouseFeaturesItem col-4 ofh px-1 py-2 relative before active">@item.Title</div>
+                                 }
+                              
                             </div>
                         </div>
                     </div>
                     <div class="leftPannel col-lg-3 col-md-6 col-12 order-lg-3 order-3 order-md-3 order-sm-2 px-3">
                         <div class="fourImpoInfo">
                             <div class="fourImpoInfoItem relative d-inline-block w-100 cb">
-                                <span class="d-block p-2">متراژ زمین</span>
+                                <span class="d-block p-2">متراژ </span>
                                 <div class="fourImpoInfoValue absolute rounded-circle p1 text-center d-flex align-items-center justify-content-center">
-                                    <div class="fourImpoInfoValueText LandSize SizeValue rounded-circle d-flex align-items-center justify-content-center text-center sborder font-weight-bold after">750</div>
+                                    <div class="fourImpoInfoValueText LandSize SizeValue rounded-circle d-flex align-items-center justify-content-center text-center sborder font-weight-bold after">@Model.Scale.ToPersianNumbers()</div>
                                 </div>
                             </div>
-                            <div class="fourImpoInfoItem relative d-inline-block w-100 cb">
-                                <span class="d-block p-2">متراژ خانه</span>
-                                <div class="fourImpoInfoValue absolute rounded-circle p1 text-center d-flex align-items-center justify-content-center">
-                                    <div class="fourImpoInfoValueText BuldSize SizeValue rounded-circle d-flex align-items-center justify-content-center text-center sborder font-weight-bold after">345</div>
-                                </div>
-                            </div>
-                            <div class="fourImpoInfoItem relative d-inline-block w-100 cb">
+                           <div class="fourImpoInfoItem relative d-inline-block w-100 cb">
                                 <span class="d-block p-2">تعداد خواب</span>
                                 <div class="fourImpoInfoValue absolute rounded-circle p1 text-center d-flex align-items-center justify-content-center">
-                                    <div class="fourImpoInfoValueText BuldSize rounded-circle d-flex align-items-center justify-content-center text-center sborder font-weight-bold">3</div>
+                                    <div class="fourImpoInfoValueText BuldSize rounded-circle d-flex align-items-center justify-content-center text-center sborder font-weight-bold">@Model.Rooms.ToPersianNumbers()</div>
                                 </div>
                             </div>
                             <div class="fourImpoInfoItem relative d-inline-block w-100 cb">
                                 <span class="d-block p-2">تعداد حمام</span>
                                 <div class="fourImpoInfoValue absolute rounded-circle p1 text-center d-flex align-items-center justify-content-center">
-                                    <div class="fourImpoInfoValueText BuldSize rounded-circle d-flex align-items-center justify-content-center text-center sborder font-weight-bold">2</div>
+                                    <div class="fourImpoInfoValueText BuldSize rounded-circle d-flex align-items-center justify-content-center text-center sborder font-weight-bold">@Model.Bathrooms.ToPersianNumbers()</div>
                                 </div>
                             </div>
                         </div>
