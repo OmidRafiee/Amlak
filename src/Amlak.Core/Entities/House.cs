@@ -42,8 +42,8 @@ namespace Amlak.Core.Entities
         public long Price { get; set; }
 
 
-        //[DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        //public long MeterPriceComputed { get; private set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        public long MeterPriceComputed { get; private set; }
 
         /// <summary>
         /// تعداد اطاق
