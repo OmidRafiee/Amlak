@@ -106,7 +106,7 @@
 
                                 <div class="px-2 col-md-3 col-12 my-2">
                                     <label asp-for="City"></label>
-                                    
+
                                     @foreach (var province in Iran.Provinces.OrderBy(q => q.ProvinceName))
                                     {
                                         <select name="City" class="form-control" data-province="@province" style="display: none;">
@@ -132,7 +132,7 @@
                                                 $('[data-province]').filter('[data-province="' + province + '"]')[0].name = "City";
                                             }
 
-                                            $('[data-role="province"]').on('change', function() {
+                                            $('[data-role="province"]').on('change', function () {
                                                 change(this);
                                             });
 
@@ -218,6 +218,41 @@
                     <div class="p-2">
                         <div name="Loacation" id="map">
 
+                            <script type="text/javascript">
+                                var map;
+                                $(document).ready(function () {
+                                    map = new GMaps({
+                                        el: '#map',
+                                        lat: -12.043333,
+                                        lng: -77.028333,
+                                        zoomControl: true,
+                                        zoomControlOpt: {
+                                            style: 'SMALL',
+                                            position: 'TOP_LEFT'
+                                        },
+                                        panControl: false,
+                                        streetViewControl: false,
+                                        mapTypeControl: false,
+                                        overviewMapControl: false
+                                    });
+                                });
+                            </script>
+
+                            <div class="row">
+                                <div class="span11">
+                                    <div id="map"></div>
+                                </div>
+                                <div class="span6">
+                                    <p>Using GMaps.js is as easy as:</p>
+                                    <pre>new GMaps({
+                                          el: '#map',
+                                          lat: -12.043333,
+                                          lng: -77.028333
+                                        });</pre>
+                                            <p>You must define <strong>container ID</strong>, <strong>latitude</strong> and <strong>longitude</strong> of the map's center.</p>
+                                    <p><span class="label notice">Note: </span>You also can define <strong>zoom</strong>, <strong>width</strong> and <strong>height</strong>. By default, zoom is 15. Width and height in a CSS class will replace these values.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
