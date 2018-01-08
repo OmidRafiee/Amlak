@@ -5,10 +5,52 @@ using System.Collections.Generic;
 
 namespace Amlak.Data.Migrations
 {
-    public partial class initalAmlak : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Category",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Title = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Category", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Option",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Title = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Option", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Pages",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Basename = table.Column<string>(nullable: true),
+                    Body = table.Column<string>(nullable: true),
+                    IsPublished = table.Column<bool>(nullable: false),
+                    Title = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Pages", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Roles",
                 columns: table => new
@@ -86,6 +128,54 @@ namespace Amlak.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "House",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Area = table.Column<string>(nullable: true),
+                    Bathrooms = table.Column<int>(nullable: false),
+                    CategoryId = table.Column<int>(nullable: true),
+                    City = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(nullable: true),
+                    Floor = table.Column<int>(nullable: false),
+                    IsPublished = table.Column<bool>(nullable: false),
+                    IsSpecialOffer = table.Column<bool>(nullable: false),
+                    Loacation = table.Column<string>(nullable: true),
+                    MonthPrice = table.Column<long>(nullable: true),
+                    OptionIdsJson = table.Column<string>(nullable: true),
+                    Parkings = table.Column<int>(nullable: false),
+                    PhotoGalleryJson = table.Column<string>(nullable: true),
+                    Price = table.Column<long>(nullable: false),
+                    PublishDate = table.Column<DateTime>(nullable: true),
+                    Region = table.Column<string>(nullable: true),
+                    RequestDate = table.Column<DateTime>(nullable: false),
+                    Rooms = table.Column<int>(nullable: false),
+                    SalaryPrice = table.Column<long>(nullable: true),
+                    Scale = table.Column<int>(nullable: false),
+                    Status = table.Column<int>(nullable: false),
+                    Title = table.Column<string>(nullable: true),
+                    Town = table.Column<string>(nullable: true),
+                    UserId = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_House", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_House_Category_CategoryId",
+                        column: x => x.CategoryId,
+                        principalTable: "Category",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_House_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "UserClaims",
                 columns: table => new
                 {
@@ -151,6 +241,16 @@ namespace Amlak.Data.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_House_CategoryId",
+                table: "House",
+                column: "CategoryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_House_UserId",
+                table: "House",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_RoleClaims_RoleId",
                 table: "RoleClaims",
                 column: "RoleId");
@@ -193,6 +293,15 @@ namespace Amlak.Data.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "House");
+
+            migrationBuilder.DropTable(
+                name: "Option");
+
+            migrationBuilder.DropTable(
+                name: "Pages");
+
+            migrationBuilder.DropTable(
                 name: "RoleClaims");
 
             migrationBuilder.DropTable(
@@ -206,6 +315,9 @@ namespace Amlak.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "UserTokens");
+
+            migrationBuilder.DropTable(
+                name: "Category");
 
             migrationBuilder.DropTable(
                 name: "Roles");

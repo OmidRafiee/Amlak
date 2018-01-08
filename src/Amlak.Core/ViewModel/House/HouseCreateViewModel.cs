@@ -72,7 +72,7 @@ namespace Amlak.Core.ViewModel.House
         /// متراژ ملک
         /// </summary>
         [Display(Name = "متراژ")]
-        public string Scale { get; set; }
+        public int Scale { get; set; }
 
         /// <summary>
         /// منطفه
