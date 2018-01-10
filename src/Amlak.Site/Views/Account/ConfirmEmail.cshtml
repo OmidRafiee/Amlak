@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "فعال سازی حساب کاربری ";
+
+}
+
+<div class="container">
+    <div class="col-md-4 col-md-offset-4">
+        @if (!string.IsNullOrEmpty(ViewBag.Succeeded))
+        {
+            <div class="box--store">
+                <div class="store--header clearfix">
+                    <span class="text-title">فعال سازی حساب کاربری با موفقیت انجام شد</span>
+                </div>
+                <div>
+                    
+                  
+                    <label>
+                        از فعال سازی حساب کاربری شما متشکرییم به کالابین خوش آمدید <a asp-controller="Account" asp-action="Login"  class="form--item">ورود به کالابین</a>.
+                    </label>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="box--store">
+                <div class="store--header clearfix">
+                    <span class="text-title">خطا در فعال سازی حساب کاربری</span>
+                </div>
+                <div>
+                    <label>
+                        لینک فعال سازی حساب کاربری شما نامعتبر می باشد
+                    </label>
+                </div>
+            </div>
+        }
+    </div>
+</div>

@@ -5,7 +5,6 @@ using Alamut.Service.Messaging.Configration;
 using Alamut.Service.Messaging.Contracts;
 using Amlak.Core.Entities;
 using Amlak.Core.ViewModel.AccountViewModels;
-using Calabin.Core.SSOT;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -19,28 +18,19 @@ namespace Amlak.Site.Controllers
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
         private readonly ILogger _logger;
-
-        private readonly AppSetting _appSetting;
-        //private readonly SmsSetting _smsSetting;
-
         private readonly IEmailService _emailService;
-        //private readonly SmsRepository _smsRepository;
-
+        
         public AccountController(UserManager<User> userManager,
             SignInManager<User> signInManager,
-            //IOptions<IdentityCookieOptions> identityCookieOptions,
             ILoggerFactory loggerFactory,
-            IEmailService emailService,
-            AppSetting appSetting
+            IEmailService emailService
            )
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _emailService = emailService;
-            _appSetting = appSetting;
             _logger = loggerFactory.CreateLogger<AccountController>();
-
-        }
+            }
 
         public IActionResult SendMail(string mail, string subject, string body)
         {

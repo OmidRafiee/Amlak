@@ -1,4 +1,4 @@
-﻿namespace Calabin.Core.SSOT
+﻿namespace Amlak.Core.SSOT
 {
     public class AppSetting
     {

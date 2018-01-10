@@ -4,10 +4,12 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Amlak.Data.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Amlak.Site.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly HouseRepository _houseRepository;

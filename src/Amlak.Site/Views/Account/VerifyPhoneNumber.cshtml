@@ -1,0 +1,87 @@
+﻿@using Microsoft.CodeAnalysis.CSharp.Syntax
+@model Calabin.Core.ViewModel.AccountViewModels.VerifyPhoneNumberViewModel
+
+@{
+    ViewData["Title"] = "فعال سازی حساب کاربری ";
+
+}
+
+<div class="container">
+    <div class="col-md-4 col-md-offset-4">
+      
+           @if (!string.IsNullOrEmpty(ViewBag.VerifyMessage))
+            {
+                <div class="alert alert-success fade in" style="margin-top: 10px">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                    @ViewBag.VerifyMessage
+                </div>
+
+            }
+            @if (!string.IsNullOrEmpty(ViewBag.FailMessage))
+            {
+
+                <div class="alert alert-danger fade in" style="margin-top: 10px">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                    @ViewBag.FailMessage
+                </div>
+
+            }
+            @if (!string.IsNullOrEmpty(Model.PhoneNumber))
+            {
+                <div class="margin-top-10">
+                    <form asp-controller="Account" asp-action="VerifyPhoneNumber" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="login border--bottom--radius">
+                        <div class="form-group">
+                            @*<label asp-for="PhoneNumber"></label>*@
+                            <input asp-for="PhoneNumber" type="hidden" class="form-control" dir="ltr">
+                            @*<span asp-validation-for="PhoneNumber" class="text-danger"></span>*@
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Code"></label>
+                            <input asp-for="Code" class="form-control" dir="ltr">
+                            <span asp-validation-for="Code" class="text-danger"></span>
+                        </div>
+
+                        @*<div class="form-group">
+                            <label asp-for="Captcha"></label>
+                            <img alt="Captcha" id="imgcpatcha" src="@Url.Action("CaptchaImage", "Captcha")" style="" />
+                            <a id="refresh" class="margin-right-20"> <i class="fa fa-refresh" style="color: #ecac00; font-size: 18px;"></i></a>
+                            <input asp-for="Captcha" class="form-control" />
+                            <span asp-validation-for="Captcha" class="text-danger"></span>
+
+                        </div>*@
+
+                        <button type="submit" class="btn btn-default">فعال سازی</button>
+                    </form>
+
+                    <div class="margin-top-10">
+                        @if (string.IsNullOrEmpty(ViewBag.Message))
+                        {
+                            <a>
+                                کد عضویت را دریافت نکرده اید؟ <a asp-action="ReSendCode" asp-controller="Account" asp-route-PhoneNumber="@Model.PhoneNumber" class="form--item"> ارسال دوباره کد عضویت</a>
+                            </a>
+                        }
+                    </div>
+
+                </div>
+            }
+        
+
+      
+    </div>
+</div>
+
+@section Scripts
+    {
+    <script type="text/javascript">
+        $(function () {
+
+            jQuery('#refresh').on('click', function () {
+                var random = new Date().getTime();
+                jQuery("#imgcpatcha").attr("src", "/Captcha/CaptchaImage?" + random);
+            });
+        });
+    </script>
+}
+
+
