@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Alamut.Service.Messaging.Configration;
 using Alamut.Service.Messaging.Contracts;
 using Amlak.Core.Entities;
+using Amlak.Core.SSOT;
 using Amlak.Core.ViewModel.AccountViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -19,16 +20,17 @@ namespace Amlak.Site.Controllers
         private readonly SignInManager<User> _signInManager;
         private readonly ILogger _logger;
         private readonly IEmailService _emailService;
+      
         
         public AccountController(UserManager<User> userManager,
             SignInManager<User> signInManager,
             ILoggerFactory loggerFactory,
-            IEmailService emailService
-           )
+            IEmailService emailService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _emailService = emailService;
+            
             _logger = loggerFactory.CreateLogger<AccountController>();
             }
 

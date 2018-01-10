@@ -50,6 +50,7 @@ namespace Amlak.Site
             services.AddScoped<IDbConnection>(options => new SqlConnection(Configuration.GetConnectionString("Default")));
 
             services.ConfigurePoco<FileConfig>(Configuration.GetSection("FileConfig"));
+            services.ConfigurePoco<AppSetting>(Configuration.GetSection("AppSetting"));
             services.ConfigurePoco<EmailConfig>(Configuration.GetSection("EmailConfig"));
             services.AddSingleton<IEmailService, MimeKitEmailServices>();
 
