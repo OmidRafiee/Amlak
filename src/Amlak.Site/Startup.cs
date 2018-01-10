@@ -44,6 +44,7 @@ namespace Amlak.Site
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
             services.AddScoped<IDbConnection>(options => new SqlConnection(Configuration.GetConnectionString("Default")));
 
+            services.ConfigurePoco<FileConfig>(Configuration.GetSection("FileConfig"));
             services.ConfigurePoco<EmailConfig>(Configuration.GetSection("EmailConfig"));
             services.AddSingleton<IEmailService, MimeKitEmailServices>();
 

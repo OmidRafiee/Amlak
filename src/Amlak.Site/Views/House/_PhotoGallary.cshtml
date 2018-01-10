@@ -1,0 +1,228 @@
+﻿@using System.Collections.Generic
+@using Amlak.Core.SSOT
+@using Exir.Regate
+@using Newtonsoft.Json
+@using Microsoft.AspNetCore.Mvc.Rendering
+
+@inject FileConfig FileConfig
+
+
+@model Amlak.Core.ViewModel.House.HouseCreateViewModel
+
+
+@{ var angularAppUniqueId = $"slideshow__{Model.Id}"; }
+
+<script src="~/lib/angular-1.5.7/angular.min.js"></script>
+<script src="~/lib/underscore-1.8.3/underscore-min.js"></script>
+<script src="~/lib/jquery-ui-1.11.4/jquery-ui.min.js"></script>
+<script src="~/lib/sortable-1.4.2/sortable.min.js"></script>
+<script src="~/lib/sortable-1.4.2/ng-sortable.js"></script>
+<script src="~/lib/angular-ui-sortable-0.14.2/sortable.js"></script>
+
+
+<form class="form-horizontal" asp-action="House" asp-controller="PhotoGallary">
+    @Html.AntiForgeryToken()
+
+
+    <div class="row">
+        <div class="8col-lg-12 col-md-12">
+            <div class="hpanel horange">
+                <div class="size-15 panel-heading">
+                    ویرایش اسلایدشو
+                </div>
+
+                <div class="panel-body" data-equalheight="box">
+
+                </div>
+
+                <div id="@angularAppUniqueId" ng-controller="Controller as Model" style="display: none;" ng-style="{display: Model._isLoaded ? 'block' : 'none' }">
+
+                    <input type="text" style="display: none;" name="ItemsJson" value="{{ Model.Items }}" />
+
+                    <div class="container-fluid container-fullw bg-white">
+
+
+                        <!-- [slides] -->
+                        <div class="row" ng-sortable="{animation: 150, handle: '.module-field--handler'}">
+                            <div ng-repeat="slide in Model.Items" class="_col-xs-12">
+                                <table class="table table-striped table-bordered table-valigned">
+                                    <tbody>
+                                        <tr>
+                                            <!-- handler -->
+                                            <td class="text-center" width="5%">
+                                                <span class="sam-handler sam-handler-dotted module-field--handler">
+                                                    <span class="sam-handler-elem"></span>
+                                                    <span class="sam-handler-elem"></span>
+                                                    <span class="sam-handler-elem"></span>
+                                                    <span class="sam-handler-elem"></span>
+                                                    <span class="sam-handler-elem"></span>
+                                                    <span class="sam-handler-elem"></span>
+                                                    <span class="sam-handler-elem"></span>
+                                                    <span class="sam-handler-elem"></span>
+                                                    <span class="sam-handler-elem"></span>
+                                                    <span class="sam-handler-elem"></span>
+                                                </span>
+                                            </td>
+
+                                            <!-- slide number -->
+                                            <td class="text-center" width="5%">
+                                                {{ $index + 1 }}
+                                            </td>
+
+                                            <!-- slide cover -->
+                                            <td class="text-center" width="35%">
+                                                <div ng-if="slide.Image.length">
+                                                    <img ng-src="@(FileConfig.WebAddress){{ slide.Image }}" style="max-width: 200px; max-height: 200px;" />
+                                                </div>
+
+                                                <div class="caption" style="padding-top: 5px;">
+                                                    <input type="text" class="form-control" dir="ltr" ng-model="slide.Image" style="display: none;" />
+                                                    <button type="button" class="btn btn-primary" ng-click="Model.chooseImageCurrent($index)">انتخاب تصویر</button>
+                                                </div>
+                                            </td>
+
+                                            <!-- slide information: title, description, link -->
+                                            <td class="text-center">
+                                                <div class="form-horizontal sam-ws-p10-t">
+                                                    <div class="form-group">
+                                                        <div class="col-sm-3 control-label">عنوان</div>
+                                                        <div class="col-sm-9">
+                                                            <input type="text" class="form-control" dir="auto" ng-model="slide.Title" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-sm-3 control-label">توضیح</div>
+                                                        <div class="col-sm-9">
+                                                            <input type="text" class="form-control" dir="auto" ng-model="slide.Description" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-sm-3 control-label">نسبت تصویر</div>
+                                                        <div class="col-sm-9">
+                                                            <select class="form-control" ng-model="slide.AspectRatio">
+                                                                <option value="1:1">1:1</option>
+                                                                <option value="1:2">1:2</option>
+                                                                <option value="2:1">2:1</option>
+                                                                <option value="2:2">2:2</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-sm-3 control-label">لینک</div>
+                                                        <div class="col-sm-9">
+                                                            <input type="text" class="form-control" dir="ltr" ng-model="slide.Link" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-sm-3" style="text-align: left;">
+                                                            <div class="ui slider green fitted checkbox">
+                                                                <input type="checkbox" name="newsletter" ng-model="slide.IsNewWindow" />
+                                                                <label></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-9 control-label" style="text-align: right;">
+                                                            لینک در صفحه جدید باز شود
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <!-- slide delete -->
+                                            <td class="text-center" width="5%">
+                                                <span class="btn btn-danger" ng-click="Model.removeItem($index)">
+                                                    <i class="fa fa-times"></i>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- [/slides] -->
+
+                        <div class="btn btn-purple" ng-click="Model.addItem();">
+                            <i class="fa fa-plus-circle"></i>
+                            اضافه کردن اسلاید جدید
+                        </div>
+
+
+                        <div style="display: none;">
+                            <button type="button" id="@angularAppUniqueId--addFile" ng-click="Model.chooseImage()"></button>
+                            <div id="RegateImageContainer">
+                                @Html.Raw(RegateImage.Build("Image"))
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group m">
+                    <div class="col-sm-12">
+
+                        <input class="btn w-xs btn-success pull-right m-b-lg" type="submit" value="ذخیره" />
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</form>
+
+
+
+<script>
+    window['__setImage_Image'] = function(file) {
+        window.__file = file;
+        $('#@angularAppUniqueId--addFile').click();
+    };
+
+    (function () {
+        // get Razor Model as JSON and make it more humanity
+        var _jsonData = @Html.Raw(JsonConvert.SerializeObject(Model));
+
+        // the angularAppUniqueId which we need for this section
+        var _angularAppUniqueId = '@angularAppUniqueId';
+
+        // create angular app
+        var app = angular.module(_angularAppUniqueId, ['ng-sortable']);
+
+        // create angular module
+        app.controller("Controller", function ($scope, $http) {
+            var _model = this;
+
+            $.extend(_model, _jsonData);
+
+            _model.Items = JSON.parse(_model.ItemsJson) || [];
+
+            _model.removeItem = function (index) {
+                // var product = model.Items[index];
+                // console.log(product.title);
+                _model.Items.splice(index, 1);
+            };
+
+            _model.addItem = function () {
+                _model.Items.push({});
+            };
+
+            _model.chooseImage = function () {
+                var file = window.__file;
+                file.Id = file.Id || file._id;
+
+                _model.Items[_model.currentImageIndex].Image = file;
+            };
+
+            _model.chooseImageCurrent = function (index) {
+                _model.currentImageIndex = index;
+                $('#RegateImageContainer [id*="RegateImage"]').click();
+            };
+
+            _model._isLoaded = true;
+        });
+
+        var elem = document.getElementById(_angularAppUniqueId);
+        angular.bootstrap(elem, [_angularAppUniqueId]);
+    }());
+</script>

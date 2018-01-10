@@ -25,13 +25,21 @@ namespace Amlak.Site.Controllers
         }
 
        public IActionResult Index()
-        {
-            var model = new  HouseCreateViewModel();
-
-            ViewBag.OptionList = _optionRepository.GetAll();
-            ViewBag.CategoryList = _categoryRepository.GetAll();
+       {
+           var model = _houseRepository.GetAll();
             return View(model);
         }
+
+
+
+       public IActionResult Create()
+       {
+           var model = new HouseCreateViewModel();
+
+           ViewBag.OptionList = _optionRepository.GetAll();
+           ViewBag.CategoryList = _categoryRepository.GetAll();
+           return View(model);
+       }
 
         [HttpPost]
         public IActionResult Create(HouseCreateViewModel model)
