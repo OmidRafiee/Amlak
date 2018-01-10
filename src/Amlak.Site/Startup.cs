@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Claims;
+using System.Security.Principal;
 using System.Threading.Tasks;
 using Alamut.Service.Messaging.Configration;
 using Alamut.Service.Messaging.Contracts;
@@ -10,13 +12,16 @@ using Alamut.Service.Messaging.Implementation;
 using Alamut.Utilities.AspNet.Configuration;
 using Alamut.Utilities.Http;
 using Amlak.Core.Entities;
+using Amlak.Core.Helpers;
 using Amlak.Core.SSOT;
 using Amlak.Data;
 using Amlak.Data.Repository;
 using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -68,6 +73,24 @@ namespace Amlak.Site
                 options.LoginPath = "/Account/Login";
                 options.Cookie.Name = ".Amlak";
             });
+
+
+            //Get User Claims
+            services.AddScoped<IPrincipal>(provider =>
+                provider.GetService<IHttpContextAccessor>()?.HttpContext?.User ?? ClaimsPrincipal.Current);
+
+            //implemented User Claims
+            services.AddScoped<IUserClaimsPrincipalFactory<User>, ApplicationClaimsPrincipalFactory>();
+            services.AddScoped<UserClaimsPrincipalFactory<User, Role>, ApplicationClaimsPrincipalFactory>();
+
+
+
+            services.Configure<RouteOptions>(options =>
+            {
+                options.AppendTrailingSlash = true;
+                options.LowercaseUrls = true;
+            });
+
 
 
             services.AddScoped<HouseRepository>();
