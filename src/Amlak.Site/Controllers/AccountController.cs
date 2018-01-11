@@ -6,6 +6,7 @@ using Alamut.Service.Messaging.Contracts;
 using Amlak.Core.Entities;
 using Amlak.Core.SSOT;
 using Amlak.Core.ViewModel.AccountViewModels;
+using Amlak.Data.Repository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -21,17 +22,19 @@ namespace Amlak.Site.Controllers
         private readonly SignInManager<User> _signInManager;
         private readonly ILogger _logger;
         private readonly IEmailService _emailService;
-      
+        private readonly UserRepository _userRepository;
+
         
         public AccountController(UserManager<User> userManager,
             SignInManager<User> signInManager,
             ILoggerFactory loggerFactory,
-            IEmailService emailService)
+            IEmailService emailService, UserRepository userRepository)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _emailService = emailService;
-            
+            _userRepository = userRepository;
+
             _logger = loggerFactory.CreateLogger<AccountController>();
             }
 
@@ -150,14 +153,14 @@ namespace Amlak.Site.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginViewModel model, string returnUrl)
         {
-            //ViewData["ReturnUrl"] = returnUrl;
-            int? checksessionCaptcha = this.HttpContext.Session.GetInt32("Captcha");
+            ////ViewData["ReturnUrl"] = returnUrl;
+            //int? checksessionCaptcha = this.HttpContext.Session.GetInt32("Captcha");
 
-            if (checksessionCaptcha == null || checksessionCaptcha.ToString() != model.Captcha)
-            {
-                ViewBag.FailMessage = "مجموع  وارد شده اشتباه است";
-                return View(new LoginViewModel { PhoneNumber = model.PhoneNumber, RememberMe = model.RememberMe });
-            }
+            //if (checksessionCaptcha == null || checksessionCaptcha.ToString() != model.Captcha)
+            //{
+            //    ViewBag.FailMessage = "مجموع  وارد شده اشتباه است";
+            //    return View(new LoginViewModel { PhoneNumber = model.PhoneNumber, RememberMe = model.RememberMe });
+            //}
 
             if (ModelState.IsValid)
             {
@@ -291,7 +294,32 @@ namespace Amlak.Site.Controllers
         }
 
 
-       
+
+        #region Helpers
+
+        private void AddErrors(IdentityResult result)
+        {
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError(string.Empty, error.Description);
+            }
+        }
+
+        private IActionResult RedirectToLocal(string returnUrl)
+        {
+            if (Url.IsLocalUrl(returnUrl))
+            {
+                return Redirect(returnUrl);
+            }
+            else
+            {
+                return RedirectToAction(nameof(HomeController.Index), "Home");
+            }
+        }
+
+
+        #endregion
+
 
     }
 }
