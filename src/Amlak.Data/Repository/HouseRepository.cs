@@ -48,7 +48,7 @@ namespace Amlak.Data.Repository
             return model.ProjectTo<HouseViewModel>().ToPaginated(new PaginatedCriteria(vm.Page, vm.PageSize));
         }
 
-        
+
 
         public ServiceResult Update(HouseEditViewModel model)
         {
@@ -73,6 +73,18 @@ namespace Amlak.Data.Repository
         {
             var model = _context.House.Where(q => q.Id.Equals(id))
                 .ProjectTo<HouseFullDTO>().FirstOrDefault();
+
+            return model;
+        }
+
+        public List<HouseFullDTO> GetSpeialOffer(int count)
+        {
+
+            var model = _context.House.Where(q => q.IsPublished
+                                             && q.IsSpecialOffer)
+                .OrderByDescending(q => q.PublishDate)
+                .Take(count)
+                .ProjectTo<HouseFullDTO>().ToList();
 
             return model;
         }

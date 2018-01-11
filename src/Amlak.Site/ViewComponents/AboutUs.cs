@@ -7,18 +7,19 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Amlak.Site.ViewComponents
 {
-    public class SpecialOffer:ViewComponent
+    public class AboutUs:ViewComponent
     {
-        private readonly HouseRepository _houseRepository;
+        private readonly PagesRepository _pagesRepository;
 
-        public SpecialOffer(HouseRepository houseRepository)
+        public AboutUs(PagesRepository pagesRepository)
         {
-            _houseRepository = houseRepository;
+            _pagesRepository = pagesRepository;
         }
+
 
         public IViewComponentResult Invoke()
         {
-            var model = _houseRepository.GetSpeialOffer(3);
+            var model = _pagesRepository.GetPagesByBasename("About");
             return View(model);
         }
     }

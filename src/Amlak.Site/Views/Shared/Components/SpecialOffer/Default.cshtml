@@ -1,41 +1,24 @@
-﻿<div class="SpecialOffers mt-3">
+﻿@using DNTPersianUtils.Core
+@model List<Amlak.Core.DTO.House.HouseFullDTO>
+
+<div class="SpecialOffers mt-3">
     <div class="InnerPageItemHeader radius3">
         <h2 class="InnerPageItemHeaderTitle tr w-100 lh3-5 h100p bold prl15 relative"><span class="InnerPageItemHeaderTitleBefore absolute after"></span>پیشنهاد ویژه</h2>
     </div>
-    <a href="javascript:void(0)" class="SpecialOffersContent d-block p-1 m-1 trans400">
-        <div class="SpecialOffersItem row w-100 m-auto py-1 align-items-center">
-            <figure class="SpecialOffersItemPic col-4 tc px-1">
-                <img src="image/pic4.jpg" class="img-fluid" />
-            </figure>
-            <div class="SpecialOffersItemDetail col-8">
-                <span class="SpecialOffersItemTitle d-block w-100 font-weight-bold textcut"> یک ویلا بینظیر !</span>
-                <span class="SpecialOffersItemLocation d-block w-100 textcut py-1">مکان پیشنهاد</span>
-                <span class="SpecialOffersItemPrice d-block w-100 font-weight-bold textcut">3.500.000</span>
+    @foreach (var item in Model)
+    {
+        <a asp-controller="House" asp-action="Detail" asp-route-id="@item.Id" class="SpecialOffersContent d-block p-1 m-1 trans400">
+            <div class="SpecialOffersItem row w-100 m-auto py-1 align-items-center">
+                <figure class="SpecialOffersItemPic col-4 tc px-1">
+                    <img src="image/pic4.jpg" class="img-fluid" />
+                </figure>
+                <div class="SpecialOffersItemDetail col-8">
+                    <span class="SpecialOffersItemTitle d-block w-100 font-weight-bold textcut"> یک @item.Category.Title بینظیر !</span>
+                    <span class="SpecialOffersItemLocation d-block w-100 textcut py-1">@item.Region</span>
+                    <span class="SpecialOffersItemPrice d-block w-100 font-weight-bold textcut">@item.Price.ToPersianNumbers()</span>
+                </div>
             </div>
-        </div>
-    </a>
-    <a href="javascript:void(0)" class="SpecialOffersContent d-block p-1 m-1 trans400">
-        <div class="SpecialOffersItem row w-100 m-auto py-1 align-items-center">
-            <figure class="SpecialOffersItemPic col-4 tc px-1">
-                <img src="image/pic4.jpg" class="img-fluid" />
-            </figure>
-            <div class="SpecialOffersItemDetail col-8">
-                <span class="SpecialOffersItemTitle d-block w-100 font-weight-bold textcut"> یک ویلا بینظیر !</span>
-                <span class="SpecialOffersItemLocation d-block w-100 textcut py-1">مکان پیشنهاد</span>
-                <span class="SpecialOffersItemPrice d-block w-100 font-weight-bold textcut">3.500.000</span>
-            </div>
-        </div>
-    </a>
-    <a href="javascript:void(0)" class="SpecialOffersContent d-block p-1 m-1 trans400">
-        <div class="SpecialOffersItem row w-100 m-auto py-1 align-items-center">
-            <figure class="SpecialOffersItemPic col-4 tc px-1">
-                <img src="image/pic4.jpg" class="img-fluid" />
-            </figure>
-            <div class="SpecialOffersItemDetail col-8">
-                <span class="SpecialOffersItemTitle d-block w-100 font-weight-bold textcut"> یک ویلا بینظیر !</span>
-                <span class="SpecialOffersItemLocation d-block w-100 textcut py-1">مکان پیشنهاد</span>
-                <span class="SpecialOffersItemPrice d-block w-100 font-weight-bold textcut">3.500.000</span>
-            </div>
-        </div>
-    </a>
+        </a>
+
+    }
 </div>
