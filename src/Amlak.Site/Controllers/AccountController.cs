@@ -7,6 +7,7 @@ using Amlak.Core.Entities;
 using Amlak.Core.SSOT;
 using Amlak.Core.ViewModel.AccountViewModels;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -144,66 +145,62 @@ namespace Amlak.Site.Controllers
 
         //
         // POST: /Account/Login
-        //[HttpPost]
-        //[AllowAnonymous]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Login(LoginViewModel model, string returnUrl)
-        //{
-        //    //ViewData["ReturnUrl"] = returnUrl;
-        //    //int? checksessionCaptcha = this.HttpContext.Session.GetInt32("Captcha");
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Login(LoginViewModel model, string returnUrl)
+        {
+            //ViewData["ReturnUrl"] = returnUrl;
+            int? checksessionCaptcha = this.HttpContext.Session.GetInt32("Captcha");
 
-        //    //if (checksessionCaptcha == null || checksessionCaptcha.ToString() != model.Captcha)
-        //    //{
-        //    //    ViewBag.FailMessage = "مجموع  وارد شده اشتباه است";
-        //    //    return View(new LoginViewModel { PhoneNumber = model.PhoneNumber, RememberMe = model.RememberMe });
-        //    //}
- 
-        //    if (ModelState.IsValid)
-        //    {
-        //        // This doesn't count login failures towards account lockout
-        //        // To enable password failures to trigger account lockout, set lockoutOnFailure: true
-        //   //     var user = _userRepository.FindByPhoneNumber(model.PhoneNumber);
-        //        if (user == null)
-        //        {
-        //            ViewBag.FailMessage = "نام کاربری / کلمه عبور نامعتبر می باشد.";
-        //            return View(model);
-        //        }
-        //        if (await _userManager.IsPhoneNumberConfirmedAsync(user))
-        //        {
-        //            var result = await _signInManager.PasswordSignInAsync(user, model.Password, model.RememberMe, lockoutOnFailure: false);
+            if (checksessionCaptcha == null || checksessionCaptcha.ToString() != model.Captcha)
+            {
+                ViewBag.FailMessage = "مجموع  وارد شده اشتباه است";
+                return View(new LoginViewModel { PhoneNumber = model.PhoneNumber, RememberMe = model.RememberMe });
+            }
 
-        //            if (result.Succeeded)
-        //            {
-        //                _logger.LogInformation(1, "User logged in.");
-        //                return RedirectToLocal(returnUrl);
-        //            }
+            if (ModelState.IsValid)
+            {
+                // This doesn't count login failures towards account lockout
+                // To enable password failures to trigger account lockout, set lockoutOnFailure: true
+                var user = _userRepository.FindByPhoneNumber(model.PhoneNumber);
+                if (user == null)
+                {
+                    ViewBag.FailMessage = "نام کاربری / کلمه عبور نامعتبر می باشد.";
+                    return View(model);
+                }
+                if (await _userManager.IsPhoneNumberConfirmedAsync(user))
+                {
+                    var result = await _signInManager.PasswordSignInAsync(user, model.Password, model.RememberMe, lockoutOnFailure: false);
 
-        //            //if (result.RequiresTwoFactor)
-        //            //{
-        //            //    return RedirectToAction(nameof(SendCode), new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
-        //            //}
-        //            if (result.IsLockedOut)
-        //            {
-        //                _logger.LogWarning(2, "User account locked out.");
-        //                return View("Lockout");
-        //            }
-        //            else
-        //            {
-        //                ModelState.AddModelError(string.Empty, "Invalid login attempt.");
-        //                ViewBag.FailMessage = "نام کاربری / کلمه عبور نامعتبر می باشد.";
-        //                return View(model);
-        //            }
-        //        }
-        //        else
-        //        {
-        //            ViewBag.FailMessage = "نام کاربری / کلمه عبور نامعتبر می باشد.";
-        //            // return RedirectToAction("VerifyPhoneNumber", new { phoneNumber = model.PhoneNumber });
-        //        }
-        //    }
+                    if (result.Succeeded)
+                    {
+                        _logger.LogInformation(1, "User logged in.");
+                        return RedirectToLocal(returnUrl);
+                    }
 
-        //    // If we got this far, something failed, redisplay form
-        //    return View(model);
-        //}
+                    if (result.IsLockedOut)
+                    {
+                        _logger.LogWarning(2, "User account locked out.");
+                        return View("Lockout");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                        ViewBag.FailMessage = "نام کاربری / کلمه عبور نامعتبر می باشد.";
+                        return View(model);
+                    }
+                }
+                else
+                {
+                    ViewBag.FailMessage = "نام کاربری / کلمه عبور نامعتبر می باشد.";
+                    // return RedirectToAction("VerifyPhoneNumber", new { phoneNumber = model.PhoneNumber });
+                }
+            }
+
+            // If we got this far, something failed, redisplay form
+            return View(model);
+        }
 
 
 
