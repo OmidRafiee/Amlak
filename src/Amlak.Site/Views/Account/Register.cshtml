@@ -1,5 +1,5 @@
 ﻿@using Amlak.Core.SSOT
-@model Calabin.Core.ViewModel.AccountViewModels.RegisterViewModel
+@model Amlak.Core.ViewModel.AccountViewModels.RegisterViewModel
 
 @inject AppSetting AppSetting
 
@@ -36,13 +36,6 @@
             </div>
         }
 
-            <div class="alert alert-warning fade in" style="margin-top: 10px">
-                لطفا قبل از استفاده از سایت، حتما
-                <a asp-controller="Pages" asp-action="Detail" asp-route-basename="help" style="color: orange;">راهنمای سایت</a>
-                و
-                <a asp-controller="Pages" asp-action="Detail" asp-route-basename="agreement" style="color: orange;">قوانین و مقررات</a>
-                را مطالعه فرمایید.
-            </div>
 
         <div class="box--store">
             <div class="store--header clearfix">
@@ -82,14 +75,7 @@
                     <span asp-validation-for="Email" class="text-danger"></span>
                 </div>
 
-                @if (AppSetting.EnableCaptcha)
-                {
-                    <script src='https://www.google.com/recaptcha/api.js?hl=fa'></script>
-                    <div class="form-group">
-                        <div class="g-recaptcha" data-sitekey="@AppSetting.GoogleRecaptchaKey"></div>
-                    </div>
-                }
-
+                
                 @*<div class="form-group">
                         <label asp-for="Captcha"></label>
                         <img alt="Captcha" id="imgcpatcha" src="@Url.Action("CaptchaImage", "Captcha")" style=""/>
@@ -115,7 +101,7 @@
                     </label>
                     <br>
                     <label>
-                        قبلا ثبت نام کرده ابد؟ <a class="form--item" asp-controller="Account" asp-action="Login">ورود به کالابین</a><br>
+                        قبلا ثبت نام کرده ابد؟ <a class="form--item" asp-controller="Account" asp-action="Login">ورود به سایت</a><br>
                     </label>
                 </div>
             </form>

@@ -97,6 +97,9 @@ namespace Amlak.Site
             services.AddScoped<HouseRepository>();
             services.AddScoped<CategoryRepository>();
             services.AddScoped<OptionRepository>();
+            services.AddScoped<UserRepository>();
+            services.AddScoped<PagesRepository>();
+
 
 
             services.AddMvc();

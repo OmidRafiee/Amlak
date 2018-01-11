@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Calabin.Core.ViewModel.Pages
+namespace Amlak.Core.ViewModel.Pages
 {
     public class PagesViewModel
     {

@@ -29,11 +29,11 @@
                     <li class="NavItems nav-item"><a href="@Url.Action("Index","Home")" class="NavItemLinks MainPageLInk before tc fr trans400 relative">صفحه اصلی</a></li>
                     <li class="NavItems nav-item"><a href="javascript:Void(0)" class="NavItemLinks fr trans400 after relative">جستجو ملک</a></li>
                     <li class="NavItems nav-item"><a href="javascript:Void(0)" class="NavItemLinks fr trans400 after relative">تقاضا ملک</a></li>
-                    <li class="NavItems nav-item"><a href="javascript:Void(0)" class="NavItemLinks fr trans400 after relative">سپردن ملک</a></li>
+                    <li class="NavItems nav-item"><a asp-controller="House" asp-action="Create" class="NavItemLinks fr trans400 after relative">سپردن ملک</a></li>
                     <li class="NavItems nav-item"><a href="javascript:Void(0)" class="NavItemLinks fr trans400 after relative">اخبار امکلاک و اقتصاد</a></li>
-                    <li class="NavItems nav-item"><a href="javascript:Void(0)" class="NavItemLinks fr trans400 after relative">دانستنی های حقوقی</a></li>
+                    <li class="NavItems nav-item"><a asp-controller="Pages" asp-action="Detail" asp-route-basename="Legal" class="NavItemLinks fr trans400 after relative">دانستنی های حقوقی</a></li>
                     <li class="NavItems nav-item"><a href="http://www.iranamlaak.ir/Forms/Contracts/FilterContractsByContractSide.aspx" class="NavItemLinks fr trans400 after relative">استعلام کد رهگیری</a></li>
-                    <li class="NavItems nav-item"><a href="javascript:Void(0)" class="NavItemLinks fr trans400 after relative">ارتباط با ما</a></li>
+                    <li class="NavItems nav-item"><a asp-controller="Pages" asp-action="Detail" asp-route-basename="About" class="NavItemLinks fr trans400 after relative">ارتباط با ما</a></li>
                 </ul>
             </div>
         </nav>

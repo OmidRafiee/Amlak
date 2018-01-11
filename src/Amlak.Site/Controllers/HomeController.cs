@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Amlak.Site.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class HomeController : Controller
     {
         private readonly HouseRepository _houseRepository;

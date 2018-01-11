@@ -8,9 +8,7 @@
     <ul class="main-navigation-menu">
         
 
-        @if ( User.IsInRole("Admin") || User.IsInRole("Pages"))
-        {
-            <li data-menu-role="Office/Pages">
+         <li data-menu-role="Office/Pages">
                 <a asp-controller="Pages" asp-action="Index">
                     <div class="item-content">
                         <div class="item-media">
@@ -22,7 +20,7 @@
                     </div>
                 </a>
             </li>
-        }
+        
         
         @if ( User.IsInRole("Admin") || User.IsInRole("Winner"))
         {

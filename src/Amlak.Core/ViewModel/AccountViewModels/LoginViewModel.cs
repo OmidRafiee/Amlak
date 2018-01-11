@@ -24,8 +24,8 @@ namespace Amlak.Core.ViewModel.AccountViewModels
         public bool RememberMe { get; set; }
 
 
-        [Display(Name = "حاصل جمع")]
-        [Required(ErrorMessage = "لطفا حاصل جمع را وارد نمائید")]
-        public string Captcha { get; set; }
+        //[Display(Name = "حاصل جمع")]
+        //[Required(ErrorMessage = "لطفا حاصل جمع را وارد نمائید")]
+        //public string Captcha { get; set; }
     }
 }
