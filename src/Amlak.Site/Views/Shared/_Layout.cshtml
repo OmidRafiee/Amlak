@@ -20,14 +20,24 @@
 
     <link href="~/css/fileinput.min.css" rel="stylesheet" />
 
+    <link href="~/css/gmaps/lib/jasmine.css" rel="stylesheet" />
+    <link href="~/css/gmaps/style.css" rel="stylesheet" />
+    <link href="~/css/gmaps/prettify.css" rel="stylesheet" />
+
     <script src="~/js/jquery-3.2.1.slim.min.js"></script>
+
+    <script src="~/js/gmaps/lib/jasmine.js"></script>
+    <script src="~/js/gmaps/lib/jasmine-html.js"></script>
+    @*<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>*@
+    @*<script type="text/javascript" src="http://maps.google.com/maps/api/js"></script>*@
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTbsN7-8eBPFg5zRNMC-Pplo6bCwC5xpQ" type="text/javascript"></script>
     
-    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
-    <script src="~/js/gmaps.js"></script>
+    <script src="~/js/gmaps/gmaps.js"></script>
+    <script src="~/js/gmaps/prettify.js"></script>
 
     <title>مشاورین املاک راگا</title>
-    
-    </head>
+
+</head>
 <body>
     <div class="FullContainer container-fluid relative">
         @Html.Partial("_Header")
