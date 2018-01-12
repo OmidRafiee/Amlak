@@ -219,9 +219,10 @@
                         <div class="input form-inline" style="text-align: center;margin-bottom:10px;">
                             <input type="text" id="address" class="form-control" style="margin-bottom: 5px;" name="address">
                             <button type="button" id="btnAddress" class="btn btn-primary btn-xs" style="margin-bottom: 5px;" value="Search">جستجو</button>
-</div>
-                        <div name="Loacation" id="map">
+                        </div>
+                        <input name="Loacation" type="hidden" id="maploc" />
 
+                        <div id="map">
                             <script type="text/javascript">
                                 var map;
                                 var lat;
@@ -242,8 +243,11 @@
                                         mapTypeControl: false,
                                         overviewMapControl: false,
                                         click: function (e) {
-                                            lat = e.latLng.lat();
-                                            lng = e.latLng.lng();
+                                            var location = {
+                                                lat: e.latLng.lat(),
+                                                lng: e.latLng.lng()
+                                            };
+                                            $('#maploc').val(JSON.stringify(location));
                                             map.removeMarkers();
                                             map.addMarker({
                                                 lat: e.latLng.lat(),
@@ -255,6 +259,7 @@
                                                 click: function (e) {
                                                     alert('marker test');
                                                 }
+
                                             });
                                         },
                                     });
@@ -270,40 +275,40 @@
                                                         lng: latlng.lng()
                                                     };
                                                     map.addMarker(location);
-                                                    $('#map').val(JSON.stringify(location));
+                                                    $('#maploc').val(JSON.stringify(location));
                                                 }
                                             }
                                         });
                                     })
-                                   
+
 
                                 });
-                                                            //$(document).ready(function () {
-                                                            //    var jasmineEnv = jasmine.getEnv();
-                                                            //    jasmineEnv.updateInterval = 1000;
+                                                                                        //$(document).ready(function () {
+                                                                                        //    var jasmineEnv = jasmine.getEnv();
+                                                                                        //    jasmineEnv.updateInterval = 1000;
 
-                                                            //    var htmlReporter = new jasmine.HtmlReporter();
+                                                                                        //    var htmlReporter = new jasmine.HtmlReporter();
 
-                                                            //    jasmineEnv.addReporter(htmlReporter);
+                                                                                        //    jasmineEnv.addReporter(htmlReporter);
 
-                                                            //    jasmineEnv.specFilter = function (spec) {
-                                                            //        return htmlReporter.specFilter(spec);
-                                                            //    };
+                                                                                        //    jasmineEnv.specFilter = function (spec) {
+                                                                                        //        return htmlReporter.specFilter(spec);
+                                                                                        //    };
 
-                                                            //    var currentWindowOnload = window.onload;
+                                                                                        //    var currentWindowOnload = window.onload;
 
-                                                            //    window.onload = function () {
-                                                            //        if (currentWindowOnload) {
-                                                            //            currentWindowOnload();
-                                                            //        }
+                                                                                        //    window.onload = function () {
+                                                                                        //        if (currentWindowOnload) {
+                                                                                        //            currentWindowOnload();
+                                                                                        //        }
 
-                                                            //        execJasmine();
-                                                            //    };
+                                                                                        //        execJasmine();
+                                                                                        //    };
 
-                                                            //    function execJasmine() {
-                                                            //        jasmineEnv.execute();
-                                                            //    }
-                                                            //});
+                                                                                        //    function execJasmine() {
+                                                                                        //        jasmineEnv.execute();
+                                                                                        //    }
+                                                                                        //});
                             </script>
                             <div class="map" id="basic-map"></div>
                             @*<div class="row">
@@ -351,7 +356,7 @@
                         <h2 class="InnerPageItemHeaderTitle tr w-100 lh3-5 h100p bold prl15 relative"><span class="InnerPageItemHeaderTitleBefore absolute after"></span>گالری تصاویر</h2>
                     </div>
                     <div class="p-2">insert image to gallery
-                        @Html.Partial("_PhotoGallary",Model)
+                       @* @Html.Partial("_PhotoGallary",Model)*@
                         </div>
                 </div>
             </div>
