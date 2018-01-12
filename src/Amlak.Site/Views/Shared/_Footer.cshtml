@@ -1,12 +1,12 @@
 ﻿  <footer class="PageFooter w100p mt-1 p-3 relative">
     <div class="FooterImpoLinks relative m0a p-2 block ofh cb">
-        <a href="javascript:void(0)" class="FooterImpoLinksItem relative after fr tc bold px-2">صفحه اصلی</a>
-        <a href="javascript:void(0)" class="FooterImpoLinksItem relative after fr tc bold px-2">جستجو ملک</a>
+        <a asp-controller="House" asp-action="Index" class="FooterImpoLinksItem relative after fr tc bold px-2">صفحه اصلی</a>
+        <a asp-controller="House" asp-action="Search" class="FooterImpoLinksItem relative after fr tc bold px-2">جستجو ملک</a>
         <a href="javascript:void(0)" class="FooterImpoLinksItem relative after fr tc bold px-2">تقاضا ملک</a>
-        <a href="javascript:void(0)" class="FooterImpoLinksItem relative after fr tc bold px-2">سپردن ملک</a>
+        <a asp-controller="House" asp-action="Create" class="FooterImpoLinksItem relative after fr tc bold px-2">سپردن ملک</a>
         <a href="javascript:void(0)" class="FooterImpoLinksItem relative after fr tc bold px-2">اخبار املاک و اقتصاد</a>
-        <a href="javascript:void(0)" class="FooterImpoLinksItem relative after fr tc bold px-2">دانستنی های حقوقی</a>
-        <a href="javascript:void(0)" class="FooterImpoLinksItem relative fr tc bold px-2">ارتباط با ما</a>
+        <a asp-controller="Pages" asp-action="Detail" asp-route-basename="Legal" class="FooterImpoLinksItem relative after fr tc bold px-2">دانستنی های حقوقی</a>
+        <a asp-controller="Pages" asp-action="Detail" asp-route-basename="About" class="FooterImpoLinksItem relative fr tc bold px-2">ارتباط با ما</a>
     </div>
     <div class="ragaAddress m0a mt-3 p-3">
         <div class="ragaAddress1 p-2">

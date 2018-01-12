@@ -1,10 +1,11 @@
 ﻿
 @inject FileConfig FileConfig
 
+@using Amlak.Core.SSOT
 @model Amlak.Core.Entities.Pages
 
 @{
-    ViewBag.Title = "کالابین :: " + Model.Title;
+    ViewBag.Title = "املاک :: " + Model.Title;
 }
 
 <div class="container">
@@ -16,10 +17,6 @@
 
                 <div>@Html.Raw(Model.Body)</div>
 
-                @*@Html.Partial("_Help")*@
-                @*@Html.Partial("_About")*@
-                @*@Html.Partial("_Agreement")*@
-                @*@Html.Partial("_Privacy")*@
             </div>
         </div>
     </div>

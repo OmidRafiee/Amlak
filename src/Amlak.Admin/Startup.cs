@@ -13,12 +13,9 @@ using Amlak.Core.SSOT;
 using Amlak.Data;
 using Amlak.Data.Repository;
 using AutoMapper;
-using Calabin.Core.SSOT;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -77,18 +74,11 @@ namespace Amlak.Admin
 
             services.AddAutoMapper(typeof(MappingProfile));
 
+
             services.AddScoped<IUserResolverService, UserResolverServiceByHttpContext>();
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
             services.AddScoped<IDbConnection>(options => new SqlConnection(Configuration.GetConnectionString("Default")));
 
-            //services.AddMvc(config =>
-            //{
-            //    var policy = new AuthorizationPolicyBuilder()
-            //        .RequireAuthenticatedUser()
-            //        .Build();
-
-            //    config.Filters.Add(new AuthorizeFilter(policy));
-            //});
 
             services
                 .AddIdentity<User, Role>(options =>
@@ -99,15 +89,18 @@ namespace Amlak.Admin
                     options.Password.RequireNonAlphanumeric = false;
                     options.Password.RequiredLength = 6;
 
-                    //options.Cookies.ApplicationCookie.AutomaticAuthenticate = true;
-                    //options.Cookies.ApplicationCookie.AutomaticChallenge = true;
-                    //options.Cookies.ApplicationCookie.LoginPath = "/Account/Login";
-                    //options.Cookies.ApplicationCookie.CookieName = ".Calabin.Admin";
+                    //For generate integer number
+                    options.Tokens.ChangePhoneNumberTokenProvider = "Phone";
                 })
                 .AddEntityFrameworkStores<AppDbContext>()
                 .AddDefaultTokenProviders();
 
-            //services.ConfigureApplicationCookie(options => options.LoginPath = "/Account/LogIn");
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.LoginPath = "/Account/Login";
+                options.Cookie.Name = ".Amlak";
+            });
+
 
             services.Configure<RouteOptions>(options =>
             {
@@ -118,6 +111,7 @@ namespace Amlak.Admin
             services.AddScoped<HouseRepository>();
             services.AddScoped<CategoryRepository>();
             services.AddScoped<OptionRepository>();
+            services.AddScoped<PagesRepository>();
 
 
 

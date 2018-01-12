@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using Amlak.Core.SSOT
+@inject FileConfig FileConfig
+<!DOCTYPE html>
+
 
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
@@ -20,25 +23,51 @@
 
     <link href="~/css/fileinput.min.css" rel="stylesheet" />
 
-    <link href="~/css/gmaps/lib/jasmine.css" rel="stylesheet" />
-    <link href="~/css/gmaps/style.css" rel="stylesheet" />
-    <link href="~/css/gmaps/prettify.css" rel="stylesheet" />
-
     <script src="~/js/jquery-3.2.1.slim.min.js"></script>
 
-    <script src="~/js/gmaps/lib/jasmine.js"></script>
-    <script src="~/js/gmaps/lib/jasmine-html.js"></script>
-    @*<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>*@
-    @*<script type="text/javascript" src="http://maps.google.com/maps/api/js"></script>*@
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTbsN7-8eBPFg5zRNMC-Pplo6bCwC5xpQ" type="text/javascript"></script>
-    
-    <script src="~/js/gmaps/gmaps.js"></script>
-    <script src="~/js/gmaps/prettify.js"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+    <script src="~/js/gmaps.js"></script>
 
     <title>مشاورین املاک راگا</title>
 
+    <style>
+        .table-valigned th, .table-valigned td {
+            text-align: center;
+            vertical-align: middle;
+        }
+    </style>
+
 </head>
 <body>
+
+    <script>
+    window.__Configuration = {};
+    window.__Configuration['RepositoryUrl'] = '@FileConfig.WebAddress';
+    </script>
+
+
+    <script>
+        function PopupCenter(url, title, w, h) {
+            // Fixes dual-screen position                         Most browsers      Firefox
+            var dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : screen.left;
+            var dualScreenTop = window.screenTop != undefined ? window.screenTop : screen.top;
+
+            var width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+            var height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+
+            var left = ((width / 2) - (w / 2)) + dualScreenLeft;
+            var top = ((height / 2) - (h / 2)) + dualScreenTop;
+            var newWindow = window.open(url, title, 'scrollbars=yes, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
+
+            // Puts focus on the newWindow
+            if (window.focus) {
+                newWindow.focus();
+            }
+
+            return false;
+        }
+    </script>
+
     <div class="FullContainer container-fluid relative">
         @Html.Partial("_Header")
 
@@ -47,7 +76,7 @@
 
     @Html.Partial("_Footer");
 
-    
+
     <script src="~/js/popper.min.js"></script>
     <script src="~/js/bootstrap.min.js"></script>
     <script src="~/js/slick.min.js"></script>

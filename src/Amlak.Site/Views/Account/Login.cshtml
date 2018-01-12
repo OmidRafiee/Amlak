@@ -1,0 +1,105 @@
+﻿@model Amlak.Core.ViewModel.AccountViewModels.LoginViewModel
+
+@using Amlak.Core.Entities
+@using Amlak.Core.SSOT
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<User> SignInManager
+@inject AppSetting AppSetting
+
+@{
+    ViewData["Title"] = "ورود به سایت";
+}
+
+   
+@*Remove ArrowKey*@
+<style>
+    input[type='number']::-webkit-outer-spin-button,
+    input[type='number']::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+</style>
+
+<div class="container">
+    <div class="col-md-4 col-md-offset-4">
+
+        @if (!string.IsNullOrEmpty(ViewBag.FailMessage))
+        {
+            <div class="alert alert-danger fade in" style="margin-top: 10px">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                @ViewBag.FailMessage
+            </div>
+        }
+
+        @if (!string.IsNullOrEmpty(ViewBag.Message))
+        {
+            <div class="alert alert-success fade in" style="margin-top: 10px">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                @ViewBag.Message
+            </div>
+        }
+        
+        
+        <div class="box--store">
+            <div class="store--header clearfix">
+                <span class="text-title">ورود به سایت</span>
+            </div>
+         
+
+            <form asp-controller="Account" asp-action="Login" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="login border--bottom--radius">
+              
+                <div class="form-group">
+                    <label asp-for="PhoneNumber"></label>
+                    <input asp-for="PhoneNumber" class="form-control" dir="ltr" type="number">
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password"></label>
+                    <input asp-for="Password" class="form-control">
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label asp-for="RememberMe">
+                            <input asp-for="RememberMe" />
+                            @Html.DisplayNameFor(m => m.RememberMe)
+                        </label>
+                    </div>
+                </div>
+            
+                
+                @*<div class="form-group">
+                        <label asp-for="Captcha" ></label>
+                        <img alt="Captcha" id="imgcpatcha" src="@Url.Action("CaptchaImage", "Captcha")" style="" />
+                        <a id="refresh" class="margin-right-20"> <i class="fa fa-refresh" style="color: #ecac00; font-size: 18px;"></i></a>
+                        <input asp-for="Captcha" type="number" class="form-control"/>
+                        <span asp-validation-for="Captcha" class="text-danger"></span>
+                        <script type="text/javascript">
+                            $(function () {
+
+                                $('#refresh').on('click', function () {
+                                    var random = new Date().getTime();
+                                    $("#imgcpatcha").attr("src", "/Captcha/CaptchaImage?" + random);
+                                });
+                            });
+                        </script>
+                    </div>*@
+
+                <button type="submit" class="btn btn-default">ورود</button>
+
+                <div class="margin-top-10">
+
+                    <label>
+                        کاربر تازه وارد هستید ؟ <a asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]" class="form--item"> ایجاد اکانت جدید</a>
+                    </label>
+                    <br>
+                    <label>
+                        رمز عبور خود را فراموش کرده اید؟ <a asp-action="ForgotPassword" class="form--item"> بازیابی کلمه عبور</a>
+                    </label>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

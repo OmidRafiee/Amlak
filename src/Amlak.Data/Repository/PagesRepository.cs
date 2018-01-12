@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using Alamut.Data.Structure;
 using Amlak.Core.Entities;
+using Amlak.Core.ViewModel.Pages;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Calabin.Core.DTO.Pages;
-using Calabin.Core.ViewModel.Pages;
 
 namespace Amlak.Data.Repository
 {
