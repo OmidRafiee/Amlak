@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using Amlak.Core.SSOT;
 
 namespace Amlak.Core.ViewModel.House
 {
@@ -16,7 +17,7 @@ namespace Amlak.Core.ViewModel.House
 
       
         [Display(Name = "وضیعت")]
-        public string Status { get; set; }
+        public StatusType Status { get; set; }
 
         
         [Display(Name = "قیمت")]
