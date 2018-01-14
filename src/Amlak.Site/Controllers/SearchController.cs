@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Amlak.Site.Controllers
 {
-    public class DetailController : Controller
+    public class SearchController : Controller
     {
         private readonly HouseRepository _houseRepository;
         private readonly OptionRepository _optionRepository;
@@ -16,14 +16,22 @@ namespace Amlak.Site.Controllers
 
 
 
-        public DetailController(HouseRepository houseRepository, OptionRepository optionRepository, CategoryRepository categoryRepository)
+        public SearchController(HouseRepository houseRepository, OptionRepository optionRepository, CategoryRepository categoryRepository)
         {
             _houseRepository = houseRepository;
             _optionRepository = optionRepository;
             _categoryRepository = categoryRepository;
         }
 
-        public IActionResult Index(int id)
+        public IActionResult Index()
+        {
+           
+            ViewBag.OptionList = _optionRepository.GetAll();
+            ViewBag.CategoryList = _categoryRepository.GetAll();
+            return View();
+        }
+
+        public IActionResult Detail(int id)
         {
             var model = _houseRepository.GetById(id);
 
@@ -31,5 +39,6 @@ namespace Amlak.Site.Controllers
             ViewBag.CategoryList = _categoryRepository.GetAll();
             return View(model);
         }
+
     }
 }

@@ -1,0 +1,280 @@
+﻿@using Amlak.Core.ViewModel.Category
+@using Amlak.Core.ViewModel.Option
+@using DNTPersianUtils.Core
+@model Amlak.Core.DTO.House.HouseFullDTO
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+
+@{
+    var Option = (List<OptionViewModel>)ViewBag.OptionList;
+    var Cateroty = (List<CategoryViewModel>)ViewBag.CategoryList;
+
+}
+
+<div class="FullContainer container-fluid relative">
+    <div class="PageMainContent ofh relative">
+        <div class="MainContentRow row mx-auto mt-2">
+            <div class="RightPannel col-lg-3 col-md-4 col-12 order-md-1 order-2">
+                <div class="SearchHome block ofh cb">
+                    <div class="InnerPageItemHeader radius3">
+                        <h2 class="InnerPageItemHeaderTitle tr w-100 lh3-5 h100p bold prl15 relative"><span class="InnerPageItemHeaderTitleBefore absolute after"></span>جستجو خانه</h2>
+                    </div>
+                    <div class="SearchHomeContent">
+                        <div class="SearchFormTabPanneItem p-2">
+                            <form>
+                                <input class="form-control my-2 block ofh cb" type="text" placeholder="مکــــــــــان" id="example-text-input">
+                                <div class="form-group my-2">
+                                    <select class="form-control" id="exampleSelect1">
+                                        <option disabled selected>وضعـــــــیت</option>
+                                        <option>خرید</option>
+                                        <option>رهن</option>
+                                        <option>اجاره</option>
+                                    </select>
+                                </div>
+                                <div class="form-group my-2">
+                                    <select class="form-control" id="exampleSelect1">
+                                        <option disabled selected>نـــوع خانـــه</option>
+                                        <option>آپارتمان</option>
+                                        <option>ویلایی</option>
+                                        <option>تجاری</option>
+                                        <option>اداری</option>
+                                    </select>
+                                </div>
+                                <input class="form-control my-2 block ofh cb" type="text" placeholder="کلمـات کلیـدی" id="example-text-input">
+                                <div class="form-group my-2">
+                                    <select class="form-control" id="exampleSelect1">
+                                        <option disabled selected>تعــداد اتـــاق</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>+3</option>
+                                    </select>
+                                </div>
+                                <div class="form-group my-2">
+                                    <select class="form-control" id="exampleSelect1">
+                                        <option disabled selected>تعــداد حمــام</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>+3</option>
+                                    </select>
+                                </div>
+                                <div class="PriceRange my-5 tc p-2">
+                                    <div id="testRange"></div>
+                                </div>
+                                <div class="row w-100 m-auto justify-content-between">
+                                    <button type="submit" class="btn btn-primary SearchFormBtn SearchBtn rounded-0 col-6">جستجو</button>
+                                    <button class="btn btn-primary SearchFormBtn MoreOptionBtn rounded-0 col-6" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                                        موارد بیشتر
+                                    </button>
+                                    <div class="collapse my-2 p-2 MoreOptionItem w-100" id="collapseExample">
+                                        <div class="row w-100 m-auto">
+                                            <label class="custom-control custom-checkbox px-1 col-6">
+                                                <input type="checkbox" class="custom-control-input">
+                                                <span class="custom-control-indicator"></span>
+                                                <span class="custom-control-description mr-2 mt-1">پارکینگ</span>
+                                            </label>
+                                            <label class="custom-control custom-checkbox px-1 col-6">
+                                                <input type="checkbox" class="custom-control-input">
+                                                <span class="custom-control-indicator"></span>
+                                                <span class="custom-control-description mr-2 mt-1">بالکن</span>
+                                            </label>
+                                            <label class="custom-control custom-checkbox px-1 col-6">
+                                                <input type="checkbox" class="custom-control-input">
+                                                <span class="custom-control-indicator"></span>
+                                                <span class="custom-control-description mr-2 mt-1">باشکاه ورزشی</span>
+                                            </label>
+                                            <label class="custom-control custom-checkbox px-1 col-6">
+                                                <input type="checkbox" class="custom-control-input">
+                                                <span class="custom-control-indicator"></span>
+                                                <span class="custom-control-description mr-2 mt-1">استخر</span>
+                                            </label>
+                                            <label class="custom-control custom-checkbox px-1 col-6">
+                                                <input type="checkbox" class="custom-control-input">
+                                                <span class="custom-control-indicator"></span>
+                                                <span class="custom-control-description mr-2 mt-1">سیستم گرامیش مرکزی</span>
+                                            </label>
+                                            <label class="custom-control custom-checkbox px-1 col-6">
+                                                <input type="checkbox" class="custom-control-input">
+                                                <span class="custom-control-indicator"></span>
+                                                <span class="custom-control-description mr-2 mt-1">باربکیو</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="SpecialOffers mt-3">
+                    <div class="InnerPageItemHeader radius3">
+                        <h2 class="InnerPageItemHeaderTitle tr w-100 lh3-5 h100p bold prl15 relative"><span class="InnerPageItemHeaderTitleBefore absolute after"></span>پیشنهاد ویژه</h2>
+                    </div>
+                    <a href="javascript:void(0)" class="SpecialOffersContent d-block p-1 m-1 trans400">
+                        <div class="SpecialOffersItem row w-100 m-auto py-1 align-items-center">
+                            <figure class="SpecialOffersItemPic col-4 tc px-1">
+                                <img src="image/pic4.jpg" class="img-fluid" />
+                            </figure>
+                            <div class="SpecialOffersItemDetail col-8">
+                                <span class="SpecialOffersItemTitle d-block w-100 font-weight-bold textcut"> یک ویلا بینظیر !</span>
+                                <span class="SpecialOffersItemLocation d-block w-100 textcut py-1">مکان پیشنهاد</span>
+                                <span class="SpecialOffersItemPrice d-block w-100 font-weight-bold textcut">3.500.000</span>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="javascript:void(0)" class="SpecialOffersContent d-block p-1 m-1 trans400">
+                        <div class="SpecialOffersItem row w-100 m-auto py-1 align-items-center">
+                            <figure class="SpecialOffersItemPic col-4 tc px-1">
+                                <img src="image/pic4.jpg" class="img-fluid" />
+                            </figure>
+                            <div class="SpecialOffersItemDetail col-8">
+                                <span class="SpecialOffersItemTitle d-block w-100 font-weight-bold textcut"> یک ویلا بینظیر !</span>
+                                <span class="SpecialOffersItemLocation d-block w-100 textcut py-1">مکان پیشنهاد</span>
+                                <span class="SpecialOffersItemPrice d-block w-100 font-weight-bold textcut">3.500.000</span>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="javascript:void(0)" class="SpecialOffersContent d-block p-1 m-1 trans400">
+                        <div class="SpecialOffersItem row w-100 m-auto py-1 align-items-center">
+                            <figure class="SpecialOffersItemPic col-4 tc px-1">
+                                <img src="image/pic4.jpg" class="img-fluid" />
+                            </figure>
+                            <div class="SpecialOffersItemDetail col-8">
+                                <span class="SpecialOffersItemTitle d-block w-100 font-weight-bold textcut"> یک ویلا بینظیر !</span>
+                                <span class="SpecialOffersItemLocation d-block w-100 textcut py-1">مکان پیشنهاد</span>
+                                <span class="SpecialOffersItemPrice d-block w-100 font-weight-bold textcut">3.500.000</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="MainContentRow col-lg-9 col-md-8 col-12 order-md-2 order-1">
+                <div class="HouseList">
+                    <div class="d-block ofh cb">
+                        <div class="HouseListItem row w-100 mx-auto mb-3 align-items-center">
+                            <a href="javascript:void(0)" class="HouseListItemPicLink d-block col-sm-4 col-12 p-0 relative">
+                                <figure class="w-100 relative text-center">
+                                    <img src="image/pic1.jpg" class="img-fluid trans400" />
+                                    <figcaption class="absolute t0 trans400 bold textcut d-flex align-items-center justify-content-center">قیمت : 3.000.000.000</figcaption>
+                                </figure>
+                                <div class="HouseListItemType absolute text-center trans400">فروشی</div>
+                            </a>
+                            <div class="HouseListItemContent col-sm-8 col-12">
+                                <a href="javascript:void(0)" class="HouseListItemTitle d-block textcut my-3 trans400">فروش آپارتمان مسکونی 30 واحدی</a>
+                                <div class="HouseListItemLocation my-2">فرمانیه</div>
+                                <div class="HouseListItemsummary CutString CutString2 lh2-5">فروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدی</div>
+                                <div class="block ofh">
+                                    <div class="row w-100 mx-auto">
+                                        <span class="LandSize HouseListDetail my-2 d-flex align-items-center col-lg-3 col-md-6 col-12 relative after">346</span>
+                                        <span class="BedCount HouseListDetail my-2 d-flex align-items-center col-lg-3 col-md-6 col-12 relative after">4</span>
+                                        <span class="BathCount HouseListDetail my-2 d-flex align-items-center col-lg-3 col-md-6 col-12 relative after">2</span>
+                                        <span class="MoreBtnContainer col-lg-3 col-md-6 col-12 px-3 my-2"><a href="javascript:void(0)" class="MoreBtn p-2 block text-center trans400">بیشتر</a></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="HouseListItem row w-100 mx-auto mb-3 align-items-center">
+                            <a href="javascript:void(0)" class="HouseListItemPicLink d-block col-sm-4 col-12  p-0 relative">
+                                <figure class="w-100 relative text-center">
+                                    <img src="image/pic2.jpg" class="img-fluid trans400" />
+                                    <figcaption class="absolute t0 trans400 bold textcut d-flex align-items-center justify-content-center">قیمت : 3.000.000.000</figcaption>
+                                </figure>
+                                <div class="HouseListItemType absolute text-center trans400">فروشی</div>
+                            </a>
+                            <div class="HouseListItemContent col-sm-8 col-12">
+                                <a href="javascript:void(0)" class="HouseListItemTitle d-block textcut my-3 trans400">فروش آپارتمان مسکونی 30 واحدی</a>
+                                <div class="HouseListItemLocation my-2">فرمانیه</div>
+                                <div class="HouseListItemsummary CutString CutString2 lh2-5">فروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدی</div>
+                                <div class="block ofh">
+                                    <div class="row w-100 mx-auto">
+                                        <span class="LandSize HouseListDetail my-2 d-flex align-items-center col-lg-3 col-md-6 col-12 relative after">346</span>
+                                        <span class="BedCount HouseListDetail my-2 d-flex align-items-center col-lg-3 col-md-6 col-12 relative after">4</span>
+                                        <span class="BathCount HouseListDetail my-2 d-flex align-items-center col-lg-3 col-md-6 col-12 relative after">2</span>
+                                        <span class="MoreBtnContainer col-lg-3 col-md-6 col-12 px-3 my-2"><a href="javascript:void(0)" class="MoreBtn p-2 block text-center trans400">بیشتر</a></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="HouseListItem row w-100 mx-auto mb-3 align-items-center">
+                            <a href="javascript:void(0)" class="HouseListItemPicLink d-block col-sm-4 col-12  p-0 relative">
+                                <figure class="w-100 relative text-center">
+                                    <img src="image/pic3.jpg" class="img-fluid trans400" />
+                                    <figcaption class="absolute t0 trans400 bold textcut d-flex align-items-center justify-content-center">قیمت : 3.000.000.000</figcaption>
+                                </figure>
+                                <div class="HouseListItemType absolute text-center trans400">فروشی</div>
+                            </a>
+                            <div class="HouseListItemContent col-sm-8 col-12">
+                                <a href="javascript:void(0)" class="HouseListItemTitle d-block textcut my-3 trans400">فروش آپارتمان مسکونی 30 واحدی</a>
+                                <div class="HouseListItemLocation my-2">فرمانیه</div>
+                                <div class="HouseListItemsummary CutString CutString2 lh2-5">فروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدی</div>
+                                <div class="block ofh">
+                                    <div class="row w-100 mx-auto">
+                                        <span class="LandSize HouseListDetail my-2 d-flex align-items-center col-lg-3 col-md-6 col-12 relative after">346</span>
+                                        <span class="BedCount HouseListDetail my-2 d-flex align-items-center col-lg-3 col-md-6 col-12 relative after">4</span>
+                                        <span class="BathCount HouseListDetail my-2 d-flex align-items-center col-lg-3 col-md-6 col-12 relative after">2</span>
+                                        <span class="MoreBtnContainer col-lg-3 col-md-6 col-12 px-3 my-2"><a href="javascript:void(0)" class="MoreBtn p-2 block text-center trans400">بیشتر</a></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="HouseListItem row w-100 mx-auto mb-3 align-items-center">
+                            <a href="javascript:void(0)" class="HouseListItemPicLink d-block col-sm-4 col-12  p-0 relative">
+                                <figure class="w-100 relative text-center">
+                                    <img src="image/pic4.jpg" class="img-fluid trans400" />
+                                    <figcaption class="absolute t0 trans400 bold textcut d-flex align-items-center justify-content-center">قیمت : 3.000.000.000</figcaption>
+                                </figure>
+                                <div class="HouseListItemType absolute text-center trans400">فروشی</div>
+                            </a>
+                            <div class="HouseListItemContent col-sm-8 col-12">
+                                <a href="javascript:void(0)" class="HouseListItemTitle d-block textcut my-3 trans400">فروش آپارتمان مسکونی 30 واحدی</a>
+                                <div class="HouseListItemLocation my-2">فرمانیه</div>
+                                <div class="HouseListItemsummary CutString CutString2 lh2-5">فروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدی</div>
+                                <div class="block ofh">
+                                    <div class="row w-100 mx-auto">
+                                        <span class="LandSize HouseListDetail my-2 d-flex align-items-center col-lg-3 col-md-6 col-12 relative after">346</span>
+                                        <span class="BedCount HouseListDetail my-2 d-flex align-items-center col-lg-3 col-md-6 col-12 relative after">4</span>
+                                        <span class="BathCount HouseListDetail my-2 d-flex align-items-center col-lg-3 col-md-6 col-12 relative after">2</span>
+                                        <span class="MoreBtnContainer col-lg-3 col-md-6 col-12 px-3 my-2"><a href="javascript:void(0)" class="MoreBtn p-2 block text-center trans400">بیشتر</a></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="HouseListItem row w-100 mx-auto mb-3 align-items-center">
+                            <a href="javascript:void(0)" class="HouseListItemPicLink d-block col-sm-4 col-12  p-0 relative">
+                                <figure class="w-100 relative text-center">
+                                    <img src="image/pic5.jpg" class="img-fluid trans400" />
+                                    <figcaption class="absolute t0 trans400 bold textcut d-flex align-items-center justify-content-center">قیمت : 3.000.000.000</figcaption>
+                                </figure>
+                                <div class="HouseListItemType absolute text-center trans400">فروشی</div>
+                            </a>
+                            <div class="HouseListItemContent col-sm-8 col-12">
+                                <a href="javascript:void(0)" class="HouseListItemTitle d-block textcut my-3 trans400">فروش آپارتمان مسکونی 30 واحدی</a>
+                                <div class="HouseListItemLocation my-2">فرمانیه</div>
+                                <div class="HouseListItemsummary CutString CutString2 lh2-5">فروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدی</div>
+                                <div class="block ofh">
+                                    <div class="row w-100 mx-auto">
+                                        <span class="LandSize HouseListDetail my-2 d-flex align-items-center col-lg-3 col-md-6 col-12 relative after">346</span>
+                                        <span class="BedCount HouseListDetail my-2 d-flex align-items-center col-lg-3 col-md-6 col-12 relative after">4</span>
+                                        <span class="BathCount HouseListDetail my-2 d-flex align-items-center col-lg-3 col-md-6 col-12 relative after">2</span>
+                                        <span class="MoreBtnContainer col-lg-3 col-md-6 col-12 px-3 my-2"><a href="javascript:void(0)" class="MoreBtn p-2 block text-center trans400">بیشتر</a></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="Paging">
+
+                </div>
+            </div>
+        </div>
+        <div class=""></div>
+    </div>
+
+</div>
+

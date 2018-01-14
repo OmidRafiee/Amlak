@@ -1,0 +1,98 @@
+﻿/**
+*
+*	Name:			IRAN Sans-Serif Font
+*	Version:		5.0
+*	Author:			Moslem Ebrahimi (moslemebrahimi.com)
+*	Created on:		Dec 25, 2012
+*	Updated on:		Sep 01, 2017
+*	Website:		             http://fontiran.com
+*	Copyright:		Commercial/Proprietary Software
+--------------------------------------------------------------------------------------
+فونت های ایران سن سریف یک نرم افزار مالکیتی محسوب می شود. جهت آگاهی از قوانین استفاده از این فونت ها لطفا به وب سایت (فونت ایران دات کام) مراجعه نمایید
+--------------------------------------------------------------------------------------
+IRAN Sans-serif fonts are considered a proprietary software. To gain information about the laws regarding the use of these fonts, please visit www.fontiran.com 
+--------------------------------------------------------------------------------------
+This set of fonts are used in this project under the license: (.....)
+--------------------------------------------------------------------------------------
+*	
+**/
+/*cutstring*/
+.CutString {direction:rtl;overflow:hidden;}
+.CutString1{max-height:50px}
+.CutString2{max-height:85px;}
+.CutString3{max-height:65px;}
+.CutString4{max-height:302px;}
+
+@font-face {font-family: FontAwesome;src: url(../fonts/FontAwesome.otf)}
+@font-face {font-family: IranSans;src: url(../fonts/IRANSansWebMedium.ttf)}
+body,ul li,ul,h1,h2,h3,h4,h5,h6,div,p,a,span,input,select,textarea,img,figure,section,header,footer,article,strong{font-family:IranSans;}
+body{direction:rtl;position:relative;z-index:-1000;}
+.FullContainer{z-index:-1000;}
+/*PageMainContent*/
+.PageMainContent{z-index:-1000;}
+/*RightPannel*/
+.InnerPageItemHeader{height:45px;background-color:#EFEFEF;}
+.InnerPageItemHeaderTitle{width:200px;background-color:#F3BA4F;font-size:10pt;color:#FFF;text-shadow: 2px 1px 2px #262626;padding-right:55px;}
+.InnerPageItemHeaderTitleBefore{width:40px;height:100%;background-color:#D9A84B;right:0px;top:0px;}
+.InnerPageItemHeaderTitleBefore.after:after{display:block;position:absolute;left:-7px;top:15px;width: 0; height: 0; border-top: 7px solid transparent;border-bottom: 7px solid transparent; border-right:7px solid #D9A84B; }
+.SearchFormTabPanneItem .form-control[type="text"]{padding-right:17px;}
+.SearchFormTabPanneItem .form-control {font-size:13px;height:38px;}
+.form-control::-webkit-input-placeholder { color:#495057; }
+.form-control:-moz-placeholder { color:#495057; }
+.form-control::-moz-placeholder { color:#495057; }
+.form-control:-ms-input-placeholder { color:#495057; }
+.form-control::-ms-input-placeholder { color: #495057; }
+.SearchFormTabPanneItem .form-control:focus{border-color:#BD8D3B;}
+.MoreOptionItem .custom-control-indicator{position:relative;}
+.MoreOptionItem .custom-control-input:checked~.custom-control-indicator{background-color:#BD8D3B;border:none;}
+.MoreOptionItem .custom-control-input:focus~.custom-control-indicator {-webkit-box-shadow: 0 0 0 1px #fff, 0 0 0 3px #BD8D3B;box-shadow: 0 0 0 1px #fff, 0 0 0 3px #BD8D3B;}
+.MoreOptionItem .custom-checkbox{margin-right:0px;}
+/*.SearchFormBtn{max-width:140px;}*/
+.SearchBtn{background-color:#BD8D3B;border-color:#BD8D3B;}
+.SearchBtn:hover{color:#BD8D3B;background-color:#fff;border-color:#BD8D3B;box-shadow:0px 0px 5px #BD8D3B;}
+.MoreOptionBtn{background-color:#1E4464;border-color:#1E4464;}
+.MoreOptionBtn:hover{color:#1E4464;background-color:#fff;border-color:#1E4464;box-shadow:0px 0px 5px #1E4464;}
+.SearchFormTabPanneItem{background-color:#F2F2F2;}
+/*SpecialOffers*/
+.SpecialOffersContent:hover{background-color:#FFF;}
+.SpecialOffersContent{background-color:#EFEFEF;}
+.SpecialOffersItemTitle{color:#333333;font-size:12px;}
+.SpecialOffersItemLocation{font-size:11px;color:#aeaeae;}
+.SpecialOffersItemPrice{color:#BD8D3B;font-size:12px;}
+
+/*PriceRange*/
+.noUi-horizontal {height: 5px;}
+.noUi-connect {background:#BD8D3B;}
+.noUi-horizontal .noUi-handle {width: 15px;height: 15px;left: -8px;}
+.noUi-handle:after , .noUi-handle:before{display:none;}
+.noUi-marker-horizontal.noUi-marker-large {height: 8px;}
+
+/*HouseListItem*/
+.HouseListItem{background-color:#F2F2F2;min-height:212px;}
+.HouseListItemPicLink:hover img{opacity:0.5;}
+.HouseListItemPicLink figcaption{width:100%;height:100%;color:#1E4464;opacity:0;font-size:13pt;}
+.HouseListItemPicLink:hover figcaption{opacity:1;}
+.HouseListItemType{display: block;opacity:1;position: absolute;right:10px;top:10px;width: 60px;height: 60px;background-color: #EFEFEF;color: #AA3E1A;z-index: 10;border-radius: 50%;font-size: 15px;line-height: 4;box-shadow: 0px 0px 15px #333333;}
+.HouseListItemPicLink:hover .HouseListItemType{opacity:0;}
+.HouseListItemTitle{font-size:12pt;color:#333333;}
+.HouseListItemTitle:hover{color:#BD8D3B;}
+.HouseListItemLocation{font-size:8pt;color:#bababa;}
+.HouseListItemsummary{color:#404040;}
+.HouseListDetail{font-size:15pt;color:#BD8D3B;}
+.HouseListDetail.after:after{display:block;width:30px;height:30px;position:absolute;top:10px;left:0px;color:#000;font-size:9.5pt;}
+.LandSize.after:after{content:"متر مربع";width:50px;}
+.BedCount.after:after{content:"خواب";}
+.BathCount.after:after{content:"حمام";}
+.MoreBtn{background-color:#BD8D3B;border-color:#BD8D3B;color:#FFF;font-size:10pt;}
+.MoreBtn:hover{color:#BD8D3B;background-color:#fff;border-color:#BD8D3B;box-shadow:0px 0px 5px #BD8D3B;}
+
+
+
+/*Responsive*/
+@media only screen and (max-width:768px ) {
+    .MoreBtnContainer{padding:0px !important;}
+}
+@media only screen and (max-width:576px ) {
+    .HouseListItemPicLink img{width:100%;}
+
+}
