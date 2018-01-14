@@ -20,7 +20,7 @@ namespace Amlak.Admin.Controllers
 
         public IActionResult Index()
         {
-           var model= _houseRepository.GetAll();
+            var model = _houseRepository.GetAll();
             return View(model);
         }
 
@@ -36,13 +36,12 @@ namespace Amlak.Admin.Controllers
         {
             if (model.IsPublished)
             {
-                model.PublishDate=DateTime.Now;
+                model.PublishDate = DateTime.Now;
             }
 
-           var result= _houseRepository.Update(model);
+            var result = _houseRepository.Update(model);
 
-           
-            return RedirectToAction("Edit", new {model.Id});
+            return RedirectToAction("Edit", new { model.Id });
         }
 
         public IActionResult Detail(int id)

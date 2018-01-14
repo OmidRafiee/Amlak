@@ -1,6 +1,7 @@
 ﻿@using DNTPersianUtils.Core.IranCities
 @using Exir.Regate
 @model Amlak.Core.DTO.House.HouseFullDTO
+@using Amlak.Core.SSOT;
 
 @{
     ViewData["Title"] = "ویرایش محصول";
@@ -24,10 +25,8 @@
 
             <div class="form-group">
                 <label asp-for="Status"></label>
-                <select name="Status" class="form-control">
-                    <!option value="خرید" @(Model.Status.Contains("خرید") ? "selected" : "")>خرید</!option>
-                    <!option value="رهن" @(Model.Status.Contains("رهن") ? "selected" : "")>رهن</!option>
-                    <!option value="اجاره" @(Model.Status.Contains("اجاره") ? "selected" : "")>اجاره</!option>
+                <select name="Status" asp-items="Html.GetEnumSelectList<StatusType>()" class="form-control">
+                    <option></option>
                 </select>
                 <span asp-validation-for="Status" class="text-danger"></span>
             </div>
@@ -172,7 +171,7 @@
 
             <div class="form-group">
                 <label asp-for="IsPublished"></label>:
-
+                <br/>
                 <label><input type="radio" name="IsPublished" checked="@(Model.IsPublished)" value="true"> نمایش</label>
                 <label><input type="radio" name="IsPublished" checked="@(!Model.IsPublished)" value="false"> عدم نمایش</label>
             </div>
