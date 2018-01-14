@@ -17,26 +17,26 @@ namespace Amlak.Admin.Controllers
             _pagesRepository = pagesRepository;
         }
 
-        public ActionResult Index()
+        public IActionResult Index()
         {
             var model = _pagesRepository.GetAllPages();
             return View(model);
         }
 
-        public ActionResult Create()
+        public IActionResult Create()
         {
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(PagesViewModel model)
+        public IActionResult Create(PagesViewModel model)
         {
             var result = _pagesRepository.CreatePages(model);
             return RedirectToAction("Edit", new { id = result.Data });
         }
 
-        public ActionResult Edit(int id)
+        public IActionResult Edit(int id)
         {
             var model = _pagesRepository.GetPagesById(id);
             return View(model);
@@ -44,13 +44,13 @@ namespace Amlak.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(PagesViewModel model)
+        public IActionResult Edit(PagesViewModel model)
         {
             var result = _pagesRepository.UpdatePagesById(model);
             return RedirectToAction("Edit", new { id = result.Data });
         }
 
-        public ActionResult Delete(int id)
+        public IActionResult Delete(int id)
         {
             var result = _pagesRepository.DeletePagesById(id);
             return RedirectToAction("Index");
@@ -58,7 +58,7 @@ namespace Amlak.Admin.Controllers
 
 
         // ======================================(API)======================================
-        public ActionResult GetAll()
+        public IActionResult GetAll()
         {
             var model = _pagesRepository.GetAllPages();
             return Json(model);
