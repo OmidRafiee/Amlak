@@ -279,31 +279,31 @@ namespace Amlak.Site.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Register(RegisterViewModel model, string returnUrl)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //       // var user = new User { UserName = model.PhoneNumber, PhoneNumber = model.PhoneNumber, Email = model.Email, PropFriendlyName = model.PropFriendlyName };
+        public async Task<IActionResult> Register(RegisterViewModel model, string returnUrl)
+        {
+            if (ModelState.IsValid)
+            {
+                 var user = new User { UserName = model.PhoneNumber, PhoneNumber = model.PhoneNumber, Email = model.Email, FriendlyName = model.FriendlyName };
 
-              
-        //            var result = await _userManager.CreateAsync(user, model.Password);
-        //            if (result.Succeeded)
-        //            {
 
-        //                await _signInManager.SignInAsync(user, isPersistent: false);
-        //                _logger.LogInformation(3, "User created a new account with password.");
-        //                return RedirectToLocal(returnUrl);
-                    
-        //                // ViewBag.Message = "  لینک فعال سازی حداکثر تا 5 دقیقه دیگر به پست الکترونیکی شما ارسال می شود. در صورت عدم مشاهده قسمت اسپم پست الکترونیکی خود را چک کنید.";
+                var result = await _userManager.CreateAsync(user, model.Password);
+                if (result.Succeeded)
+                {
 
-        //            }
-        //        ViewBag.FailMessage = "نام کاربری با این مشخصات در سیستم موجود می باشد";
+                    await _signInManager.SignInAsync(user, isPersistent: false);
+                    _logger.LogInformation(3, "User created a new account with password.");
+                    return RedirectToLocal(returnUrl);
 
-        //    }
+                    // ViewBag.Message = "  لینک فعال سازی حداکثر تا 5 دقیقه دیگر به پست الکترونیکی شما ارسال می شود. در صورت عدم مشاهده قسمت اسپم پست الکترونیکی خود را چک کنید.";
 
-        //    // If we got this far, something failed, redisplay form
-        //    return View(model);
-        //}
+                }
+                ViewBag.FailMessage = "نام کاربری با این مشخصات در سیستم موجود می باشد";
+
+            }
+
+            // If we got this far, something failed, redisplay form
+            return View(model);
+        }
 
 
 

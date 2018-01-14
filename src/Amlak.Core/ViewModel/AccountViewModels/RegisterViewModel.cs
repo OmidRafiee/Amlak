@@ -38,7 +38,7 @@ namespace Amlak.Core.ViewModel.AccountViewModels
         [RegularExpression(@"^[\u0600-\u06FF,\u0590-\u05FF\s]*$",
             ErrorMessage = "لطفا تنها از حروف فارسی استفاده نمائید")]
         [Remote("ValidateFriendlyName", "Api", HttpMethod = "POST", ErrorMessage = " نام مستعار وارد شده هم اکنون توسط یکی از کاربران مورد استفاده است")]
-        public string PropFriendlyName { get; set; }
+        public string FriendlyName { get; set; }
 
         //[Display(Name = "حاصل جمع")]
         //[Required(ErrorMessage = "لطفا حاصل جمع را وارد نمائید")]
