@@ -8,6 +8,8 @@ namespace Amlak.Core.DTO.House
 {
     public class HouseFullDTO
     {
+        public int  Id { get; set; }
+
         [Display(Name = "عنوان")]
         [Required(ErrorMessage = "عنوان ملک را وارد نمایید", AllowEmptyStrings = false)]
         public string Title { get; set; }
@@ -115,5 +117,7 @@ namespace Amlak.Core.DTO.House
         [Display(Name = "نمایش در بخش پیشنهادهای ویژه")]
         public bool IsSpecialOffer { get; set; }
 
+
+        public virtual Category Category { get; set; }
     }
 }
