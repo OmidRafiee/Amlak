@@ -291,7 +291,6 @@ namespace Amlak.Site.Controllers
                 {
 
                     await _signInManager.SignInAsync(user, isPersistent: false);
-                    _logger.LogInformation(3, "User created a new account with password.");
                     return RedirectToLocal(returnUrl);
 
                     // ViewBag.Message = "  لینک فعال سازی حداکثر تا 5 دقیقه دیگر به پست الکترونیکی شما ارسال می شود. در صورت عدم مشاهده قسمت اسپم پست الکترونیکی خود را چک کنید.";
