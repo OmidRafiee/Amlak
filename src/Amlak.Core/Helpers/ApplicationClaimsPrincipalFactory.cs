@@ -45,12 +45,9 @@ namespace Amlak.Core.Helpers
         {
             ((ClaimsIdentity)principal.Identity).AddClaims(new[]
             {
-                new Claim(ClaimTypes.GivenName, user.UserName ?? string.Empty),
+                new Claim(ClaimTypes.GivenName, user.FriendlyName ?? string.Empty),
                 new Claim(ClaimTypes.Sid, user.Id.ToString() , ClaimValueTypes.Integer),
                 
-
-                // custom claims : Mojtaba Dashtinejad
-                //new Claim(CustomClaimsSSOT.Coins.ToString(), user.Coins.ToString() , ClaimValueTypes.Integer),
                 //new Claim(CustomClaimsSSOT.BidsTillQuestion.ToString(), user.PropBidsTillQuestion.ToString(), ClaimValueTypes.Integer),
                 //new Claim(CustomClaimsSSOT.MasterKeys.ToString(), user.MasterKeys.ToString(), ClaimValueTypes.Integer),
 

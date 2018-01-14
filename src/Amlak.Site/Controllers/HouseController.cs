@@ -9,37 +9,46 @@ using Newtonsoft.Json;
 
 namespace Amlak.Site.Controllers
 {
-   public class HouseController : Controller
-   {
-       private readonly HouseRepository _houseRepository;
-       private readonly OptionRepository _optionRepository;
-       private readonly CategoryRepository _categoryRepository;
+    public class HouseController : Controller
+    {
+        private readonly HouseRepository _houseRepository;
+        private readonly OptionRepository _optionRepository;
+        private readonly CategoryRepository _categoryRepository;
 
 
 
-       public HouseController(HouseRepository houseRepository, OptionRepository optionRepository, CategoryRepository categoryRepository)
+        public HouseController(HouseRepository houseRepository, OptionRepository optionRepository, CategoryRepository categoryRepository)
         {
             _houseRepository = houseRepository;
             _optionRepository = optionRepository;
             _categoryRepository = categoryRepository;
         }
 
-       public IActionResult Index()
-       {
-           var model = _houseRepository.GetAll();
+        public IActionResult Index()
+        {
+            var model = _houseRepository.GetAll();
             return View(model);
         }
 
+        public IActionResult Requests()
+        {
+            return View();
+        }
+
+        public IActionResult Entrusts()
+        {
+            return View();
+        }
 
 
-       public IActionResult Create()
-       {
-           var model = new HouseCreateViewModel();
+        public IActionResult Create()
+        {
+            var model = new HouseCreateViewModel();
 
-           ViewBag.OptionList = _optionRepository.GetAll();
-           ViewBag.CategoryList = _categoryRepository.GetAll();
-           return View(model);
-       }
+            ViewBag.OptionList = _optionRepository.GetAll();
+            ViewBag.CategoryList = _categoryRepository.GetAll();
+            return View(model);
+        }
 
         [HttpPost]
         public IActionResult Create(HouseCreateViewModel model)
