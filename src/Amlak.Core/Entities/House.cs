@@ -19,7 +19,7 @@ namespace Amlak.Core.Entities
         /// رهن 
         /// اجاره    
         /// </summary>
-        public StatusType Status { get; set; } 
+        public string Status { get; set; } 
 
 
         /// <summary>
