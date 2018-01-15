@@ -13,13 +13,14 @@
 @*<script src="../js/plugins/sortable.js" type="text/javascript"></script>*@
 <script src="~/js/FileInput/fileinput.min.js"></script>
 <script src="~/js/FileInput/locales/fa.js"></script>
+<script src="~/js/underscore-min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" type="text/javascript"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" type="text/javascript"></script>
 
 
 <div class="container kv-main">
     <input id="vmtFile" type="file" name="vmtFile" multiple="multiple" accept=".jpg,.png" />
-    <input type="hidden" name="fileList" />
+    <input type="text" id="PhotoGalleryJson" name="PhotoGalleryJson" />
 </div>
 
 
@@ -33,7 +34,7 @@
                 showUpload: false,
                 showRemove: false,
                 browseOnZoneClick: true,
-                allowedFileExtensions: ["jpg","png"],
+                allowedFileExtensions: ["jpg", "png"],
                 uploadUrl: "/File/UploadImage2",
                 uploadAsync: true,
                 maxFileCount: 10,
@@ -43,40 +44,41 @@
             }).on("filebatchselected", function (event, files) {
                 $("#vmtFile").fileinput("upload");
             }).on("fileuploaded", function (event, data, previewId, index) {
-                //var fileList, thumb;
-                //thumb = $("#" + previewId).find(".kv-file-remove.btn");
-                //thumb.attr("data-vmt-delete-url", data.response[0].fileName);
-                //fileList = $("#fileList").val();
-                //if (fileList === "undefined" || fileList === void 0 || fileList === "") {
-                //    fileList = "[]";
+                var fileList, thumb;
+                console.log(data);
+                thumb = $("#" + previewId).find(".kv-file-remove.btn");
+                thumb.attr("data-vmt-delete-url", data.response[0]);
+                fileList = $("#PhotoGalleryJson").val();
+                if (fileList === "undefined" || fileList === void 0 || fileList === "") {
+                    fileList = "[]";
+                }
+               // if (window.vmt.isJsonValid(fileList)) {
+                fileList = JSON.parse(fileList);
+                fileList.push(data.response.fileName);
+                console.log(fileList);
                 //}
-                //if (window.vmt.isJsonValid(fileList)) {
-                //    fileList = JSON.parse(fileList);
-                //}
-                //$("#fileList").val(JSON.stringify(_.union(fileList, data.response)));
+                $("#PhotoGalleryJson").val(JSON.stringify(fileList));
             }).on("filesuccessremove", function (event, id) {
                 var docFile, fileList, thumb;
                 thumb = $("#" + id).find(".kv-file-remove.btn");
                 docFile = thumb.attr("data-vmt-delete-url");
-                fileList = $("#fileList").val();
+                fileList = $("#PhotoGalleryJson").val();
                 if (fileList === "undefined" || fileList === void 0 || fileList === "") {
                     fileList = "[]";
                 }
                 if (window.vmt.isJsonValid(fileList)) {
                     fileList = JSON.parse(fileList);
                 }
-                $("#fileList").val(JSON.stringify(_.filter(fileList, function (item) {
+                
+                $("#PhotoGalleryJson").val(JSON.stringify(_.filter(fileList, function (item) {
                     return item.docFile !== docFile;
                 })));
-
-                var fileConfig = "C:\\inetpub\\wwwroot\\repository\\image\\";
-
+                
                 $.ajax({
                     url: "File/DeleteImage2",
                     method: "POST",
                     data: {
                         id: docFile,
-                        fileConfig:fileConfig
                     }
                 }).done(function (data, textStatus, jqXHR) { });
             });

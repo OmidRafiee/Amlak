@@ -58,10 +58,10 @@ namespace Amlak.Site.Controllers
                     file.Length == 0)
                     continue;
 
+                var fileName = FileHelper.SaveFile2(file, fileConfig, "image");
                 return Json(new
                 {
-                    fileName = FileHelper.SaveFile2(file, fileConfig, "image"),
-                    Title = file.FileName
+                    fileName = FileHelper.SaveFile2(file, fileConfig , "image")
                 });
             }
 

@@ -115,5 +115,6 @@ namespace Amlak.Core.ViewModel.House
 
         public DateTime RequestDate { get; set; }=DateTime.Now;
 
+
     }
 }
