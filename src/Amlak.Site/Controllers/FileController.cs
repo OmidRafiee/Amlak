@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.IO;
 using Amlak.Core.SSOT;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -9,7 +11,7 @@ namespace Amlak.Site.Controllers
 
    public class FileController : Controller
     {
-        private readonly FileConfig _fileConfig;
+        private readonly FileConfig _fileConfig ;
 
         public FileController(FileConfig fileConfig)
         {
@@ -44,6 +46,26 @@ namespace Amlak.Site.Controllers
             }
 
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult UploadImage2()
+        {
+            var fileConfig = "C:\\inetpub\\wwwroot\\repository\\image\\";
+            foreach (var file in Request.Form.Files)
+            {
+                if (file == null ||
+                    file.Length == 0)
+                    continue;
+
+                return Json(new
+                {
+                    fileName = FileHelper.SaveFile2(file, fileConfig, "image"),
+                    Title = file.FileName
+                });
+            }
+
+            return Json("");
         }
 
         [HttpPost]

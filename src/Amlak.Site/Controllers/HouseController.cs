@@ -39,8 +39,7 @@ namespace Amlak.Site.Controllers
         {
             return View();
         }
-
-
+        
         public IActionResult Create()
         {
             var model = new HouseCreateViewModel();
