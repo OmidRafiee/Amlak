@@ -5,7 +5,7 @@
 
 @{
     ViewData["Title"] = "ثبت نام";
-    Layout = "_Layout";
+    
 }
 
    
@@ -36,75 +36,74 @@
             </div>
         }
 
-
         <div class="box--store">
-            <div class="store--header clearfix">
+          
                 <span class="text-title">ثبت نام</span>
-            </div>
+           
 
-            <form asp-controller="Account" asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="register border--bottom--radius">
+                <form asp-controller="Account" asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post">
 
-                @*<div asp-validation-summary="All" class="text-danger"></div>*@
-                <div class="form-group">
-                    <label asp-for="FriendlyName"></label>
-                    <input asp-for="FriendlyName" class="form-control" />
-                    <span asp-validation-for="FriendlyName" class="text-danger"></span>
-                </div>
+                    @*<div asp-validation-summary="All" class="text-danger"></div>*@
+                    <div class="form-group">
+                        <label asp-for="FriendlyName"></label>
+                        <input asp-for="FriendlyName" class="form-control" />
+                        <span asp-validation-for="FriendlyName" class="text-danger"></span>
+                    </div>
 
-                <div class="form-group">
-                    <label asp-for="PhoneNumber"></label>
-                    <input asp-for="PhoneNumber" class="form-control" dir="ltr"  type="number" />
-                    <span asp-validation-for="PhoneNumber" class="text-danger" ></span>
-                </div>
+                    <div class="form-group">
+                        <label asp-for="PhoneNumber"></label>
+                        <input asp-for="PhoneNumber" class="form-control" dir="ltr" type="number" />
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                    </div>
 
-                <div class="form-group">
-                    <label asp-for="Password"></label>
-                    <input asp-for="Password" class="form-control" />
-                    <span asp-validation-for="Password" class="text-danger"></span>
+                    <div class="form-group">
+                        <label asp-for="Password"></label>
+                        <input asp-for="Password" class="form-control" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
 
-                </div>
+                    </div>
 
-                <div class="form-group">
-                    <label asp-for="ConfirmPassword"></label>
-                    <input asp-for="ConfirmPassword" class="form-control" />
-                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Email"></label>
-                    <input asp-for="Email" class="form-control" dir="ltr" />
-                    <span asp-validation-for="Email" class="text-danger"></span>
-                </div>
-
-                
-                @*<div class="form-group">
-                        <label asp-for="Captcha"></label>
-                        <img alt="Captcha" id="imgcpatcha" src="@Url.Action("CaptchaImage", "Captcha")" style=""/>
-                        <a id="refresh" class="margin-right-20"> <i class="fa fa-refresh" style="color: #ecac00; font-size: 18px;"></i></a>
-                        <input asp-for="Captcha" type="number" class="form-control"/>
-                        <span asp-validation-for="Captcha" class="text-danger"></span>
-                        <script type="text/javascript">
-                            $(function () {
-                                $('#refresh').on('click', function () {
-                                    var random = new Date().getTime();
-                                    $("#imgcpatcha").attr("src", "/Captcha/CaptchaImage?" + random);
-                                });
-                            });
-                        </script>
-                    </div>*@
+                    <div class="form-group">
+                        <label asp-for="ConfirmPassword"></label>
+                        <input asp-for="ConfirmPassword" class="form-control" />
+                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Email"></label>
+                        <input asp-for="Email" class="form-control" dir="ltr" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
 
 
-                <button type="submit" class="btn btn-default">ثبت نام</button>
+                    @*<div class="form-group">
+            <label asp-for="Captcha"></label>
+            <img alt="Captcha" id="imgcpatcha" src="@Url.Action("CaptchaImage", "Captcha")" style=""/>
+            <a id="refresh" class="margin-right-20"> <i class="fa fa-refresh" style="color: #ecac00; font-size: 18px;"></i></a>
+            <input asp-for="Captcha" type="number" class="form-control"/>
+            <span asp-validation-for="Captcha" class="text-danger"></span>
+            <script type="text/javascript">
+                $(function () {
+                    $('#refresh').on('click', function () {
+                        var random = new Date().getTime();
+                        $("#imgcpatcha").attr("src", "/Captcha/CaptchaImage?" + random);
+                    });
+                });
+            </script>
+        </div>*@
 
-                <div class="margin-top-10">
-                    <label>
-                        رمز عبور خود را فراموش کرده اید؟ <a class="form--item" asp-controller="Account" asp-action="ForgotPassword">بازیابی کلمه عبور</a><br>
-                    </label>
-                    <br>
-                    <label>
-                        قبلا ثبت نام کرده ابد؟ <a class="form--item" asp-controller="Account" asp-action="Login">ورود به سایت</a><br>
-                    </label>
-                </div>
-            </form>
+
+                    <button type="submit" class="btn btn-default">ورود</button>
+
+                    <div class="margin-top-10">
+                        <label>
+                            رمز عبور خود را فراموش کرده اید؟ <a class="form--item" asp-controller="Account" asp-action="ForgotPassword">بازیابی کلمه عبور</a><br>
+                        </label>
+                        <br>
+                        <label>
+                            قبلا ثبت نام کرده ابد؟ <a class="form--item" asp-controller="Account" asp-action="Login">ورود به سایت</a><br>
+                        </label>
+                    </div>
+                </form>
         </div>
 
     </div>

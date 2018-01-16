@@ -2,13 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Alamut.Utilities.AspNet.Identity;
+using Amlak.Core.Extensions;
 using Amlak.Core.ViewModel.House;
 using Amlak.Data.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
 namespace Amlak.Site.Controllers
 {
+    //[Authorize]
     public class HouseController : Controller
     {
         private readonly HouseRepository _houseRepository;
@@ -26,6 +30,8 @@ namespace Amlak.Site.Controllers
 
         public IActionResult Index()
         {
+            var userId = User.Identity.GetId();
+
             var model = _houseRepository.GetAll();
             return View(model);
         }
