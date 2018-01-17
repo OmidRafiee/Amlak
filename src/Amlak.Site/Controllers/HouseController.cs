@@ -12,7 +12,7 @@ using Newtonsoft.Json;
 
 namespace Amlak.Site.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class HouseController : Controller
     {
         private readonly HouseRepository _houseRepository;

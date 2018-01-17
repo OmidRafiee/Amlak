@@ -19,7 +19,7 @@ namespace Amlak.Core.Entities
         /// رهن 
         /// اجاره    
         /// </summary>
-        public StatusType Status { get; set; } 
+        public string Status { get; set; } 
 
 
         /// <summary>
@@ -104,8 +104,9 @@ namespace Amlak.Core.Entities
 
         /// <summary>
         /// طبقه 
+        /// از SSOT خوانده شود
         ///  </summary>
-        public int Floor { get; set; }
+        public string Floor { get; set; }
 
         /// <summary>
         /// پیشنهاد ویژه

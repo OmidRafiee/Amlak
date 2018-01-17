@@ -162,7 +162,7 @@ namespace Amlak.Site.Controllers
             //    return View(new LoginViewModel { PhoneNumber = model.PhoneNumber, RememberMe = model.RememberMe });
             //}
 
-            if (ModelState.IsValid)
+            if (ModelState.IsValid) 
             {
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
