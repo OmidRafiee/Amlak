@@ -4,7 +4,7 @@
 @using Newtonsoft.Json
 @using Microsoft.AspNetCore.Mvc.Rendering
 @inject FileConfig FileConfig
-@model Amlak.Core.ViewModel.House.HouseCreateViewModel
+@model string
 
 
 <link href="~/css/fileinput.min.css" rel="stylesheet" />
@@ -20,7 +20,7 @@
 
 <div class="container kv-main">
     <input id="vmtFile" type="file" name="vmtFile" multiple="multiple" accept=".jpg,.png" />
-    <input type="text" id="PhotoGalleryJson" name="PhotoGalleryJson" />
+    <input type="text" id="PhotoGalleryJson" name="PhotoGalleryJson" value="@(!string.IsNullOrEmpty(Model) ?  Model : "")" />
 </div>
 
 

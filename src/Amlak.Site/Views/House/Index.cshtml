@@ -16,6 +16,7 @@
             <th>شهر</th>
             <th>وضیعت</th>
             <th>قیمت</th>
+            <th>ویرایش</th>
         </tr>
         </thead>
         <tbody>
@@ -28,6 +29,12 @@
                <td>@item.City</td>
                <td>@item.Status</td>
                <td>@item.Price.ToPersianNumbers()</td>
+               
+               <td>
+                   <a asp-controller="House" asp-action="Edit" asp-route-id="@item.Id">
+                      جزییات
+                   </a>
+               </td>
            </tr>
        }
         </tbody>

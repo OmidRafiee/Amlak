@@ -68,5 +68,29 @@ namespace Amlak.Site.Controllers
             TempData["Message"] = "آگهی شما با موفقیت ثبت و پس از بررسی بر روی سایت قرار میگیرد";
             return RedirectToAction("Index");
         }
+
+
+        public IActionResult Edit(int id)
+        {
+            var model = _houseRepository.GetById(id);
+            ViewBag.OptionList = _optionRepository.GetAll();
+            ViewBag.CategoryList = _categoryRepository.GetAll();
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(HouseCreateViewModel model)
+        {
+            var userId = Convert.ToInt16(User.Identity.GetId());
+
+            model.UserId = userId;
+            model.OptionIdsJson = JsonConvert.SerializeObject(model.OptionIds);
+
+            var result = _houseRepository.Create(model);
+
+            TempData["Message"] = "آگهی شما با موفقیت ثبت و پس از بررسی بر روی سایت قرار میگیرد";
+            return RedirectToAction("Index");
+        }
+
     }
 }
