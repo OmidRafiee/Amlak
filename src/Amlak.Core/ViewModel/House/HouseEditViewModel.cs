@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using Amlak.Core.SSOT;
 
 namespace Amlak.Core.ViewModel.House
 {
@@ -16,7 +17,7 @@ namespace Amlak.Core.ViewModel.House
 
       
         [Display(Name = "وضیعت")]
-        public string Status { get; set; }
+        public StatusType Status { get; set; }
 
         
         [Display(Name = "قیمت")]
@@ -36,7 +37,7 @@ namespace Amlak.Core.ViewModel.House
 
        
         [Display(Name = "امکانات")]
-        public string PossibilitiesIdsJson { get; set; }
+        public string OptionIdsJson { get; set; }
 
         
         [Display(Name = "مکان جغرافیایی")]
@@ -48,7 +49,7 @@ namespace Amlak.Core.ViewModel.House
 
         
         [Display(Name = "متراژ")]
-        public string Scale { get; set; }
+        public int Scale { get; set; }
 
        
         [Display(Name = "منطقه")]
@@ -64,16 +65,12 @@ namespace Amlak.Core.ViewModel.House
 
         
         [Display(Name = "محله")]
-
         public string Area { get; set; }
-
-      
+        
         [Display(Name = "طبقه")]
         public int Floor { get; set; }
 
-
-        public int? UserId { get; set; }
-
+        
         [Display(Name = "نوع ملک")]
         public int? CategoryId { get; set; }
 

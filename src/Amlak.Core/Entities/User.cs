@@ -9,6 +9,8 @@ namespace Amlak.Core.Entities
     {
         public override int Id { get; set; }
 
+        public string FriendlyName { get; set; }
+
 
         public virtual ICollection<IdentityUserRole<int>> Roles { get; } = new List<IdentityUserRole<int>>();
 

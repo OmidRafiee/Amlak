@@ -110,6 +110,13 @@ namespace Amlak.Site
         {
             scopeFactory.Initialize();
 
+
+            app.UseDeveloperExceptionPage();
+
+            app.UseStaticFiles();
+            
+            app.UseAuthentication();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

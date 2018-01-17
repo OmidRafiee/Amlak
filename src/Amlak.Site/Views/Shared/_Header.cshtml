@@ -1,6 +1,37 @@
-﻿<header class="MainHeader sborder">
+﻿@using Amlak.Core.Extensions
+<header class="MainHeader sborder">
     <div class="HeaderImpoLInks d-flex flex-row-reverse">
-        <a asp-controller="Account" asp-action="Login" class="HeaderImpoLInksItem lh3 tc relative trans400 before after"><span class="ImpoLInksItemIcon absolute"><i class="fa fa-user"></i></span>ثبت آگهی</a>
+        @if(User.Identity.IsAuthenticated)
+        {
+            <a asp-controller="House" asp-action="Index" class="HeaderImpoLInksItem lh3 tc relative trans400 before after">
+                <span class="ImpoLInksItemIcon absolute"><i class="fa fa-user"></i></span>پروفایل
+            </a>
+        }
+        else
+        {
+            <a asp-controller="Account" asp-action="Login" class="HeaderImpoLInksItem lh3 tc relative trans400 before after">
+                <span class="ImpoLInksItemIcon absolute"><i class="fa fa-user"></i></span>ورود
+            </a>
+        
+        }
+        
+        @if(User.Identity.IsAuthenticated)
+        {
+            <a asp-controller="Account" asp-action="Logout" class="HeaderImpoLInksItem lh3 tc relative trans400 before after">
+                <span class="ImpoLInksItemIcon absolute"><i class="fa fa-user"></i></span>خروج
+            </a>
+        }
+        else
+        {
+            <a asp-controller="Account" asp-action="Register" class="HeaderImpoLInksItem lh3 tc relative trans400 before after">
+
+                <span class="ImpoLInksItemIcon absolute"><i class="fa fa-user"></i></span>
+                ثبت نام
+            </a>
+        
+        }
+
+      
         <a href="javascript:void(0)" class="HeaderImpoLInksItem lh3 tc relative trans400"><span class="ImpoLInksItemIcon absolute"><img src="~/image/icon9.png" class="responsiveimage" /></span>اینستاگرام</a>
         <a href="javascript:void(0)" class="HeaderImpoLInksItem lh3 tc relative trans400 before after"><span class="ImpoLInksItemIcon absolute"><img src="~/image/icon10.png" class="responsiveimage" /></span>تلگرام</a>
     </div>
@@ -27,7 +58,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="MainNav block ofh fr navbar-nav nopadding w100p d-flex justify-content-around">
                     <li class="NavItems nav-item"><a asp-controller="Home" asp-action="Index" class="NavItemLinks MainPageLInk before tc fr trans400 relative">صفحه اصلی</a></li>
-                    <li class="NavItems nav-item"><a asp-controller="House" asp-action="Search" class="NavItemLinks fr trans400 after relative">جستجو ملک</a></li>
+                    <li class="NavItems nav-item"><a asp-controller="Search" asp-action="Index" class="NavItemLinks fr trans400 after relative">جستجو ملک</a></li>
                     <li class="NavItems nav-item"><a href="javascript:Void(0)" class="NavItemLinks fr trans400 after relative">تقاضا ملک</a></li>
                     <li class="NavItems nav-item"><a asp-controller="House" asp-action="Create" class="NavItemLinks fr trans400 after relative">سپردن ملک</a></li>
                     <li class="NavItems nav-item"><a href="javascript:Void(0)" class="NavItemLinks fr trans400 after relative">اخبار امکلاک و اقتصاد</a></li>

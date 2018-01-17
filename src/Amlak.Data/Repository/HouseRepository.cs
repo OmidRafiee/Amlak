@@ -88,6 +88,15 @@ namespace Amlak.Data.Repository
 
             return model;
         }
+
+
+        public List<HouseViewModel> GetListRequestByUserId(int userId)
+        {
+            return _context.House.ProjectTo<HouseViewModel>()
+                .Where(q => q.IsPublished == false)
+                .Where(q => q.UserId.Equals(userId))
+                .ToList();
+        }
     }
 }
 

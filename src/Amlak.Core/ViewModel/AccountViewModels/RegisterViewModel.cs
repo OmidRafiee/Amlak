@@ -10,13 +10,13 @@ namespace Amlak.Core.ViewModel.AccountViewModels
         //[Required(ErrorMessage = "پست الکترونیکی خود را وارد نمائید")]
         [EmailAddress(ErrorMessage = "پست الکترونیکی وارد شده نامعتبر است")]
         [Display(Name = "پست الکترونیکی")]
-        [Remote("ValidateEmail", "Api", HttpMethod = "POST",ErrorMessage = " ایمیل وارد شده هم اکنون توسط یکی از کاربران مورد استفاده است")]
+       // [Remote("ValidateEmail", "Api", HttpMethod = "POST",ErrorMessage = " ایمیل وارد شده هم اکنون توسط یکی از کاربران مورد استفاده است")]
         public string Email { get; set; }
 
         [Required(ErrorMessage = "شماره موبایل خود را وارد نمائید")]
         [Display(Name = " شماره موبایل (شناسه کاربری)")]
         [RegularExpression(@"^[\u0000-\u007F\s]*$",ErrorMessage = "لطفا تنها از حروف لاتین استفاده نمائید")]
-        [Remote("ValidatePhoneNumber", "Api", HttpMethod = "POST")]
+       // [Remote("ValidatePhoneNumber", "Api", HttpMethod = "POST")]
         public string PhoneNumber { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "کلمه عبور خود را وارد نمائید")]
@@ -37,8 +37,8 @@ namespace Amlak.Core.ViewModel.AccountViewModels
         [StringLength(40, ErrorMessage = "تعداد کاراکتر ها می بایست حداکثر 40 کاراکتر باشد")]
         [RegularExpression(@"^[\u0600-\u06FF,\u0590-\u05FF\s]*$",
             ErrorMessage = "لطفا تنها از حروف فارسی استفاده نمائید")]
-        [Remote("ValidateFriendlyName", "Api", HttpMethod = "POST", ErrorMessage = " نام مستعار وارد شده هم اکنون توسط یکی از کاربران مورد استفاده است")]
-        public string PropFriendlyName { get; set; }
+      //  [Remote("ValidateFriendlyName", "Api", HttpMethod = "POST", ErrorMessage = " نام مستعار وارد شده هم اکنون توسط یکی از کاربران مورد استفاده است")]
+        public string FriendlyName { get; set; }
 
         //[Display(Name = "حاصل جمع")]
         //[Required(ErrorMessage = "لطفا حاصل جمع را وارد نمائید")]

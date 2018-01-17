@@ -7,13 +7,13 @@
     </div>
     @foreach (var item in Model)
     {
-        <a asp-controller="Detail" asp-action="Index" asp-route-id="@item.Id" class="SpecialOffersContent d-block p-1 m-1 trans400">
+        <a asp-controller="Search" asp-action="Detail" asp-route-id="@item.Id" class="SpecialOffersContent d-block p-1 m-1 trans400">
             <div class="SpecialOffersItem row w-100 m-auto py-1 align-items-center">
                 <figure class="SpecialOffersItemPic col-4 tc px-1">
                     <img src="image/pic4.jpg" class="img-fluid" />
                 </figure>
                 <div class="SpecialOffersItemDetail col-8">
-                    <span class="SpecialOffersItemTitle d-block w-100 font-weight-bold textcut"> یک @item.Category.Title بینظیر !</span>
+                    <span class="SpecialOffersItemTitle d-block w-100 font-weight-bold textcut"> یک @item.Category?.Title بینظیر !</span>
                     <span class="SpecialOffersItemLocation d-block w-100 textcut py-1">@item.Region</span>
                     <span class="SpecialOffersItemPrice d-block w-100 font-weight-bold textcut">@item.Price.ToPersianNumbers()</span>
                 </div>
@@ -22,3 +22,5 @@
 
     }
 </div>
+
+
