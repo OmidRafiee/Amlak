@@ -50,5 +50,11 @@ namespace Amlak.Site.Controllers
             TempData["Message"] = "آگهی شما با موفقیت ثبت و پس از بررسی بر روی سایت قرار میگیرد";
             return RedirectToAction("Index");
         }
-    }
+
+       public IActionResult Detail(int id)
+       {
+           var model = _houseRepository.GetById(id);
+            return View(model);
+       }
+   }
 }
