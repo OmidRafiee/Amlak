@@ -279,53 +279,53 @@
                                                 }
                                             }
                                         });
-                                    })
+                                    });
 
 
                                 });
-                                                                                        //$(document).ready(function () {
-                                                                                        //    var jasmineEnv = jasmine.getEnv();
-                                                                                        //    jasmineEnv.updateInterval = 1000;
+                                                                                                                    //$(document).ready(function () {
+                                                                                                                    //    var jasmineEnv = jasmine.getEnv();
+                                                                                                                    //    jasmineEnv.updateInterval = 1000;
 
-                                                                                        //    var htmlReporter = new jasmine.HtmlReporter();
+                                                                                                                    //    var htmlReporter = new jasmine.HtmlReporter();
 
-                                                                                        //    jasmineEnv.addReporter(htmlReporter);
+                                                                                                                    //    jasmineEnv.addReporter(htmlReporter);
 
-                                                                                        //    jasmineEnv.specFilter = function (spec) {
-                                                                                        //        return htmlReporter.specFilter(spec);
-                                                                                        //    };
+                                                                                                                    //    jasmineEnv.specFilter = function (spec) {
+                                                                                                                    //        return htmlReporter.specFilter(spec);
+                                                                                                                    //    };
 
-                                                                                        //    var currentWindowOnload = window.onload;
+                                                                                                                    //    var currentWindowOnload = window.onload;
 
-                                                                                        //    window.onload = function () {
-                                                                                        //        if (currentWindowOnload) {
-                                                                                        //            currentWindowOnload();
-                                                                                        //        }
+                                                                                                                    //    window.onload = function () {
+                                                                                                                    //        if (currentWindowOnload) {
+                                                                                                                    //            currentWindowOnload();
+                                                                                                                    //        }
 
-                                                                                        //        execJasmine();
-                                                                                        //    };
+                                                                                                                    //        execJasmine();
+                                                                                                                    //    };
 
-                                                                                        //    function execJasmine() {
-                                                                                        //        jasmineEnv.execute();
-                                                                                        //    }
-                                                                                        //});
+                                                                                                                    //    function execJasmine() {
+                                                                                                                    //        jasmineEnv.execute();
+                                                                                                                    //    }
+                                                                                                                    //});
                             </script>
                             <div class="map" id="basic-map"></div>
                             @*<div class="row">
-                <div class="span11">
-                    <div id="map"></div>
-                </div>
-                <div class="span6">
-                    <p>Using GMaps.js is as easy as:</p>
-                    <pre class="prettyprint"> map = new GMaps({
-                    div: '#map',
-                    lat: -12.043333,
-                    lng: -77.028333
-                    });</pre>
-                    <p>You must define <strong>container ID</strong>, <strong>latitude</strong> and <strong>longitude</strong> of the map's center.</p>
-                    <p><span class="label notice">Note: </span>You also can define <strong>zoom</strong>, <strong>width</strong> and <strong>height</strong>. By default, zoom is 15. Width and height in a CSS class will replace these values.</p>
-                </div>
-            </div>*@
+                                    <div class="span11">
+                                        <div id="map"></div>
+                                    </div>
+                                    <div class="span6">
+                                        <p>Using GMaps.js is as easy as:</p>
+                                        <pre class="prettyprint"> map = new GMaps({
+                                        div: '#map',
+                                        lat: -12.043333,
+                                        lng: -77.028333
+                                        });</pre>
+                                        <p>You must define <strong>container ID</strong>, <strong>latitude</strong> and <strong>longitude</strong> of the map's center.</p>
+                                        <p><span class="label notice">Note: </span>You also can define <strong>zoom</strong>, <strong>width</strong> and <strong>height</strong>. By default, zoom is 15. Width and height in a CSS class will replace these values.</p>
+                                    </div>
+                                </div>*@
                         </div>
                     </div>
                 </div>
@@ -355,9 +355,10 @@
                     <div class="InnerPageItemHeader radius3">
                         <h2 class="InnerPageItemHeaderTitle tr w-100 lh3-5 h100p bold prl15 relative"><span class="InnerPageItemHeaderTitleBefore absolute after"></span>گالری تصاویر</h2>
                     </div>
-                    <div class="p-2" >insert image to gallery
-                        @Html.Partial("_PhotoGallary2")
-                        </div>
+                    <div class="p-2">
+                        اضافه کردن تصاویر
+                        @Html.Partial("_PhotoGallary2", Model.PhotoGalleryJson)
+                    </div>
                 </div>
             </div>
 
