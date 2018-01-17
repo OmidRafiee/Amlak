@@ -31,7 +31,7 @@ This set of fonts are used in this project under the license: (.....)
 body,ul li,ul,h1,h2,h3,h4,h5,h6,div,p,a,span,input,select,textarea,img,figure,section,header,footer,article,strong{font-family:IranSans;}
 body{direction:rtl;position:relative;z-index:-1000;}
 .FullContainer{z-index:-1000;}
-.MainHeader{border-width:0px 0px 4px 0px;border-color:#BD8D3B;z-index:1000;background-color:#FFF;}
+.MainHeader{border-width:0px 0px 4px 0px;border-color:#BD8D3B;z-index:1000 !important;background-color:#FFF;}
 /*HeaderImpoLInks*/
 .HeaderImpoLInks{background-color:#BD8D3B;height:40px;padding:0px 40px;}
 .HeaderImpoLInksItem{font-size:10pt;width:135px;color:#FFF;}
