@@ -30,9 +30,9 @@ namespace Amlak.Site.Controllers
 
         public IActionResult Index()
         {
-            var userId = User.Identity.GetId();
+            var userId = Convert.ToInt16(User.Identity.GetId());
 
-            var model = _houseRepository.GetAll();
+            var model = _houseRepository.GetListRequestByUserId(userId);
             return View(model);
         }
 
@@ -58,7 +58,11 @@ namespace Amlak.Site.Controllers
         [HttpPost]
         public IActionResult Create(HouseCreateViewModel model)
         {
+            var userId = Convert.ToInt16(User.Identity.GetId());
+
+            model.UserId = userId;
             model.OptionIdsJson = JsonConvert.SerializeObject(model.OptionIds);
+
             var result = _houseRepository.Create(model);
 
             TempData["Message"] = "آگهی شما با موفقیت ثبت و پس از بررسی بر روی سایت قرار میگیرد";

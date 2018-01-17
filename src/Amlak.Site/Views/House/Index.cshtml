@@ -1,5 +1,35 @@
-﻿
+﻿@using DNTPersianUtils.Core
+@model List<Amlak.Core.ViewModel.House.HouseViewModel>
 @{
     ViewBag.Title = "title";
     Layout = "_Layout";
+    var count = 0;
 }
+
+<span> لیست محصولات شما </span>
+<div class="table-responsive">          
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ردیف</th>
+            <th>عنوان</th>
+            <th>شهر</th>
+            <th>وضیعت</th>
+            <th>قیمت</th>
+        </tr>
+        </thead>
+        <tbody>
+       @foreach (var item in Model)
+       {
+           count++;
+           <tr>
+               <td>@count</td>
+               <td>@item.Title</td>
+               <td>@item.City</td>
+               <td>@item.Status</td>
+               <td>@item.Price.ToPersianNumbers()</td>
+           </tr>
+       }
+        </tbody>
+    </table>
+</div>
