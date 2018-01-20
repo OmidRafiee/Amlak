@@ -5,10 +5,10 @@
 
 @{
     ViewData["Title"] = "ثبت نام";
-    
+
 }
 
-   
+
 @*Remove ArrowKey*@
 <style>
     input[type='number']::-webkit-outer-spin-button,
@@ -18,60 +18,86 @@
     }
 </style>
 
-<div class="container">
+<div class="limiter">
 
-    <div class="col-md-6 col-md-offset-3">
-        @if (!string.IsNullOrEmpty(ViewBag.FailMessage))
-        {
-            <div class="alert alert-danger fade in" style="margin-top: 10px">
-                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-                @ViewBag.FailMessage
+    <div class="container-login100">
+        <div class="wrap-login100">
+            @if (!string.IsNullOrEmpty(ViewBag.FailMessage))
+            {
+                <div class="alert alert-danger fade in" style="margin-top: 10px">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                    @ViewBag.FailMessage
+                </div>
+            }
+            @if (!string.IsNullOrEmpty(ViewBag.Message))
+            {
+                <div class="alert alert-success fade in" style="margin-top: 10px">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                    @ViewBag.Message
+                </div>
+            }
+            <div class="login100-pic js-tilt" data-tilt="" style="will-change: transform; transform: perspective(300px) rotateX(0deg) rotateY(0deg);">
+                <img src="/image/img-01.png" alt="IMG">
             </div>
-        }
-        @if (!string.IsNullOrEmpty(ViewBag.Message))
-        {
-            <div class="alert alert-success fade in" style="margin-top: 10px">
-                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-                @ViewBag.Message
-            </div>
-        }
 
-        <div class="box--store">
-          
-                <span class="text-title">ثبت نام</span>
-           
+            @*<div class="box--store">*@
+
+                
+
 
                 <form asp-controller="Account" asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post">
 
+                    <span class="login100-form-title">ثبت نام</span>
+
                     @*<div asp-validation-summary="All" class="text-danger"></div>*@
-                    <div class="form-group">
-                        <label asp-for="FriendlyName"></label>
-                        <input asp-for="FriendlyName" class="form-control" />
+                    <div class="wrap-input100 validate-input">
+                        @*<label asp-for="FriendlyName"></label>*@
                         <span asp-validation-for="FriendlyName" class="text-danger"></span>
+                        <input asp-for="FriendlyName" class="input100" placeholder="نام مستعار" />
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                        </span>
                     </div>
 
-                    <div class="form-group">
-                        <label asp-for="PhoneNumber"></label>
-                        <input asp-for="PhoneNumber" class="form-control" dir="ltr" type="number" />
+                    <div class="wrap-input100 validate-input">
+                        @*<label asp-for="PhoneNumber"></label>*@
                         <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                        <input asp-for="PhoneNumber" class="input100" dir="ltr" type="number" placeholder="(شماره موبایل(شناسه کاربری" />
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-mobile" aria-hidden="true"></i>
+                        </span>
                     </div>
 
-                    <div class="form-group">
-                        <label asp-for="Password"></label>
-                        <input asp-for="Password" class="form-control" />
+                    <div class="wrap-input100 validate-input">
+                        @*<label asp-for="Password"></label>*@
                         <span asp-validation-for="Password" class="text-danger"></span>
+                        <input asp-for="Password" class="input100" placeholder="گذرواژه" />
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                        </span>
 
                     </div>
 
-                    <div class="form-group">
-                        <label asp-for="ConfirmPassword"></label>
-                        <input asp-for="ConfirmPassword" class="form-control" />
+                    <div class="wrap-input100 validate-input">
+                        @*<label asp-for="ConfirmPassword"></label>*@
                         <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                        <input asp-for="ConfirmPassword" class="input100" placeholder="تکرار گذرواژه" />
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                        </span>
                     </div>
-                    <div class="form-group">
-                        <label asp-for="Email"></label>
-                        <input asp-for="Email" class="form-control" dir="ltr" />
+                    <div class="wrap-input100 validate-input">
+                        @*<label asp-for="Email"></label>*@
                         <span asp-validation-for="Email" class="text-danger"></span>
+                        <input asp-for="Email" class="input100" dir="ltr" placeholder="ایمیل" />
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </span>
                     </div>
 
 
@@ -91,20 +117,22 @@
             </script>
         </div>*@
 
+                    <div class="container-login100-form-btn">
+                        <button type="submit" class="login100-form-btn">ثبت نام</button>
+                    </div>
 
-                    <button type="submit" class="btn btn-default">ورود</button>
 
                     <div class="margin-top-10">
-                        <label>
-                            رمز عبور خود را فراموش کرده اید؟ <a class="form--item" asp-controller="Account" asp-action="ForgotPassword">بازیابی کلمه عبور</a><br>
-                        </label>
+                        @*<label>
+                رمز عبور خود را فراموش کرده اید؟ <a class="form--item" asp-controller="Account" asp-action="ForgotPassword">بازیابی کلمه عبور</a><br>
+            </label>*@
                         <br>
                         <label>
                             قبلا ثبت نام کرده ابد؟ <a class="form--item" asp-controller="Account" asp-action="Login">ورود به سایت</a><br>
                         </label>
                     </div>
                 </form>
+            @*</div>*@
         </div>
-
     </div>
 </div>
