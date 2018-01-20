@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Amlak.Core.SSOT;
 
@@ -43,7 +44,7 @@ namespace Amlak.Core.ViewModel.House
         [Display(Name = "امکانات")]
         public string OptionIdsJson { get; set; }
 
-
+        public List<int> OptionIds { get; set; }
         [Display(Name = "مکان جغرافیایی")]
         public string Loacation { get; set; }
 

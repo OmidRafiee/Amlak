@@ -1,6 +1,7 @@
 ﻿@using Amlak.Core.ViewModel.Category
 @using Amlak.Core.ViewModel.Option
 @using DNTPersianUtils.Core.IranCities
+@using Amlak.Core.SSOT;
 @model Amlak.Core.ViewModel.House.HouseCreateViewModel
 
 @{
@@ -28,16 +29,7 @@
                     <div class="p-2">
                         <div class="EnterHomeContent">
                             <div class="EnterFormTabPanneItem row w-100 m-auto">
-                                <div class="col-md-4">
-                                    @if (TempData.ContainsKey("Message"))
-                                    {
-                                        <div class="alert alert-success fade in alert-dismissable" style="opacity: 1 !important">
-                                            <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
-                                            @TempData["Message"].ToString()
-                                        </div>
-                                    }
-                                </div>
-
+                                
                                 <div class="px-2 col-md-12 col-12 my-2">
                                     <label asp-for="Title"></label>
                                     <input asp-for="Title" class="form-control" placeholder="عنـــوان" />
@@ -53,11 +45,8 @@
                                 <div class="form-group px-2 col-md-3 col-12 my-2">
 
                                     <label asp-for="Status"></label>
-                                    <select name="Status" class="form-control">
+                                    <select asp-items="Html.GetEnumSelectList<StatusType>()" name="Status" class="form-control">
                                         <option disabled selected>وضعـــــــیت</option>
-                                        <option value="خرید">خرید</option>
-                                        <option value="رهن">رهن</option>
-                                        <option value="اجاره">اجاره</option>
                                     </select>
                                     <span asp-validation-for="Status" class="text-danger"></span>
 
@@ -112,7 +101,7 @@
                                         <select name="City" class="form-control" data-province="@province" style="display: none;">
                                             @foreach (var county in province.Counties)
                                             {
-                                                <option value="@county">@county</option>
+                                                <option value="@county" selected="@(county.CountyName == "تهران")">@county</option>
                                             }
                                         </select>
                                     }
@@ -154,7 +143,10 @@
 
                                 <div class="px-2 col-md-3 col-12 my-2">
                                     <label asp-for="Floor"></label>
-                                    <input asp-for="Floor" class="form-control" placeholder="طبقه" />
+                                    <select asp-items="Html.GetEnumSelectList<FloorType>()" class="form-control" placeholder="طبقه">
+                                        <option disabled selected>طبـقه</option>
+
+                                    </select>
                                     <span asp-validation-for="Floor" class="text-danger"></span>
 
                                 </div>
@@ -181,7 +173,7 @@
 
                                 <div class="form-group px-2 col-md-3 col-12 my-2">
                                     <label asp-for="Bathrooms"></label>
-                                    <select name="Bathrooms" class="form-control">
+                                    <select  name="Bathrooms" class="form-control">
                                         <option disabled selected>تعــداد حمــام</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -283,32 +275,32 @@
 
 
                                 });
-                                                                                                                    //$(document).ready(function () {
-                                                                                                                    //    var jasmineEnv = jasmine.getEnv();
-                                                                                                                    //    jasmineEnv.updateInterval = 1000;
+                                                                                                                                                //$(document).ready(function () {
+                                                                                                                                                //    var jasmineEnv = jasmine.getEnv();
+                                                                                                                                                //    jasmineEnv.updateInterval = 1000;
 
-                                                                                                                    //    var htmlReporter = new jasmine.HtmlReporter();
+                                                                                                                                                //    var htmlReporter = new jasmine.HtmlReporter();
 
-                                                                                                                    //    jasmineEnv.addReporter(htmlReporter);
+                                                                                                                                                //    jasmineEnv.addReporter(htmlReporter);
 
-                                                                                                                    //    jasmineEnv.specFilter = function (spec) {
-                                                                                                                    //        return htmlReporter.specFilter(spec);
-                                                                                                                    //    };
+                                                                                                                                                //    jasmineEnv.specFilter = function (spec) {
+                                                                                                                                                //        return htmlReporter.specFilter(spec);
+                                                                                                                                                //    };
 
-                                                                                                                    //    var currentWindowOnload = window.onload;
+                                                                                                                                                //    var currentWindowOnload = window.onload;
 
-                                                                                                                    //    window.onload = function () {
-                                                                                                                    //        if (currentWindowOnload) {
-                                                                                                                    //            currentWindowOnload();
-                                                                                                                    //        }
+                                                                                                                                                //    window.onload = function () {
+                                                                                                                                                //        if (currentWindowOnload) {
+                                                                                                                                                //            currentWindowOnload();
+                                                                                                                                                //        }
 
-                                                                                                                    //        execJasmine();
-                                                                                                                    //    };
+                                                                                                                                                //        execJasmine();
+                                                                                                                                                //    };
 
-                                                                                                                    //    function execJasmine() {
-                                                                                                                    //        jasmineEnv.execute();
-                                                                                                                    //    }
-                                                                                                                    //});
+                                                                                                                                                //    function execJasmine() {
+                                                                                                                                                //        jasmineEnv.execute();
+                                                                                                                                                //    }
+                                                                                                                                                //});
                             </script>
                             <div class="map" id="basic-map"></div>
                             @*<div class="row">

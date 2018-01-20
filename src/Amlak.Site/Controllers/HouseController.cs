@@ -79,16 +79,13 @@ namespace Amlak.Site.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(HouseCreateViewModel model)
+        public IActionResult Edit(HouseEditViewModel model)
         {
-            var userId = Convert.ToInt16(User.Identity.GetId());
-
-            model.UserId = userId;
             model.OptionIdsJson = JsonConvert.SerializeObject(model.OptionIds);
 
-            var result = _houseRepository.Create(model);
+            var result = _houseRepository.Update(model);
 
-            TempData["Message"] = "آگهی شما با موفقیت ثبت و پس از بررسی بر روی سایت قرار میگیرد";
+            TempData["Message"] = "آگهی شما با موفقیت ویرایش و پس از بررسی بر روی سایت قرار میگیرد";
             return RedirectToAction("Index");
         }
 
