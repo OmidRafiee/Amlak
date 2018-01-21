@@ -15,7 +15,8 @@
 <script src="~/js/FileInput/locales/fa.js"></script>
 <script src="~/js/underscore-min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" type="text/javascript"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" type="text/javascript"></script>
+@*<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" type="text/javascript"></script>*@
+
 
 
 <div class="container kv-main">
@@ -23,6 +24,19 @@
     <input type="text" id="PhotoGalleryJson" name="PhotoGalleryJson" value="@(!string.IsNullOrEmpty(Model) ?  Model : "")" />
 </div>
 
+<style>
+    .kv-file-upload .glyphicon {
+        display: none;
+    }
+        .kv-file-upload .glyphicon:after {
+            display: block;
+            float: right;
+            width: 30px;
+            height: 30px;
+            font-family: FontAwesome;
+            content: "\f00d";
+        }
+</style>
 
 
 <script>
@@ -40,7 +54,14 @@
                 maxFileCount: 10,
                 fileActionSettings: {
                     showDrag: false
-                }
+                },
+                overwriteInitial: false,
+                validateInitialCount: true,
+                initialPreview: _initialPreview(),
+
+                   initialPreviewConfig: [
+                       { width: "520px"}
+             ]
             }).on("filebatchselected", function (event, files) {
                 $("#vmtFile").fileinput("upload");
             }).on("fileuploaded", function (event, data, previewId, index) {
@@ -78,7 +99,7 @@
                     url: "File/DeleteImage2",
                     method: "POST",
                     data: {
-                        id: docFile,
+                        id: docFile
                     }
                 }).done(function (data, textStatus, jqXHR) { });
             });
@@ -90,6 +111,18 @@
 
     }).call(this);
 
+
+    function _initialPreview() {
+        var val = $("#PhotoGalleryJson").val();
+        var arr = JSON.parse(val);
+        console.log(arr);
+        var res = [];
+        $(arr).each(function(i, el) {
+            res.push("<img class='kv-preview-data file-preview-image' src='" + arr[i] + "'>");
+        });
+        console.log(res);
+        return res;
+    }
 </script>
 
 
