@@ -32,6 +32,7 @@ namespace Amlak.Site.Controllers
 
             var model = _houseRepository.GetAll(vm);
             return View(model);
+
         }
 
         public IActionResult Detail(int id)
