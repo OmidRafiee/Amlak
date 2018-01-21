@@ -6,7 +6,7 @@
 
 @inject FileConfig FileConfig
 
-@model List<Amlak.Core.ViewModel.House.HouseViewModel>
+@model Alamut.Data.Paging.IPaginated<Amlak.Core.ViewModel.House.HouseViewModel>
 
 @{
     ViewBag.Title = "title";
@@ -30,25 +30,25 @@
                     </div>
                     <div class="SearchHomeContent">
                         <div class="SearchFormTabPanneItem p-2">
-                            <form>
-                                <input class="form-control my-2 block ofh cb" type="text" placeholder="مکــــــــــان" id="example-text-input">
+                            <form asp-controller="Search" asp-action="Index" method="get"> 
+                                <input class="form-control my-2 block ofh cb" name="Area" type="text" placeholder="مکــــــــــان" id="example-text-input">
                                 <div class="form-group my-2">
-                                    <select asp-items="Html.GetEnumSelectList<StatusType>()" class="form-control" id="exampleSelect1">
+                                    <select name="Status" asp-items="Html.GetEnumSelectList<StatusType>()" class="form-control" id="exampleSelect1">
                                         <option disabled selected>وضعـــــــیت</option>
-                                   </select>
+                                    </select>
                                 </div>
                                 <div class="form-group my-2">
-                                    <select class="form-control" id="exampleSelect1">
+                                    <select name="CategoryId" class="form-control" id="exampleSelect1">
                                         <option disabled selected>نـــوع خانـــه</option>
                                         @foreach (var item in Cateroty)
                                         {
                                             <option value="@item.Id">@item.Title</option>
-                                         }
+                                        }
 
                                     </select>
                                 </div>
                                 <div class="form-group my-2">
-                                    <select class="form-control" id="exampleSelect1">
+                                    <select name="Rooms" class="form-control" id="exampleSelect1">
                                         <option disabled selected>تعــداد اتـــاق</option>
                                         <option>1</option>
                                         <option>2</option>
@@ -57,7 +57,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group my-2">
-                                    <select class="form-control" id="exampleSelect1">
+                                    <select name="Bathrooms" class="form-control" id="exampleSelect1">
                                         <option disabled selected>تعــداد حمــام</option>
                                         <option>1</option>
                                         <option>2</option>
@@ -98,10 +98,10 @@
                 <div class="HouseList">
                     <div class="d-block ofh cb">
 
-                        @foreach (var item in Model)
+                        @foreach (var item in Model.Data)
                         {
 
-                            var imageAddress =item.PhotoGalleryJson==null? "[]": JsonConvert.DeserializeObject(item.PhotoGalleryJson);
+                            var imageAddress = item.PhotoGalleryJson == null ? "[]" : JsonConvert.DeserializeObject(item.PhotoGalleryJson);
 
                             <div class="HouseListItem row w-100 mx-auto mb-3 align-items-center">
                                 <a asp-controller="Detail" asp-action="Index" asp-route-id="@item.Id" class="HouseListItemPicLink d-block col-sm-4 col-12 p-0 relative">
@@ -115,7 +115,7 @@
                                     <a href="javascript:void(0)" class="HouseListItemTitle d-block textcut my-3 trans400">@item.Title</a>
                                     <div class="HouseListItemLocation my-2">@item.Town</div>
                                     <div class="HouseListItemsummary CutString CutString2 lh2-5">
-                                  @item.Description
+                                        @item.Description
                                     </div>
                                     <div class="block ofh">
                                         <div class="row w-100 mx-auto">
@@ -132,7 +132,7 @@
                     </div>
                 </div>
                 <div class="Paging">
-
+                    @Html.Partial("_Pagination")
                 </div>
             </div>
         </div>

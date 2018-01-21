@@ -6,11 +6,16 @@ namespace Amlak.Core.DTO.Detail
 {
    public class SearchDTO
     {
-        public string Town { get; set; }
-        public string City { get; set; }
-        public int Region { get; set; }
         public string Area { get; set; }
+        public string City { get; set; }
         public int? CategoryId { get; set; }
+        public int Rooms { get; set; }
+        public int Bathrooms { get; set; }
+
+        public string Town { get; set; }
+        public int Region { get; set; }
+        
+      
         public int MinScale { get; set; }
         public int MaxScale { get; set; }
         public long MinPrice1 { get; set; }

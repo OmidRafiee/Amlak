@@ -15,7 +15,7 @@
 <script src="~/js/FileInput/locales/fa.js"></script>
 <script src="~/js/underscore-min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" type="text/javascript"></script>
-@*<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" type="text/javascript"></script>*@
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" type="text/javascript"></script>
 
 
 
@@ -24,7 +24,7 @@
     <input type="text" id="PhotoGalleryJson" name="PhotoGalleryJson" value="@(!string.IsNullOrEmpty(Model) ?  Model : "")" />
 </div>
 
-<style>
+@*<style>
     .kv-file-upload .glyphicon {
         display: none;
     }
@@ -36,7 +36,7 @@
             font-family: FontAwesome;
             content: "\f00d";
         }
-</style>
+</style>*@
 
 
 <script>
@@ -60,7 +60,7 @@
                 initialPreview: _initialPreview(),
 
                    initialPreviewConfig: [
-                       { width: "520px"}
+                       { width: "120px"}
              ]
             }).on("filebatchselected", function (event, files) {
                 $("#vmtFile").fileinput("upload");
