@@ -66,11 +66,11 @@
                 if (fileList === "undefined" || fileList === void 0 || fileList === "") {
                     fileList = "[]";
                 }
-                if (window.vmt.isJsonValid(fileList)) {
+              
                     fileList = JSON.parse(fileList);
-                }
                 
-                $("#PhotoGalleryJson").val(JSON.stringify(_.filter(fileList, function (item) {
+                
+                    $("#PhotoGalleryJson").val(JSON.stringify(fileList.filter(function (item) {
                     return item.docFile !== docFile;
                 })));
                 
