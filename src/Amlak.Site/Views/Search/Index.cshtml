@@ -1,4 +1,5 @@
-﻿@using Amlak.Core.ViewModel.Category
+﻿@using Amlak.Core.DTO.Detail
+@using Amlak.Core.ViewModel.Category
 @using Amlak.Core.ViewModel.Option
 @using DNTPersianUtils.Core
 @using Amlak.Core.SSOT;
@@ -18,6 +19,8 @@
     var Option = (List<OptionViewModel>)ViewBag.OptionList;
     var Cateroty = (List<CategoryViewModel>)ViewBag.CategoryList;
 
+    var filter = (SearchDTO)ViewBag.Filter;
+
 }
 
 <div class="FullContainer container-fluid relative">
@@ -30,19 +33,17 @@
                     </div>
                     <div class="SearchHomeContent">
                         <div class="SearchFormTabPanneItem p-2">
-                            <form asp-controller="Search" asp-action="Index" method="get"> 
-                                <input class="form-control my-2 block ofh cb" name="Area" type="text" placeholder="مکــــــــــان" id="example-text-input">
+                            <form asp-controller="Search" asp-action="Index" method="get">
+                                <input class="form-control my-2 block ofh cb" name="Area" value="@(!string.IsNullOrEmpty(filter.Area) ? filter.Area :"")" type="text" placeholder="مکــــــــــان" id="example-text-input">
                                 <div class="form-group my-2">
-                                    <select name="Status" asp-items="Html.GetEnumSelectList<StatusType>()" class="form-control" id="exampleSelect1">
-                                        <option disabled selected>وضعـــــــیت</option>
-                                    </select>
-                                </div>
+                                    @Html.DropDownList("Status", ViewBag.StatusType as IEnumerable<SelectListItem>, "همه ی موارد", new { @class = "form-control" })
+                                 </div>
                                 <div class="form-group my-2">
                                     <select name="CategoryId" class="form-control" id="exampleSelect1">
                                         <option disabled selected>نـــوع خانـــه</option>
                                         @foreach (var item in Cateroty)
                                         {
-                                            <option value="@item.Id">@item.Title</option>
+                                            <option value="@item.Id" >@item.Title</option>
                                         }
 
                                     </select>
