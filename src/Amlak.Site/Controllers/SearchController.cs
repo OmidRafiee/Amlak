@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Amlak.Core.DTO.Detail;
 using Amlak.Core.DTO.House;
+using Amlak.Core.Helpers;
+using Amlak.Core.SSOT;
 using Amlak.Data.Repository;
 using Microsoft.AspNetCore.Mvc;
 
@@ -26,9 +28,11 @@ namespace Amlak.Site.Controllers
 
         public IActionResult Index(SearchDTO vm)
         {
-           
             ViewBag.OptionList = _optionRepository.GetAll();
             ViewBag.CategoryList = _categoryRepository.GetAll();
+
+            ViewBag.Filter = vm;
+            ViewBag.StatusType = EnumHelper.EnumToList(typeof(StatusType), vm.Status);
 
             var model = _houseRepository.GetAll(vm);
             return View(model);

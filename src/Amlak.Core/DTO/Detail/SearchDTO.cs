@@ -11,6 +11,7 @@ namespace Amlak.Core.DTO.Detail
         public int? CategoryId { get; set; }
         public int Rooms { get; set; }
         public int Bathrooms { get; set; }
+        public string Status { get; set; }
 
         public string Town { get; set; }
         public int Region { get; set; }
