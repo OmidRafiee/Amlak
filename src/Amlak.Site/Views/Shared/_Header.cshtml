@@ -1,7 +1,37 @@
-﻿<header class="MainHeader sborder">
+﻿@using Amlak.Core.Extensions
+<header class="MainHeader sborder">
     <div class="HeaderImpoLInks d-flex flex-row-reverse">
-        <a asp-controller="Account" asp-action="Login" class="HeaderImpoLInksItem lh3 tc relative trans400 before after"><span class="ImpoLInksItemIcon absolute"><i class="fa fa-user"></i></span>ورود</a>
-        <a asp-controller="Account" asp-action="Register" class="HeaderImpoLInksItem lh3 tc relative trans400 before after"><span class="ImpoLInksItemIcon absolute"><i class="fa fa-user"></i></span>ثبت نام</a>
+        @if(User.Identity.IsAuthenticated)
+        {
+            <a asp-controller="House" asp-action="Index" class="HeaderImpoLInksItem lh3 tc relative trans400 before after">
+                <span class="ImpoLInksItemIcon absolute"><i class="fa fa-user"></i></span>پروفایل
+            </a>
+        }
+        else
+        {
+            <a asp-controller="Account" asp-action="Login" class="HeaderImpoLInksItem lh3 tc relative trans400 before after">
+                <span class="ImpoLInksItemIcon absolute"><i class="fa fa-user"></i></span>ورود
+            </a>
+        
+        }
+        
+        @if(User.Identity.IsAuthenticated)
+        {
+            <a asp-controller="Account" asp-action="Logout" class="HeaderImpoLInksItem lh3 tc relative trans400 before after">
+                <span class="ImpoLInksItemIcon absolute"><i class="fa fa-user"></i></span>خروج
+            </a>
+        }
+        else
+        {
+            <a asp-controller="Account" asp-action="Register" class="HeaderImpoLInksItem lh3 tc relative trans400 before after">
+
+                <span class="ImpoLInksItemIcon absolute"><i class="fa fa-user"></i></span>
+                ثبت نام
+            </a>
+        
+        }
+
+      
         <a href="javascript:void(0)" class="HeaderImpoLInksItem lh3 tc relative trans400"><span class="ImpoLInksItemIcon absolute"><img src="~/image/icon9.png" class="responsiveimage" /></span>اینستاگرام</a>
         <a href="javascript:void(0)" class="HeaderImpoLInksItem lh3 tc relative trans400 before after"><span class="ImpoLInksItemIcon absolute"><img src="~/image/icon10.png" class="responsiveimage" /></span>تلگرام</a>
     </div>

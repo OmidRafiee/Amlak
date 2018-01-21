@@ -22,7 +22,7 @@ namespace Amlak.Core.SSOT
 
 
             CreateMap<House, HouseFullDTO>();
-
+            CreateMap<HouseFullDTO,House>();
 
         }
     }

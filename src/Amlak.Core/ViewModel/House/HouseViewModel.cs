@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using Amlak.Core.ViewModel.Category;
 
 namespace Amlak.Core.ViewModel.House
 {
@@ -99,7 +100,7 @@ namespace Amlak.Core.ViewModel.House
         /// طبقه 
         ///  </summary>
         [Display(Name = "طبقه")]
-        public int Floor { get; set; }
+        public string Floor { get; set; }
 
 
         public int? UserId { get; set; }
@@ -115,5 +116,7 @@ namespace Amlak.Core.ViewModel.House
         [Display(Name = "نمایش در بخش پیشنهادهای ویژه")]
         public bool IsSpecialOffer { get; set; }
 
+
+        public virtual  CategoryViewModel Category { get; set; }
     }
 }

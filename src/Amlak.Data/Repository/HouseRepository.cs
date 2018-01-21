@@ -43,6 +43,9 @@ namespace Amlak.Data.Repository
         public IPaginated<HouseViewModel> GetAll(SearchDTO vm)
         {
             var model = _context.House
+                .WhereIf(!string.IsNullOrEmpty(vm.Area), q => q.Area.Contains(vm.Area))
+                .WhereIf(vm.Bathrooms != 0, q => q.Bathrooms.Equals(vm.Bathrooms))
+                .WhereIf(vm.Rooms != 0, q => q.Rooms.Equals(vm.Rooms))
                 .WhereIf(vm.CategoryId != null, q => q.CategoryId.Equals(vm.CategoryId));
 
             return model.ProjectTo<HouseViewModel>().ToPaginated(new PaginatedCriteria(vm.Page, vm.PageSize));
@@ -87,6 +90,15 @@ namespace Amlak.Data.Repository
                 .ProjectTo<HouseFullDTO>().ToList();
 
             return model;
+        }
+
+
+        public List<HouseViewModel> GetListRequestByUserId(int userId)
+        {
+            return _context.House.ProjectTo<HouseViewModel>()
+                .Where(q => q.IsPublished == false)
+                .Where(q => q.UserId.Equals(userId))
+                .ToList();
         }
     }
 }

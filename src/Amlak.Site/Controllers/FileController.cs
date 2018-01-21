@@ -51,14 +51,13 @@ namespace Amlak.Site.Controllers
         [HttpPost]
         public ActionResult UploadImage2()
         {
-            var fileConfig = "C:\\inetpub\\wwwroot\\repository\\image\\";
+           var fileConfig = "C:\\inetpub\\wwwroot\\repository\\image\\";
             foreach (var file in Request.Form.Files)
             {
                 if (file == null ||
                     file.Length == 0)
                     continue;
 
-                var fileName = FileHelper.SaveFile2(file, fileConfig, "image");
                 return Json(new
                 {
                     fileName = FileHelper.SaveFile2(file, fileConfig , "image")

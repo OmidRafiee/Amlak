@@ -1,5 +1,51 @@
-﻿
+﻿@using DNTPersianUtils.Core
+@model List<Amlak.Core.ViewModel.House.HouseViewModel>
 @{
     ViewBag.Title = "title";
     Layout = "_Layout";
+    var count = 0;
 }
+<div class="col-md-4">
+    @if (TempData.ContainsKey("Message"))
+    {
+        <div class="alert alert-success fade in alert-dismissable" style="opacity: 1 !important">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+            @TempData["Message"].ToString()
+        </div>
+    }
+</div>
+
+<span> لیست محصولات شما </span>
+<div class="table-responsive">          
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ردیف</th>
+            <th>عنوان</th>
+            <th>شهر</th>
+            <th>وضیعت</th>
+            <th>قیمت</th>
+            <th>ویرایش</th>
+        </tr>
+        </thead>
+        <tbody>
+       @foreach (var item in Model)
+       {
+           count++;
+           <tr>
+               <td>@count</td>
+               <td>@item.Title</td>
+               <td>@item.City</td>
+               <td>@item.Status</td>
+               <td>@item.Price.ToPersianNumbers()</td>
+               
+               <td>
+                   <a asp-controller="House" asp-action="Edit" asp-route-id="@item.Id">
+                      جزییات
+                   </a>
+               </td>
+           </tr>
+       }
+        </tbody>
+    </table>
+</div>

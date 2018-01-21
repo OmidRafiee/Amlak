@@ -12,39 +12,45 @@ namespace Amlak.Core.ViewModel.House
         public string Title { get; set; }
 
         [Display(Name = "توضیحات")]
-      
-
         public string Description { get; set; }
 
         /// <summary>
         /// وضیعت
         /// </summary>
         [Display(Name = "وضیعت")]
-
         public string Status { get; set; }
 
         /// <summary>
         /// قیمت
         /// </summary>
-        [Display(Name = "قیمت")]
+        [Display(Name = " قیمت (ريال)")]
+        [Required(ErrorMessage = "قیمت را وارد کنید")]
+        [Range(1, long.MaxValue, ErrorMessage = "مقدار وارد شده نامعتبر است")]
+
         public long Price { get; set; }
 
         /// <summary>
         /// تعداد اتاق
         /// </summary>
         [Display(Name = "تعدا اتاق")]
+        [Required(ErrorMessage = "تعداد اتاق را وارد کنید")]
+        [Range(0, long.MaxValue, ErrorMessage = "مقدار وارد شده نامعتبر است")]
         public int Rooms { get; set; }
 
         /// <summary>
         /// تعداد حمام
         /// </summary>
         [Display(Name = "تعداد حمام")]
+        [Range(0, long.MaxValue, ErrorMessage = "مقدار وارد شده نامعتبر است")]
+
         public int Bathrooms { get; set; }
 
         /// <summary>
         /// تعداد پارکینگ
         /// </summary>
         [Display(Name = "تعداد پارکینگ")]
+        [Range(0, long.MaxValue, ErrorMessage = "مقدار وارد شده نامعتبر است")]
+
         public int Parkings { get; set; }
 
         /// <summary>
@@ -72,7 +78,9 @@ namespace Amlak.Core.ViewModel.House
         /// متراژ ملک
         /// </summary>
         [Display(Name = "متراژ")]
-        public int Scale { get; set; }
+        [Required(ErrorMessage = "متراژ را وارد کنید")]
+        [Range(1, long.MaxValue, ErrorMessage = "مقدار وارد شده نامعتبر است")]
+         public int Scale { get; set; }
 
         /// <summary>
         /// منطفه
@@ -97,14 +105,13 @@ namespace Amlak.Core.ViewModel.House
         /// محله
         /// </summary>
         [Display(Name = "محله")]
-
         public string Area { get; set; }
 
         /// <summary>
         /// طبقه 
         ///  </summary>
         [Display(Name = "طبقه")]
-        public int Floor { get; set; }
+        public string Floor { get; set; }
 
         
         public int? UserId { get; set; }

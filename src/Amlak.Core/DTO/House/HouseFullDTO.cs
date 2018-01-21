@@ -101,7 +101,7 @@ namespace Amlak.Core.DTO.House
         /// طبقه 
         ///  </summary>
         [Display(Name = "طبقه")]
-        public int Floor { get; set; }
+        public string Floor { get; set; }
 
 
         public int? UserId { get; set; }

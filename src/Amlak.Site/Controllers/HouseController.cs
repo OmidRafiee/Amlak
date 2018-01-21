@@ -12,7 +12,7 @@ using Newtonsoft.Json;
 
 namespace Amlak.Site.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class HouseController : Controller
     {
         private readonly HouseRepository _houseRepository;
@@ -30,9 +30,9 @@ namespace Amlak.Site.Controllers
 
         public IActionResult Index()
         {
-            var userId = User.Identity.GetId();
+            var userId = Convert.ToInt16(User.Identity.GetId());
 
-            var model = _houseRepository.GetAll();
+            var model = _houseRepository.GetListRequestByUserId(userId);
             return View(model);
         }
 
@@ -58,11 +58,36 @@ namespace Amlak.Site.Controllers
         [HttpPost]
         public IActionResult Create(HouseCreateViewModel model)
         {
+            var userId = Convert.ToInt16(User.Identity.GetId());
+
+            model.UserId = userId;
             model.OptionIdsJson = JsonConvert.SerializeObject(model.OptionIds);
+
             var result = _houseRepository.Create(model);
 
             TempData["Message"] = "آگهی شما با موفقیت ثبت و پس از بررسی بر روی سایت قرار میگیرد";
             return RedirectToAction("Index");
         }
+
+
+        public IActionResult Edit(int id)
+        {
+            var model = _houseRepository.GetById(id);
+            ViewBag.OptionList = _optionRepository.GetAll();
+            ViewBag.CategoryList = _categoryRepository.GetAll();
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(HouseEditViewModel model)
+        {
+            model.OptionIdsJson = JsonConvert.SerializeObject(model.OptionIds);
+
+            var result = _houseRepository.Update(model);
+
+            TempData["Message"] = "آگهی شما با موفقیت ویرایش و پس از بررسی بر روی سایت قرار میگیرد";
+            return RedirectToAction("Index");
+        }
+
     }
 }
