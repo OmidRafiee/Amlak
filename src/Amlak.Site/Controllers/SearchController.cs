@@ -28,7 +28,9 @@ namespace Amlak.Site.Controllers
            
             ViewBag.OptionList = _optionRepository.GetAll();
             ViewBag.CategoryList = _categoryRepository.GetAll();
-            return View();
+
+            var model = _houseRepository.GetAll();
+            return View(model);
         }
 
         public IActionResult Detail(int id)

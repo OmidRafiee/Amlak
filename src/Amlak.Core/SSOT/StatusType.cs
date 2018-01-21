@@ -8,13 +8,13 @@ namespace Amlak.Core.SSOT
     public enum StatusType
     {
         [Display(Name = "فروش")]
-        Sale = 1,
+        Sale ,
 
         [Display(Name = "رهن")]
-        Mortgage = 2,
+        Mortgage,
 
         [Display(Name = "اجاره")]
-        Rent = 3,
+        Rent ,
 
     }
 

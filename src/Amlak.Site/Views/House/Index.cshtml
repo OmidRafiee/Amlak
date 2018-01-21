@@ -5,6 +5,15 @@
     Layout = "_Layout";
     var count = 0;
 }
+<div class="col-md-4">
+    @if (TempData.ContainsKey("Message"))
+    {
+        <div class="alert alert-success fade in alert-dismissable" style="opacity: 1 !important">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+            @TempData["Message"].ToString()
+        </div>
+    }
+</div>
 
 <span> لیست محصولات شما </span>
 <div class="table-responsive">          

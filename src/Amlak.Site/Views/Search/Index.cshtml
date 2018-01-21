@@ -1,7 +1,12 @@
 ﻿@using Amlak.Core.ViewModel.Category
 @using Amlak.Core.ViewModel.Option
 @using DNTPersianUtils.Core
-@model Amlak.Core.DTO.House.HouseFullDTO
+@using Amlak.Core.SSOT;
+@using Newtonsoft.Json
+
+@inject FileConfig FileConfig
+
+@model List<Amlak.Core.ViewModel.House.HouseViewModel>
 
 @{
     ViewBag.Title = "title";
@@ -28,20 +33,18 @@
                             <form>
                                 <input class="form-control my-2 block ofh cb" type="text" placeholder="مکــــــــــان" id="example-text-input">
                                 <div class="form-group my-2">
-                                    <select class="form-control" id="exampleSelect1">
+                                    <select asp-items="Html.GetEnumSelectList<StatusType>()" class="form-control" id="exampleSelect1">
                                         <option disabled selected>وضعـــــــیت</option>
-                                        <option>خرید</option>
-                                        <option>رهن</option>
-                                        <option>اجاره</option>
-                                    </select>
+                                   </select>
                                 </div>
                                 <div class="form-group my-2">
                                     <select class="form-control" id="exampleSelect1">
                                         <option disabled selected>نـــوع خانـــه</option>
-                                        <option>آپارتمان</option>
-                                        <option>ویلایی</option>
-                                        <option>تجاری</option>
-                                        <option>اداری</option>
+                                        @foreach (var item in Cateroty)
+                                        {
+                                            <option value="@item.Id">@item.Title</option>
+                                         }
+
                                     </select>
                                 </div>
                                 <div class="form-group my-2">
@@ -72,36 +75,14 @@
                                     </button>
                                     <div class="collapse my-2 p-2 MoreOptionItem w-100" id="collapseExample">
                                         <div class="row w-100 m-auto">
-                                            <label class="custom-control custom-checkbox px-1 col-6">
-                                                <input type="checkbox" class="custom-control-input">
-                                                <span class="custom-control-indicator"></span>
-                                                <span class="custom-control-description mr-2 mt-1">پارکینگ</span>
-                                            </label>
-                                            <label class="custom-control custom-checkbox px-1 col-6">
-                                                <input type="checkbox" class="custom-control-input">
-                                                <span class="custom-control-indicator"></span>
-                                                <span class="custom-control-description mr-2 mt-1">بالکن</span>
-                                            </label>
-                                            <label class="custom-control custom-checkbox px-1 col-6">
-                                                <input type="checkbox" class="custom-control-input">
-                                                <span class="custom-control-indicator"></span>
-                                                <span class="custom-control-description mr-2 mt-1">باشکاه ورزشی</span>
-                                            </label>
-                                            <label class="custom-control custom-checkbox px-1 col-6">
-                                                <input type="checkbox" class="custom-control-input">
-                                                <span class="custom-control-indicator"></span>
-                                                <span class="custom-control-description mr-2 mt-1">استخر</span>
-                                            </label>
-                                            <label class="custom-control custom-checkbox px-1 col-6">
-                                                <input type="checkbox" class="custom-control-input">
-                                                <span class="custom-control-indicator"></span>
-                                                <span class="custom-control-description mr-2 mt-1">سیستم گرامیش مرکزی</span>
-                                            </label>
-                                            <label class="custom-control custom-checkbox px-1 col-6">
-                                                <input type="checkbox" class="custom-control-input">
-                                                <span class="custom-control-indicator"></span>
-                                                <span class="custom-control-description mr-2 mt-1">باربکیو</span>
-                                            </label>
+                                            @foreach (var item in Option)
+                                            {
+                                                <label class="custom-control custom-checkbox px-1 col-6">
+                                                    <input type="checkbox" class="custom-control-input">
+                                                    <span class="custom-control-indicator"></span>
+                                                    <span class="custom-control-description mr-2 mt-1">@item</span>
+                                                </label>
+                                            }
                                         </div>
                                     </div>
                                 </div>
@@ -110,37 +91,44 @@
                     </div>
                 </div>
 
-              @await Component.InvokeAsync("SpecialOffer")
+                @await Component.InvokeAsync("SpecialOffer")
 
             </div>
             <div class="MainContentRow col-lg-9 col-md-8 col-12 order-md-2 order-1">
                 <div class="HouseList">
                     <div class="d-block ofh cb">
-                        
 
-                        <div class="HouseListItem row w-100 mx-auto mb-3 align-items-center">
-                            <a href="javascript:void(0)" class="HouseListItemPicLink d-block col-sm-4 col-12 p-0 relative">
-                                <figure class="w-100 relative text-center">
-                                    <img src="image/pic1.jpg" class="img-fluid trans400"/>
-                                    <figcaption class="absolute t0 trans400 bold textcut d-flex align-items-center justify-content-center">قیمت : 3.000.000.000</figcaption>
-                                </figure>
-                                <div class="HouseListItemType absolute text-center trans400">فروشی</div>
-                            </a>
-                            <div class="HouseListItemContent col-sm-8 col-12">
-                                <a href="javascript:void(0)" class="HouseListItemTitle d-block textcut my-3 trans400">فروش آپارتمان مسکونی 30 واحدی</a>
-                                <div class="HouseListItemLocation my-2">فرمانیه</div>
-                                <div class="HouseListItemsummary CutString CutString2 lh2-5">فروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدیفروش آپارتمان مسکونی 30 واحدی</div>
-                                <div class="block ofh">
-                                    <div class="row w-100 mx-auto">
-                                        <span class="LandSize HouseListDetail my-2 d-flex align-items-center col-lg-3 col-md-6 col-12 relative after">346</span>
-                                        <span class="BedCount HouseListDetail my-2 d-flex align-items-center col-lg-3 col-md-6 col-12 relative after">4</span>
-                                        <span class="BathCount HouseListDetail my-2 d-flex align-items-center col-lg-3 col-md-6 col-12 relative after">2</span>
-                                        <span class="MoreBtnContainer col-lg-3 col-md-6 col-12 px-3 my-2"><a href="javascript:void(0)" class="MoreBtn p-2 block text-center trans400">بیشتر</a></span>
+                        @foreach (var item in Model)
+                        {
+
+                            var imageAddress =item.PhotoGalleryJson==null? "[]": JsonConvert.DeserializeObject(item.PhotoGalleryJson);
+
+                            <div class="HouseListItem row w-100 mx-auto mb-3 align-items-center">
+                                <a asp-controller="Detail" asp-action="Index" asp-route-id="@item.Id" class="HouseListItemPicLink d-block col-sm-4 col-12 p-0 relative">
+                                    <figure class="w-100 relative text-center">
+                                        <img src="@FileConfig.WebAddress@imageAddress" class="img-fluid trans400" />
+                                        <figcaption class="absolute t0 trans400 bold textcut d-flex align-items-center justify-content-center">قیمت :@item.Price.TomansThousand()</figcaption>
+                                    </figure>
+                                    <div class="HouseListItemType absolute text-center trans400">@item.Category?.Title</div>
+                                </a>
+                                <div class="HouseListItemContent col-sm-8 col-12">
+                                    <a href="javascript:void(0)" class="HouseListItemTitle d-block textcut my-3 trans400">@item.Title</a>
+                                    <div class="HouseListItemLocation my-2">@item.Town</div>
+                                    <div class="HouseListItemsummary CutString CutString2 lh2-5">
+                                  @item.Description
+                                    </div>
+                                    <div class="block ofh">
+                                        <div class="row w-100 mx-auto">
+                                            <span class="LandSize HouseListDetail my-2 d-flex align-items-center col-lg-3 col-md-6 col-12 relative after">@item.Scale.ToPersianNumbers()</span>
+                                            <span class="BedCount HouseListDetail my-2 d-flex align-items-center col-lg-3 col-md-6 col-12 relative after">@item.Rooms.ToPersianNumbers()</span>
+                                            <span class="BathCount HouseListDetail my-2 d-flex align-items-center col-lg-3 col-md-6 col-12 relative after">@item.Bathrooms.ToPersianNumbers()</span>
+                                            <span class="MoreBtnContainer col-lg-3 col-md-6 col-12 px-3 my-2"><a asp-controller="Detail" asp-action="Index" asp-route-id="@item.Id" class="MoreBtn p-2 block text-center trans400">بیشتر</a></span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
+                        }
                     </div>
                 </div>
                 <div class="Paging">
