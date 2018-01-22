@@ -26,35 +26,35 @@ namespace Amlak.Data.Repository
         #endregion
 
         #region CRUD
-        public ServiceResult<int> CreatePages(NewsViewModel model)
+        public ServiceResult<int> Create(NewsViewModel model)
         {
-            var entity = Mapper.Map<Pages>(model);
-            _context.Pages.Add(entity);
+            var entity = Mapper.Map<News>(model);
+            _context.News.Add(entity);
             _context.SaveChanges();
             var result = ServiceResult<int>.Okay(entity.Id);
             return result;
         }
 
-        public List<PagesSummary> GetAllPages()
+        public List<NewsViewModel> GetAll()
         {
-            return _context.Pages
+            return _context.News
                 .OrderBy(q => q.Title)
-                .ProjectTo<PagesSummary>()
+                .ProjectTo<NewsViewModel>()
                 .ToList();
         }
-        public ServiceResult<int> UpdatePagesById(NewsViewModel model)
+        public ServiceResult<int> Update(NewsViewModel model)
         {
-            var oldEntity = _context.Pages.FirstOrDefault(q => q.Id == model.Id);
+            var oldEntity = _context.News.FirstOrDefault(q => q.Id == model.Id);
             Mapper.Map(model, oldEntity);
             _context.SaveChanges();
             var result = ServiceResult<int>.Okay(model.Id);
             return result;
         }
 
-        public ServiceResult<int> DeletePagesById(int id)
+        public ServiceResult<int> DeleteById(int id)
         {
-            var model = new Pages { Id = id };
-            _context.Pages.Remove(model);
+            var model = new News { Id = id };
+            _context.News.Remove(model);
             var result = _context.SaveChanges();
             return ServiceResult<int>.Okay(id);
         }
@@ -63,24 +63,11 @@ namespace Amlak.Data.Repository
         #endregion
 
         #region Methods
-        public Pages GetPagesById(int id)
+        public NewsViewModel GetById(int id)
         {
-            return _context.Pages.FirstOrDefault(q => q.Id == id);
+            return _context.Pages.Where(q => q.Id == id).ProjectTo<NewsViewModel>().FirstOrDefault();
         }
 
-
-
-        public List<Pages> GetPagessByIds(List<int> ids)
-        {
-            return _context.Pages
-                .Where(q => ids.Contains(q.Id))
-                .ToList();
-        }
-
-        public Pages GetPagesByBasename(string basename)
-        {
-            return _context.Pages.FirstOrDefault(q => q.Basename == basename);
-        }
         #endregion
     }
 }
