@@ -117,6 +117,8 @@ namespace Amlak.Core.DTO.House
         [Display(Name = "نمایش در بخش پیشنهادهای ویژه")]
         public bool IsSpecialOffer { get; set; }
 
+        public DateTime? PublishDate { get; set; }
+
 
         public virtual Category Category { get; set; }
     }

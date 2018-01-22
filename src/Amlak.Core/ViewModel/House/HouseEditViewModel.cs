@@ -79,11 +79,11 @@ namespace Amlak.Core.ViewModel.House
         [Display(Name = "نوع ملک")]
         public int? CategoryId { get; set; }
 
-        //public DateTime RequestDate { get; set; } = DateTime.Now;
+        public DateTime RequestDate { get; set; } = DateTime.Now;
 
-        //public DateTime? PublishDate { get; set; }
-        //public bool IsPublished { get; set; }
-        //public bool IsSpecialOffer { get; set; }
+        public DateTime? PublishDate { get; set; }
+        public bool IsPublished { get; set; }
+        public bool IsSpecialOffer { get; set; }
 
     }
 }

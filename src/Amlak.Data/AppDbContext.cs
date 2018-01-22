@@ -22,6 +22,8 @@ namespace Amlak.Data
         public DbSet<Pages> Pages { get; set; }
 
         public DbSet<Option> Option { get; set; }
+        public DbSet<News> News { get; set; }
+
 
 
 
