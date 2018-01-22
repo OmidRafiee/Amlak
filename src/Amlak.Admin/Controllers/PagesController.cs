@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Amlak.Core.ViewModel.News;
 using Amlak.Core.ViewModel.Pages;
 using Amlak.Data.Repository;
 using Microsoft.AspNetCore.Mvc;
@@ -30,7 +31,7 @@ namespace Amlak.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(PagesViewModel model)
+        public IActionResult Create(NewsViewModel model)
         {
             var result = _pagesRepository.CreatePages(model);
             return RedirectToAction("Edit", new { id = result.Data });
@@ -44,7 +45,7 @@ namespace Amlak.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(PagesViewModel model)
+        public IActionResult Edit(NewsViewModel model)
         {
             var result = _pagesRepository.UpdatePagesById(model);
             return RedirectToAction("Edit", new { id = result.Data });

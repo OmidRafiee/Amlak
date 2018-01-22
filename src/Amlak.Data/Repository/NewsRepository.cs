@@ -12,14 +12,14 @@ using Calabin.Core.DTO.Pages;
 
 namespace Amlak.Data.Repository
 {
-    public class PagesRepository
+    public class NewsRepository
     {
         #region Fields
         private readonly AppDbContext _context;
         #endregion
 
         #region Constructor
-        public PagesRepository(AppDbContext context)
+        public NewsRepository(AppDbContext context)
         {
             _context = context;
         }
