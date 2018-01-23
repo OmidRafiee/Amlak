@@ -5,6 +5,7 @@ using Amlak.Core.DTO.House;
 using Amlak.Core.Entities;
 using Amlak.Core.ViewModel;
 using Amlak.Core.ViewModel.House;
+using Amlak.Core.ViewModel.News;
 using AutoMapper;
 
 namespace Amlak.Core.SSOT
@@ -24,6 +25,9 @@ namespace Amlak.Core.SSOT
             CreateMap<House, HouseFullDTO>();
             CreateMap<HouseFullDTO,House>();
 
+
+            CreateMap<News,NewsViewModel>();
+            CreateMap<NewsViewModel, News>();
         }
     }
 }
