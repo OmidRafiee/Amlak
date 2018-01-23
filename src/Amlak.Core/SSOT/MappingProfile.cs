@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Amlak.Core.DTO.House;
+using Amlak.Core.DTO.News;
 using Amlak.Core.Entities;
 using Amlak.Core.ViewModel;
 using Amlak.Core.ViewModel.House;
@@ -26,7 +27,7 @@ namespace Amlak.Core.SSOT
             CreateMap<HouseFullDTO,House>();
 
 
-            CreateMap<News,NewsViewModel>();
+            CreateMap<News,NewsDTO>();
             CreateMap<NewsViewModel, News>();
         }
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Alamut.Data.Structure;
+using Amlak.Core.DTO.News;
 using Amlak.Core.Entities;
 using Amlak.Core.ViewModel.News;
 using Amlak.Core.ViewModel.Pages;
@@ -35,11 +36,11 @@ namespace Amlak.Data.Repository
             return result;
         }
 
-        public List<NewsViewModel> GetAll()
+        public List<NewsDTO> GetAll()
         {
             return _context.News
                 .OrderBy(q => q.Title)
-                .ProjectTo<NewsViewModel>()
+                .ProjectTo<NewsDTO>()
                 .ToList();
         }
         public ServiceResult<int> Update(NewsViewModel model)
@@ -51,7 +52,7 @@ namespace Amlak.Data.Repository
             return result;
         }
 
-        public ServiceResult<int> DeleteById(int id)
+        public ServiceResult<int> Delete(int id)
         {
             var model = new News { Id = id };
             _context.News.Remove(model);
@@ -63,11 +64,25 @@ namespace Amlak.Data.Repository
         #endregion
 
         #region Methods
-        public NewsViewModel GetById(int id)
+        public NewsDTO GetById(int id)
         {
-            return _context.Pages.Where(q => q.Id == id).ProjectTo<NewsViewModel>().FirstOrDefault();
+            return _context.Pages.Where(q => q.Id == id).ProjectTo<NewsDTO>().FirstOrDefault();
         }
 
         #endregion
+
+        public ServiceResult<bool> SetIsPublished(int id, bool status)
+        {
+            var entity = _context.News.Find(id);
+
+            if (entity == null)
+                return ServiceResult<bool>.Error("رکوردی یافت نشد");
+
+            entity.IsPublished = status;
+            _context.News.Update(entity);
+            _context.SaveChanges();
+
+            return ServiceResult<bool>.Okay(status);
+        }
     }
 }

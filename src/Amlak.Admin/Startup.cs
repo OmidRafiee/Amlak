@@ -112,6 +112,7 @@ namespace Amlak.Admin
             services.AddScoped<CategoryRepository>();
             services.AddScoped<OptionRepository>();
             services.AddScoped<PagesRepository>();
+            services.AddScoped<NewsRepository>();
 
 
 

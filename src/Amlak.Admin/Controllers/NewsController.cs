@@ -54,10 +54,17 @@ namespace Amlak.Admin.Controllers
 
         public IActionResult Delete(int id)
         {
-            var result = _newsRepository.DeleteById(id);
+            var result = _newsRepository.Delete(id);
             return RedirectToAction("Index");
         }
 
-        
+
+        [HttpPost]
+        public IActionResult SetIsPublished(int id, bool status)
+        {
+            var result = _newsRepository.SetIsPublished(id, status);
+
+            return Json(result);
+        }
     }
 }
