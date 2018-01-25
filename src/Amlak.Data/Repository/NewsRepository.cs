@@ -43,6 +43,17 @@ namespace Amlak.Data.Repository
                 .ProjectTo<NewsDTO>()
                 .ToList();
         }
+
+
+        public List<NewsDTO> GetAllIsPblished()
+        {
+            return _context.News
+                .Where(q=>q.IsPublished)
+                .OrderBy(q => q.Title)
+                .ProjectTo<NewsDTO>()
+                .ToList();
+        }
+
         public ServiceResult<int> Update(NewsViewModel model)
         {
             var oldEntity = _context.News.FirstOrDefault(q => q.Id == model.Id);

@@ -3,19 +3,7 @@
 
 @{ ViewBag.Title = "مدیریت صفحات"; }
 
-@*@{
-    ViewBag.BreadCrumb = new BreadCrumb
-    {
-        Links = new List<BreadCrumbLink>
-        {
-            new BreadCrumbLink
-            {
-                Title = "مدیریت صفحات",
-                Link = Url.Action("Index", "Pages")
-            }
-        }
-    };
-}*@
+
 
 <div class="text-right mb">
     <a href="@Url.Action("Create", "Pages")" class="btn btn-success green-jungle">ساخت صفحه جدید</a>
