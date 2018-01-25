@@ -45,7 +45,7 @@ namespace Amlak.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(NewsViewModel model)
+        public IActionResult Edit(PagesViewModel model)
         {
             var result = _pagesRepository.UpdatePagesById(model);
             return RedirectToAction("Edit", new { id = result.Data });

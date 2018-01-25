@@ -54,7 +54,7 @@ namespace Amlak.Data.Repository
                 .ToList();
         }
 
-        public ServiceResult<int> Update(NewsViewModel model)
+        public ServiceResult<int> Update(NewsDTO model)
         {
             var oldEntity = _context.News.FirstOrDefault(q => q.Id == model.Id);
             Mapper.Map(model, oldEntity);

@@ -21,23 +21,18 @@
                 </a>
             </li>
         
-        
-        @if ( User.IsInRole("Admin") || User.IsInRole("Winner"))
-        {
             <li data-menu-role="Office/Winner">
-                <a asp-controller="Winner" asp-action="Index">
+                <a asp-controller="News" asp-action="Index">
                     <div class="item-content">
                         <div class="item-media">
                             <i class="ti-layers-alt"></i>
                         </div>
                         <div class="item-inner">
-                            <span class="title"> مدیریت برندگان</span>
+                            <span class="title"> مدیریت اخبار</span>
                         </div>
                     </div>
                 </a>
             </li>
-        }
-        
         @if ( User.IsInRole("Admin") || User.IsInRole("Winner"))
         {
             <li data-menu-role="Office/CreateWinner">

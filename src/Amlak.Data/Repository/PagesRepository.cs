@@ -42,7 +42,7 @@ namespace Amlak.Data.Repository
                 .ProjectTo<PagesSummary>()
                 .ToList();
         }
-        public ServiceResult<int> UpdatePagesById(NewsViewModel model)
+        public ServiceResult<int> UpdatePagesById(PagesViewModel model)
         {
             var oldEntity = _context.Pages.FirstOrDefault(q => q.Id == model.Id);
             Mapper.Map(model, oldEntity);

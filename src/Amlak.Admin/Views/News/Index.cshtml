@@ -1,8 +1,42 @@
 ﻿@model System.Collections.Generic.List<Amlak.Core.DTO.News.NewsDTO>
 
-@{
-    ViewBag.Title = "title";
-    Layout = "_Layout";
-}
+@{ ViewBag.Title = "مدیریت صفحات"; }
 
-<h2>title</h2>
+
+<div class="text-right mb">
+    <a href="@Url.Action("Create", "News")" class="btn btn-success green-jungle">ساخت خبر جدید</a>
+</div>
+
+
+@if (Model != null && Model.Count > 0)
+{
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th width="150" align="center">وضعیت انتشار</th>
+            <th>عنوان خبر</th>
+            <th width="200">خلاصه خبر</th>
+            <th width="200" align="left"></th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td align="center">
+                    <span class="label label-sm label-@(item.IsPublished ? "success" : "danger")">
+                        @(item.IsPublished ? "منتشر شده" : "منتشر نشده")
+                    </span>
+                </td>
+                <td>@item.Title</td>
+                <td dir="ltr" style="text-align: right; font-family: consolas, monospace;">@item.Summary</td>
+
+                <td align="left">
+                    <a class="btn btn-primary" href="@Url.Action("Edit", "News", new {id = item.Id})">ویرایش</a>
+                    <a class="btn btn-danger" href="@Url.Action("Delete", "News", new {id = item.Id})" data-role="confirm">حذف</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Amlak.Core.DTO.News;
 using Amlak.Core.ViewModel.News;
 using Amlak.Core.ViewModel;
 using Amlak.Data.Repository;
@@ -46,7 +47,7 @@ namespace Amlak.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(NewsViewModel model)
+        public IActionResult Edit(NewsDTO model)
         {
             var result = _newsRepository.Update(model);
             return RedirectToAction("Edit", new { id = result.Data });
