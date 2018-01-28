@@ -1,5 +1,6 @@
-﻿@using Exir.Regate
-
+﻿@using Amlak.Core.SSOT
+@using Exir.Regate
+@inject FileConfig FileConfig
 @model Amlak.Core.ViewModel.News.NewsViewModel
 
 @{ ViewBag.Title = "ایجاد خبر جدبد"; }
@@ -34,7 +35,7 @@
         </div>
     </div>
 
-
+    <input type="text" value="@FileConfig.PhysicalAddress">
     <div class="form-group">
         <div class="col-sm-2 control-label">انتخاب فایل </div>
         <div class="col-sm-10">

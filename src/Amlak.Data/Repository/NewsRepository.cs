@@ -77,7 +77,7 @@ namespace Amlak.Data.Repository
         #region Methods
         public NewsDTO GetById(int id)
         {
-            return _context.Pages.Where(q => q.Id == id).ProjectTo<NewsDTO>().FirstOrDefault();
+            return _context.News.Where(q => q.Id == id).ProjectTo<NewsDTO>().FirstOrDefault();
         }
 
         #endregion

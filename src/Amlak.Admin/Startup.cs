@@ -114,7 +114,7 @@ namespace Amlak.Admin
             services.AddScoped<PagesRepository>();
             services.AddScoped<NewsRepository>();
 
-
+            services.AddMemoryCache();
 
             services.AddMvc();
         }
