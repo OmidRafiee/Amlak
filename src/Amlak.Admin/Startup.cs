@@ -60,7 +60,7 @@ namespace Amlak.Admin
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.ConfigurePoco<FileConfig>(Configuration.GetSection("FileRepository"));
+            services.ConfigurePoco<FileConfig>(Configuration.GetSection("FileConfig"));
             services.ConfigurePoco<AppSetting>(Configuration.GetSection("AppSetting"));
             //services.ConfigurePoco<SmsSetting>(Configuration.GetSection("SmsSetting"));
 
