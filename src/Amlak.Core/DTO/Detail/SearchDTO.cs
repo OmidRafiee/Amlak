@@ -14,13 +14,13 @@ namespace Amlak.Core.DTO.Detail
         public string Status { get; set; }
 
         public string Town { get; set; }
-        public int Region { get; set; }
+        public string Region { get; set; }
         
       
         public int MinScale { get; set; }
         public int MaxScale { get; set; }
-        public long MinPrice1 { get; set; }
-        public long MinPrice2 { get; set; }
+        public long MinMeterPrice { get; set; }
+        public long MaxMeterPrice { get; set; }
         public long MinPrice { get; set; }
         public long MaxPrice { get; set; }
 

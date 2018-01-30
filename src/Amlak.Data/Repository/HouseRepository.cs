@@ -44,6 +44,19 @@ namespace Amlak.Data.Repository
         {
             var model = _context.House
                 .WhereIf(!string.IsNullOrEmpty(vm.Area), q => q.Area.Contains(vm.Area))
+                .WhereIf(!string.IsNullOrEmpty(vm.Region), q => q.Region.Contains(vm.Region))
+                .WhereIf(!string.IsNullOrEmpty(vm.Town), q => q.Town.Contains(vm.Town))
+                .WhereIf(!string.IsNullOrEmpty(vm.Status), q => q.Status.Contains(vm.Status))
+
+                .WhereIf(vm.MaxScale !=0 , q => q.Scale <= vm.MaxScale)
+                .WhereIf(vm.MinScale != 0, q => q.Scale >= vm.MinScale)
+
+                .WhereIf(vm.MaxPrice != 0, q => q.Price <= vm.MaxPrice)
+                .WhereIf(vm.MinPrice != 0, q => q.Price >= vm.MinPrice)
+
+                .WhereIf(vm.MaxMeterPrice != 0, q => q.MeterPriceComputed <= vm.MaxMeterPrice)
+                .WhereIf(vm.MinMeterPrice != 0, q => q.MeterPriceComputed >= vm.MinMeterPrice)
+
                 .WhereIf(vm.Bathrooms != 0, q => q.Bathrooms.Equals(vm.Bathrooms))
                 .WhereIf(vm.Rooms != 0, q => q.Rooms.Equals(vm.Rooms))
 
