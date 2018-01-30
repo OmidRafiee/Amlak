@@ -1,4 +1,9 @@
 ﻿@using Amlak.Core.Extensions
+@using Amlak.Core.SSOT
+@using DNTPersianUtils.Core
+
+@inject AppSetting  AppSetting
+
 <header class="MainHeader sborder">
     <div class="HeaderImpoLInks d-flex flex-row-reverse">
         @if(User.Identity.IsAuthenticated)
@@ -32,8 +37,8 @@
         }
 
       
-        <a href="javascript:void(0)" class="HeaderImpoLInksItem lh3 tc relative trans400"><span class="ImpoLInksItemIcon absolute"><img src="~/image/icon9.png" class="responsiveimage" /></span>اینستاگرام</a>
-        <a href="javascript:void(0)" class="HeaderImpoLInksItem lh3 tc relative trans400 before after"><span class="ImpoLInksItemIcon absolute"><img src="~/image/icon10.png" class="responsiveimage" /></span>تلگرام</a>
+        <a href="@AppSetting.InstagramLink" class="HeaderImpoLInksItem lh3 tc relative trans400"><span class="ImpoLInksItemIcon absolute"><img src="~/image/icon9.png" class="responsiveimage" /></span>اینستاگرام</a>
+        <a href="@AppSetting.TelegramLink" class="HeaderImpoLInksItem lh3 tc relative trans400 before after"><span class="ImpoLInksItemIcon absolute"><img src="~/image/icon10.png" class="responsiveimage" /></span>تلگرام</a>
     </div>
     <div class="HeaderAboutRaga row ptb5 d-flex justify-content-between sborder m0a">
         <a asp-controller="Home" asp-action="Index" class="RagaLogo col-sm-5 col-12 d-flex align-items-center justify-content-center">
@@ -44,7 +49,7 @@
         </a>
         <div class="col-md-6 col-sm-7 col-12 d-flex align-items-center justify-content-end">
             <div class="RagaContact row w100p m0a">
-                <div class="RagaContactItem col-3 tc dl relative before after"><span class="RagaContactItemIcon mr10"><i class="fa fa-clock-o"></i></span> 20:00</div>
+                <div class="RagaContactItem col-3 tc dl relative before after"><span class="RagaContactItemIcon mr10"><i class="fa fa-clock-o"></i></span> @DateTime.Now.ToLongPersianDateString().ToPersianNumbers()</div>
                 <div class="RagaContactItem col-5 tc dl relative"><span class="RagaContactItemIcon mr10"><i class="fa fa-envelope"></i></span>info@raga.com</div>
                 <div class="RagaContactItem col-4 tc dl relative before after"><span class="RagaContactItemIcon mr10"><i class="fa fa-phone"></i></span>+9821-8903</div>
             </div>
