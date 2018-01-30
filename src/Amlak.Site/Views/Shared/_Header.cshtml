@@ -49,9 +49,9 @@
         </a>
         <div class="col-md-6 col-sm-7 col-12 d-flex align-items-center justify-content-end">
             <div class="RagaContact row w100p m0a">
-                <div class="RagaContactItem col-3 tc dl relative before after"><span class="RagaContactItemIcon mr10"><i class="fa fa-clock-o"></i></span> @DateTime.Now.ToLongPersianDateString().ToPersianNumbers()</div>
-                <div class="RagaContactItem col-5 tc dl relative"><span class="RagaContactItemIcon mr10"><i class="fa fa-envelope"></i></span>info@raga.com</div>
-                <div class="RagaContactItem col-4 tc dl relative before after"><span class="RagaContactItemIcon mr10"><i class="fa fa-phone"></i></span>+9821-8903</div>
+                <div class="RagaContactItem col-3 tc dl relative before after"><span class="RagaContactItemIcon mr10"><i class="fa fa-clock-o"></i></span> @DateTime.Now.ToShortPersianDateTimeString().ToPersianNumbers()</div>
+                <div class="RagaContactItem col-5 tc dl relative"><span class="RagaContactItemIcon mr10"><i class="fa fa-envelope"></i></span>@AppSetting.EmailAddress</div>
+                <div class="RagaContactItem col-4 tc dl relative before after"><span class="RagaContactItemIcon mr10"><i class="fa fa-phone"></i></span>@AppSetting.PhoneNumber</div>
             </div>
         </div>
     </div>
