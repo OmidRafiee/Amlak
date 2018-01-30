@@ -27,13 +27,13 @@ namespace Amlak.Core.SSOT
             return Path.Combine(relativePath, fileName);
         }
 
-        public static string SaveFile2(IFormFile file, string config, string fileType)
+        public static string SaveFile2(IFormFile file, FileConfig config, string fileType)
         {
             if (file.Length <= 0) { throw new Exception("there is no content in uploaded file."); }
 
             var date = DateTime.Now;
             var relativePath = $"{fileType}/{date.Year}/{date.Month}/{date.Day}/";
-            var folderPath = Path.Combine(config, relativePath);
+            var folderPath = Path.Combine(config.PhysicalAddress, relativePath);
 
             var fileName = Guid.NewGuid() + Path.GetExtension(file.FileName);
 
