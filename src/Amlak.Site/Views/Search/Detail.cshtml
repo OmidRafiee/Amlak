@@ -30,7 +30,7 @@
                             </div>
                             <div class="SearchHomeContent">
                                 <div class="SearchFormTabPanneItem p-2">
-                                    <form asp-controller="Detail" asp-action="Index">
+                                    <form asp-controller="Search" asp-action="Index">
                                         <input class="form-control my-2 block ofh cb" type="text" placeholder="مکــــــــــان" id="example-text-input">
                                         <div class="form-group my-2">
                                             <select class="form-control" id="exampleSelect1">
@@ -129,7 +129,7 @@
                                 </div>
                                 <div class="HouseDetailItemsPart py-2 cb ofh">
                                     <span class="HouseDetailItemsTitle float-right font-weight-bold">نوع خانه :</span>
-                                    <span class="HouseDetailItemsValue float-left font-weight-bold">@Model.Category.Title</span>
+                                    <span class="HouseDetailItemsValue float-left font-weight-bold">@Model.Category?.Title</span>
                                 </div>
                             </div>
                             <div class="HouseDetailPrice col-md-6 col-12 d-flex align-items-center">

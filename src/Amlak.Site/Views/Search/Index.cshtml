@@ -38,6 +38,7 @@
                                 <div class="form-group my-2">
                                     @Html.DropDownList("Status", ViewBag.StatusType as IEnumerable<SelectListItem>, "همه ی موارد", new { @class = "form-control" })
                                  </div>
+                          
                                 <div class="form-group my-2">
                                     <select name="CategoryId" class="form-control" id="exampleSelect1">
                                         <option disabled selected>نـــوع خانـــه</option>
@@ -123,7 +124,7 @@
                                             <span class="LandSize HouseListDetail my-2 d-flex align-items-center col-lg-3 col-md-6 col-12 relative after">@item.Scale.ToPersianNumbers()</span>
                                             <span class="BedCount HouseListDetail my-2 d-flex align-items-center col-lg-3 col-md-6 col-12 relative after">@item.Rooms.ToPersianNumbers()</span>
                                             <span class="BathCount HouseListDetail my-2 d-flex align-items-center col-lg-3 col-md-6 col-12 relative after">@item.Bathrooms.ToPersianNumbers()</span>
-                                            <span class="MoreBtnContainer col-lg-3 col-md-6 col-12 px-3 my-2"><a asp-controller="Detail" asp-action="Index" asp-route-id="@item.Id" class="MoreBtn p-2 block text-center trans400">بیشتر</a></span>
+                                            <span class="MoreBtnContainer col-lg-3 col-md-6 col-12 px-3 my-2"><a asp-controller="Search" asp-action="Detail" asp-route-id="@item.Id" class="MoreBtn p-2 block text-center trans400">بیشتر</a></span>
                                         </div>
                                     </div>
                                 </div>
