@@ -15,7 +15,7 @@
             <a class="nav-item nav-link SearchFormHeaderNavItem pt-2 px-1 h-100 tc trans400 rounded" id="nav-profile-tab" data-toggle="tab" href="#melk" role="tab" aria-controls="nav-profile">سپردن ملک</a>
             <a class="nav-item nav-link SearchFormHeaderNavItem pt-2 px-1 h-100 tc trans400 rounded" id="nav-profile-tab" data-toggle="tab" href="#bagh" role="tab" aria-controls="nav-profile">باغ و ویلا</a>*@
     </nav>
-    <form asp-controller="Detail" asp-action="Index">
+    <form asp-controller="Search" asp-action="Index" method="get">
         <div class="tab-content SearchFormTabContent border border-secondary p-3" id="nav-tabContent">
             <div class="tab-pane fade show active" id="kharid" role="tabpanel" aria-labelledby="nav-home-tab">
                 <div class="row w-100 m-auto SearchFormTabPannelRow">
@@ -53,12 +53,15 @@
                                                 .hide()
                                                 .filter('[data-province="' + province + '"]')
                                                 .show();
+                                            for (var i = 0; i < $('[data-province]').length; i++) {
+                                                $('[data-province]')[i].name = "";
+                                            }
+                                            $('[data-province]').filter('[data-province="' + province + '"]')[0].name = "City";
                                         }
 
-                                        $('[data-role="province"]').on('change',
-                                            function () {
-                                                change(this);
-                                            });
+                                        $('[data-role="province"]').on('change', function () {
+                                            change(this);
+                                        });
 
                                         change($('[data-role="province"]'));
                                     }());
@@ -109,10 +112,10 @@
                         <div class="row w-100 m-auto align-items-center">
                             <label for="example-text-input" class="col-lg-2 col-form-label p-0 text-center">قیمت متری</label>
                             <div class="col-lg-5 p-1">
-                                <input name="MinPrice1" class="form-control" type="text" placeholder="حداقل" id="example-text-input">
+                                <input name="MinMeterPrice" class="form-control" type="text" placeholder="حداقل" id="example-text-input">
                             </div>
                             <div class="col-lg-5 p-1">
-                                <input name="MaxPrice2" class="form-control" type="text" placeholder="حداکثر" id="example-text-input">
+                                <input name="MaxMeterPrice" class="form-control" type="text" placeholder="حداکثر" id="example-text-input">
                             </div>
                         </div>
                     </div>
@@ -127,7 +130,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="SearchFormTabPanneItem col-12 p-2">
+                    @*<div class="SearchFormTabPanneItem col-12 p-2">
                         <div class="row w-100 m-auto">
                             <label for="example-text-input" class="col-lg-1 col-form-label p-0 text-center">امکانات</label>
                             <div class="col-lg-11">
@@ -144,7 +147,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>*@
                     <div class="SearchFormTabPanneItem col-12 p-2 d-flex justify-content-end">
                         <button type="submit" class="btn btn-primary searchBtn">جستجـــــــــو</button>
                     </div>
