@@ -29,7 +29,7 @@
                     <div class="p-2">
                         <div class="EnterHomeContent">
                             <div class="EnterFormTabPanneItem row w-100 m-auto">
-                                
+
                                 <div class="px-2 col-md-12 col-12 my-2">
                                     <label asp-for="Title"></label>
                                     <input asp-for="Title" class="form-control" placeholder="عنـــوان" />
@@ -72,12 +72,17 @@
                                     <input asp-for="Scale" class="form-control" placeholder="متراژ" />
                                     <span asp-validation-for="Scale" class="text-danger"></span>
                                 </div>
-
                                 <div class="px-2 col-md-3 col-12 my-2">
-                                    <label asp-for="Region"></label>
-                                    <input asp-for="Region" class="form-control" placeholder="منطقه" />
-                                    <span asp-validation-for="Region" class="text-danger"></span>
+                                    <label asp-for="Floor"></label>
+                                    <select asp-items="Html.GetEnumSelectList<FloorType>()" class="form-control" placeholder="طبقه">
+                                        <option disabled selected>طبـقه</option>
+
+                                    </select>
+                                    <span asp-validation-for="Floor" class="text-danger"></span>
+
                                 </div>
+
+
 
                                 <div class="px-2 col-md-3 col-12 my-2">
                                     <label asp-for="Town"></label>
@@ -142,15 +147,10 @@
 
 
                                 <div class="px-2 col-md-3 col-12 my-2">
-                                    <label asp-for="Floor"></label>
-                                    <select asp-items="Html.GetEnumSelectList<FloorType>()" class="form-control" placeholder="طبقه">
-                                        <option disabled selected>طبـقه</option>
-
-                                    </select>
-                                    <span asp-validation-for="Floor" class="text-danger"></span>
-
+                                    <label asp-for="Region"></label>
+                                    <input asp-for="Region" class="form-control" placeholder="منطقه" />
+                                    <span asp-validation-for="Region" class="text-danger"></span>
                                 </div>
-
 
                                 <div class="px-2 col-md-3 col-12 my-2">
                                     <label asp-for="Price"></label>
@@ -173,7 +173,7 @@
 
                                 <div class="form-group px-2 col-md-3 col-12 my-2">
                                     <label asp-for="Bathrooms"></label>
-                                    <select  name="Bathrooms" class="form-control">
+                                    <select name="Bathrooms" class="form-control">
                                         <option disabled selected>تعــداد حمــام</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -275,32 +275,32 @@
 
 
                                 });
-                                                                                                                                                //$(document).ready(function () {
-                                                                                                                                                //    var jasmineEnv = jasmine.getEnv();
-                                                                                                                                                //    jasmineEnv.updateInterval = 1000;
+                                                                                                                                                                            //$(document).ready(function () {
+                                                                                                                                                                            //    var jasmineEnv = jasmine.getEnv();
+                                                                                                                                                                            //    jasmineEnv.updateInterval = 1000;
 
-                                                                                                                                                //    var htmlReporter = new jasmine.HtmlReporter();
+                                                                                                                                                                            //    var htmlReporter = new jasmine.HtmlReporter();
 
-                                                                                                                                                //    jasmineEnv.addReporter(htmlReporter);
+                                                                                                                                                                            //    jasmineEnv.addReporter(htmlReporter);
 
-                                                                                                                                                //    jasmineEnv.specFilter = function (spec) {
-                                                                                                                                                //        return htmlReporter.specFilter(spec);
-                                                                                                                                                //    };
+                                                                                                                                                                            //    jasmineEnv.specFilter = function (spec) {
+                                                                                                                                                                            //        return htmlReporter.specFilter(spec);
+                                                                                                                                                                            //    };
 
-                                                                                                                                                //    var currentWindowOnload = window.onload;
+                                                                                                                                                                            //    var currentWindowOnload = window.onload;
 
-                                                                                                                                                //    window.onload = function () {
-                                                                                                                                                //        if (currentWindowOnload) {
-                                                                                                                                                //            currentWindowOnload();
-                                                                                                                                                //        }
+                                                                                                                                                                            //    window.onload = function () {
+                                                                                                                                                                            //        if (currentWindowOnload) {
+                                                                                                                                                                            //            currentWindowOnload();
+                                                                                                                                                                            //        }
 
-                                                                                                                                                //        execJasmine();
-                                                                                                                                                //    };
+                                                                                                                                                                            //        execJasmine();
+                                                                                                                                                                            //    };
 
-                                                                                                                                                //    function execJasmine() {
-                                                                                                                                                //        jasmineEnv.execute();
-                                                                                                                                                //    }
-                                                                                                                                                //});
+                                                                                                                                                                            //    function execJasmine() {
+                                                                                                                                                                            //        jasmineEnv.execute();
+                                                                                                                                                                            //    }
+                                                                                                                                                                            //});
                             </script>
                             <div class="map" id="basic-map"></div>
                             @*<div class="row">

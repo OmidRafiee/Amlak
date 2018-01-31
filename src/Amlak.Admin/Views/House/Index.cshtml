@@ -1,4 +1,5 @@
-﻿@using DNTPersianUtils.Core
+﻿@using Amlak.Core.SSOT
+@using DNTPersianUtils.Core
 @model List<Amlak.Core.ViewModel.House.HouseViewModel>
 @{
     ViewData["Title"] = "لیست املاک";
@@ -35,6 +36,7 @@
                 <tr>
                     <th width="10">ردیف</th>
                     <th>عنوان</th>
+                    <th>وضیعت</th>
                     <th>قیمت </th>
                     <th>نمایش در سایت</th>
                     <th>نمایش در پیشنهاد ویژه</th>
@@ -46,50 +48,43 @@
                 {
                     count++;
 
-                    <tr>
-                        <td>@count.ToPersianNumbers()</td>
+                <tr>
+                    <td>@count.ToPersianNumbers()</td>
 
-                        <td>
-                            @item.Title
-                        </td>
+                    <td>
+                        @item.Title
+                    </td>
+                    <td>
+                        @item.Status
+                    </td>
 
-                        <td>@item.Price.ToPersianNumbers() تومان</td>
+                    <td>@item.Price.TomansThousand() تومان</td>
+                    <td align="center">
+                        <span class="label label-sm label-@(item.IsPublished ? "success" : "danger")">
+                            @(item.IsPublished ? "منتشر شده" : "منتشر نشده")
+                        </span>
+                    </td>
 
-                        <td>
-                            @if (item.IsPublished)
-                            {
-                                <text>نمایش</text>
-                            }
-                            else
-                            {
-                                <text>عدم نمایش</text>
-                            }
-                        </td>
+                    <td align="center">
+                        <span class="label label-sm label-@(item.IsSpecialOffer ? "success" : "danger")">
+                            @(item.IsSpecialOffer ? "نمایش" : "عدم نمایش")
+                        </span>
+                    </td>
 
-                        <td>
-                            @if (item.IsSpecialOffer)
-                            {
-                                <text>نمایش</text>
-                            }
-                            else
-                            {
-                                <text>عدم نمایش</text>
-                            }
-                        </td>
-                        <td>
-                            <a class="btn btn-sm btn-success" asp-controller="House" asp-action="Edit" asp-route-id="@item.Id">
-                                ویرایش
-                            </a>
+                    <td>
+                        <a class="btn btn-sm btn-success" asp-controller="House" asp-action="Edit" asp-route-id="@item.Id">
+                            ویرایش
+                        </a>
 
-                            <a class="btn btn-sm btn-info" asp-controller="House" asp-action="Detail" asp-route-id="@item.Id">
-                                جزئیات
-                            </a>
+                        <a class="btn btn-sm btn-info" asp-controller="House" asp-action="Detail" asp-route-id="@item.Id">
+                            جزئیات
+                        </a>
 
-                            <a class="btn btn-sm btn-danger" asp-controller="House" asp-action="Delete" asp-route-id="@item.Id" ,new { onclick="return confirm('جهت حذف مطمئن هستید ؟')" }>
-                                حذف
-                            </a>
-                        </td>
-                    </tr>
+                        <a class="btn btn-sm btn-danger" asp-controller="House" asp-action="Delete" asp-route-id="@item.Id" ,new { onclick="return confirm('جهت حذف مطمئن هستید ؟')" }>
+                            حذف
+                        </a>
+                    </td>
+                </tr>
                 }
 
             </tbody>

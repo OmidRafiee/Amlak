@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Alamut.Utilities.AspNet.Identity;
 using Amlak.Core.Extensions;
+using Amlak.Core.Helpers;
+using Amlak.Core.SSOT;
 using Amlak.Core.ViewModel.House;
 using Amlak.Data.Repository;
 using Microsoft.AspNetCore.Authorization;
@@ -75,6 +77,9 @@ namespace Amlak.Site.Controllers
             var model = _houseRepository.GetById(id);
             ViewBag.OptionList = _optionRepository.GetAll();
             ViewBag.CategoryList = _categoryRepository.GetAll();
+
+            ViewBag.FloorType = EnumHelper.EnumToList(typeof(FloorType), model.Floor);
+
             return View(model);
         }
 

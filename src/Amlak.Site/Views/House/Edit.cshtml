@@ -1,6 +1,8 @@
 ﻿@using Amlak.Core.ViewModel.Category
 @using Amlak.Core.ViewModel.Option
 @using DNTPersianUtils.Core.IranCities
+@using Amlak.Core.SSOT;
+
 @model Amlak.Core.DTO.House.HouseFullDTO
 
 @{
@@ -17,7 +19,7 @@
 
 <div class="PageMainContent ofh relative">
 
-    <form asp-controller="House" asp-action="Create" method="post">
+    <form asp-controller="House" asp-action="Edit" method="post">
 
         <div class="row w-100 m-auto">
             <div class="col-12">
@@ -83,12 +85,14 @@
                                     <input asp-for="Scale" class="form-control" placeholder="متراژ" />
                                     <span asp-validation-for="Scale" class="text-danger"></span>
                                 </div>
-
                                 <div class="px-2 col-md-3 col-12 my-2">
-                                    <label asp-for="Region"></label>
-                                    <input asp-for="Region" class="form-control" placeholder="منطقه" />
-                                    <span asp-validation-for="Region" class="text-danger"></span>
+                                    <label asp-for="Floor"></label>
+                                    @Html.DropDownList("Floor", ViewBag.FloorType as IEnumerable<SelectListItem>, "طبقه", new { @class = "form-control" })
+                                    <span asp-validation-for="Floor" class="text-danger"></span>
+
                                 </div>
+
+
 
                                 <div class="px-2 col-md-3 col-12 my-2">
                                     <label asp-for="Town"></label>
@@ -153,17 +157,15 @@
 
 
                                 <div class="px-2 col-md-3 col-12 my-2">
-                                    <label asp-for="Floor"></label>
-                                    <input asp-for="Floor" class="form-control" placeholder="طبقه" />
-                                    <span asp-validation-for="Floor" class="text-danger"></span>
-
-                                </div>
-
-
-                                <div class="px-2 col-md-3 col-12 my-2">
                                     <label asp-for="Price"></label>
                                     <input asp-for="Price" class="form-control" type="number" placeholder="قیمت (بر حسب تومان)">
                                     <span asp-validation-for="Price" class="text-danger"></span>
+                                </div>
+
+                                <div class="px-2 col-md-3 col-12 my-2">
+                                    <label asp-for="Region"></label>
+                                    <input asp-for="Region" class="form-control" placeholder="منطقه" />
+                                    <span asp-validation-for="Region" class="text-danger"></span>
                                 </div>
 
                                 <div class="form-group px-2 col-md-3 col-12 my-2">
@@ -283,49 +285,49 @@
 
 
                                 });
-                                                                                        //$(document).ready(function () {
-                                                                                        //    var jasmineEnv = jasmine.getEnv();
-                                                                                        //    jasmineEnv.updateInterval = 1000;
+                                                                                                                                                //$(document).ready(function () {
+                                                                                                                                                //    var jasmineEnv = jasmine.getEnv();
+                                                                                                                                                //    jasmineEnv.updateInterval = 1000;
 
-                                                                                        //    var htmlReporter = new jasmine.HtmlReporter();
+                                                                                                                                                //    var htmlReporter = new jasmine.HtmlReporter();
 
-                                                                                        //    jasmineEnv.addReporter(htmlReporter);
+                                                                                                                                                //    jasmineEnv.addReporter(htmlReporter);
 
-                                                                                        //    jasmineEnv.specFilter = function (spec) {
-                                                                                        //        return htmlReporter.specFilter(spec);
-                                                                                        //    };
+                                                                                                                                                //    jasmineEnv.specFilter = function (spec) {
+                                                                                                                                                //        return htmlReporter.specFilter(spec);
+                                                                                                                                                //    };
 
-                                                                                        //    var currentWindowOnload = window.onload;
+                                                                                                                                                //    var currentWindowOnload = window.onload;
 
-                                                                                        //    window.onload = function () {
-                                                                                        //        if (currentWindowOnload) {
-                                                                                        //            currentWindowOnload();
-                                                                                        //        }
+                                                                                                                                                //    window.onload = function () {
+                                                                                                                                                //        if (currentWindowOnload) {
+                                                                                                                                                //            currentWindowOnload();
+                                                                                                                                                //        }
 
-                                                                                        //        execJasmine();
-                                                                                        //    };
+                                                                                                                                                //        execJasmine();
+                                                                                                                                                //    };
 
-                                                                                        //    function execJasmine() {
-                                                                                        //        jasmineEnv.execute();
-                                                                                        //    }
-                                                                                        //});
+                                                                                                                                                //    function execJasmine() {
+                                                                                                                                                //        jasmineEnv.execute();
+                                                                                                                                                //    }
+                                                                                                                                                //});
                             </script>
                             <div class="map" id="basic-map"></div>
                             @*<div class="row">
-                <div class="span11">
-                    <div id="map"></div>
-                </div>
-                <div class="span6">
-                    <p>Using GMaps.js is as easy as:</p>
-                    <pre class="prettyprint"> map = new GMaps({
-                    div: '#map',
-                    lat: -12.043333,
-                    lng: -77.028333
-                    });</pre>
-                    <p>You must define <strong>container ID</strong>, <strong>latitude</strong> and <strong>longitude</strong> of the map's center.</p>
-                    <p><span class="label notice">Note: </span>You also can define <strong>zoom</strong>, <strong>width</strong> and <strong>height</strong>. By default, zoom is 15. Width and height in a CSS class will replace these values.</p>
-                </div>
-            </div>*@
+                                    <div class="span11">
+                                        <div id="map"></div>
+                                    </div>
+                                    <div class="span6">
+                                        <p>Using GMaps.js is as easy as:</p>
+                                        <pre class="prettyprint"> map = new GMaps({
+                                        div: '#map',
+                                        lat: -12.043333,
+                                        lng: -77.028333
+                                        });</pre>
+                                        <p>You must define <strong>container ID</strong>, <strong>latitude</strong> and <strong>longitude</strong> of the map's center.</p>
+                                        <p><span class="label notice">Note: </span>You also can define <strong>zoom</strong>, <strong>width</strong> and <strong>height</strong>. By default, zoom is 15. Width and height in a CSS class will replace these values.</p>
+                                    </div>
+                                </div>*@
                         </div>
                     </div>
                 </div>
@@ -355,9 +357,10 @@
                     <div class="InnerPageItemHeader radius3">
                         <h2 class="InnerPageItemHeaderTitle tr w-100 lh3-5 h100p bold prl15 relative"><span class="InnerPageItemHeaderTitleBefore absolute after"></span>گالری تصاویر</h2>
                     </div>
-                    <div class="p-2" >insert image to gallery
-                        @Html.Partial("_PhotoGallary2",Model.PhotoGalleryJson)
-                        </div>
+                    <div class="p-2">
+                        insert image to gallery
+                        @Html.Partial("_PhotoGallary2", Model.PhotoGalleryJson)
+                    </div>
                 </div>
             </div>
 

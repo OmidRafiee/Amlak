@@ -48,7 +48,6 @@ namespace Amlak.Admin.Controllers
         [HttpPost]
         public ActionResult UploadImage2()
         {
-           var fileConfig = "C:\\inetpub\\wwwroot\\repository\\image\\";
             foreach (var file in Request.Form.Files)
             {
                 if (file == null ||
@@ -57,7 +56,7 @@ namespace Amlak.Admin.Controllers
 
                 return Json(new
                 {
-                    fileName = FileHelper.SaveFile2(file, fileConfig , "image")
+                    fileName = FileHelper.SaveFile(file, _fileConfig, "image")
                 });
             }
 

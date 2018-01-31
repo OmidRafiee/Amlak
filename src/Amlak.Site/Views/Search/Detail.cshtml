@@ -1,4 +1,5 @@
-﻿@using Amlak.Core.ViewModel.Category
+﻿@using Amlak.Core.SSOT
+@using Amlak.Core.ViewModel.Category
 @using Amlak.Core.ViewModel.Option
 @using DNTPersianUtils.Core
 @model Amlak.Core.DTO.House.HouseFullDTO
@@ -24,7 +25,7 @@
             <div class="PageContent col-12 p-0">
                 <div class="MainContentRow row mx-auto mt-4">
                     <div class="RightPannel col-lg-3 col-md-6 col-12 order-1 order-md-2 order-sm-3">
-                        <div class="SearchHome block ofh cb">
+                        @*<div class="SearchHome block ofh cb">
                             <div class="InnerPageItemHeader radius3">
                                 <h2 class="InnerPageItemHeaderTitle tr w-100 lh3-5 h100p bold prl15 relative"><span class="InnerPageItemHeaderTitleBefore absolute after"></span>جستجو خانه</h2>
                             </div>
@@ -111,7 +112,7 @@
                                     </form>
                                 </div>
                             </div>
-                        </div>
+                        </div>*@
 
                         @await Component.InvokeAsync("SpecialOffer")
 
@@ -134,8 +135,8 @@
                             </div>
                             <div class="HouseDetailPrice col-md-6 col-12 d-flex align-items-center">
                                 <div class="w-100">
-                                    <div class="HouseDetailPriceValue w-100 cb tc">3,500,000 تومان</div>
-                                    <div class="HouseDetailPriceTime w-100 cb tc">برای هر ماه</div>
+                                    <div class="HouseDetailPriceValue w-100 cb tc">@Model.Price.TomansThousand() تومان</div>
+                                    <div class="HouseDetailPriceTime w-100 cb tc">@(Model.Status=="اجاره" ? "برای هر ماه" : "قیمت")</div>
                                 </div>
                             </div>
                             <div class="HouseDetailText col-12 tj lh2 py-2">
