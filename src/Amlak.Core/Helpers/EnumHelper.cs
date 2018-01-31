@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Reflection;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Amlak.Core.Helpers
@@ -63,7 +65,18 @@ namespace Amlak.Core.Helpers
 
             return items;
         }
-               
+
+        public static string GetDisplayName(this Enum enumValue)
+        {
+            var model = enumValue.GetType()
+                .GetMember(enumValue.ToString())
+                .First()
+                .GetCustomAttribute<DisplayAttribute>();
+
+            return model?.Name;
+        }
+
+
     }
     public class EnumModel
     {

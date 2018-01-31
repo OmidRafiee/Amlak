@@ -1,6 +1,8 @@
-﻿@using Amlak.Core.SSOT
+﻿@using System.Collections
+@using Amlak.Core.SSOT
 @using DNTPersianUtils.Core
 @using Newtonsoft.Json
+@using Amlak.Core.Helpers
 @model List<Amlak.Core.ViewModel.House.HouseViewModel>
 @inject FileConfig FileConfig
 
@@ -9,16 +11,17 @@
 
 }
 <div class="PageMainContent ofh relative">
-    
+
     @Html.Partial("_TopSlider")
-    
+
     @await Component.InvokeAsync("SearchMain")
-    
+
     @Html.Partial("_SpecialOffer")
 
     <div class="LastOffers mtb20">
         <div class="LastOffersHeader radius3">
-            <h2 class="LastOffersHeaderTitle tl lh3-5 h100p bold prl15 relative"><span class="LastOffersHeaderTitleBefore absolute after"></span>آخــــــــــرین املاک
+            <h2 class="LastOffersHeaderTitle tl lh3-5 h100p bold prl15 relative">
+                <span class="LastOffersHeaderTitleBefore absolute after"></span>آخــــــــــرین املاک
             </h2>
         </div>
         <div class="LastOffersContent mt15">
@@ -27,21 +30,29 @@
                 @foreach (var item in Model)
                 {
                     var listImageAddress = JsonConvert.DeserializeObject<List<string>>(item.PhotoGalleryJson);
+
                     <div class="LastOffersContentCol col-md-4 col-sm-6 col-12 p10">
                         <a asp-controller="Search" asp-action="Detail" asp-route-id="@item.Id" class="OfferItem block sborder radius3 ofh p1">
                             <span class="OfferItemType tc">@item.Status</span>
                             <figure class="OfferItemPic w100p tc relative relative">
-                                <img src="@FileConfig.WebAddress@listImageAddress.FirstOrDefault()" class="relativemv"/>
+                                <input type="text" value="@FileConfig.WebAddress@(listImageAddress.Any() ? listImageAddress.FirstOrDefault() : "")"/>
+                                <img src="@FileConfig.WebAddress@(listImageAddress.Any() ? listImageAddress.FirstOrDefault() : "")" class="relativemv"/>
                                 <figcaption class="absolute p5 w100p textcut tc">@item.Price.TomansThousand() تومان </figcaption>
                             </figure>
                             <div class="OfferItemTitle textcut bold p10">@item.Title</div>
-                            <div class="OfferItemLocation textcut bold p10 relative before">@item.Region</div>
+                            <div class="OfferItemLocation textcut bold p10 relative before">@item.Area</div>
                             <div class="OfferItemDetails row ptb10 w100p m0a">
-                                <div class="OfferItemDetailsDiv col-3 tc bold"> زیربنا <br/>@item.Scale.ToPersianNumbers()</div>
-                                <div class="OfferItemDetailsDiv col-4 tc bold"> تعداد خواب <br/> @item.Rooms.ToPersianNumbers()</div>
-                                <div class="OfferItemDetailsDiv col-2 tc bold"> طبقه <br/>@item.Floor.ToPersianNumbers()
+                                <div class="OfferItemDetailsDiv col-3 tc bold"> زیربنا <br />@item.Scale.ToPersianNumbers()</div>
+                                <div class="OfferItemDetailsDiv col-4 tc bold"> تعداد خواب <br /> @item.Rooms.ToPersianNumbers()</div>
+                                <div class="OfferItemDetailsDiv col-2 tc bold">
+                                    طبقه <br />@{
+                                        Enum.TryParse(item.Floor, out FloorType myFloor);
+                                        <span>
+                                            @myFloor.GetDisplayName()
+                                        </span>
+                                    }
                                 </div>
-                                <div class="OfferItemDetailsDiv col-3 tc bold"> پارکینگ <br/> @item.Parkings</div>
+                                <div class="OfferItemDetailsDiv col-3 tc bold"> پارکینگ <br /> @item.Parkings</div>
                             </div>
                         </a>
                     </div>

@@ -64,6 +64,10 @@ namespace Amlak.Site.Controllers
 
             model.UserId = userId;
             model.OptionIdsJson = JsonConvert.SerializeObject(model.OptionIds);
+            if (string.IsNullOrEmpty(model.PhotoGalleryJson))
+            {
+                model.PhotoGalleryJson = "[]";
+            }
 
             var result = _houseRepository.Create(model);
 
@@ -88,6 +92,10 @@ namespace Amlak.Site.Controllers
         {
             model.OptionIdsJson = JsonConvert.SerializeObject(model.OptionIds);
 
+            if (string.IsNullOrEmpty(model.PhotoGalleryJson))
+            {
+                model.PhotoGalleryJson = "[]";
+            }
             var result = _houseRepository.Update(model);
 
             TempData["Message"] = "آگهی شما با موفقیت ویرایش و پس از بررسی بر روی سایت قرار میگیرد";
