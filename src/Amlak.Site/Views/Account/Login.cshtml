@@ -21,53 +21,6 @@
     }
 </style>
 
-<div class="container">
-    <div class="col-md-4 col-md-offset-4">
-
-        @if (!string.IsNullOrEmpty(ViewBag.FailMessage))
-        {
-            <div class="alert alert-danger fade in" style="margin-top: 10px">
-                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-                @ViewBag.FailMessage
-            </div>
-        }
-
-        @if (!string.IsNullOrEmpty(ViewBag.Message))
-        {
-            <div class="alert alert-success fade in" style="margin-top: 10px">
-                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-                @ViewBag.Message
-            </div>
-        }
-
-
-        <div class="box--store">
-            <div class="store--header clearfix">
-                <span class="text-title">ورود به سایت</span>
-            </div>
-
-
-            <form asp-controller="Account" asp-action="Login" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="login border--bottom--radius">
-
-                <div class="form-group">
-                    <label asp-for="PhoneNumber"></label>
-                    <input asp-for="PhoneNumber" class="form-control" dir="ltr" type="number">
-                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Password"></label>
-                    <input asp-for="Password" class="form-control">
-                    <span asp-validation-for="Password" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <div class="checkbox">
-                        <label asp-for="RememberMe">
-                            <input asp-for="RememberMe" />
-                            @Html.DisplayNameFor(m => m.RememberMe)
-                        </label>
-                    </div>
-                </div>
-
 @*comment*@
 @*<div class="form-group">
         <label asp-for="Captcha" ></label>
@@ -86,68 +39,54 @@
         </script>
     </div>*@
 @*end comment*@
-<button type="submit" class="btn btn-default">ورود</button>
 
-                    <div class="margin-top-10">
-
-                        <label>
-                            کاربر تازه وارد هستید ؟ <a asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]" class="form--item"> ایجاد اکانت جدید</a>
-                        </label>
-                        <br>
-                        <label>
-                            رمز عبور خود را فراموش کرده اید؟ <a asp-action="ForgotPassword" class="form--item"> بازیابی کلمه عبور</a>
-                        </label>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-@*<div class="limiter">
+<div class="limiter">
     <div class="container-login100">
         <div class="wrap-login100">
             @if (!string.IsNullOrEmpty(ViewBag.FailMessage))
-            {
-                <div class="alert alert-danger fade in" style="margin-top: 10px">
-                    <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-                    @ViewBag.FailMessage
-                </div>
-            }
+    {
+        <div class="alert alert-danger fade in" style="margin-top: 10px">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+            @ViewBag.FailMessage
+        </div>
+}
 
             @if (!string.IsNullOrEmpty(ViewBag.Message))
-            {
-                <div class="alert alert-success fade in" style="margin-top: 10px">
-                    <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-                    @ViewBag.Message
-                </div>
-            }
+    {
+        <div class="alert alert-success fade in" style="margin-top: 10px">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+            @ViewBag.Message
+        </div>
+}
             <div class="login100-pic js-tilt" data-tilt="" style="will-change: transform; transform: perspective(300px) rotateX(0deg) rotateY(0deg);">
                 <img src="~/image/img-01.png" alt="IMG">
             </div>
 
-            <form asp-controller="Account" asp-action="Login" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="login100-form validate-form">
+            <form asp-controller="Account" asp-action="Login" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="login border--bottom--radius">
                 <span class="login100-form-title">
                     ورود به سایت
                 </span>
-                
-                <div class="wrap-input100 validate-input" data-validate="نمونه شماره موبایل صحیح :09000000000">
-                    <input class="input100" type="text" name="irTel" placeholder="موبایل">
+
+                <div class="wrap-input100 validate-input">
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                    <input asp-for="PhoneNumber" class="input100" type="number" placeholder="موبایل">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
-                        <i class="fa fa-mobile" aria-hidden="true"></i>
-                    </span>
+                    <i class="fa fa-mobile" aria-hidden="true"></i>
+                </span>
                 </div>
 
-                <div class="wrap-input100 validate-input" data-validate="گذرواژه را وارد نمایید">
-                    <input class="input100" type="password" name="pass" placeholder="گذرواژه">
+                <div class="wrap-input100 validate-input">
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                    <input asp-for="Password" class="input100" type="password" placeholder="گذرواژه">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
-                        <i class="fa fa-lock" aria-hidden="true"></i>
-                    </span>
+                    <i class="fa fa-lock" aria-hidden="true"></i>
+                </span>
                 </div>
 
                 <div class="container-login100-form-btn">
-                    <button class="login100-form-btn">
+                    <button type="submit" class="login100-form-btn">
                         ورود
                     </button>
                 </div>
@@ -175,4 +114,4 @@
             </form>
         </div>
     </div>
-</div>*@
+</div>
