@@ -52,52 +52,55 @@
                     @*<div asp-validation-summary="All" class="text-danger"></div>*@
                     <div class="wrap-input100 validate-input">
                         @*<label asp-for="FriendlyName"></label>*@
-                        <span asp-validation-for="FriendlyName" class="text-danger"></span>
                         <input asp-for="FriendlyName" class="input100" placeholder="نام مستعار" />
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-user" aria-hidden="true"></i>
                         </span>
+                        <span asp-validation-for="FriendlyName" class="text-danger"></span>
+
                     </div>
 
                     <div class="wrap-input100 validate-input">
                         @*<label asp-for="PhoneNumber"></label>*@
-                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
                         <input asp-for="PhoneNumber" class="input100" dir="ltr" type="number" placeholder="(شماره موبایل(شناسه کاربری" />
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-mobile" aria-hidden="true"></i>
                         </span>
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+
                     </div>
 
                     <div class="wrap-input100 validate-input">
                         @*<label asp-for="Password"></label>*@
-                        <span asp-validation-for="Password" class="text-danger"></span>
                         <input asp-for="Password" class="input100" placeholder="گذرواژه" />
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-lock" aria-hidden="true"></i>
                         </span>
+                        <span asp-validation-for="Password" class="text-danger"></span>
 
                     </div>
 
                     <div class="wrap-input100 validate-input">
                         @*<label asp-for="ConfirmPassword"></label>*@
-                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
                         <input asp-for="ConfirmPassword" class="input100" placeholder="تکرار گذرواژه" />
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-lock" aria-hidden="true"></i>
                         </span>
+                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+
                     </div>
                     <div class="wrap-input100 validate-input">
                         @*<label asp-for="Email"></label>*@
-                        <span asp-validation-for="Email" class="text-danger"></span>
                         <input asp-for="Email" class="input100" dir="ltr" placeholder="ایمیل" />
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-envelope" aria-hidden="true"></i>
                         </span>
+                        <span asp-validation-for="Email" class="text-danger"></span>
                     </div>
 
 

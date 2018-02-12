@@ -21,7 +21,7 @@
 
 <div class="container kv-main">
     <input id="vmtFile" type="file" name="vmtFile" multiple="multiple" accept=".jpg,.png" />
-    <input type="text" id="PhotoGalleryJson" name="PhotoGalleryJson" value="@(!string.IsNullOrEmpty(Model) ?  Model : "")" />
+    <input type="hidden" id="PhotoGalleryJson" name="PhotoGalleryJson" value="@(!string.IsNullOrEmpty(Model) ?  Model : "[]")" />
 </div>
 
 @*<style>
@@ -118,7 +118,7 @@
         console.log(arr);
         var res = [];
         $(arr).each(function(i, el) {
-            res.push("<img class='kv-preview-data file-preview-image' src='" + arr[i] + "'>");
+            res.push("<img class='kv-preview-data file-preview-image' style='width:160px;' src='@FileConfig.WebAddress" + arr[i] + "'>");
         });
         console.log(res);
         return res;
