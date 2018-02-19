@@ -18,292 +18,302 @@
 
 <div class="PageMainContent ofh relative">
 
-    <form asp-controller="House" asp-action="Create" method="post">
+<form asp-controller="House" asp-action="Create" method="post">
 
-        <div class="row w-100 m-auto">
-            <div class="col-12">
-                <div class="PageBox mx-2 my-1">
-                    <div class="InnerPageItemHeader radius3">
-                        <h2 class="InnerPageItemHeaderTitle tr w-100 lh3-5 h100p bold prl15 relative"><span class="InnerPageItemHeaderTitleBefore absolute after"></span>اطلاعات اولیه</h2>
+<div class="row w-100 m-auto">
+<div class="col-12">
+    <div class="PageBox mx-2 my-1">
+        <div class="InnerPageItemHeader radius3">
+            <h2 class="InnerPageItemHeaderTitle tr w-100 lh3-5 h100p bold prl15 relative"><span class="InnerPageItemHeaderTitleBefore absolute after"></span>اطلاعات اولیه</h2>
+        </div>
+        <div class="p-2">
+            <div class="EnterHomeContent">
+                <div class="EnterFormTabPanneItem row w-100 m-auto">
+
+                    <div class="px-2 col-md-12 col-12 my-2">
+                        <label asp-for="Title"></label>
+                        <input asp-for="Title" class="form-control" placeholder="عنـــوان" />
+                        <span asp-validation-for="Title" class="text-danger"></span>
                     </div>
-                    <div class="p-2">
-                        <div class="EnterHomeContent">
-                            <div class="EnterFormTabPanneItem row w-100 m-auto">
 
-                                <div class="px-2 col-md-12 col-12 my-2">
-                                    <label asp-for="Title"></label>
-                                    <input asp-for="Title" class="form-control" placeholder="عنـــوان" />
-                                    <span asp-validation-for="Title" class="text-danger"></span>
-                                </div>
+                    <div class="px-2 col-12 my-2">
+                        <label asp-for="Description"></label>
+                        <input asp-for="Description" class="form-control" placeholder="توضیحات" />
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
 
-                                <div class="px-2 col-12 my-2">
-                                    <label asp-for="Description"></label>
-                                    <input asp-for="Description" class="form-control" placeholder="توضیحات" />
-                                    <span asp-validation-for="Description" class="text-danger"></span>
-                                </div>
+                    <div class="form-group px-2 col-md-3 col-12 my-2">
 
-                                <div class="form-group px-2 col-md-3 col-12 my-2">
+                        <label asp-for="Status"></label>
+                        <select asp-items="Html.GetEnumSelectList<StatusType>()" name="Status" class="form-control">
+                            <option disabled selected>وضعـــــــیت</option>
+                        </select>
+                        <span asp-validation-for="Status" class="text-danger"></span>
 
-                                    <label asp-for="Status"></label>
-                                    <select asp-items="Html.GetEnumSelectList<StatusType>()" name="Status" class="form-control">
-                                        <option disabled selected>وضعـــــــیت</option>
-                                    </select>
-                                    <span asp-validation-for="Status" class="text-danger"></span>
+                    </div>
+                    <div class="form-group px-2 col-md-3 col-12 my-2">
+                        <label asp-for="CategoryId"></label>
 
-                                </div>
-                                <div class="form-group px-2 col-md-3 col-12 my-2">
-                                    <label asp-for="CategoryId"></label>
+                        <select name="CategoryId" class="form-control">
+                            <option disabled selected>نـــوع ملـــــک</option>
 
-                                    <select name="CategoryId" class="form-control">
-                                        <option disabled selected>نـــوع ملـــــک</option>
+                            @foreach (var item in Cateroty)
+                            {
+                                <option value="@item.Id">@item.Title</option>
 
-                                        @foreach (var item in Cateroty)
-                                        {
-                                            <option value="@item.Id">@item.Title</option>
+                            }
+                        </select>
+                        <span asp-validation-for="CategoryId" class="text-danger"></span>
 
-                                        }
-                                    </select>
-                                    <span asp-validation-for="CategoryId" class="text-danger"></span>
+                    </div>
 
-                                </div>
+                    <div class="px-2 col-md-3 col-12 my-2">
+                        <label asp-for="Scale"></label>
+                        <input asp-for="Scale" class="form-control" placeholder="متراژ" />
+                        <span asp-validation-for="Scale" class="text-danger"></span>
+                    </div>
+                    <div class="px-2 col-md-3 col-12 my-2">
+                        <label asp-for="Floor"></label>
+                        <select asp-items="Html.GetEnumSelectList<FloorType>()" class="form-control" placeholder="طبقه">
+                            <option disabled selected>طبـقه</option>
 
-                                <div class="px-2 col-md-3 col-12 my-2">
-                                    <label asp-for="Scale"></label>
-                                    <input asp-for="Scale" class="form-control" placeholder="متراژ" />
-                                    <span asp-validation-for="Scale" class="text-danger"></span>
-                                </div>
-                                <div class="px-2 col-md-3 col-12 my-2">
-                                    <label asp-for="Floor"></label>
-                                    <select asp-items="Html.GetEnumSelectList<FloorType>()" class="form-control" placeholder="طبقه">
-                                        <option disabled selected>طبـقه</option>
+                        </select>
+                        <span asp-validation-for="Floor" class="text-danger"></span>
 
-                                    </select>
-                                    <span asp-validation-for="Floor" class="text-danger"></span>
-
-                                </div>
+                    </div>
 
 
 
-                                <div class="px-2 col-md-3 col-12 my-2">
-                                    <label asp-for="Town"></label>
+                    <div class="px-2 col-md-3 col-12 my-2">
+                        <label asp-for="Town"></label>
 
-                                    <select name="Town" class="form-control" data-role="province">
-                                        <option disabled selected>استان</option>
+                        <select name="Town" class="form-control" data-role="province">
+                            <option disabled selected>استان</option>
 
-                                        @foreach (var item in Iran.Provinces.OrderBy(q => q.ProvinceName))
-                                        {
-                                            <option value="@item.ProvinceName" selected="@(item.ProvinceName == "تهران")">@item.ProvinceName</option>
-                                        }
+                            @foreach (var item in Iran.Provinces.OrderBy(q => q.ProvinceName))
+                            {
+                                <option value="@item.ProvinceName" selected="@(item.ProvinceName == "تهران")">@item.ProvinceName</option>
+                            }
 
-                                    </select>
-                                </div>
+                        </select>
+                    </div>
 
-                                <div class="px-2 col-md-3 col-12 my-2">
-                                    <label asp-for="City"></label>
+                    <div class="px-2 col-md-3 col-12 my-2">
+                        <label asp-for="City"></label>
 
-                                    @foreach (var province in Iran.Provinces.OrderBy(q => q.ProvinceName))
-                                    {
-                                        <select name="City" class="form-control" data-province="@province" style="display: none;">
-                                            @foreach (var county in province.Counties)
-                                            {
-                                                <option value="@county" selected="@(county.CountyName == "تهران")">@county</option>
-                                            }
-                                        </select>
+                        @foreach (var province in Iran.Provinces.OrderBy(q => q.ProvinceName))
+                        {
+                            <select name="City" class="form-control" data-province="@province" style="display: none;">
+                                @foreach (var county in province.Counties)
+                                {
+                                    <option value="@county" selected="@(county.CountyName == "تهران")">@county</option>
+                                }
+                            </select>
+                        }
+
+
+                        <script>
+                            (function () {
+                                function change(elem) {
+                                    var province = $(elem).val();
+                                    $('[data-province]')
+                                        .hide()
+                                        .filter('[data-province="' + province + '"]')
+                                        .show();
+                                    for (var i = 0; i < $('[data-province]').length; i++) {
+                                        $('[data-province]')[i].name = "";
                                     }
+                                    $('[data-province]').filter('[data-province="' + province + '"]')[0].name = "City";
+                                }
 
+                                $('[data-role="province"]').on('change', function () {
+                                    change(this);
+                                });
 
-                                    <script>
-                                        (function () {
-                                            function change(elem) {
-                                                var province = $(elem).val();
-                                                $('[data-province]')
-                                                    .hide()
-                                                    .filter('[data-province="' + province + '"]')
-                                                    .show();
-                                                for (var i = 0; i < $('[data-province]').length; i++) {
-                                                    $('[data-province]')[i].name = "";
-                                                }
-                                                $('[data-province]').filter('[data-province="' + province + '"]')[0].name = "City";
-                                            }
+                                change($('[data-role="province"]'));
+                            }());
+                        </script>
 
-                                            $('[data-role="province"]').on('change', function () {
-                                                change(this);
-                                            });
-
-                                            change($('[data-role="province"]'));
-                                        }());
-                                    </script>
-
-                                    <span asp-validation-for="City" class="text-danger"></span>
-                                </div>
-
-
-                                <div class="px-2 col-md-3 col-12 my-2">
-                                    <label asp-for="Area"></label>
-                                    <input asp-for="Area" class="form-control" placeholder="محله" />
-                                    <span asp-validation-for="Area" class="text-danger"></span>
-
-                                </div>
-
-
-                                <div class="px-2 col-md-3 col-12 my-2">
-                                    <label asp-for="Region"></label>
-                                    <input asp-for="Region" class="form-control" placeholder="منطقه" />
-                                    <span asp-validation-for="Region" class="text-danger"></span>
-                                </div>
-
-                                <div class="px-2 col-md-3 col-12 my-2">
-                                    <label asp-for="Price"></label>
-                                    <input asp-for="Price" class="form-control" type="number" placeholder="قیمت (بر حسب تومان)">
-                                    <span asp-validation-for="Price" class="text-danger"></span>
-                                </div>
-
-                                <div class="form-group px-2 col-md-3 col-12 my-2">
-                                    <label asp-for="Rooms"></label>
-
-                                    <select name="Rooms" class="form-control">
-                                        <option disabled selected>تعــداد اتـــاق</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">+4</option>
-                                    </select>
-                                    <span asp-validation-for="Rooms" class="text-danger"></span>
-                                </div>
-
-                                <div class="form-group px-2 col-md-3 col-12 my-2">
-                                    <label asp-for="Bathrooms"></label>
-                                    <select name="Bathrooms" class="form-control">
-                                        <option disabled selected>تعــداد حمــام</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">+4</option>
-                                    </select>
-                                    <span asp-validation-for="Bathrooms" class="text-danger"></span>
-
-                                </div>
-
-                                <div class="form-group px-2 col-md-3 col-12 my-2">
-                                    <label asp-for="Parkings"></label>
-                                    <select name="Parkings" class="form-control">
-                                        <option disabled selected>تعــداد پارکینگ</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">+4</option>
-                                    </select>
-                                    <span asp-validation-for="Parkings" class="text-danger"></span>
-
-                                </div>
-                                <input type="submit" value="ثبت" class="btn btn-primary searchBtn" />
-                            </div>
-                        </div>
+                        <span asp-validation-for="City" class="text-danger"></span>
                     </div>
+
+
+                    <div class="px-2 col-md-3 col-12 my-2">
+                        <label asp-for="Area"></label>
+                        <input asp-for="Area" class="form-control" placeholder="محله" />
+                        <span asp-validation-for="Area" class="text-danger"></span>
+
+                    </div>
+
+
+                    <div class="px-2 col-md-3 col-12 my-2">
+                        <label asp-for="Region"></label>
+                        <input asp-for="Region" class="form-control" placeholder="منطقه" />
+                        <span asp-validation-for="Region" class="text-danger"></span>
+                    </div>
+
+                    <div class="px-2 col-md-3 col-12 my-2">
+                        <label asp-for="Price"></label>
+                        <input asp-for="Price" class="form-control" type="number" placeholder="قیمت (بر حسب ریال)">
+                        <span asp-validation-for="Price" class="text-danger"></span>
+                    </div>
+                                
+                    <div class="px-2 col-md-3 col-12 my-2">
+                        <label asp-for="SalaryPrice"></label>
+                        <input asp-for="SalaryPrice" class="form-control" type="number" placeholder="قیمت (بر حسب تومان)">
+                        <span asp-validation-for="SalaryPrice" class="text-danger"></span>
+                    </div>
+                    <div class="px-2 col-md-3 col-12 my-2">
+                        <label asp-for="MonthPrice"></label>
+                        <input asp-for="MonthPrice" class="form-control" type="number" placeholder="قیمت (بر حسب تومان)">
+                        <span asp-validation-for="MonthPrice" class="text-danger"></span>
+                    </div>
+                    <div class="form-group px-2 col-md-3 col-12 my-2">
+                        <label asp-for="Rooms"></label>
+
+                        <select name="Rooms" class="form-control">
+                            <option disabled selected>تعــداد اتـــاق</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">+4</option>
+                        </select>
+                        <span asp-validation-for="Rooms" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group px-2 col-md-3 col-12 my-2">
+                        <label asp-for="Bathrooms"></label>
+                        <select name="Bathrooms" class="form-control">
+                            <option disabled selected>تعــداد حمــام</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">+4</option>
+                        </select>
+                        <span asp-validation-for="Bathrooms" class="text-danger"></span>
+
+                    </div>
+
+                    <div class="form-group px-2 col-md-3 col-12 my-2">
+                        <label asp-for="Parkings"></label>
+                        <select name="Parkings" class="form-control">
+                            <option disabled selected>تعــداد پارکینگ</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">+4</option>
+                        </select>
+                        <span asp-validation-for="Parkings" class="text-danger"></span>
+
+                    </div>
+                    <input type="submit" value="ثبت" class="btn btn-primary searchBtn" />
                 </div>
             </div>
-            <div class="col-md-6 col-12">
-                <div class="PageBox mx-2 my-1">
-                    <div class="InnerPageItemHeader radius3">
-                        <h2 class="InnerPageItemHeaderTitle tr w-100 lh3-5 h100p bold prl15 relative"><span class="InnerPageItemHeaderTitleBefore absolute after"></span>نقشه</h2>
-                    </div>
-                    <div class="p-2">
-                        <div class="input form-inline" style="text-align: center;margin-bottom:10px;">
-                            <input type="text" id="address" class="form-control" style="margin-bottom: 5px;" name="address">
-                            <button type="button" id="btnAddress" class="btn btn-primary btn-xs" style="margin-bottom: 5px;" value="Search">جستجو</button>
-                        </div>
-                        <input name="Loacation" type="hidden" id="maploc" />
+        </div>
+    </div>
+</div>
+<div class="col-md-6 col-12">
+    <div class="PageBox mx-2 my-1">
+        <div class="InnerPageItemHeader radius3">
+            <h2 class="InnerPageItemHeaderTitle tr w-100 lh3-5 h100p bold prl15 relative"><span class="InnerPageItemHeaderTitleBefore absolute after"></span>نقشه</h2>
+        </div>
+        <div class="p-2">
+            <div class="input form-inline" style="text-align: center;margin-bottom:10px;">
+                <input type="text" id="address" class="form-control" style="margin-bottom: 5px;" name="address">
+                <button type="button" id="btnAddress" class="btn btn-primary btn-xs" style="margin-bottom: 5px;" value="Search">جستجو</button>
+            </div>
+            <input name="Loacation" type="hidden" id="maploc" />
 
-                        <div id="map">
-                            <script type="text/javascript">
-                                var map;
-                                var lat;
-                                var lng;
-                                $(document).ready(function () {
-                                    prettyPrint();
-                                    map = new GMaps({
-                                        div: '#map',
-                                        lat: 35.689197,
-                                        lng: 51.388974,
-                                        zoomControl: true,
-                                        zoomControlOpt: {
-                                            style: 'SMALL',
-                                            position: 'TOP_LEFT'
-                                        },
-                                        panControl: false,
-                                        streetViewControl: false,
-                                        mapTypeControl: false,
-                                        overviewMapControl: false,
-                                        click: function (e) {
-                                            var location = {
-                                                lat: e.latLng.lat(),
-                                                lng: e.latLng.lng()
-                                            };
-                                            $('#maploc').val(JSON.stringify(location));
-                                            map.removeMarkers();
-                                            map.addMarker({
-                                                lat: e.latLng.lat(),
-                                                lng: e.latLng.lng(),
-                                                title: 'شما در این مکان هستید',
-                                                infoWindow: {
-                                                    content: '<p>HTML Content</p>'
-                                                },
-                                                click: function (e) {
-                                                    alert('marker test');
-                                                }
-
-                                            });
-                                        },
-                                    });
-                                    $('#btnAddress').click(function () {
-                                        GMaps.geocode({
-                                            address: $('#address').val(),
-                                            callback: function (results, status) {
-                                                if (status == 'OK') {
-                                                    var latlng = results[0].geometry.location;
-                                                    map.setCenter(latlng.lat(), latlng.lng());
-                                                    var location = {
-                                                        lat: latlng.lat(),
-                                                        lng: latlng.lng()
-                                                    };
-                                                    map.addMarker(location);
-                                                    $('#maploc').val(JSON.stringify(location));
-                                                }
-                                            }
-                                        });
-                                    });
-
+            <div id="map">
+                <script type="text/javascript">
+                    var map;
+                    var lat;
+                    var lng;
+                    $(document).ready(function () {
+                        prettyPrint();
+                        map = new GMaps({
+                            div: '#map',
+                            lat: 35.689197,
+                            lng: 51.388974,
+                            zoomControl: true,
+                            zoomControlOpt: {
+                                style: 'SMALL',
+                                position: 'TOP_LEFT'
+                            },
+                            panControl: false,
+                            streetViewControl: false,
+                            mapTypeControl: false,
+                            overviewMapControl: false,
+                            click: function (e) {
+                                var location = {
+                                    lat: e.latLng.lat(),
+                                    lng: e.latLng.lng()
+                                };
+                                $('#maploc').val(JSON.stringify(location));
+                                map.removeMarkers();
+                                map.addMarker({
+                                    lat: e.latLng.lat(),
+                                    lng: e.latLng.lng(),
+                                    title: 'شما در این مکان هستید',
+                                    infoWindow: {
+                                        content: '<p>HTML Content</p>'
+                                    },
+                                    click: function (e) {
+                                        alert('marker test');
+                                    }
 
                                 });
-                                                                                                                                                                            //$(document).ready(function () {
-                                                                                                                                                                            //    var jasmineEnv = jasmine.getEnv();
-                                                                                                                                                                            //    jasmineEnv.updateInterval = 1000;
+                            },
+                        });
+                        $('#btnAddress').click(function () {
+                            GMaps.geocode({
+                                address: $('#address').val(),
+                                callback: function (results, status) {
+                                    if (status == 'OK') {
+                                        var latlng = results[0].geometry.location;
+                                        map.setCenter(latlng.lat(), latlng.lng());
+                                        var location = {
+                                            lat: latlng.lat(),
+                                            lng: latlng.lng()
+                                        };
+                                        map.addMarker(location);
+                                        $('#maploc').val(JSON.stringify(location));
+                                    }
+                                }
+                            });
+                        });
 
-                                                                                                                                                                            //    var htmlReporter = new jasmine.HtmlReporter();
 
-                                                                                                                                                                            //    jasmineEnv.addReporter(htmlReporter);
+                    });
+                    //$(document).ready(function () {
+                    //    var jasmineEnv = jasmine.getEnv();
+                    //    jasmineEnv.updateInterval = 1000;
 
-                                                                                                                                                                            //    jasmineEnv.specFilter = function (spec) {
-                                                                                                                                                                            //        return htmlReporter.specFilter(spec);
-                                                                                                                                                                            //    };
+                    //    var htmlReporter = new jasmine.HtmlReporter();
 
-                                                                                                                                                                            //    var currentWindowOnload = window.onload;
+                    //    jasmineEnv.addReporter(htmlReporter);
 
-                                                                                                                                                                            //    window.onload = function () {
-                                                                                                                                                                            //        if (currentWindowOnload) {
-                                                                                                                                                                            //            currentWindowOnload();
-                                                                                                                                                                            //        }
+                    //    jasmineEnv.specFilter = function (spec) {
+                    //        return htmlReporter.specFilter(spec);
+                    //    };
 
-                                                                                                                                                                            //        execJasmine();
-                                                                                                                                                                            //    };
+                    //    var currentWindowOnload = window.onload;
 
-                                                                                                                                                                            //    function execJasmine() {
-                                                                                                                                                                            //        jasmineEnv.execute();
-                                                                                                                                                                            //    }
-                                                                                                                                                                            //});
-                            </script>
-                            <div class="map" id="basic-map"></div>
-                            @*<div class="row">
+                    //    window.onload = function () {
+                    //        if (currentWindowOnload) {
+                    //            currentWindowOnload();
+                    //        }
+
+                    //        execJasmine();
+                    //    };
+
+                    //    function execJasmine() {
+                    //        jasmineEnv.execute();
+                    //    }
+                    //});
+                </script>
+                <div class="map" id="basic-map"></div>
+                @*<div class="row">
                                     <div class="span11">
                                         <div id="map"></div>
                                     </div>
@@ -318,43 +328,52 @@
                                         <p><span class="label notice">Note: </span>You also can define <strong>zoom</strong>, <strong>width</strong> and <strong>height</strong>. By default, zoom is 15. Width and height in a CSS class will replace these values.</p>
                                     </div>
                                 </div>*@
-                        </div>
-                    </div>
-                </div>
             </div>
-            <div class="col-md-6 col-12">
-                <div class="PageBox mx-2 my-1">
-                    <div class="InnerPageItemHeader radius3">
-                        <h2 class="InnerPageItemHeaderTitle tr w-100 lh3-5 h100p bold prl15 relative"><span class="InnerPageItemHeaderTitleBefore absolute after"></span>امکانات</h2>
-                    </div>
-                    <div class="MoreOptionItem p-2">
-                        <div class="row w-100 m-auto">
-                            @foreach (var item in option)
-                            {
-                                <label class="custom-control custom-checkbox px-1 col-6">
-                                    <input name="OptionIds" type="checkbox" value="@item.Id" class="custom-control-input">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description mr-2 mt-1">@item.Title</span>
-                                </label>
-
-                            }
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12">
-                <div class="PageBox mx-2 my-1">
-                    <div class="InnerPageItemHeader radius3">
-                        <h2 class="InnerPageItemHeaderTitle tr w-100 lh3-5 h100p bold prl15 relative"><span class="InnerPageItemHeaderTitleBefore absolute after"></span>گالری تصاویر</h2>
-                    </div>
-                    <div class="p-2">
-                        اضافه کردن تصاویر
-                        @Html.Partial("_PhotoGallary2","")
-                    </div>
-                </div>
-            </div>
-
         </div>
-    </form>
+    </div>
+</div>
+<div class="col-md-6 col-12">
+    <div class="PageBox mx-2 my-1">
+        <div class="InnerPageItemHeader radius3">
+            <h2 class="InnerPageItemHeaderTitle tr w-100 lh3-5 h100p bold prl15 relative"><span class="InnerPageItemHeaderTitleBefore absolute after"></span>امکانات</h2>
+        </div>
+        <div class="MoreOptionItem p-2">
+            <div class="row w-100 m-auto">
+                @foreach (var item in option)
+                {
+                    <label class="custom-control custom-checkbox px-1 col-6">
+                        <input name="OptionIds" type="checkbox" value="@item.Id" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description mr-2 mt-1">@item.Title</span>
+                    </label>
+
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-12">
+    <div class="PageBox mx-2 my-1">
+        <div class="InnerPageItemHeader radius3">
+            <h2 class="InnerPageItemHeaderTitle tr w-100 lh3-5 h100p bold prl15 relative"><span class="InnerPageItemHeaderTitleBefore absolute after"></span>گالری تصاویر</h2>
+        </div>
+        <div class="p-2">
+            اضافه کردن تصاویر
+            @Html.Partial("_PhotoGallary2","")
+        </div>
+    </div>
+</div>
 
 </div>
+</form>
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        function initialize() {var input = document.getElementById('address');
+            new google.maps.places.Autocomplete(input);}
+        google.maps.event.addDomListener(window, 'load', initialize);
+    }); 
+
+</script>

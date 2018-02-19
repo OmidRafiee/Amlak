@@ -8,7 +8,7 @@ namespace Amlak.Core.ViewModel.House
     {
 
         [Display(Name = "عنوان")]
-        [Required(ErrorMessage = "عنوان ملک را وارد نمایید",AllowEmptyStrings = false)]
+        [Required(ErrorMessage = "عنوان ملک را وارد نمایید", AllowEmptyStrings = false)]
         public string Title { get; set; }
 
         [Display(Name = "توضیحات")]
@@ -25,10 +25,28 @@ namespace Amlak.Core.ViewModel.House
         /// </summary>
         [Display(Name = " قیمت (ريال)")]
         [Required(ErrorMessage = "قیمت را وارد کنید")]
-        [Range(1, long.MaxValue, ErrorMessage = "مقدار وارد شده نامعتبر است")]
+        [Range(0, long.MaxValue, ErrorMessage = "مقدار وارد شده نامعتبر است")]
 
         public long Price { get; set; }
 
+
+        /// <summary>
+        /// رهن سالانه
+        /// در صورت انتخاب وضیعت به رهن یا اجاره 
+        /// این را پر میکینیم
+        /// </summary>
+        [Display(Name = " ودیعه (ريال)")]
+        [Range(0, long.MaxValue, ErrorMessage = "مقدار وارد شده نامعتبر است")]
+        public long? SalaryPrice { get; set; }
+
+        /// <summary>
+        /// اجاره ماهانه
+        /// در صورت انتخاب وضیعت به رهن یا اجاره 
+        /// این را پر میکینیم
+        /// </summary>
+        [Display(Name = " اجاره ماهانه (ريال)")]
+        [Range(0, long.MaxValue, ErrorMessage = "مقدار وارد شده نامعتبر است")]
+        public long? MonthPrice { get; set; }
         /// <summary>
         /// تعداد اتاق
         /// </summary>
@@ -80,7 +98,7 @@ namespace Amlak.Core.ViewModel.House
         [Display(Name = "متراژ")]
         [Required(ErrorMessage = "متراژ را وارد کنید")]
         [Range(1, long.MaxValue, ErrorMessage = "مقدار وارد شده نامعتبر است")]
-         public int Scale { get; set; }
+        public int Scale { get; set; }
 
         /// <summary>
         /// منطفه
@@ -113,14 +131,14 @@ namespace Amlak.Core.ViewModel.House
         [Display(Name = "طبقه")]
         public string Floor { get; set; }
 
-        
+
         public int? UserId { get; set; }
 
 
         [Display(Name = "نوع ملک")]
         public int? CategoryId { get; set; }
 
-        public DateTime RequestDate { get; set; }=DateTime.Now;
+        public DateTime RequestDate { get; set; } = DateTime.Now;
 
 
     }
