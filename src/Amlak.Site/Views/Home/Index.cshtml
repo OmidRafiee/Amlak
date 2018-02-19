@@ -1,5 +1,4 @@
-﻿@using System.Collections
-@using Amlak.Core.SSOT
+﻿@using Amlak.Core.SSOT
 @using DNTPersianUtils.Core
 @using Newtonsoft.Json
 @using Amlak.Core.Helpers
@@ -33,7 +32,14 @@
 
                     <div class="LastOffersContentCol col-md-4 col-sm-6 col-12 p10">
                         <a asp-controller="Search" asp-action="Detail" asp-route-id="@item.Id" class="OfferItem block sborder radius3 ofh p1">
-                            <span class="OfferItemType tc">@item.Status</span>
+                         
+                            @{
+                                Enum.TryParse(item.Status, out StatusType myStatus);
+                                <span class="OfferItemType tc">
+                                    @myStatus.GetDisplayName()
+                                </span>
+                            }
+                            
                             <figure class="OfferItemPic w100p tc relative relative">
                                 <input type="text" value="@FileConfig.WebAddress@(listImageAddress.Any() ? listImageAddress.FirstOrDefault() : "")"/>
                                 <img src="@FileConfig.WebAddress@(listImageAddress.Any() ? listImageAddress.FirstOrDefault() : "")" class="relativemv"/>
