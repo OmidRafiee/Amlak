@@ -1,0 +1,2 @@
+# Amlak
+init Amlak
